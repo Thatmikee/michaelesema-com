@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta -->
+  <title>Michael Esema — Founder & CEO, Mykei Securities Ltd</title>
+  <meta name="description" content="Michael Esema is the founder and CEO of Mykei Securities Ltd — building ADN-1, the world's first Active Forensic Defence Node that makes stolen goods economically worthless." />
+  <meta name="author" content="Michael Esema" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.michaelesema.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Michael Esema — Founder & CEO, Mykei Securities Ltd" />
+  <meta property="og:description" content="Building ADN-1 — technology that makes stolen goods economically worthless." />
+  <meta property="og:url" content="https://www.michaelesema.com/" />
+  <meta property="og:image" content="https://www.michaelesema.com/assets/michael-esema-portrait.jpg" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="profile:first_name" content="Michael" />
+  <meta property="profile:last_name" content="Esema" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@MykeiSecurities" />
+  <meta name="twitter:creator" content="@MykeiSecurities" />
+  <meta name="twitter:title" content="Michael Esema — Founder & CEO, Mykei Securities Ltd" />
+  <meta name="twitter:description" content="Building ADN-1 — technology that makes stolen goods economically worthless." />
+  <meta name="twitter:image" content="https://www.michaelesema.com/assets/michael-esema-portrait.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Michael Esema",
+    "jobTitle": "Founder & CEO",
+    "worksFor": { "@type": "Organization", "name": "Mykei Securities Ltd", "url": "https://mykei.io" },
+    "url": "https://www.michaelesema.com",
+    "image": "https://www.michaelesema.com/assets/michael-esema-portrait.jpg",
+    "email": "hello@michaelesema.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/michaelesema",
+      "https://x.com/MykeiSecurities",
+      "https://github.com/Thatmikee",
+      "https://mykei.io"
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:      #0A0A0A;
+      --dark:       #111111;
+      --surface:    #161616;
+      --border:     #242424;
+      --gold:       #C6A44E;
+      --gold-dim:   #9E7F35;
+      --gold-glow:  rgba(198,164,78,0.10);
+      --white:      #FAFAF8;
+      --muted:      #77776E;
+      --light-bg:   #F4F2EC;
+      --light-txt:  #1A1A18;
+      --ease:       cubic-bezier(0.25,0.46,0.45,0.94);
+      --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ─────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem 4rem;
+      transition: background 0.4s var(--ease), border-color 0.4s, backdrop-filter 0.4s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.88);
+      backdrop-filter: blur(20px);
+      border-color: var(--border);
+    }
+    .nav-mark {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.22em;
+      color: var(--gold); text-transform: uppercase; text-decoration: none;
+      opacity: 0; animation: fadeIn 0.6s 0.2s var(--ease) forwards;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+      opacity: 0; animation: fadeIn 0.6s var(--ease) forwards;
+    }
+    .nav-links li:nth-child(1) a { animation-delay: 0.3s; }
+    .nav-links li:nth-child(2) a { animation-delay: 0.4s; }
+    .nav-links li:nth-child(3) a { animation-delay: 0.5s; }
+    .nav-links li:nth-child(4) a { animation-delay: 0.6s; }
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── HERO ────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 4rem;
+      padding: 8rem 4rem 6rem;
+      background: var(--black); position: relative; overflow: hidden;
+    }
+    .hero-noise {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
+    .hero-glow {
+      position: absolute; top: -20%; right: -10%;
+      width: 60%; height: 130%;
+      background: radial-gradient(ellipse at 60% 40%, rgba(198,164,78,0.07) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%,100% { opacity: 0.6; transform: scale(1); }
+      50%      { opacity: 1;   transform: scale(1.05); }
+    }
+    .hero-divider {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent 0%, var(--border) 30%, var(--border) 70%, transparent 100%);
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.75rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      opacity: 0; animation: slideUp 0.7s 0.4s var(--ease) forwards;
+    }
+    .hero-label::before {
+      content: ''; display: block; width: 2rem; height: 1px; background: var(--gold);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(3.2rem, 5.5vw, 6rem);
+      font-weight: 400; line-height: 1.02; letter-spacing: -0.02em;
+      color: var(--white); margin-bottom: 1.75rem;
+      opacity: 0; animation: slideUp 0.8s 0.55s var(--ease) forwards;
+    }
+    h1 em { font-style: italic; color: var(--gold); }
+
+    .hero-tagline {
+      font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+      font-weight: 300; color: var(--muted);
+      line-height: 1.8; max-width: 40ch; margin-bottom: 3rem;
+      opacity: 0; animation: slideUp 0.8s 0.7s var(--ease) forwards;
+    }
+    .hero-tagline strong { color: var(--white); font-weight: 500; }
+
+    .hero-cta {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: slideUp 0.8s 0.85s var(--ease) forwards;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px;
+      transition: all 0.25s var(--ease); cursor: pointer;
+      position: relative; overflow: hidden;
+    }
+    .btn::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255,255,255,0.06);
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .btn:hover::after { opacity: 1; }
+    .btn-primary {
+      background: var(--gold); color: var(--black); border: 1px solid var(--gold);
+    }
+    .btn-primary:hover { background: transparent; color: var(--gold); }
+    .btn-ghost {
+      background: transparent; color: var(--muted); border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--gold-dim); color: var(--white); }
+
+    /* ── HERO IMAGE ──────────────────────────────── */
+    .hero-image-wrap {
+      position: relative; z-index: 1;
+      display: flex; justify-content: center; align-items: flex-end;
+      opacity: 0; animation: heroImageIn 1s 0.6s var(--ease) forwards;
+    }
+    @keyframes heroImageIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0)  scale(1); }
+    }
+    .hero-image-frame {
+      position: relative; width: min(430px, 100%);
+    }
+    .hero-image-frame::before {
+      content: ''; position: absolute; inset: -1px; border-radius: 3px;
+      background: linear-gradient(150deg, var(--gold) 0%, transparent 45%, rgba(198,164,78,0.3) 100%);
+      z-index: 0;
+    }
+    .hero-image-frame img {
+      display: block; width: 100%; aspect-ratio: 3/4;
+      object-fit: cover; object-position: center top;
+      position: relative; z-index: 1; border-radius: 2px;
+    }
+    .hero-image-badge {
+      position: absolute; bottom: -1.5rem; left: -1.5rem;
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 1rem 1.25rem; z-index: 2;
+      animation: badgeIn 0.6s 1.2s var(--ease-spring) both;
+    }
+    @keyframes badgeIn {
+      from { opacity: 0; transform: translateX(-12px) scale(0.95); }
+      to   { opacity: 1; transform: translateX(0) scale(1); }
+    }
+    .badge-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.2rem;
+    }
+    .badge-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; color: var(--white);
+    }
+
+    /* ── STATS ───────────────────────────────────── */
+    #stats {
+      background: var(--surface);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 3.5rem 4rem;
+      display: grid; grid-template-columns: repeat(3,1fr);
+    }
+    .stat-item {
+      padding: 0 2rem; text-align: center;
+      position: relative; cursor: default;
+    }
+    .stat-item:not(:last-child)::after {
+      content: ''; position: absolute; right: 0; top: 50%;
+      transform: translateY(-50%); height: 55%; width: 1px;
+      background: var(--border);
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem; font-weight: 400; color: var(--gold);
+      line-height: 1; margin-bottom: 0.5rem;
+      transition: transform 0.3s var(--ease-spring);
+    }
+    .stat-item:hover .stat-number { transform: scale(1.08); }
+    .stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.66rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    /* ── SECTION SHARED ──────────────────────────── */
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3.6rem);
+      font-weight: 400; line-height: 1.12; letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT ───────────────────────────────────── */
+    #about {
+      background: var(--light-bg); color: var(--light-txt);
+      padding: 8rem 4rem;
+    }
+    #about .section-label { color: var(--gold-dim); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .about-body p {
+      font-size: 1rem; font-weight: 300; line-height: 1.9;
+      color: #444440; margin-bottom: 1.5rem;
+    }
+    .about-body p strong { color: var(--light-txt); font-weight: 600; }
+    .credentials-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+    .credentials-list li {
+      display: flex; align-items: flex-start; gap: 1rem;
+      font-size: 0.9rem; font-weight: 400; color: #444440; line-height: 1.6;
+      padding: 0.85rem 1rem;
+      border: 1px solid #E0DDD4;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .credentials-list li:hover {
+      border-color: var(--gold-dim);
+      background: rgba(198,164,78,0.04);
+    }
+    .cred-icon {
+      width: 1.4rem; height: 1.4rem; min-width: 1.4rem;
+      border: 1px solid var(--gold-dim);
+      display: flex; align-items: center; justify-content: center; margin-top: 0.1rem;
+    }
+    .cred-icon svg { width: 0.75rem; height: 0.75rem; stroke: var(--gold-dim); fill: none; }
+
+    /* ── ADN-1 ───────────────────────────────────── */
+    #adn1 {
+      background: var(--dark); padding: 8rem 4rem; position: relative; overflow: hidden;
+    }
+    .adn1-bg-text {
+      position: absolute; bottom: -2rem; right: -1rem;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(6rem, 15vw, 16rem); font-weight: 700; font-style: italic;
+      color: rgba(198,164,78,0.04); pointer-events: none; user-select: none;
+      white-space: nowrap; line-height: 1;
+    }
+    #adn1 .section-label { color: var(--gold); }
+    #adn1 .section-title { color: var(--white); }
+    #adn1 .section-title em { color: var(--gold); }
+    .adn1-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 5rem; align-items: start; }
+    .adn1-body p {
+      font-size: 1rem; font-weight: 300; line-height: 1.9;
+      color: var(--muted); margin-bottom: 1.5rem;
+    }
+    .adn1-body p strong { color: var(--white); font-weight: 500; }
+
+    .concept-card {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 2.5rem; position: relative;
+      transition: border-color 0.3s, transform 0.3s var(--ease);
+    }
+    .concept-card:hover { border-color: var(--gold-dim); transform: translateY(-3px); }
+    .concept-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold) 0%, transparent 100%);
+    }
+    .concept-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.25rem;
+    }
+    .concept-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem; font-weight: 400; font-style: italic;
+      color: var(--white); margin-bottom: 1rem; line-height: 1.25;
+    }
+    .concept-body { font-size: 0.88rem; font-weight: 300; line-height: 1.85; color: var(--muted); }
+    .concept-divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
+    .spec-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border);
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-key {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+    }
+    .spec-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--gold);
+    }
+
+    /* ── CONNECT ─────────────────────────────────── */
+    #connect {
+      background: var(--black); padding: 8rem 4rem;
+      border-top: 1px solid var(--border);
+    }
+    #connect .section-label { color: var(--gold); }
+    #connect .section-title { color: var(--white); }
+    .connect-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .connect-intro {
+      font-size: 1rem; font-weight: 300; line-height: 1.85;
+      color: var(--muted); margin-bottom: 2.5rem;
+    }
+    .connect-intro strong { color: var(--white); font-weight: 500; }
+    .email-link {
+      display: inline-block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-style: italic; color: var(--gold);
+      text-decoration: none; border-bottom: 1px solid rgba(198,164,78,0.35);
+      padding-bottom: 0.2rem;
+      transition: opacity 0.2s, letter-spacing 0.3s var(--ease);
+    }
+    .email-link:hover { opacity: 0.75; letter-spacing: 0.02em; }
+
+    .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .social-card {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1.2rem 1.4rem;
+      background: var(--surface); border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.25s var(--ease), background 0.25s, transform 0.25s var(--ease-spring);
+    }
+    .social-card:hover {
+      border-color: var(--gold-dim);
+      background: var(--gold-glow);
+      transform: translateY(-2px);
+    }
+    .social-icon { width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .social-icon svg { width: 1.15rem; height: 1.15rem; fill: var(--gold); }
+    .social-name { font-size: 0.85rem; font-weight: 500; color: var(--white); margin-bottom: 0.1rem; }
+    .social-handle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.63rem; letter-spacing: 0.05em; color: var(--muted);
+    }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.63rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .footer-copy span { color: var(--gold); }
+
+    /* ── SCROLL REVEAL ───────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── KEYFRAMES ───────────────────────────────── */
+    @keyframes fadeIn  { from { opacity:0; } to { opacity:1; } }
+    @keyframes slideUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
+
+    /* ── CURSOR LINE ─────────────────────────────── */
+    .cursor-line {
+      display: inline-block; width: 2px; height: 1em;
+      background: var(--gold); margin-left: 2px;
+      animation: blink 1s step-end infinite;
+      vertical-align: text-bottom;
+    }
+    @keyframes blink { 50% { opacity:0; } }
+
+    /* ── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav { padding: 1.25rem 2rem; }
+      #hero { grid-template-columns: 1fr; padding: 7rem 2.5rem 5rem; }
+      .hero-image-wrap { justify-content: flex-start; }
+      .hero-image-frame { width: min(340px, 80%); }
+      #stats { padding: 2.5rem; }
+      #about, #adn1, #connect { padding: 5.5rem 2.5rem; }
+      .about-grid, .adn1-grid, .connect-layout { grid-template-columns: 1fr; gap: 3rem; }
+      footer { padding: 1.75rem 2.5rem; flex-direction: column; gap: 0.6rem; text-align: center; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      #hero { padding: 5.5rem 1.5rem 4rem; gap: 2.5rem; }
+      #stats { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+      .stat-item:not(:last-child)::after { display: none; }
+      .stat-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+      #about, #adn1, #connect { padding: 4rem 1.5rem; }
+      .social-grid { grid-template-columns: 1fr; }
+      footer { padding: 1.25rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a class="nav-mark" href="#hero">ME</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#adn1">ADN-1</a></li>
+      <li><a href="#connect">Connect</a></li>
+      <li><a href="https://mykei.io" target="_blank" rel="noopener">Mykei.io ↗</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-noise"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-divider"></div>
+
+    <div class="hero-content">
+      <p class="hero-label">Founder &amp; CEO · Mykei Securities Ltd</p>
+      <h1>Michael<br /><em>Esema</em></h1>
+      <p class="hero-tagline">
+        <strong id="typewriter"></strong><span class="cursor-line" id="cursor"></span><br /><br />
+        Building the technology that removes the economic reward from theft —
+        one forensically marked device at a time.
+      </p>
+      <div class="hero-cta">
+        <a href="#adn1" class="btn btn-primary">ADN-1 Technology</a>
+        <a href="#connect" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="hero-image-wrap">
+      <div class="hero-image-frame">
+        <img
+          src="/assets/michael-esema-portrait.jpg"
+          alt="Michael Esema, Founder and CEO of Mykei Securities Ltd"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="hero-image-badge">
+          <p class="badge-label">Status</p>
+          <p class="badge-value">Building</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats">
+    <div class="stat-item reveal">
+      <p class="stat-number" data-target="29">0</p>
+      <p class="stat-label">Years Old</p>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <p class="stat-number" data-target="3">0</p>
+      <p class="stat-label">Degrees</p>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <p class="stat-number" data-target="1">0</p>
+      <p class="stat-label">Patent Pending</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label reveal">Background</p>
+    <h2 class="section-title reveal">The story<br />behind the mission</h2>
+
+    <div class="about-grid">
+      <div class="about-body">
+        <p class="reveal">
+          Michael Esema is a British entrepreneur, inventor, and the founder and CEO of
+          <strong>Mykei Securities Ltd</strong> — a security technology company building
+          physical anti-theft infrastructure for the modern world.
+        </p>
+        <p class="reveal reveal-delay-1">
+          At 29, Michael holds <strong>three academic degrees</strong> and has spent years
+          examining a problem that traditional security systems have failed to solve: theft
+          remains profitable because stolen goods can be resold. His answer is not to make
+          theft harder — but to make it <strong>economically irrational</strong>.
+        </p>
+        <p class="reveal reveal-delay-2">
+          With a patent pending on the ADN-1 system, Michael is building Mykei Securities
+          into a company that changes the fundamental economics of acquisitive crime —
+          creating a world where stealing something leaves the thief with an asset
+          worth nothing.
+        </p>
+        <p class="reveal reveal-delay-3">
+          His background spans healthcare, technology, and business — giving him an
+          unusually multidisciplinary lens through which to approach security problems
+          long viewed in isolation.
+        </p>
+      </div>
+
+      <div>
+        <p class="section-label reveal" style="color:#9E7F35; margin-bottom:1.5rem;">Credentials</p>
+        <ul class="credentials-list">
+          <li class="reveal">
+            <span class="cred-icon"><svg viewBox="0 0 16 16"><polyline points="2,8 6,12 14,4"/></svg></span>
+            <span><strong>Three academic degrees</strong> across technology, healthcare, and business</span>
+          </li>
+          <li class="reveal reveal-delay-1">
+            <span class="cred-icon"><svg viewBox="0 0 16 16"><polyline points="2,8 6,12 14,4"/></svg></span>
+            <span><strong>Patent pending</strong> on the ADN-1 Active Forensic Defence Node system</span>
+          </li>
+          <li class="reveal reveal-delay-2">
+            <span class="cred-icon"><svg viewBox="0 0 16 16"><polyline points="2,8 6,12 14,4"/></svg></span>
+            <span><strong>Founder &amp; CEO</strong> of Mykei Securities Ltd, registered in the United Kingdom</span>
+          </li>
+          <li class="reveal reveal-delay-3">
+            <span class="cred-icon"><svg viewBox="0 0 16 16"><polyline points="2,8 6,12 14,4"/></svg></span>
+            <span><strong>Healthcare professional</strong> with certifications in adult basic life support and safeguarding</span>
+          </li>
+          <li class="reveal reveal-delay-3">
+            <span class="cred-icon"><svg viewBox="0 0 16 16"><polyline points="2,8 6,12 14,4"/></svg></span>
+            <span><strong>Oliver McGowan trained</strong> — certified in learning disability and autism awareness</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADN-1 -->
+  <section id="adn1">
+    <div class="adn1-bg-text" aria-hidden="true">ADN-1</div>
+    <p class="section-label reveal">Core Technology</p>
+    <h2 class="section-title reveal">ADN-1 — Active Forensic<br /><em>Defence Node</em></h2>
+
+    <div class="adn1-grid">
+      <div class="adn1-body">
+        <p class="reveal">
+          The <strong>ADN-1</strong> is Mykei Securities' flagship device — a physical
+          security node that embeds unique forensic identifiers into assets at the point
+          of installation. Unlike GPS trackers or alarm systems, ADN-1 doesn't just
+          respond to theft — it <strong>restructures the incentives</strong> before theft
+          ever occurs.
+        </p>
+        <p class="reveal reveal-delay-1">
+          Each node generates a cryptographically linked forensic signature that permanently
+          associates an asset with its rightful owner. This signature survives physical
+          removal attempts, cannot be overwritten, and is <strong>readable by law enforcement
+          and certified partners</strong> at the point of recovery.
+        </p>
+        <p class="reveal reveal-delay-2">
+          The result is a device that doesn't need to prevent theft — it makes theft
+          pointless. A stolen asset bearing ADN-1 forensic markers becomes
+          <strong>unsellable, unrefinanceable, and economically sterile</strong>.
+        </p>
+        <a href="https://mykei.io" target="_blank" rel="noopener"
+           class="btn btn-ghost reveal reveal-delay-3" style="margin-top:1rem;">
+          View Mykei.io ↗
+        </a>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="concept-card">
+          <p class="concept-tag">Core Principle</p>
+          <h3 class="concept-title">Economic<br/>Sterilisation</h3>
+          <p class="concept-body">
+            Rather than preventing theft through physical barriers, Economic Sterilisation
+            removes the financial reward from the act entirely. The market for stolen goods
+            collapses at the asset level.
+          </p>
+          <div class="concept-divider"></div>
+          <div class="spec-row"><span class="spec-key">Classification</span><span class="spec-val">Patent Pending</span></div>
+          <div class="spec-row"><span class="spec-key">Type</span><span class="spec-val">Hardware + Software</span></div>
+          <div class="spec-row"><span class="spec-key">Forensic Layer</span><span class="spec-val">Active + Passive</span></div>
+          <div class="spec-row"><span class="spec-key">Manufacturer</span><span class="spec-val">Mykei Securities Ltd</span></div>
+          <div class="spec-row"><span class="spec-key">Status</span><span class="spec-val">In Development</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT -->
+  <section id="connect">
+    <p class="section-label reveal">Contact</p>
+    <h2 class="section-title reveal">Let's connect</h2>
+
+    <div class="connect-layout">
+      <div>
+        <p class="connect-intro reveal">
+          Whether you're an investor, a potential partner, a journalist, or someone who
+          believes the economics of crime need to change —
+          <strong>Michael wants to hear from you.</strong>
+        </p>
+        <a href="mailto:hello@michaelesema.com" class="email-link reveal reveal-delay-1">
+          hello@michaelesema.com
+        </a>
+      </div>
+
+      <div class="social-grid">
+        <a class="social-card reveal" href="https://www.linkedin.com/in/michaelesema" target="_blank" rel="noopener">
+          <span class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </span>
+          <div><p class="social-name">LinkedIn</p><p class="social-handle">@michaelesema</p></div>
+        </a>
+
+        <a class="social-card reveal reveal-delay-1" href="https://x.com/MykeiSecurities" target="_blank" rel="noopener">
+          <span class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.632 5.905-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </span>
+          <div><p class="social-name">X (Twitter)</p><p class="social-handle">@MykeiSecurities</p></div>
+        </a>
+
+        <a class="social-card reveal reveal-delay-1" href="https://github.com/Thatmikee" target="_blank" rel="noopener">
+          <span class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </span>
+          <div><p class="social-name">GitHub</p><p class="social-handle">@Thatmikee</p></div>
+        </a>
+
+        <a class="social-card reveal reveal-delay-2" href="https://mykei.io" target="_blank" rel="noopener">
+          <span class="social-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#C6A44E" stroke-width="1.5"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#C6A44E" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <div><p class="social-name">Mykei.io</p><p class="social-handle">Company site</p></div>
+        </a>
+
+        <a class="social-card reveal reveal-delay-2" href="https://www.youtube.com/@MykeiSecurities" target="_blank" rel="noopener">
+          <span class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </span>
+          <div><p class="social-name">YouTube</p><p class="social-handle">@MykeiSecurities</p></div>
+        </a>
+
+        <a class="social-card reveal reveal-delay-3" href="https://linktr.ee/michaelesema" target="_blank" rel="noopener">
+          <span class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M7.953 15.066c-.08.163-.08.324 0 .486l2.645 4.916c.08.163.24.243.4.243h2.004c.16 0 .32-.08.4-.243l2.645-4.916c.08-.162.08-.323 0-.486l-2.645-4.916a.45.45 0 0 0-.4-.243h-2.004a.45.45 0 0 0-.4.243L7.953 15.066zM12 0L2.906 5.068v13.864L12 24l9.094-5.068V5.068L12 0z"/></svg>
+          </span>
+          <div><p class="social-name">Linktree</p><p class="social-handle">@michaelesema</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-copy">&copy; 2026 <span>Michael Esema</span> · Mykei Securities Ltd</p>
+    <p class="footer-copy"><span>michaelesema.com</span></p>
+  </footer>
+
+  <script>
+    // ── Nav scroll state
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Typewriter
+    const phrases = ['The man making stolen goods worthless.', 'Founder. Inventor. Builder.'];
+    let pi = 0, ci = 0, deleting = false;
+    const tw = document.getElementById('typewriter');
+    const cur = document.getElementById('cursor');
+    function type() {
+      const phrase = phrases[pi];
+      if (!deleting) {
+        tw.textContent = phrase.slice(0, ++ci);
+        if (ci === phrase.length) { deleting = true; setTimeout(type, 2400); return; }
+      } else {
+        tw.textContent = phrase.slice(0, --ci);
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(type, 400); return; }
+      }
+      setTimeout(type, deleting ? 42 : 68);
+    }
+    setTimeout(type, 1200);
+
+    // ── Scroll reveal
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // ── Counter animation
+    function animateCount(el, target, duration = 900) {
+      let start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        const progress = Math.min((ts - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(ease * target);
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(step);
+    }
+    const statObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const target = parseInt(e.target.dataset.target, 10);
+          animateCount(e.target, target);
+          statObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => statObs.observe(el));
+  </script>
+</body>
+</html>
