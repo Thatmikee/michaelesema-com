@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://www.michaelesema.com/sitemap.xml
+Sitemap: https://michaelesema.com/sitemap.xml
