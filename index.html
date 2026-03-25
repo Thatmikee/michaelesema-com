@@ -98,8 +98,8 @@
       --surface:     #141414;
       --card:        #1A1A1A;
       --border:      #2A2A2A;
-      --gold:        #C6A44E;
-      --gold-light:  #D4B96A;
+      --gold:        #D4A843;
+      --gold-light:  #E8C96A;
       --gold-glow:   rgba(198,164,78,0.15);
       --gold-sub:    rgba(198,164,78,0.08);
       --light-bg:    #FAFAF8;
@@ -390,18 +390,20 @@
     .ach-strip {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.06);
-      margin-bottom: 3.5rem;
-      overflow: hidden;
+      gap: 0.75rem;
+      margin-bottom: 3rem;
     }
     .ach-card {
       background: var(--surface);
-      padding: 1.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
       display: flex; flex-direction: column; gap: 0.3rem;
       position: relative; overflow: hidden;
-      transition: background 0.25s ease;
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+    .ach-card:hover {
+      transform: translateY(-3px);
     }
     .ach-card::after {
       content: ''; position: absolute;
@@ -553,40 +555,37 @@
     .port-card {
       background: var(--card);
       border: 1px solid var(--border);
-      padding: 0;
+      border-radius: 12px;
       overflow: hidden;
+      padding: 0;
+      position: relative;
       transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
+    }
+    .port-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 1.75rem; right: 1.75rem; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212,168,67,0.4), transparent);
+      opacity: 0; transition: opacity 0.3s ease;
     }
     .port-card:hover {
-      border-color: rgba(198,164,78,0.35);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(198,164,78,0.1);
+      border-color: rgba(212,168,67,0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,168,67,0.08);
     }
+    .port-card:hover::before { opacity: 1; }
     .port-card.port-featured {
       grid-column: span 2;
+      background: linear-gradient(135deg, var(--card) 0%, rgba(30,28,24,1) 100%);
     }
-    .port-img {
-      width: 100%; height: 200px;
-      overflow: hidden; position: relative;
-      background: var(--bg);
+    .port-accent {
+      height: 3px; width: 100%;
+      border-radius: 12px 12px 0 0;
     }
-    .port-featured .port-img { height: 260px; }
-    .port-img-inner {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    .port-img-pattern {
-      position: absolute; inset: 0;
-      opacity: 0.5;
-    }
-    .port-img-label {
-      font-family: var(--mono);
-      font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--t-muted); position: relative; z-index: 1;
-    }
-    .port-body { padding: 1.75rem; }
+    .port-accent-gold { background: linear-gradient(to right, var(--gold), rgba(212,168,67,0.2)); }
+    .port-accent-steel { background: linear-gradient(to right, #5B8DB8, rgba(91,141,184,0.2)); }
+    .port-accent-green { background: linear-gradient(to right, #5E9E7A, rgba(94,158,122,0.2)); }
+    .port-body { padding: 1.5rem; }
+    .port-body-featured { padding: 2rem; }
     .port-meta {
       display: flex; align-items: center; gap: 0.75rem;
       margin-bottom: 1rem;
@@ -850,20 +849,22 @@
     @media (max-width: 920px) {
       #nav { padding: 1rem 1.5rem; }
       .sec-wrap { padding: 0 1.5rem; }
-      #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 5rem; gap: 3rem; }
+      #hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 4rem; gap: 2.5rem; }
       .hero-photo-col { justify-content: flex-start; }
-      .photo-outer { width: min(360px, 90%); }
-      #about { padding: 5.5rem 0; }
-      .ach-strip { grid-template-columns: repeat(3, 1fr); }
-      .snapshot-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .port-grid { grid-template-columns: 1fr; }
-      .port-card.port-featured { grid-column: span 1; }
-      .about-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+      .photo-outer { width: min(320px, 90%); }
+      #about, #portfolio { padding: 4rem 0; }
+      .sec-header { margin-bottom: 2.5rem; }
+      .ach-strip { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 2rem; }
+      .ach-card { padding: 1rem 0.75rem; }
+      .snapshot-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .cred-sidebar { position: static; }
-      #adn1 { padding: 5.5rem 0; }
+      .port-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .port-card.port-featured { grid-column: span 1; }
+      #adn1 { padding: 4rem 0; }
       .metrics { grid-template-columns: repeat(2,1fr); }
       .product-card { padding: 2rem; }
-      #connect { padding: 5.5rem 0; }
+      #connect { padding: 4rem 0; }
       .connect-grid { grid-template-columns: 1fr 1fr; }
       .cc { grid-column: auto !important; }
       footer { padding: 1.5rem; flex-direction: column; text-align: center; }
@@ -872,16 +873,24 @@
     }
 
     @media (max-width: 600px) {
-      #nav { padding: 1rem; }
+      #nav { padding: 0.85rem 1rem; }
       .nav-links { display: none; }
-      #hero { padding: 5.5rem 1rem 4rem; }
-      .hero-stats { gap: 1.75rem; }
-      #about, #adn1, #connect { padding: 4rem 0; }
+      #hero { padding: 4.5rem 1rem 3rem; }
+      .hero-stats { gap: 1.25rem; padding-top: 1.25rem; }
+      #about, #adn1, #connect, #portfolio { padding: 2.75rem 0; }
       .sec-wrap { padding: 0 1rem; }
-      .ach-strip { grid-template-columns: repeat(2, 1fr); }
+      .sec-header { margin-bottom: 1.5rem; }
+      .ach-strip { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-bottom: 1.5rem; }
+      .ach-card { padding: 0.9rem 0.75rem; }
+      .ach-value { font-size: 1.4rem; }
+      .snapshot-headline { font-size: 1.15rem; }
+      .snapshot-body { font-size: 0.93rem; }
       .connect-grid { grid-template-columns: 1fr; }
+      .port-grid { gap: 0.75rem; }
+      .port-body, .port-body-featured { padding: 1.25rem; }
       footer { padding: 1.25rem 1rem; }
-      .email-banner { padding: 2rem 1rem; }
+      .email-banner { padding: 1.5rem 1rem; }
+      .bio-expanded-inner { padding-top: 1.75rem; margin-top: 1.5rem; }
     }
   </style>
 </head>
@@ -1197,22 +1206,8 @@
 
         <!-- ADN-1 — featured -->
         <div class="port-card port-featured reveal">
-          <div class="port-img">
-            <div class="port-img-inner">
-              <svg class="port-img-pattern" viewBox="0 0 800 260" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <pattern id="hexPat" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
-                    <polygon points="30,2 58,17 58,47 30,62 2,47 2,17" fill="none" stroke="rgba(198,164,78,0.12)" stroke-width="1"/>
-                  </pattern>
-                </defs>
-                <rect width="800" height="260" fill="url(#hexPat)"/>
-                <circle cx="400" cy="130" r="180" fill="radial-gradient(circle, rgba(198,164,78,0.06), transparent)"/>
-                <text x="400" y="148" text-anchor="middle" font-family="Georgia,serif" font-size="72" font-weight="700" fill="rgba(198,164,78,0.07)" letter-spacing="8">ADN-1</text>
-              </svg>
-              <span class="port-img-label">ADN-1 · Active Forensic Defence Node</span>
-            </div>
-          </div>
-          <div class="port-body">
+          <div class="port-accent port-accent-gold"></div>
+          <div class="port-body port-body-featured">
             <div class="port-meta">
               <span class="port-tag tag-gold">Hardware</span>
               <span class="port-tag tag-gold">Patent Pending</span>
@@ -1239,20 +1234,7 @@
 
         <!-- NUASA -->
         <div class="port-card reveal r1">
-          <div class="port-img">
-            <div class="port-img-inner">
-              <svg class="port-img-pattern" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <pattern id="gridPat" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M40 0L0 0L0 40" fill="none" stroke="rgba(91,141,184,0.12)" stroke-width="1"/>
-                  </pattern>
-                </defs>
-                <rect width="400" height="200" fill="url(#gridPat)"/>
-                <text x="200" y="115" text-anchor="middle" font-family="Georgia,serif" font-size="52" font-weight="700" fill="rgba(91,141,184,0.08)">ICAN</text>
-              </svg>
-              <span class="port-img-label">Benson Idahosa University · 2015–2018</span>
-            </div>
-          </div>
+          <div class="port-accent port-accent-steel"></div>
           <div class="port-body">
             <div class="port-meta">
               <span class="port-tag tag-steel">Leadership</span>
@@ -1269,20 +1251,7 @@
 
         <!-- Silent Lounge -->
         <div class="port-card reveal r2">
-          <div class="port-img">
-            <div class="port-img-inner">
-              <svg class="port-img-pattern" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <pattern id="wavePat" x="0" y="0" width="80" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M0 20 Q20 0 40 20 Q60 40 80 20" fill="none" stroke="rgba(94,158,122,0.12)" stroke-width="1.5"/>
-                  </pattern>
-                </defs>
-                <rect width="400" height="200" fill="url(#wavePat)"/>
-                <text x="200" y="115" text-anchor="middle" font-family="Georgia,serif" font-size="44" font-weight="700" fill="rgba(94,158,122,0.08)">75%</text>
-              </svg>
-              <span class="port-img-label">B's Hive Hotel · Abuja</span>
-            </div>
-          </div>
+          <div class="port-accent port-accent-green"></div>
           <div class="port-body">
             <div class="port-meta">
               <span class="port-tag tag-green">Revenue Generation</span>
@@ -1299,21 +1268,7 @@
 
         <!-- M'S Shoes -->
         <div class="port-card reveal r1">
-          <div class="port-img">
-            <div class="port-img-inner">
-              <svg class="port-img-pattern" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <pattern id="dotPat" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-                    <circle cx="15" cy="15" r="1.5" fill="rgba(198,164,78,0.15)"/>
-                  </pattern>
-                </defs>
-                <rect width="400" height="200" fill="url(#dotPat)"/>
-                <text x="200" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="40" font-weight="700" fill="rgba(198,164,78,0.07)">M'S</text>
-                <text x="200" y="140" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="rgba(198,164,78,0.07)">SHOES</text>
-              </svg>
-              <span class="port-img-label">Nigeria · Gambia · Ghana</span>
-            </div>
-          </div>
+          <div class="port-accent port-accent-gold"></div>
           <div class="port-body">
             <div class="port-meta">
               <span class="port-tag tag-gold">Entrepreneurship</span>
@@ -1330,20 +1285,7 @@
 
         <!-- Mykei.io -->
         <div class="port-card reveal r2">
-          <div class="port-img">
-            <div class="port-img-inner">
-              <svg class="port-img-pattern" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <pattern id="triPat" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-                    <polygon points="25,5 48,45 2,45" fill="none" stroke="rgba(94,158,122,0.1)" stroke-width="1"/>
-                  </pattern>
-                </defs>
-                <rect width="400" height="200" fill="url(#triPat)"/>
-                <text x="200" y="115" text-anchor="middle" font-family="Georgia,serif" font-size="38" font-weight="700" fill="rgba(94,158,122,0.08)">mykei.io</text>
-              </svg>
-              <span class="port-img-label">mykei.io · Mykei Securities</span>
-            </div>
-          </div>
+          <div class="port-accent port-accent-green"></div>
           <div class="port-body">
             <div class="port-meta">
               <span class="port-tag tag-green">Web · Brand</span>
