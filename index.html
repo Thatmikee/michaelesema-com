@@ -386,6 +386,107 @@
       margin-bottom: 0 !important;
     }
 
+    /* Achievement Strip */
+    .ach-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 3.5rem;
+      overflow: hidden;
+    }
+    .ach-card {
+      background: var(--surface);
+      padding: 1.5rem 1.25rem;
+      display: flex; flex-direction: column; gap: 0.3rem;
+      position: relative; overflow: hidden;
+      transition: background 0.25s ease;
+    }
+    .ach-card::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+    }
+    .ach-card:hover { background: var(--card); }
+    .ach-gold::after { background: var(--gold); }
+    .ach-steel::after { background: #5B8DB8; }
+    .ach-green::after { background: #5E9E7A; }
+    .ach-value {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700; line-height: 1;
+      color: var(--t-primary);
+    }
+    .ach-gold .ach-value { color: var(--gold); }
+    .ach-steel .ach-value { color: #5B8DB8; }
+    .ach-green .ach-value { color: #5E9E7A; }
+    .ach-label {
+      font-family: var(--mono);
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--t-primary); margin-top: 0.2rem;
+    }
+    .ach-sub {
+      font-size: 0.75rem; color: var(--t-muted); line-height: 1.4;
+    }
+
+    /* Snapshot Bio */
+    .snapshot-grid {
+      display: grid; grid-template-columns: 1fr 300px; gap: 4rem;
+      align-items: start; margin-bottom: 2rem;
+    }
+    .snapshot-headline {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2vw, 1.65rem);
+      font-weight: 400; font-style: italic;
+      color: var(--gold-light); line-height: 1.4;
+      margin-bottom: 1.25rem;
+    }
+    .snapshot-body {
+      font-size: 1rem; font-weight: 300; line-height: 1.9;
+      color: var(--t-secondary); margin-bottom: 1rem;
+    }
+    .snapshot-body strong { color: var(--t-primary); font-weight: 500; }
+    .snapshot-tagline {
+      font-family: var(--mono);
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--t-muted);
+    }
+
+    /* Bio Toggle Button */
+    .bio-toggle {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent;
+      border: 1px solid rgba(198,164,78,0.4);
+      color: var(--gold);
+      font-family: var(--mono); font-size: 0.7rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 0.9rem 1.75rem;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+      margin-top: 1.5rem;
+    }
+    .bio-toggle:hover {
+      background: rgba(198,164,78,0.08);
+      border-color: var(--gold);
+    }
+    .bio-toggle svg {
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .bio-toggle.open svg { transform: rotate(180deg); }
+
+    /* Expandable full biography */
+    .bio-expanded {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bio-expanded.open { max-height: 4000px; }
+    .bio-expanded-inner {
+      padding-top: 3.5rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
     .cred-sidebar { position: sticky; top: 7rem; }
     .cred-block { margin-bottom: 2.25rem; }
     .cred-block-label {
@@ -643,6 +744,8 @@
       .hero-photo-col { justify-content: flex-start; }
       .photo-outer { width: min(360px, 90%); }
       #about { padding: 5.5rem 0; }
+      .ach-strip { grid-template-columns: repeat(3, 1fr); }
+      .snapshot-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 3.5rem; }
       .cred-sidebar { position: static; }
       #adn1 { padding: 5.5rem 0; }
@@ -663,6 +766,7 @@
       .hero-stats { gap: 1.75rem; }
       #about, #adn1, #connect { padding: 4rem 0; }
       .sec-wrap { padding: 0 1rem; }
+      .ach-strip { grid-template-columns: repeat(2, 1fr); }
       .connect-grid { grid-template-columns: 1fr; }
       footer { padding: 1.25rem 1rem; }
       .email-banner { padding: 2rem 1rem; }
@@ -751,55 +855,65 @@
 
       <div class="sec-header reveal">
         <span class="sec-number">01</span>
-        <span class="sec-tag">The Story</span>
-        <h2 class="sec-title dark">From Nigeria to Manchester</h2>
+        <span class="sec-tag">Who is Michael Esema</span>
+        <h2 class="sec-title dark">The highlights</h2>
       </div>
 
-      <div class="about-grid">
-        <div class="prose">
+      <!-- Achievement Strip -->
+      <div class="ach-strip reveal">
+        <div class="ach-card ach-gold">
+          <span class="ach-value">Royal</span>
+          <span class="ach-label">Heritage</span>
+          <span class="ach-sub">Esema Royal Family, Akwa Ibom</span>
+        </div>
+        <div class="ach-card ach-steel">
+          <span class="ach-value">3</span>
+          <span class="ach-label">Degrees</span>
+          <span class="ach-sub">BSc · MBA · MSc Merit</span>
+        </div>
+        <div class="ach-card ach-gold">
+          <span class="ach-value">17</span>
+          <span class="ach-label">Patent Claims</span>
+          <span class="ach-sub">ADN-1 · Pending</span>
+        </div>
+        <div class="ach-card ach-green">
+          <span class="ach-value">5</span>
+          <span class="ach-label">Live Pilots</span>
+          <span class="ach-sub">Greater Manchester</span>
+        </div>
+        <div class="ach-card ach-steel">
+          <span class="ach-value">Jan '26</span>
+          <span class="ach-label">Founded</span>
+          <span class="ach-sub">Mykei Securities Ltd</span>
+        </div>
+        <div class="ach-card ach-green">
+          <span class="ach-value">£0</span>
+          <span class="ach-label">Resale Value</span>
+          <span class="ach-sub">Post ADN-1 deployment</span>
+        </div>
+      </div>
 
-          <p class="reveal">Michael Esema was born into the Esema Royal Family of Nsit Ubium, Akwa Ibom State, Nigeria. His father, the Late Obong (Barr.) Essien Joseph Esema, was a barrister, politician, and Senior Special Assistant to the Governor of Akwa Ibom State. His mother, Dr. Mary Esema, is an Assistant Director at the National Malaria Elimination Programme within Nigeria's Federal Ministry of Health — a virologist and public health professional who has spent her career building the systems that protect people. He grew up in Abuja, where governance and public service were not dinner table conversations. They were the family trade.</p>
-
-          <p class="reveal r1">He studied Accounting at Benson Idahosa University in Benin City, where he was elected President of NUASA, the student body's accounting union. He ran it the way he thought institutions should be run: every naira tracked, every process documented, every gap closed. During his tenure, he hosted the President of the Institute of Chartered Accountants of Nigeria (ICAN) on campus and led the student push for BIU to meet ICAN accreditation standards and secure a Mutual Cooperation Agreement (MCATI). The MOU was signed shortly after, giving BIU accounting graduates 10 ICAN subject exemptions instead of the standard 7. He graduated in 2018.</p>
-
-          <p class="reveal">His first role was at the National Emergency Management Agency (NEMA) in Abuja, working in the Director of Finance and Administration's office. It was supposed to be a starting point. It became an education. He watched how institutional leakage, small and constant, could hollow out an organisation from the inside without anyone raising an alarm.</p>
-
-          <p class="reveal r1">From NEMA, Michael moved to B's Hive Hotel and Suites in Abuja as Head Accountant, managing departmental budgets of up to &#x20A6;10 million a year. He earned his Masters in Business Administration (MBA) from the Prestigious Nigerian Defence Academy at the same time. While balancing both, he overhauled the hotel's accounting systems, replacing manual processes with structures that actually held up under scrutiny. He was promoted to Assistant Manager, and that is when things got interesting.</p>
-
-          <p class="reveal">As Assistant Manager, Michael didn't just keep the operation running. He modernised it. He identified an underused lounge space and partnered with Silent Party 9ja to launch a silent lounge experience, a format that was new to Abuja's hospitality scene. The events exceeded revenue projections by 75%. A space that was costing the hotel money started making it. That instinct, seeing a dead asset and turning it into a revenue line, would show up again later.</p>
-
-          <p class="reveal r1">Outside the hotel, Michael was already building. He launched M'S Shoes, a retail venture that grew from local sales into international orders reaching Gambia and Ghana. He learned what it means to manage inventory across borders, deal with supply chain friction, and sell to markets where trust is built face to face, not through a website. It was small-scale commerce, but the fundamentals were real.</p>
-
-          <p class="reveal">At every position he held, Michael identified the same structural failure playing out differently. Funds leaking at NUASA, transaction records at NEMA, inventory shortfalls at B's Hive. He audited, documented, and closed gaps wherever his authority let him. What he could not fix within his scope, he mapped. The problem was not that nobody noticed the losses — it was that the available tools were built for large retailers with full security departments and six-figure budgets. Nothing existed for the independent shop on a side street. He recognised that gap years before he had the means to close it.</p>
-
-          <p class="reveal r1">In 2023, Michael Esema moved to Manchester. He enrolled in an MSc in International Business Management at Manchester Metropolitan University and graduated with Merit in 2024. Manchester showed him a version of the same problem he had seen his whole career, only sharper.</p>
-
-          <p class="reveal">Over 530,000 shoplifting offences were recorded in England and Wales in the year to March 2025. A 20% rise. The highest since records began. The British Retail Consortium puts the cost at over 2.2 billion pounds a year. Convenience stores alone logged 6.2 million theft incidents in twelve months. Over 2,000 incidents of violence against shop workers happen every day. And nearly half of all thefts go unreported because retailers have stopped believing anyone will come.</p>
-
-          <p class="reveal r1">The chains have entire loss prevention departments. The independent jeweller on the high street has a bell on the door.</p>
-
-          <p class="reveal"><strong>Michael saw the gap. He had been seeing it his whole life.</strong></p>
-
-          <p class="reveal r1">He founded Mykei Securities Ltd in January 2026 and designed the ADN-1 Active Forensic Defence Node from scratch. He taught himself embedded systems programming, wrote the firmware in C/C++, wired up dual Time-of-Flight sensors, built the cloud integration on AWS IoT Core, and assembled a working prototype on his kitchen table. Then he put on a jacket and walked the streets of Manchester, knocking on shop doors, sitting with owners, hearing their stories, and asking them to trust something that did not exist yet. Five of them said yes.</p>
-
-          <p class="reveal">He filed a patent covering 17 claims. He built the company website. He wrote the business plan. He designed the pricing model. Not because he wanted to do everything himself, but because someone had to go first.</p>
-
-          <p class="reveal r1">The idea behind the ADN-1 is simple. Michael calls it <strong>Economic Sterilisation</strong>. When someone sweeps a shelf clean, the device detects it and deploys synthetic DNA forensic markers onto the stolen goods. Invisible. Non-toxic. Permanent. Every tagged item is linked to the specific crime, the specific store, and the exact time it happened. The goods become unsellable. Not because they are damaged, but because they are now forensic evidence. Theft stops making financial sense.</p>
-
-          <p class="reveal">That discipline runs through every role Michael Esema has held. He tracked student union funds at Benson Idahosa. He reconciled agency accounts at NEMA. He managed hotel inventory at B's Hive. He studied retail theft on the high streets of Manchester. Different countries, different industries, same structural problem. He had been building responses to it his whole career. Mykei Securities is where that work became a company.</p>
-
-          <p class="reveal r1">He carries his father's name. Not by inheritance. By what he builds with it.</p>
-
-          <p class="reveal"><strong>Michael Esema is based in Manchester, United Kingdom.</strong></p>
-
-          <div class="pull-quote reveal">
-            <p>"Most people in security started in technology and found a business problem. Michael started in governance, found a broken system, and built the technology to fix it."</p>
-          </div>
-
+      <!-- Snapshot + Credentials -->
+      <div class="snapshot-grid">
+        <div>
+          <p class="snapshot-headline reveal">Born Nigerian royalty. Raised in Abuja. Now building in Manchester.</p>
+          <p class="snapshot-body reveal r1">
+            Michael Esema is the Founder and CEO of <strong>Mykei Securities Ltd</strong>. He built a forensic retail security device on his kitchen table because the right tool didn't exist. Three degrees, one patent, and five Manchester shop owners who said yes before the product had a name. His system — <strong>ADN-1</strong> — deploys synthetic DNA markers onto stolen goods in real time, making every item traceable and <strong>commercially worthless</strong>.
+          </p>
+          <p class="snapshot-body reveal r1">
+            Son of a barrister-politician father and a Federal Ministry of Health director. He grew up where governance and public service were the family trade. He is continuing that tradition — differently.
+          </p>
+          <p class="snapshot-tagline reveal">Manchester, UK &nbsp;·&nbsp; Est. January 2026</p>
+          <button class="bio-toggle reveal" onclick="toggleBio(this)" aria-expanded="false" aria-controls="bio-full">
+            Read Full Biography
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 5L7 10L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
 
         <aside class="cred-sidebar">
-          <div class="cred-block reveal">
+          <div class="cred-block">
             <p class="cred-block-label">Education</p>
             <div class="cred-item">
               <p class="cred-degree">MSc International Business Management (Merit)</p>
@@ -818,7 +932,7 @@
             </div>
           </div>
 
-          <div class="cred-block reveal r1">
+          <div class="cred-block">
             <p class="cred-block-label">Certifications</p>
             <div class="cred-item">
               <p class="cred-degree">Lean Six Sigma</p>
@@ -834,7 +948,7 @@
             </div>
           </div>
 
-          <div class="cred-block reveal r2">
+          <div class="cred-block">
             <p class="cred-block-label">Company</p>
             <div class="company-card">
               <p class="company-name">Mykei Securities Ltd</p>
@@ -843,6 +957,53 @@
             </div>
           </div>
         </aside>
+      </div>
+
+      <!-- Full Biography (expandable) -->
+      <div class="bio-expanded" id="bio-full" aria-hidden="true">
+        <div class="bio-expanded-inner">
+          <div class="about-grid">
+            <div class="prose">
+
+              <p>Michael Esema was born into the Esema Royal Family of Nsit Ubium, Akwa Ibom State, Nigeria. His father, the Late Obong (Barr.) Essien Joseph Esema, was a barrister, politician, and Senior Special Assistant to the Governor of Akwa Ibom State. His mother, Dr. Mary Esema, is an Assistant Director at the National Malaria Elimination Programme within Nigeria's Federal Ministry of Health — a virologist and public health professional who has spent her career building the systems that protect people. He grew up in Abuja, where governance and public service were not dinner table conversations. They were the family trade.</p>
+
+              <p>He studied Accounting at Benson Idahosa University in Benin City, where he was elected President of NUASA, the student body's accounting union. He ran it the way he thought institutions should be run: every naira tracked, every process documented, every gap closed. During his tenure, he hosted the President of the Institute of Chartered Accountants of Nigeria (ICAN) on campus and led the student push for BIU to meet ICAN accreditation standards and secure a Mutual Cooperation Agreement (MCATI). The MOU was signed shortly after, giving BIU accounting graduates 10 ICAN subject exemptions instead of the standard 7. He graduated in 2018.</p>
+
+              <p>His first role was at the National Emergency Management Agency (NEMA) in Abuja, working in the Director of Finance and Administration's office. It was supposed to be a starting point. It became an education. He watched how institutional leakage, small and constant, could hollow out an organisation from the inside without anyone raising an alarm.</p>
+
+              <p>From NEMA, Michael moved to B's Hive Hotel and Suites in Abuja as Head Accountant, managing departmental budgets of up to &#x20A6;10 million a year. He earned his Masters in Business Administration (MBA) from the Nigerian Defence Academy at the same time. While balancing both, he overhauled the hotel's accounting systems, replacing manual processes with structures that actually held up under scrutiny. He was promoted to Assistant Manager, and that is when things got interesting.</p>
+
+              <p>As Assistant Manager, Michael didn't just keep the operation running. He modernised it. He identified an underused lounge space and partnered with Silent Party 9ja to launch a silent lounge experience, a format that was new to Abuja's hospitality scene. The events exceeded revenue projections by 75%. A space that was costing the hotel money started making it. That instinct — seeing a dead asset and turning it into a revenue line — would show up again later.</p>
+
+              <p>Outside the hotel, Michael was already building. He launched M'S Shoes, a retail venture that grew from local sales into international orders reaching Gambia and Ghana. He learned what it means to manage inventory across borders, deal with supply chain friction, and sell to markets where trust is built face to face, not through a website.</p>
+
+              <p>At every position he held, Michael identified the same structural failure playing out differently. Funds leaking at NUASA, transaction records at NEMA, inventory shortfalls at B's Hive. He audited, documented, and closed gaps wherever his authority let him. What he could not fix within his scope, he mapped. The problem was not that nobody noticed the losses — it was that the available tools were built for large retailers with full security departments and six-figure budgets. Nothing existed for the independent shop on a side street. He recognised that gap years before he had the means to close it.</p>
+
+              <p>In 2023, Michael Esema moved to Manchester. He enrolled in an MSc in International Business Management at Manchester Metropolitan University and graduated with Merit in 2024. Manchester showed him a version of the same problem he had seen his whole career, only sharper.</p>
+
+              <p>Over 530,000 shoplifting offences were recorded in England and Wales in the year to March 2025 — a 20% rise, the highest since records began. The British Retail Consortium puts the cost at over £2.2 billion a year. Convenience stores alone logged 6.2 million theft incidents in twelve months. Over 2,000 incidents of violence against shop workers happen every day. Nearly half of all thefts go unreported because retailers have stopped believing anyone will come.</p>
+
+              <p>The chains have entire loss prevention departments. The independent jeweller on the high street has a bell on the door.</p>
+
+              <p><strong>Michael saw the gap. He had been seeing it his whole life.</strong></p>
+
+              <p>He founded Mykei Securities Ltd in January 2026 and designed the ADN-1 Active Forensic Defence Node from scratch. He taught himself embedded systems programming, wrote the firmware in C/C++, wired up dual Time-of-Flight sensors, built the cloud integration on AWS IoT Core, and assembled a working prototype on his kitchen table. Then he put on a jacket and walked the streets of Manchester, knocking on shop doors, sitting with owners, hearing their stories, and asking them to trust something that did not exist yet. Five of them said yes.</p>
+
+              <p>He filed a patent covering 17 claims. He built the company website. He wrote the business plan. He designed the pricing model. Not because he wanted to do everything himself, but because someone had to go first.</p>
+
+              <p>The idea behind the ADN-1 is simple. Michael calls it <strong>Economic Sterilisation</strong>. When someone sweeps a shelf clean, the device detects it and deploys synthetic DNA forensic markers onto the stolen goods. Invisible. Non-toxic. Permanent. Every tagged item is linked to the specific crime, the specific store, and the exact time it happened. The goods become unsellable — not because they are damaged, but because they are now forensic evidence. Theft stops making financial sense.</p>
+
+              <p>That discipline runs through every role Michael Esema has held. He tracked student union funds at Benson Idahosa. He reconciled agency accounts at NEMA. He managed hotel inventory at B's Hive. He studied retail theft on the high streets of Manchester. Different countries, different industries, same structural problem. He had been building responses to it his whole career. Mykei Securities is where that work became a company.</p>
+
+              <p>He carries his father's name. Not by inheritance. By what he builds with it.</p>
+
+              <div class="pull-quote">
+                <p>"Most people in security started in technology and found a business problem. Michael started in governance, found a broken system, and built the technology to fix it."</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1038,6 +1199,21 @@
       });
     }, { threshold: 0.5 });
     document.querySelectorAll('[data-target]').forEach(function(el) { cntObs.observe(el); });
+
+    function toggleBio(btn) {
+      var panel = document.getElementById('bio-full');
+      var isOpen = panel.classList.contains('open');
+      panel.classList.toggle('open', !isOpen);
+      panel.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+      btn.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      btn.childNodes[0].textContent = isOpen ? 'Read Full Biography' : 'Collapse Biography';
+      if (!isOpen) {
+        setTimeout(function() {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
   </script>
 </body>
 </html>
