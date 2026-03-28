@@ -94,10 +94,10 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:          #0A0A0A;
-      --surface:     #141414;
-      --card:        #1A1A1A;
-      --border:      #2A2A2A;
+      --bg:          #030303;
+      --surface:     #080808;
+      --card:        #0E0E0E;
+      --border:      #1E1E1E;
       --gold:        #D4A843;
       --gold-light:  #E8C96A;
       --gold-glow:   rgba(198,164,78,0.15);
@@ -226,10 +226,7 @@
       font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 1.75rem;
     }
-    .hero-eyebrow::before {
-      content: ''; display: block;
-      width: 2rem; height: 1px; background: var(--gold);
-    }
+    .hero-eyebrow svg { flex-shrink: 0; opacity: 0.9; }
 
     .hero-h1 {
       font-family: var(--serif);
