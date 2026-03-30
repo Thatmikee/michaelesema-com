@@ -162,7 +162,34 @@ export default function About() {
                 the component level up. The firmware is his. The detection algorithm is his.
                 The business architecture, the patent application — 17 claims — all built from
                 first principles by one founder who refused to wait for someone else to solve it.
+                In the process, he coined the term <em>Economic Sterilisation</em> — the doctrine
+                that stolen goods, once forensically marked and marketplace-flagged, have no resale
+                value and therefore no theft value.
               </p>
+
+              {/* Economic Sterilisation definition note */}
+              <div style={{
+                borderLeft: '2px solid var(--gold)',
+                paddingLeft: 18,
+                marginTop: 8,
+                opacity: 0.72,
+              }}>
+                <p style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 11,
+                  lineHeight: 1.75,
+                  color: 'var(--text-dark-secondary)',
+                  fontWeight: 400,
+                  margin: 0,
+                }}>
+                  <em style={{ color: 'var(--gold)', fontStyle: 'normal', fontWeight: 500 }}>Economic Sterilisation</em>
+                  {' '}
+                  <span style={{ opacity: 0.5 }}>n.</span>
+                  {' '}— The systematic removal of resale value from stolen goods through forensic marking and real-time marketplace flagging, eliminating the commercial incentive for theft at the point it occurs.
+                  {' '}
+                  <span style={{ opacity: 0.55 }}>Coined: M. Esema, 2025.</span>
+                </p>
+              </div>
 
               <p style={{
                 fontSize: 15.5,
