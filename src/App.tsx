@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
@@ -6,6 +7,7 @@ import About from './components/About'
 import Work from './components/Work'
 import Connect from './components/Connect'
 import Footer from './components/Footer'
+import PhilosophyPage from './pages/PhilosophyPage'
 import './index.css'
 
 function App() {
@@ -60,21 +62,25 @@ function App() {
 
   return (
     <>
-      {/* Scroll progress bar */}
       <motion.div className="scroll-progress" style={{ scaleX }} />
-
-      {/* Custom cursor — hidden on touch devices via CSS */}
       <div className="cursor-dot" ref={cursorDotRef} />
       <div className="cursor-ring" ref={cursorRingRef} />
 
-      <Nav />
-      <main>
-        <Hero />
-        <About />
-        <Work />
-        <Connect />
-      </main>
-      <Footer />
+      <Routes>
+        <Route path="/philosophy" element={<PhilosophyPage />} />
+        <Route path="*" element={
+          <>
+            <Nav />
+            <main>
+              <Hero />
+              <About />
+              <Work />
+              <Connect />
+            </main>
+            <Footer />
+          </>
+        } />
+      </Routes>
     </>
   )
 }
