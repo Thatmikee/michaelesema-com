@@ -8,6 +8,7 @@ const credentials = [
       { title: 'MSc International Business Management', sub: 'Manchester Metropolitan University', note: '2024 — Merit' },
       { title: 'Master of Business Administration', sub: 'Nigerian Defence Academy', note: '2022' },
       { title: 'BSc (Hons) Accounting', sub: 'Benson Idahosa University', note: '2018' },
+      { title: 'Alumni Coordinator — Department of Accounting (Diaspora)', sub: 'Benson Idahosa University', note: 'Current' },
     ],
   },
   {
@@ -202,6 +203,18 @@ export default function About() {
                 from Benson Idahosa University. He is Lean Six Sigma certified, a Level 7 Project
                 Management practitioner, and serves as Alumni Coordinator (Diaspora) for the
                 Department of Accounting at BIU.
+              </p>
+
+              <p style={{
+                fontSize: 15.5,
+                lineHeight: 1.9,
+                color: 'var(--text-dark-secondary)',
+                fontWeight: 300,
+              }}>
+                Outside Mykei, Michael serves as Alumni Coordinator (Diaspora) for the Department
+                of Accounting at Benson Idahosa University, Nigeria — connecting BIU accounting
+                graduates across the UK and Europe with career opportunities, mentorship networks,
+                and each other.
               </p>
             </div>
           </FadeIn>
