@@ -8,6 +8,7 @@ import Work from './components/Work'
 import Connect from './components/Connect'
 import Footer from './components/Footer'
 import PhilosophyPage from './pages/PhilosophyPage'
+import AboutPage from './pages/AboutPage'
 import './index.css'
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
 
       <Routes>
         <Route path="/philosophy" element={<PhilosophyPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={
           <>
             <Nav />
