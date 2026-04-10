@@ -34,23 +34,34 @@ export default function Footer() {
           "Make theft economically irrational."
         </p>
 
-        <a
-          href="https://mykei.io"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
+          <a
+            href="https://mykei.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 11,
+              color: 'var(--gold)',
+              textDecoration: 'none',
+              letterSpacing: '0.08em',
+              transition: 'opacity 0.25s',
+            }}
+            onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = '0.7'}
+            onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = '1'}
+          >
+            Mykei Securities Ltd →
+          </a>
+          <span style={{
             fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 11,
-            color: 'var(--gold)',
-            textDecoration: 'none',
-            letterSpacing: '0.08em',
-            transition: 'opacity 0.25s',
-          }}
-          onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = '0.7'}
-          onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = '1'}
-        >
-          Mykei Securities Ltd →
-        </a>
+            fontSize: 9,
+            color: 'var(--text-muted)',
+            opacity: 0.4,
+            letterSpacing: '0.04em',
+          }}>
+            Not affiliated with MYKI password manager
+          </span>
+        </div>
       </div>
 
       <style>{`
