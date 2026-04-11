@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const links = [
-  { label: 'About', href: '#about' },
-  { label: 'Work', href: '#work' },
+  { label: 'About', href: '/#about' },
+  { label: 'Work', href: '/#work' },
   { label: 'Philosophy', href: '/philosophy' },
-  { label: 'Connect', href: '#connect' },
+  { label: 'Connect', href: '/#connect' },
 ]
 
 export default function Nav() {

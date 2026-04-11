@@ -61,6 +61,22 @@ export default function Footer() {
           }}>
             Not affiliated with MYKI password manager
           </span>
+          <a
+            href="/privacy"
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 9,
+              color: 'var(--text-muted)',
+              opacity: 0.5,
+              letterSpacing: '0.04em',
+              textDecoration: 'none',
+              transition: 'opacity 0.25s',
+            }}
+            onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = '0.9'}
+            onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = '0.5'}
+          >
+            Privacy & Cookies
+          </a>
         </div>
       </div>
 

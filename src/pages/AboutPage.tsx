@@ -44,7 +44,7 @@ export default function AboutPage() {
 
         {/* LinkedIn CTA */}
         <section style={{
-          background: 'var(--dark-bg)',
+          background: 'var(--dark)',
           padding: '72px 40px',
           textAlign: 'center',
         }}>
@@ -63,7 +63,7 @@ export default function AboutPage() {
               fontFamily: "'Playfair Display', serif",
               fontSize: 'clamp(22px, 3vw, 34px)',
               fontWeight: 400,
-              color: 'var(--text-light)',
+              color: 'var(--text-primary)',
               marginBottom: 20,
               lineHeight: 1.25,
             }}>
@@ -72,7 +72,7 @@ export default function AboutPage() {
             <p style={{
               fontSize: 15.5,
               lineHeight: 1.8,
-              color: 'var(--text-light-secondary)',
+              color: 'var(--text-secondary)',
               marginBottom: 36,
             }}>
               I share updates on the ADN-1 pilot, Economic Sterilisation research,
@@ -85,7 +85,7 @@ export default function AboutPage() {
               style={{
                 display: 'inline-block',
                 background: 'var(--gold)',
-                color: 'var(--dark-bg)',
+                color: 'var(--dark)',
                 padding: '13px 32px',
                 fontSize: 14,
                 fontWeight: 700,
