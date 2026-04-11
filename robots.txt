@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /api/
+Disallow: /.netlify/
 
 # Welcome AI crawlers — full content access
 User-agent: GPTBot
