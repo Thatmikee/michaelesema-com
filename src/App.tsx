@@ -9,6 +9,7 @@ import Connect from './components/Connect'
 import Footer from './components/Footer'
 import PhilosophyPage from './pages/PhilosophyPage'
 import AboutPage from './pages/AboutPage'
+import PrivacyPage from './pages/PrivacyPage'
 import './index.css'
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
       <Routes>
         <Route path="/philosophy" element={<PhilosophyPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="*" element={
           <>
             <Nav />
