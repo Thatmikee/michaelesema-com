@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 import PhilosophyPage from './pages/PhilosophyPage'
 import AboutPage from './pages/AboutPage'
 import PrivacyPage from './pages/PrivacyPage'
+import ThesisPage from './pages/ThesisPage'
 import './index.css'
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
         <Route path="/philosophy" element={<PhilosophyPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/thesis" element={<ThesisPage />} />
         <Route path="*" element={
           <>
             <Nav />
