@@ -10,7 +10,7 @@ const SCHEMA = {
   alternativeHeadline:
     'Removing the Commercial Incentive for Retail Theft Through Forensic Marking and Real-Time Marketplace Flagging',
   description:
-    'A scholarly examination of Economic Sterilisation — the doctrine that stolen goods, once forensically marked and flagged across digital marketplaces, have no resale value and therefore no theft value. First published by Michael Esema, Mykei Securities Ltd, 2025.',
+    'A scholarly examination of Economic Sterilisation: the doctrine that stolen goods, once forensically marked and flagged across digital marketplaces, have no resale value and therefore no theft value. First published by Michael Esema, Mykei Securities Ltd, 2025.',
   author: {
     '@type': 'Person',
     '@id': 'https://michaelesema.com/#person',

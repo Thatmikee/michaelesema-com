@@ -8,7 +8,7 @@ export default function AboutPage() {
     document.title = 'About Michael Esema | Founder & CEO, Mykei Securities | MBA · MSc · Manchester'
 
     const meta = document.querySelector('meta[name="description"]')
-    if (meta) meta.setAttribute('content', 'Michael Esema — Founder & CEO of Mykei Securities Ltd. Nigerian-British entrepreneur based in Manchester, UK. MBA (Nigerian Defence Academy), MSc (Manchester Metropolitan University). Creator of the ADN-1 and originator of Economic Sterilisation.')
+    if (meta) meta.setAttribute('content', 'Michael Esema, Founder and CEO of Mykei Securities Ltd. Nigerian-British entrepreneur based in Manchester, UK. MBA (Nigerian Defence Academy), MSc (Manchester Metropolitan University). Creator of the ADN-1 and originator of Economic Sterilisation.')
 
     const canonical = document.querySelector('link[rel="canonical"]')
     if (canonical) canonical.setAttribute('href', 'https://michaelesema.com/about')

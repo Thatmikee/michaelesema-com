@@ -154,7 +154,7 @@ export default function Hero() {
           >
             I identified a structural failure in UK retail security and built the solution
             myself. <strong style={{ fontWeight: 500, color: 'var(--text-primary)' }}>ADN-1 Active Forensic Defence</strong> detects
-            organised theft in real time and deploys synthetic DNA forensic markers —
+            organised theft in real time and deploys synthetic DNA forensic markers,
             making every stolen item traceable, identifiable, and{' '}
             <strong style={{ fontWeight: 500, color: 'var(--text-primary)' }}>commercially dead</strong>.
           </motion.p>
@@ -226,7 +226,7 @@ export default function Hero() {
             }}>
               <img
                 src="/michael-esema-hero.jpg"
-                alt="Michael Esema — Founder and CEO of Mykei Securities Ltd"
+                alt="Michael Esema, Founder and CEO of Mykei Securities Ltd"
                 style={{
                   width: '100%',
                   height: '100%',

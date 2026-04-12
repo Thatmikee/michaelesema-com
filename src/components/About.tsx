@@ -5,23 +5,23 @@ const credentials = [
   {
     group: 'Education',
     items: [
-      { title: 'MSc International Business Management', sub: 'Manchester Metropolitan University', note: '2024 — Merit' },
+      { title: 'MSc International Business Management', sub: 'Manchester Metropolitan University', note: '2024, Merit' },
       { title: 'Master of Business Administration', sub: 'Nigerian Defence Academy', note: '2022' },
       { title: 'BSc (Hons) Accounting', sub: 'Benson Idahosa University', note: '2018' },
-      { title: 'Alumni Coordinator — Department of Accounting (Diaspora)', sub: 'Benson Idahosa University', note: 'Current' },
+      { title: 'Alumni Coordinator, Department of Accounting (Diaspora)', sub: 'Benson Idahosa University', note: 'Current' },
     ],
   },
   {
     group: 'Certifications',
     items: [
       { title: 'Lean Six Sigma', sub: '', note: '2025' },
-      { title: 'Level 7 Advanced Diploma — Project Management', sub: '', note: '2025' },
+      { title: 'Level 7 Advanced Diploma, Project Management', sub: '', note: '2025' },
     ],
   },
   {
     group: 'Roles',
     items: [
-      { title: 'Founder & CEO', sub: 'Mykei Securities Ltd — Co. 16984969', note: 'Manchester, United Kingdom' },
+      { title: 'Founder & CEO', sub: 'Mykei Securities Ltd (Co. 16984969)', note: 'Manchester, United Kingdom' },
       { title: 'Alumni Coordinator (Diaspora)', sub: 'Dept. of Accounting, Benson Idahosa University', note: 'UK Chapter' },
     ],
   },
@@ -121,7 +121,7 @@ export default function About() {
                 color: 'var(--text-dark)',
                 fontWeight: 400,
               }}>
-                Michael Esema grew up in Nigeria and built his early career inside government —
+                Michael Esema grew up in Nigeria and built his early career inside government,
                 auditing systems, managing emergency budgets, and running operations at the
                 National Emergency Management Agency. He learned something there that never left him:
                 most institutions are better at recording failure than preventing it.
@@ -134,7 +134,7 @@ export default function About() {
                 fontWeight: 300,
               }}>
                 He came to Manchester in 2023. What he found in the UK retail sector was the same
-                pattern at a smaller scale — CCTV recording theft, security tags beeping as thieves
+                pattern at a smaller scale: CCTV recording theft, security tags beeping as thieves
                 walked out, retailers absorbing the losses and calling it the cost of doing business.
                 Every system built to respond. None built to remove the reason.
               </p>
@@ -161,9 +161,9 @@ export default function About() {
               }}>
                 In early 2026 he incorporated Mykei Securities Ltd and began building the ADN-1 from
                 the component level up. The firmware is his. The detection algorithm is his.
-                The business architecture, the patent application — 17 claims — all built from
+                The business architecture, the patent application (17 claims), all built from
                 first principles by one founder who refused to wait for someone else to solve it.
-                In the process, he coined the term <em>Economic Sterilisation</em> — the doctrine
+                In the process, he coined the term <em>Economic Sterilisation</em>: the doctrine
                 that stolen goods, once forensically marked and marketplace-flagged, have no resale
                 value and therefore no theft value.
               </p>
@@ -186,7 +186,7 @@ export default function About() {
                   <em style={{ color: 'var(--gold)', fontStyle: 'normal', fontWeight: 500 }}>Economic Sterilisation</em>
                   {' '}
                   <span style={{ opacity: 0.5 }}>n.</span>
-                  {' '}— The systematic removal of resale value from stolen goods through forensic marking and real-time marketplace flagging, eliminating the commercial incentive for theft at the point it occurs.
+                  {'. '}The systematic removal of resale value from stolen goods through forensic marking and real-time marketplace flagging, eliminating the commercial incentive for theft at the point it occurs.
                   {' '}
                   <span style={{ opacity: 0.55 }}>Coined: M. Esema, 2025.</span>
                 </p>
@@ -212,7 +212,7 @@ export default function About() {
                 fontWeight: 300,
               }}>
                 Outside Mykei, Michael serves as Alumni Coordinator (Diaspora) for the Department
-                of Accounting at Benson Idahosa University, Nigeria — connecting BIU accounting
+                of Accounting at Benson Idahosa University, Nigeria, connecting BIU accounting
                 graduates across the UK and Europe with career opportunities, mentorship networks,
                 and each other.
               </p>
