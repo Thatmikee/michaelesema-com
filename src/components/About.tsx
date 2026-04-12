@@ -121,10 +121,14 @@ export default function About() {
                 color: 'var(--text-dark)',
                 fontWeight: 400,
               }}>
-                Michael Esema grew up in Nigeria and built his early career inside government,
-                auditing systems, managing emergency budgets, and running operations at the
-                National Emergency Management Agency. He learned something there that never left him:
-                most institutions are better at recording failure than preventing it.
+                Michael Esema was born in Nsit Ubium, Akwa Ibom State, Nigeria, into the family of
+                Obong (Barr) Essien Esema, a respected lawyer, and Dr. Mary Esema, a public health
+                leader. Growing up in a household defined by law and medicine shaped an early instinct
+                that problems worth solving are structural, not superficial. He moved through
+                Nigeria's academic landscape with distinction, studying accounting at Benson Idahosa
+                University in Benin City, where he graduated with honours in 2018. There, he served
+                as President of the Nigerian Universities Accounting Students Association (NUASA) and
+                was recognised as the Most Influential Male of his graduating class.
               </p>
 
               <p style={{
@@ -133,10 +137,29 @@ export default function About() {
                 color: 'var(--text-dark-secondary)',
                 fontWeight: 300,
               }}>
-                He came to Manchester in 2023. What he found in the UK retail sector was the same
-                pattern at a smaller scale: CCTV recording theft, security tags beeping as thieves
-                walked out, retailers absorbing the losses and calling it the cost of doing business.
-                Every system built to respond. None built to remove the reason.
+                After graduating, Esema built his early career inside Nigeria's public sector, taking
+                up a role at the National Emergency Management Agency (NEMA), where he managed
+                emergency budgets, coordinated logistics operations, and developed a fluency in
+                institutional process. He later completed a Master of Business Administration at the
+                Nigerian Defence Academy in Kaduna in 2022, deepening his grounding in strategic
+                management. At NEMA, he learned a pattern he would spend years trying to correct:
+                most institutions are better at recording failure than preventing it. Response systems
+                respond. They rarely remove the conditions that made the response necessary.
+              </p>
+
+              <p style={{
+                fontSize: 15.5,
+                lineHeight: 1.9,
+                color: 'var(--text-dark-secondary)',
+                fontWeight: 300,
+              }}>
+                Esema relocated to Manchester, United Kingdom in 2023, enrolling at Manchester
+                Metropolitan University. He completed an MSc in International Business Management in
+                2024, graduating with Merit. In Manchester, he encountered the UK independent retail
+                sector in a way that few security professionals had. He visited corner shops,
+                off-licences, and jewellers. He sat with owners who had installed cameras, security
+                tags, and guard contracts, and were still absorbing losses every month. The systems
+                were recording theft. None of them were removing the reason it happened.
               </p>
 
               <blockquote style={{
@@ -159,13 +182,33 @@ export default function About() {
                 color: 'var(--text-dark-secondary)',
                 fontWeight: 300,
               }}>
-                In early 2026 he incorporated Mykei Securities Ltd and began building the ADN-1 from
-                the component level up. The firmware is his. The detection algorithm is his.
-                The business architecture, the patent application (17 claims), all built from
-                first principles by one founder who refused to wait for someone else to solve it.
-                In the process, he coined the term <em>Economic Sterilisation</em>: the doctrine
-                that stolen goods, once forensically marked and marketplace-flagged, have no resale
-                value and therefore no theft value.
+                In early 2026, Esema incorporated Mykei Securities Ltd and began building the ADN-1
+                Active Forensic Defence Node from the component level. The firmware is his. The
+                detection algorithm is his. The patent application, GB2606630.8, contains 17 claims.
+                The core thesis is that theft is a commercial transaction: a thief sweeps goods from
+                a shelf because those goods hold resale value. The ADN-1 destroys that value at the
+                point of theft, deploying a synthetic DNA forensic marker that links every tagged
+                item permanently to its crime event, store, and timestamp. Tagged goods cannot be
+                sold. If they are listed, the Toxic Inventory Registry flags them. If they are
+                presented to a buyer, the marker is visible under UV light and legally admissible as
+                forensic evidence.
+              </p>
+
+              <p style={{
+                fontSize: 15.5,
+                lineHeight: 1.9,
+                color: 'var(--text-dark-secondary)',
+                fontWeight: 300,
+              }}>
+                In coining the term <em>Economic Sterilisation</em>, Esema was not naming a product
+                feature. He was naming a doctrine: the systematic removal of resale value from stolen
+                goods through forensic marking and real-time marketplace flagging, eliminating the
+                commercial incentive for theft at the point it occurs. The doctrine was first
+                published in 2025. It has a patent record, a white paper, and cross-referenced schema
+                definitions on two domains. Where conventional security deters or detects, Economic
+                Sterilisation removes the commercial outcome that makes theft worthwhile. The
+                Manchester Alpha Pilot, open Q2 2026, is the first field test of the doctrine at
+                scale with five independent retailers.
               </p>
 
               {/* Economic Sterilisation definition note */}
@@ -198,23 +241,12 @@ export default function About() {
                 color: 'var(--text-dark-secondary)',
                 fontWeight: 300,
               }}>
-                He holds an MSc in International Business Management from Manchester Metropolitan
-                University, an MBA from the Nigerian Defence Academy, and a BSc in Accounting
-                from Benson Idahosa University. He is Lean Six Sigma certified, a Level 7 Project
-                Management practitioner, and serves as Alumni Coordinator (Diaspora) for the
-                Department of Accounting at BIU.
-              </p>
-
-              <p style={{
-                fontSize: 15.5,
-                lineHeight: 1.9,
-                color: 'var(--text-dark-secondary)',
-                fontWeight: 300,
-              }}>
-                Outside Mykei, Michael serves as Alumni Coordinator (Diaspora) for the Department
-                of Accounting at Benson Idahosa University, Nigeria, connecting BIU accounting
-                graduates across the UK and Europe with career opportunities, mentorship networks,
-                and each other.
+                The Mykei vision is refined in collaboration with creative strategist Sarah Aboladale.
+                Alongside his work at Mykei, Esema serves as Alumni Coordinator (Diaspora) for the
+                Department of Accounting at Benson Idahosa University, connecting BIU accounting
+                graduates across the UK and Europe with career opportunities and mentorship networks.
+                He holds a Lean Six Sigma certification and a Level 7 Advanced Diploma in Project
+                Management. He remains based in Manchester.
               </p>
             </div>
           </FadeIn>
