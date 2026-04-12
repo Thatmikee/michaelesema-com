@@ -1,6 +1,6 @@
 // src/pages/PhilosophyPage.tsx
 // Route: /philosophy
-// Michael Esema's 7 operating principles — applied to Mykei Securities
+// Michael Esema's 7 operating principles, applied to Mykei Securities
 
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
@@ -11,22 +11,22 @@ const PRINCIPLES = [
   {
     n: '01',
     name: 'Purpose Beyond Profit',
-    body: `Mykei exists to make retail theft economically pointless — not to sell security hardware. The doctrine of Economic Sterilisation is a structural argument: if you remove the profit motive from crime, crime declines. The ADN-1 isn't measured by units sold. It's measured by whether organised retail crime stops paying in every store it enters. Revenue follows that outcome. It doesn't lead it.`,
+    body: `Mykei exists to make retail theft economically pointless. Not to sell security hardware. The doctrine of Economic Sterilisation is a structural argument: if you remove the profit motive from crime, crime declines. The ADN-1 isn't measured by units sold. It's measured by whether organised retail crime stops paying in every store it enters. Revenue follows that outcome. It doesn't lead it.`,
   },
   {
     n: '02',
     name: 'First Principles Thinking',
-    body: `Every existing retail security solution was built on one assumption: deterrence works. Cameras, tags, guards — all of them raise the cost of stealing. None of them ask the prior question: why does theft happen at all? The answer is that it pays. A thief sweeps cosmetics, sells them online, and clears a margin most legitimate businesses can't match. The ADN-1 was built by rejecting the deterrence assumption entirely and asking what actually needs to happen for theft to stop making sense. The answer is: remove the resale value. Everything else followed from that.`,
+    body: `Every existing retail security solution was built on one assumption: deterrence works. Cameras, tags, guards. All of them raise the cost of stealing. None of them ask the prior question: why does theft happen at all? The answer is that it pays. A thief sweeps cosmetics, sells them online, and clears a margin most legitimate businesses can't match. The ADN-1 was built by rejecting the deterrence assumption entirely and asking what actually needs to happen for theft to stop making sense. The answer is: remove the resale value. Everything else followed from that.`,
   },
   {
     n: '03',
     name: 'Net 7 Method',
-    body: `Every cost and revenue decision at Mykei is modelled against a 7-day cash horizon. £149 setup + £40/month wasn't chosen arbitrarily. It was chosen because at 7 days of prevented loss — one bulk-sweep event — any independent retailer breaks even. Financial discipline is structural to the product. If the pricing doesn't work at the smallest viable customer, the business doesn't work. We don't model for investors. We model for the retailer who needs to know the answer before they sign anything.`,
+    body: `Every cost and revenue decision at Mykei is modelled against a 7-day cash horizon. £149 setup + £40/month wasn't chosen arbitrarily. It was chosen because at 7 days of prevented loss (one bulk-sweep event), any independent retailer breaks even. Financial discipline is structural to the product. If the pricing doesn't work at the smallest viable customer, the business doesn't work. We don't model for investors. We model for the retailer who needs to know the answer before they sign anything.`,
   },
   {
     n: '04',
-    name: 'Build Your Brand — and Protect It',
-    body: `"Economic Sterilisation" is a coined term. It has a Wiktionary entry, a published white paper, a 17-claim patent application, and cross-referenced Schema.org definitions on two domains. Brand protection isn't deferred until the business is profitable — it's built alongside the product, from day one. The ADN-1 is named. The doctrine is named. The registry is named. Every term is documented, dated, and published. Names that exist in the record are harder to take than products that exist in a warehouse.`,
+    name: 'Build Your Brand and Protect It',
+    body: `"Economic Sterilisation" is a coined term. It has a Wiktionary entry, a published white paper, a 17-claim patent application, and cross-referenced Schema.org definitions on two domains. Brand protection isn't deferred until the business is profitable. It's built alongside the product, from day one. The ADN-1 is named. The doctrine is named. The registry is named. Every term is documented, dated, and published. Names that exist in the record are harder to take than products that exist in a warehouse.`,
   },
   {
     n: '05',
@@ -36,12 +36,12 @@ const PRINCIPLES = [
   {
     n: '06',
     name: 'Hot Dog Stand Effect',
-    body: `The best retailers know their customers by name. The best founders know their first customers by name too. In the pilot, every retailer gets a direct line to me. Not a support ticket, not a helpdesk — me. I stand in the store. I understand the problem from the counter, not from a pitch deck. Servant leadership in a startup means the founder does the hardest, most unglamorous work first. That's the hot dog stand effect: you build the stand, run the stand, clean the stand, before you hire anyone to help you run it.`,
+    body: `The best retailers know their customers by name. The best founders know their first customers by name too. In the pilot, every retailer gets a direct line to me. Not a support ticket, not a helpdesk. Me. I stand in the store. I understand the problem from the counter, not from a pitch deck. Servant leadership in a startup means the founder does the hardest, most unglamorous work first. That's the hot dog stand effect: you build the stand, run the stand, clean the stand, before you hire anyone to help you run it.`,
   },
   {
     n: '07',
     name: 'Asymmetric Endurance',
-    body: `The ADN-1 works while you sleep. Detection, marking, cloud record, marketplace flagging — fully automated, no staff intervention required. That's asymmetric endurance: the system's output doesn't scale with the hours you put in. Documentation is the product. The Forensic Digital Twin is an immutable legal record. The Toxic Inventory Registry is a permanent database. The patent application documents the invention. The white paper documents the doctrine. Every document compounds. The work done today still operates in court five years from now.`,
+    body: `The ADN-1 works while you sleep. Detection, marking, cloud record, marketplace flagging: fully automated, no staff intervention required. That's asymmetric endurance: the system's output doesn't scale with the hours you put in. Documentation is the product. The Forensic Digital Twin is an immutable legal record. The Toxic Inventory Registry is a permanent database. The patent application documents the invention. The white paper documents the doctrine. Every document compounds. The work done today still operates in court five years from now.`,
   },
 ]
 
@@ -155,7 +155,7 @@ export default function PhilosophyPage() {
               maxWidth: 560,
             }}
           >
-            These are the operating rules I built Mykei Securities on. Not aspirations — active constraints that shape every decision from product architecture to pilot pricing.
+            These are the operating rules I built Mykei Securities on. Not aspirations. Active constraints that shape every decision from product architecture to pilot pricing.
           </motion.p>
         </div>
       </motion.section>

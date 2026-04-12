@@ -6,6 +6,8 @@ const links = [
   { label: 'Work', href: '/#work' },
   { label: 'Philosophy', href: '/philosophy' },
   { label: 'Thesis', href: '/thesis' },
+  { label: 'The Signal', href: 'https://mykei.io/signal' },
+  { label: 'Mykei', href: 'https://mykei.io' },
   { label: 'Connect', href: '/#connect' },
 ]
 

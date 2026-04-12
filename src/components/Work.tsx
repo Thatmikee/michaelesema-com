@@ -120,7 +120,7 @@ export default function Work() {
                   textTransform: 'uppercase',
                   color: 'var(--gold)',
                 }}>
-                  Patent Pending — MYK-PAT-001
+                  Patent Pending | MYK-PAT-001
                 </span>
               </div>
 
@@ -142,7 +142,7 @@ export default function Work() {
                 fontFamily: "'JetBrains Mono', monospace",
                 letterSpacing: '0.04em',
               }}>
-                Mykei Securities Ltd — Hardware-Enabled SaaS
+                Mykei Securities Ltd, Hardware-Enabled SaaS
               </p>
 
               <p style={{
@@ -155,7 +155,7 @@ export default function Work() {
               }}>
                 A shelf-mounted IoT device for independent jewellers, off-licences, and convenience
                 stores. Dual VL53L0X Time-of-Flight sensors detect when multiple items are swept
-                simultaneously — the signature of organised retail crime. Upon detection, the device
+                simultaneously, the signature of organised retail crime. Upon detection, the device
                 autonomously deploys a synthetic DNA forensic marker mist onto the stolen goods.
               </p>
 
@@ -169,7 +169,7 @@ export default function Work() {
               }}>
                 The forensic marker is invisible, non-toxic, and permanent. It links every tagged
                 item to the specific crime event, store, and timestamp. Tagged goods become
-                commercially worthless — any attempt to resell creates a forensic trail directly
+                commercially worthless. Any attempt to resell creates a forensic trail directly
                 to the handler.
               </p>
 
