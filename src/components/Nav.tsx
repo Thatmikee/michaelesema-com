@@ -50,20 +50,11 @@ export default function Nav() {
           href="/"
           style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}
         >
-          <div style={{
-            width: 34, height: 34,
-            border: '1.5px solid var(--gold)',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontSize: 13,
-            fontWeight: 600,
-            color: 'var(--gold)',
-          }}>
-            ME
-          </div>
+          <img
+            src="/logo.png"
+            alt="ME"
+            style={{ height: 42, width: 'auto', display: 'block' }}
+          />
           <span style={{
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: 11,
