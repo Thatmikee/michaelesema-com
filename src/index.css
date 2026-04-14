@@ -2,75 +2,64 @@
 @import "tailwindcss";
 @source "./src";
 
-:root {
-  /* Light theme */
-  --bg:            #FFFFFF;
-  --bg-warm:       #F9F8F6;
-  --bg-section:    #F4F2EE;
-  --text-primary:  #0A0A0A;
-  --text-secondary:#4A4A48;
-  --text-muted:    #88887F;
-  --border:        #E4E0D8;
-  --border-light:  #EFECE6;
+@layer base {
+  :root {
+    --bg:            #FFFFFF;
+    --bg-warm:       #F9F8F6;
+    --bg-section:    #F4F2EE;
+    --text-primary:  #0A0A0A;
+    --text-secondary:#4A4A48;
+    --text-muted:    #88887F;
+    --border:        #E4E0D8;
+    --border-light:  #EFECE6;
+    --gold:          #B8962E;
+    --gold-light:    #D4AF37;
+    --gold-dim:      rgba(184, 150, 46, 0.12);
+    --gold-line:     rgba(184, 150, 46, 0.35);
+    --dark:          #0A0B0A;
+    --dark-card:     #121412;
+    --dark-border:   #2A2A28;
+  }
 
-  /* Gold — adjusted for white background legibility */
-  --gold:          #B8962E;
-  --gold-light:    #D4AF37;
-  --gold-dim:      rgba(184, 150, 46, 0.12);
-  --gold-line:     rgba(184, 150, 46, 0.35);
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-  /* Dark card (logo bg, accent blocks) */
-  --dark:          #0A0B0A;
-  --dark-card:     #121412;
-  --dark-border:   #2A2A28;
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: #FFFFFF;
+    color: #0A0A0A;
+    font-family: 'Outfit', -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #B8962E;
+    color: #fff;
+  }
 }
 
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+.font-display  { font-family: 'Playfair Display', Georgia, serif; }
+.font-mono-label { font-family: 'JetBrains Mono', monospace; }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text-primary);
-  font-family: 'Outfit', -apple-system, sans-serif;
-  overflow-x: hidden;
-}
-
-::selection {
-  background: var(--gold);
-  color: #fff;
-}
-
-.font-display {
-  font-family: 'Playfair Display', Georgia, serif;
-}
-
-.font-mono-label {
-  font-family: 'JetBrains Mono', monospace;
-}
-
-/* Scroll progress bar */
 .scroll-progress {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 2px;
   background: var(--gold);
   transform-origin: left;
   z-index: 9999;
 }
 
-/* Nav desktop/mobile toggle */
 @media (max-width: 640px) {
   .nav-desktop { display: none !important; }
   .nav-mobile-btn { display: block !important; }
 }
+.test-sentinel-unique-xyz { color: red; }
