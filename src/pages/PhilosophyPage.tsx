@@ -2,7 +2,7 @@
 // Route: /philosophy
 // Michael Esema's 7 operating principles — applied to Mykei Securities
 
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import Nav from '../components/Nav'
@@ -47,31 +47,9 @@ const PRINCIPLES = [
 ]
 
 export default function PhilosophyPage() {
-  const cursorDotRef = useRef<HTMLDivElement>(null)
-  const cursorRingRef = useRef<HTMLDivElement>(null)
-
   useEffect(() => {
     window.scrollTo({ top: 0 })
     document.title = 'Operating Philosophy · Michael Esema'
-  }, [])
-
-  useEffect(() => {
-    const dot = cursorDotRef.current
-    const ring = cursorRingRef.current
-    if (!dot || !ring) return
-    let ringX = 0, ringY = 0, dotX = 0, dotY = 0
-    let animId: number
-    const move = (e: MouseEvent) => { dotX = e.clientX; dotY = e.clientY }
-    const animate = () => {
-      ringX += (dotX - ringX) * 0.12
-      ringY += (dotY - ringY) * 0.12
-      dot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`
-      ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`
-      animId = requestAnimationFrame(animate)
-    }
-    animId = requestAnimationFrame(animate)
-    document.addEventListener('mousemove', move)
-    return () => { cancelAnimationFrame(animId); document.removeEventListener('mousemove', move) }
   }, [])
 
   return (
@@ -83,8 +61,6 @@ export default function PhilosophyPage() {
         <meta property="og:title" content="Philosophy | Michael Esema — 7 Operating Principles" />
         <meta property="og:url" content="https://michaelesema.com/philosophy" />
       </Helmet>
-      <div className="cursor-dot" ref={cursorDotRef} />
-      <div className="cursor-ring" ref={cursorRingRef} />
 
       <Nav />
 
