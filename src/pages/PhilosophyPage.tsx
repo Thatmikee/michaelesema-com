@@ -3,6 +3,7 @@
 // Michael Esema's 7 operating principles — applied to Mykei Securities
 
 import { useEffect, useRef } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
@@ -75,6 +76,13 @@ export default function PhilosophyPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Philosophy | Michael Esema — 7 Operating Principles</title>
+        <meta name="description" content="The 7 operating principles that guide Michael Esema and Mykei Securities Ltd. Frameworks for building, deciding, and operating under uncertainty." />
+        <link rel="canonical" href="https://michaelesema.com/philosophy" />
+        <meta property="og:title" content="Philosophy | Michael Esema — 7 Operating Principles" />
+        <meta property="og:url" content="https://michaelesema.com/philosophy" />
+      </Helmet>
       <div className="cursor-dot" ref={cursorDotRef} />
       <div className="cursor-ring" ref={cursorRingRef} />
 

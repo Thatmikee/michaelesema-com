@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import Nav from '../components/Nav'
 import About from '../components/About'
 import Footer from '../components/Footer'
@@ -38,6 +39,14 @@ export default function AboutPage() {
 
   return (
     <>
+      <Helmet>
+        <title>About Michael Esema | Founder & CEO, Mykei Securities | MBA · MSc · Manchester</title>
+        <meta name="description" content="Michael Esema (Michael Essien Esema) — Nigerian-born entrepreneur based in Manchester, UK. Founder of Mykei Securities Ltd, inventor of the ADN-1, originator of Economic Sterilisation. MBA (Nigerian Defence Academy), MSc (Manchester Metropolitan University). Patent No. 2606630.8 (UK)." />
+        <link rel="canonical" href="https://michaelesema.com/about" />
+        <meta property="og:title" content="About Michael Esema | Founder & CEO, Mykei Securities" />
+        <meta property="og:description" content="The founder behind Economic Sterilisation. Nigerian-born, Manchester-based. MBA, MSc. Patent No. 2606630.8 (UK)." />
+        <meta property="og:url" content="https://michaelesema.com/about" />
+      </Helmet>
       <Nav />
       <main style={{ paddingTop: 64 }}>
         <About />

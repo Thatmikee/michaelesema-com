@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 const stats = [
   { value: '29', label: 'Years old' },
   { value: '3', label: 'Degrees earned' },
-  { value: '1', label: 'Patent pending' },
+  { value: '1', label: 'Patent granted' },
   { value: '5', label: 'Pilot partners' },
 ]
 
@@ -77,7 +77,7 @@ export default function Hero() {
         margin: '0 auto',
         padding: '120px 40px 80px',
         display: 'grid',
-        gridTemplateColumns: '1fr 420px',
+        gridTemplateColumns: '420px 1fr',
         gap: 80,
         alignItems: 'center',
         width: '100%',
@@ -85,7 +85,77 @@ export default function Hero() {
         zIndex: 2,
       }} className="hero-grid">
 
-        {/* Content */}
+        {/* Photo — LEFT */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          style={{ position: 'relative' }}
+        >
+          {/* Corner frame accent */}
+          <div style={{
+            position: 'absolute',
+            top: -10, left: -10,
+            bottom: 18, right: 18,
+            border: '1px solid rgba(198,164,78,0.25)',
+            zIndex: 0,
+            pointerEvents: 'none',
+          }} />
+
+          <motion.div
+            style={{ y: photoY, position: 'relative', zIndex: 1 }}
+          >
+            <div style={{
+              overflow: 'hidden',
+              aspectRatio: '3/3.8',
+              position: 'relative',
+            }}>
+              <img
+                src="/michael-esema-hero.jpg"
+                alt="Michael Esema, Founder and CEO of Mykei Securities Ltd"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center top',
+                  display: 'block',
+                  filter: 'contrast(1.04) brightness(0.97)',
+                }}
+              />
+              {/* Photo overlay */}
+              <div style={{
+                position: 'absolute',
+                bottom: 0, left: 0, right: 0,
+                padding: '20px 22px 18px',
+                background: 'linear-gradient(transparent, rgba(8,8,8,0.88))',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-end',
+              }}>
+                <span style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 10,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--text-muted)',
+                }}>
+                  Manchester, UK
+                </span>
+                <span style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 10,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--gold)',
+                }}>
+                  EST. 2025
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Content — RIGHT */}
         <motion.div style={{ y: contentY }}>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -199,75 +269,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Photo */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          style={{ position: 'relative' }}
-        >
-          {/* Corner frame accent */}
-          <div style={{
-            position: 'absolute',
-            top: -10, right: -10,
-            bottom: 18, left: 18,
-            border: '1px solid rgba(198,164,78,0.25)',
-            zIndex: 0,
-            pointerEvents: 'none',
-          }} />
-
-          <motion.div
-            style={{ y: photoY, position: 'relative', zIndex: 1 }}
-          >
-            <div style={{
-              overflow: 'hidden',
-              aspectRatio: '3/3.8',
-              position: 'relative',
-            }}>
-              <img
-                src="/michael-esema-hero.jpg"
-                alt="Michael Esema, Founder and CEO of Mykei Securities Ltd"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'center top',
-                  display: 'block',
-                  filter: 'contrast(1.04) brightness(0.97)',
-                }}
-              />
-              {/* Photo overlay */}
-              <div style={{
-                position: 'absolute',
-                bottom: 0, left: 0, right: 0,
-                padding: '20px 22px 18px',
-                background: 'linear-gradient(transparent, rgba(8,8,8,0.88))',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-end',
-              }}>
-                <span style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: 10,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  color: 'var(--text-muted)',
-                }}>
-                  Manchester, UK
-                </span>
-                <span style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: 10,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  color: 'var(--gold)',
-                }}>
-                  EST. 2025
-                </span>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}
@@ -309,9 +310,9 @@ export default function Hero() {
             gap: 48px !important;
             padding-top: 100px !important;
           }
-          .hero-grid > div:last-child {
+          .hero-grid > div:first-child {
             max-width: 300px;
-            order: -1;
+            margin: 0 auto;
           }
         }
         @media (max-width: 600px) {
