@@ -2,13 +2,11 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const links = [
-  { label: 'About', href: '/#about' },
-  { label: 'Work', href: '/#work' },
-  { label: 'Philosophy', href: '/philosophy' },
+  { label: 'About', href: '/about' },
   { label: 'Thesis', href: '/thesis' },
-  { label: 'The Signal', href: 'https://mykei.io/signal' },
-  { label: 'Mykei', href: 'https://mykei.io' },
-  { label: 'Connect', href: '/#connect' },
+  { label: 'Philosophy', href: '/philosophy' },
+  { label: 'The Signal', href: 'https://mykei.io/signal', external: true },
+  { label: 'Mykei Securities', href: 'https://mykei.io', external: true },
 ]
 
 export default function Nav() {
@@ -30,53 +28,42 @@ export default function Nav() {
         position: 'fixed',
         top: 0, left: 0, right: 0,
         zIndex: 1000,
-        transition: 'background 0.4s ease, border-color 0.4s ease',
-        background: scrolled ? 'rgba(8,8,8,0.88)' : 'transparent',
-        borderBottom: scrolled ? '1px solid var(--dark-border)' : '1px solid transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
+        background: scrolled ? 'rgba(255,255,255,0.94)' : 'transparent',
+        borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+        transition: 'background 0.35s ease, border-color 0.35s ease',
       }}
     >
       <div style={{
-        maxWidth: '1200px',
+        maxWidth: 1200,
         margin: '0 auto',
-        padding: '22px 40px',
+        padding: '20px 40px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
       }}>
-        {/* Brand */}
-        <a
-          href="/"
-          style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}
-        >
-          <img
-            src="/logo.png"
-            alt="ME"
-            style={{ height: 42, width: 'auto', display: 'block' }}
-          />
+        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
+          <img src="/logo.png" alt="ME" style={{ height: 38, width: 'auto', display: 'block' }} />
           <span style={{
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: 11,
             fontWeight: 500,
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
-            color: 'var(--text-secondary)',
+            color: scrolled ? 'var(--text-secondary)' : 'var(--text-secondary)',
           }}>
             Michael Esema
           </span>
         </a>
 
-        {/* Desktop links */}
-        <ul style={{
-          display: 'flex',
-          gap: 36,
-          listStyle: 'none',
-        }} className="nav-desktop">
+        <ul style={{ display: 'flex', gap: 32, listStyle: 'none' }} className="nav-desktop">
           {links.map(link => (
             <li key={link.href}>
               <a
                 href={link.href}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
                 style={{
                   fontFamily: "'Outfit', sans-serif",
                   fontSize: 13,
@@ -84,7 +71,7 @@ export default function Nav() {
                   color: 'var(--text-secondary)',
                   textDecoration: 'none',
                   letterSpacing: '0.04em',
-                  transition: 'color 0.25s',
+                  transition: 'color 0.2s',
                 }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}
@@ -95,7 +82,6 @@ export default function Nav() {
           ))}
         </ul>
 
-        {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(o => !o)}
           aria-label="Toggle menu"
@@ -118,7 +104,6 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -126,16 +111,18 @@ export default function Nav() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             style={{
-              background: 'rgba(8,8,8,0.97)',
-              borderTop: '1px solid var(--dark-border)',
+              background: 'rgba(255,255,255,0.98)',
+              borderTop: '1px solid var(--border)',
               overflow: 'hidden',
             }}
           >
             <ul style={{ listStyle: 'none', padding: '16px 40px 24px' }}>
               {links.map(link => (
-                <li key={link.href} style={{ padding: '12px 0', borderBottom: '1px solid var(--dark-border)' }}>
+                <li key={link.href} style={{ padding: '12px 0', borderBottom: '1px solid var(--border-light)' }}>
                   <a
                     href={link.href}
+                    target={link.external ? '_blank' : undefined}
+                    rel={link.external ? 'noopener noreferrer' : undefined}
                     onClick={() => setMenuOpen(false)}
                     style={{
                       fontFamily: "'Playfair Display', serif",
@@ -153,13 +140,6 @@ export default function Nav() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <style>{`
-        @media (max-width: 640px) {
-          .nav-desktop { display: none !important; }
-          .nav-mobile-btn { display: block !important; }
-        }
-      `}</style>
     </motion.nav>
   )
 }

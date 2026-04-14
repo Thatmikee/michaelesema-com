@@ -3,19 +3,26 @@
 @source "./src";
 
 :root {
-  --gold: #D4AF37;
-  --gold-light: #E0C45A;
-  --gold-dim: rgba(212, 175, 55, 0.1);
-  --dark: #0A0B0A;
-  --dark-card: #121412;
-  --dark-border: #2A2A28;
-  --text-primary: #F5F5F0;
-  --text-secondary: #A8A8A3;
-  --text-muted: #686862;
-  --light-bg: #F8F7F4;
-  --light-border: #E8E5DE;
-  --text-dark: #1A1A1A;
-  --text-dark-secondary: #555555;
+  /* Light theme */
+  --bg:            #FFFFFF;
+  --bg-warm:       #F9F8F6;
+  --bg-section:    #F4F2EE;
+  --text-primary:  #0A0A0A;
+  --text-secondary:#4A4A48;
+  --text-muted:    #88887F;
+  --border:        #E4E0D8;
+  --border-light:  #EFECE6;
+
+  /* Gold — adjusted for white background legibility */
+  --gold:          #B8962E;
+  --gold-light:    #D4AF37;
+  --gold-dim:      rgba(184, 150, 46, 0.12);
+  --gold-line:     rgba(184, 150, 46, 0.35);
+
+  /* Dark card (logo bg, accent blocks) */
+  --dark:          #0A0B0A;
+  --dark-card:     #121412;
+  --dark-border:   #2A2A28;
 }
 
 *, *::before, *::after {
@@ -31,7 +38,7 @@ html {
 }
 
 body {
-  background: var(--dark);
+  background: var(--bg);
   color: var(--text-primary);
   font-family: 'Outfit', -apple-system, sans-serif;
   overflow-x: hidden;
@@ -39,7 +46,7 @@ body {
 
 ::selection {
   background: var(--gold);
-  color: var(--dark);
+  color: #fff;
 }
 
 .font-display {
@@ -62,3 +69,8 @@ body {
   z-index: 9999;
 }
 
+/* Nav desktop/mobile toggle */
+@media (max-width: 640px) {
+  .nav-desktop { display: none !important; }
+  .nav-mobile-btn { display: block !important; }
+}
