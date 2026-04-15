@@ -8,21 +8,40 @@ const credentials = [
       { title: 'MSc International Business Management', sub: 'Manchester Metropolitan University', note: '2024, Merit' },
       { title: 'Master of Business Administration', sub: 'Nigerian Defence Academy', note: '2022' },
       { title: 'BSc (Hons) Accounting', sub: 'Benson Idahosa University', note: '2018' },
-      { title: 'Alumni Coordinator, Department of Accounting (Diaspora)', sub: 'Benson Idahosa University', note: 'Current' },
     ],
   },
   {
     group: 'Certifications',
     items: [
+      { title: 'National Youth Service Corps (NYSC)', sub: 'Federal Government of Nigeria', note: '2019' },
       { title: 'Lean Six Sigma', sub: '', note: '2025' },
       { title: 'Level 7 Advanced Diploma, Project Management', sub: '', note: '2025' },
+      { title: 'Leadership Certificate', sub: 'Life Success Centre', note: '2018' },
+      { title: 'Poise & Employability Skills Certificate', sub: 'Poise Nigeria Ltd', note: '2018' },
+      { title: 'Health, Safety and Environment 1 & 2', sub: '', note: '2018' },
+      { title: 'Google Digital Skills Training', sub: 'Rene Digital Hub', note: '2016' },
     ],
   },
   {
-    group: 'Roles',
+    group: 'Awards',
     items: [
+      { title: 'Most Influential Male', sub: 'Nigerian Universities Accounting Students Association', note: '2018' },
+      { title: 'Student Leader of the Year', sub: 'Nigerian Universities Accounting Students Association', note: '2018' },
+      { title: 'Most Assiduous Student Leader of the Year', sub: 'Benson Idahosa University', note: '2018' },
+      { title: 'Most Innovative Student Leader of the Year', sub: 'Connex Award', note: '2018' },
+      { title: 'Recognition & Appreciation of Leadership Roles', sub: 'BIU Faculty of Social & Management Sciences', note: '2018' },
+      { title: 'Dedication to Service of Humanity', sub: 'Eagles Wings Motivation Award', note: '2018' },
+      { title: 'Most Innovative Leader of the Year', sub: 'Clover Conglomerate Awards', note: '2017' },
+      { title: 'Most Influential Male', sub: 'Accounting Students Association, Uniben Chapter', note: '2017' },
+    ],
+  },
+  {
+    group: 'Honorary Roles',
+    items: [
+      { title: 'President, BIU Chapter', sub: 'Nigerian Universities Accounting Students Association', note: '2017–2018' },
+      { title: 'Vice-President, BIU Chapter', sub: 'Nigerian Universities Accounting Students Association', note: '2016–2017' },
+      { title: 'Alumni Coordinator (Diaspora)', sub: 'Dept. of Accounting, Benson Idahosa University', note: 'Current · UK Chapter' },
       { title: 'Founder & CEO', sub: 'Mykei Securities Ltd (Co. 16984969)', note: 'Manchester, United Kingdom' },
-      { title: 'Alumni Coordinator (Diaspora)', sub: 'Dept. of Accounting, Benson Idahosa University', note: 'UK Chapter' },
     ],
   },
 ]
