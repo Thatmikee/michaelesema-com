@@ -6,14 +6,14 @@ const credentials = [
     group: 'Education',
     items: [
       { title: 'MSc International Business Management', sub: 'Manchester Metropolitan University', note: '2024, Merit' },
-      { title: 'Master of Business Administration', sub: 'Nigerian Defence Academy', note: '2022' },
+      { title: 'Master of Business Administration (MBA)', sub: 'Nigerian Defence Academy', note: '2022' },
       { title: 'BSc (Hons) Accounting', sub: 'Benson Idahosa University', note: '2018' },
     ],
   },
   {
     group: 'Certifications',
     items: [
-      { title: 'National Youth Service Corps (NYSC)', sub: 'Federal Government of Nigeria', note: '2019' },
+      { title: 'National Youth Service Corps (NYSC)', sub: 'Federal Government of Nigeria', note: '2018-2019' },
       { title: 'Lean Six Sigma', sub: '', note: '2025' },
       { title: 'Level 7 Advanced Diploma, Project Management', sub: '', note: '2025' },
       { title: 'Leadership Certificate', sub: 'Life Success Centre', note: '2018' },
@@ -38,8 +38,8 @@ const credentials = [
   {
     group: 'Honorary Roles',
     items: [
-      { title: 'President, BIU Chapter', sub: 'Nigerian Universities Accounting Students Association', note: '2017–2018' },
-      { title: 'Vice-President, BIU Chapter', sub: 'Nigerian Universities Accounting Students Association', note: '2016–2017' },
+      { title: 'President, NUASA BIIU Chapter', sub: 'Nigerian Universities Accounting Students Association', note: '2017-2018' },
+      { title: 'Vice-President, NUASA BIIU Chapter', sub: 'Nigerian Universities Accounting Students Association', note: '2016-2017' },
       { title: 'Alumni Coordinator (Diaspora)', sub: 'Dept. of Accounting, Benson Idahosa University', note: 'Current · UK Chapter' },
       { title: 'Founder & CEO', sub: 'Mykei Securities Ltd (Co. 16984969)', note: 'Manchester, United Kingdom' },
     ],
@@ -156,14 +156,14 @@ export default function About() {
                 color: 'var(--text-dark-secondary)',
                 fontWeight: 300,
               }}>
-                After graduating, Esema built his early career inside Nigeria's public sector, taking
-                up a role at the National Emergency Management Agency (NEMA), where he managed
-                emergency budgets, coordinated logistics operations, and developed a fluency in
-                institutional process. He later completed a Master of Business Administration at the
-                Nigerian Defence Academy in Kaduna in 2022, deepening his grounding in strategic
-                management. At NEMA, he learned a pattern he would spend years trying to correct:
-                most institutions are better at recording failure than preventing it. Response systems
-                respond. They rarely remove the conditions that made the response necessary.
+                After graduating, Esema completed his National Youth Service Corps year before
+                building a career in hospitality finance. At B's Hive Hotel and Suites, he moved from
+                Head Accountant to Assistant Manager between 2019 and 2023, running financial
+                operations, overseeing accounts, and managing the systems that kept a live business
+                running. He completed a Master of Business Administration at the Nigerian Defence
+                Academy in Kaduna in 2022 alongside that work. What the years in hospitality sharpened
+                was a practical understanding of how institutions handle loss: they record it, report
+                it, absorb the cost, and carry on. The conditions that produced it rarely change.
               </p>
 
               <p style={{
