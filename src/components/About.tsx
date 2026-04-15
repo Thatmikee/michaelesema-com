@@ -38,8 +38,8 @@ const credentials = [
   {
     group: 'Honorary Roles',
     items: [
-      { title: 'President, NUASA BIIU Chapter', sub: 'Nigerian Universities Accounting Students Association', note: '2017-2018' },
-      { title: 'Vice-President, NUASA BIIU Chapter', sub: 'Nigerian Universities Accounting Students Association', note: '2016-2017' },
+      { title: 'President, NUASA BIU Chapter', sub: 'Nigerian Universities Accounting Students Association', note: '2017-2018' },
+      { title: 'Vice-President, NUASA BIU Chapter', sub: 'Nigerian Universities Accounting Students Association', note: '2016-2017' },
       { title: 'Alumni Coordinator (Diaspora)', sub: 'Dept. of Accounting, Benson Idahosa University', note: 'Current · UK Chapter' },
       { title: 'Founder & CEO', sub: 'Mykei Securities Ltd (Co. 16984969)', note: 'Manchester, United Kingdom' },
     ],
