@@ -56,7 +56,8 @@ export default function Connect() {
             marginBottom: 16,
             lineHeight: 1.2,
           }}>
-            Follow the build.
+            The pilot is running.<br />
+            <em style={{ color: 'var(--gold-light)', fontStyle: 'italic' }}>The data is coming in.</em>
           </h2>
         </FadeIn>
 
@@ -68,8 +69,9 @@ export default function Connect() {
             marginBottom: 36,
             fontWeight: 300,
           }}>
-            I write about the ADN-1 pilot, the economics of retail crime, and what it actually looks
-            like to build deep-tech from scratch in Manchester. No PR. Just the real story.
+            Five retailers in Manchester. Five weeks of live theft data from the ADN-1 system.
+            I document what happens — the numbers, the problems, what the retailers actually say.
+            No PR department. No polished version. Just what is true.
           </p>
         </FadeIn>
 
@@ -96,10 +98,10 @@ export default function Connect() {
               onMouseEnter={e => (e.currentTarget.style.opacity = '0.88')}
               onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
             >
-              LinkedIn
+              Follow on LinkedIn
             </a>
             <a
-              href="https://mykei.io/signal"
+              href="https://mykei.io/pilot"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -120,7 +122,7 @@ export default function Connect() {
               onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--gold-light)'; e.currentTarget.style.color = 'var(--gold-light)' }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(245,245,240,0.2)'; e.currentTarget.style.color = 'rgba(245,245,240,0.65)' }}
             >
-              The Signal ↗
+              Join the Pilot ↗
             </a>
           </div>
         </FadeIn>
