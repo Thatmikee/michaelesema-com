@@ -109,7 +109,7 @@ export default function ThesisPage() {
             <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, letterSpacing: '0.16em',
               textTransform: 'uppercase', color: GOLD, marginBottom: 14 }}>Abstract</p>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, lineHeight: 1.85, color: MUTED, margin: 0 }}>
-              The doctrine of Economic Sterilisation proposes that retail theft is better addressed as a commercial problem than a security one. By rendering stolen goods forensically marked, cloud-logged, and marketplace-flagged, the resale value of those goods is eliminated before a buyer can be found. Where conventional retail security targets the act of theft, Economic Sterilisation targets its economic precondition. This paper defines the doctrine, situates it within existing retail crime literature, examines the technology and infrastructure of the ADN-1 implementation, presents evidence from global forensic marking programmes, and models adoption effects across the UK independent retail sector.
+              Retail theft is not primarily a security problem. It is an economics problem. Thieves steal because stolen goods can be sold. Economic Sterilisation is the doctrine that addresses this directly: by forensically marking stolen goods, logging the event in real time, and flagging the items across digital resale platforms, the expected resale value of those goods falls to zero before a buyer can be found. This paper defines the doctrine, sets it against existing retail crime literature, examines the ADN-1 implementation, reviews global evidence from forensic marking programmes, and models what threshold adoption looks like for the UK independent retail sector.
             </p>
           </motion.div>
         </div>
@@ -174,15 +174,15 @@ export default function ThesisPage() {
           <p style={body}>
             The term draws on the biological analogy of sterilisation as the removal of reproductive capacity. A sterile organism cannot propagate. A sterilised stolen good cannot generate revenue. The doctrine holds that if the revenue expectation of theft is driven to zero, the rational incentive for organised retail crime collapses, particularly for ORC actors who operate at scale and depend on reliable resale margins.
           </p>
-          <h3 style={h3}>4.2 The Three Pillars</h3>
+          <h3 style={h3}>4.2 How it works</h3>
           <p style={body}>
-            <strong>Pillar One: Forensic Marking.</strong> SelectaDNA-class synthetic markers are dispersed onto goods and persons at the moment of a confirmed theft event. The markers bind irreversibly to skin, fabric, and packaging. They are detectable under UV light at trace quantities and carry a batch-unique reference code.
+            First, forensic marking. At the moment of a confirmed theft event, SelectaDNA-class synthetic markers are dispersed onto goods and anyone in the sweep zone. The markers bind permanently to skin, fabric, and packaging. Detectable under UV light at trace quantities, each batch carries a unique reference code.
           </p>
           <p style={body}>
-            <strong>Pillar Two: Cloud Logging.</strong> At the moment of marker deployment, an event is published to AWS IoT Core via TLS 1.3 MQTT. The event record includes a UTC timestamp, device identifier, location reference, and the batch-unique forensic code. This record is written to the Toxic Inventory Registry (TIR): immutable, timestamped, constituting a forensic chain of custody from the moment of marking.
+            Second, cloud logging. The moment the marker deploys, the ADN-1 publishes an event to AWS IoT Core via TLS 1.3. The record includes a UTC timestamp, device identifier, location, and the batch-unique forensic code. It is written to the Toxic Inventory Registry (TIR): immutable, timestamped, a forensic chain of custody from the second it happens.
           </p>
           <p style={body}>
-            <strong>Pillar Three: Marketplace Flagging.</strong> The forensic reference code is cross-referenced in real time against listings on eBay, Vinted, and Facebook Marketplace. Matching listings are flagged or removed. This is the TESS (Theft Economic Sterilisation System) classification: a framework for flagging goods as economically sterilised across digital sales infrastructure.
+            Third, marketplace flagging. The forensic reference code is cross-checked in real time against live listings on eBay, Vinted, and Facebook Marketplace. Matching listings are flagged or removed. The goods become commercially inert before the thief can find a buyer.
           </p>
           <h3 style={h3}>4.3 Doctrine vs. Implementation</h3>
           <p style={body}>
@@ -255,13 +255,13 @@ export default function ThesisPage() {
 
           <h2 style={h2}>9. Conclusion</h2>
           <p style={body}>
-            Economic Sterilisation is a structural intervention at the incentive layer of retail crime rather than the act layer. Deterrence-based security addresses the cost side of the criminal decision function. Economic Sterilisation addresses the revenue side. By eliminating the resale value of stolen goods through forensic marking and cloud-backed marketplace flagging, the doctrine renders theft economically inert before a buyer can be found.
+            Deterrence-based retail security addresses the cost side of the criminal decision. Economic Sterilisation addresses the revenue side. Remove the resale value and you remove the reason to steal, before anyone gets hurt and without relying on police response.
           </p>
           <p style={body}>
-            The global evidence base, spanning the UK, US, EU, and Australia, confirms a common structural driver: the growth of accessible digital resale infrastructure has outpaced every existing intervention. The problem is not more thieves. It is a better market for stolen goods. Economic Sterilisation is the only proposed doctrine that operates on that market directly.
+            The global evidence points to the same structural problem: digital resale platforms have made it easier than ever to convert stolen goods to cash. The UK, US, EU, and Australia are all losing ground, spending more on security and seeing worse results. The problem is not more thieves. It is a more efficient market for stolen goods. Economic Sterilisation is the only proposed approach that targets that market.
           </p>
           <p style={body}>
-            The doctrine is original, coined by Michael Esema in 2025. It is patented under Patent No. 2606630.8. It is commercially live in the Greater Manchester Alpha Pilot entering deployment in Q2 2026. The ADN-1 is the first hardware implementation, purpose-engineered for the independent retailer. The implications extend to logistics, pharmaceutical supply chains, and any market in which stolen goods command reliable resale value.
+            The doctrine is original. Michael Esema coined it in 2025, filed the patent in March 2026 (No. 2606630.8), and is testing it in five Manchester shops from Q2 2026. The ADN-1 is the first implementation. Where it goes from here depends on what the data shows. That is what the pilot is for.
           </p>
 
           {/* References */}
