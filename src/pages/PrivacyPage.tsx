@@ -1,7 +1,14 @@
+import { useEffect } from 'react'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export default function PrivacyPage() {
+  useEffect(() => {
+    document.title = 'Privacy Policy | Michael Esema'
+    const canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
+    if (canonical) canonical.href = 'https://michaelesema.com/privacy'
+  }, [])
+
   return (
     <>
       <Nav />

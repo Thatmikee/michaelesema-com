@@ -35,6 +35,8 @@ export default function ThesisPage() {
 
   useEffect(() => {
     document.title = 'Economic Sterilisation: A Framework for Incentive-Based Retail Crime Deterrence | Michael Esema'
+    const canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
+    if (canonical) canonical.href = 'https://michaelesema.com/thesis'
     const script = document.createElement('script')
     script.type = 'application/ld+json'
     script.text = JSON.stringify(SCHEMA)
