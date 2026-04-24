@@ -80,7 +80,7 @@ export default function TheftCounter() {
           marginBottom: 10,
           opacity: 0.7,
         }}>
-          UK — lost today
+          UK: lost today
         </div>
         <div style={{
           fontFamily: "'Playfair Display', Georgia, serif",
@@ -120,7 +120,7 @@ export default function TheftCounter() {
           marginBottom: 10,
           opacity: 0.7,
         }}>
-          Europe — lost today
+          Europe: lost today
         </div>
         <div style={{
           fontFamily: "'Playfair Display', Georgia, serif",

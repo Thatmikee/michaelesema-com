@@ -70,7 +70,7 @@ export default function Connect() {
             fontWeight: 300,
           }}>
             Five retailers in Manchester. Five weeks of live theft data from the ADN-1 system.
-            I document what happens — the numbers, the problems, what the retailers actually say.
+            I document what happens: the numbers, the problems, what the retailers actually say.
             No PR department. No polished version. Just what is true.
           </p>
         </FadeIn>
