@@ -4,21 +4,21 @@
 
 @layer base {
   :root {
-    --bg:            #FFFFFF;
+    --bg:            #F9F8F6;
     --bg-warm:       #F9F8F6;
-    --bg-section:    #F4F2EE;
-    --text-primary:  #0A0A0A;
-    --text-secondary:#4A4A48;
-    --text-muted:    #88887F;
-    --border:        #E4E0D8;
-    --border-light:  #EFECE6;
-    --gold:          #B8962E;
+    --bg-section:    #F2EFE8;
+    --bg-surface:    #FFFFFF;
+    --text-primary:  #1E1E1E;
+    --text-secondary:#6E6E6E;
+    --text-muted:    #6E6E6E;
+    --border:        #E0DED9;
+    --border-light:  #E0DED9;
+    --gold:          #D4AF37;
     --gold-light:    #D4AF37;
-    --gold-dim:      rgba(184, 150, 46, 0.12);
-    --gold-line:     rgba(184, 150, 46, 0.35);
-    --dark:          #0A0B0A;
-    --dark-card:     #121412;
-    --dark-border:   #2A2A28;
+    --gold-deep:     #84693A;
+    --gold-dim:      rgba(212, 175, 55, 0.12);
+    --gold-line:     rgba(212, 175, 55, 0.35);
+    --success:       #2D7D46;
   }
 
   *, *::before, *::after {
@@ -34,15 +34,15 @@
   }
 
   body {
-    background: #FFFFFF;
-    color: #0A0A0A;
+    background: #F9F8F6;
+    color: #1E1E1E;
     font-family: 'Outfit', -apple-system, sans-serif;
     overflow-x: hidden;
   }
 
   ::selection {
-    background: #B8962E;
-    color: #fff;
+    background: #D4AF37;
+    color: #1E1E1E;
   }
 }
 

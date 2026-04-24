@@ -6,8 +6,8 @@ const items = [
     tag: 'Product',
     title: 'ADN-1 Active Forensic Defence Node',
     body: 'A shelf-mounted device that detects bulk-sweep theft in under two seconds and deploys a forensic DNA mist onto stolen goods automatically. Every event logs to a cloud database with a timestamp and store ID. No staff. No panic button. No guesswork.',
-    meta: 'Manchester Alpha Pilot — Q2 2026',
-    href: 'https://mykei.io/adn-1',
+    meta: 'Manchester Alpha Pilot, Q2 2026',
+    href: 'https://mykei.io/technology/adn-1',
     external: true,
   },
   {
