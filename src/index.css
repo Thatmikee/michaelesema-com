@@ -19,6 +19,9 @@
     --gold-dim:      rgba(212, 175, 55, 0.12);
     --gold-line:     rgba(212, 175, 55, 0.35);
     --success:       #2D7D46;
+    --light-bg:      #F9F8F6;
+    --text-dark:     #1E1E1E;
+    --text-dark-secondary: #6E6E6E;
   }
 
   *, *::before, *::after {
