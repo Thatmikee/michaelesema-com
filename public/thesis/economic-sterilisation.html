@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Economic Sterilisation: A Working Paper on Incentive-Based Retail Crime Deterrence — Michael Esema</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap');
 
   @page {
     size: A4;
-    margin: 25mm 30mm;
+    margin: 25mm 30mm 25mm 30mm;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -17,26 +17,27 @@
   body {
     font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
     font-size: 12pt;
-    line-height: 1.7;
-    color: #000000;
-    background: #ffffff;
-    max-width: 680px;
+    line-height: 1.75;
+    color: #000;
+    background: #fff;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 40px 20px 60px;
+    padding: 48px 20px 60px;
   }
 
+  /* Print bar — hidden when printing */
   .print-bar {
     position: fixed;
     top: 0; left: 0; right: 0;
-    background: #f5f5f5;
+    background: #f0f0f0;
     border-bottom: 1px solid #ccc;
-    padding: 10px 20px;
+    padding: 9px 20px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    font-family: -apple-system, sans-serif;
-    font-size: 13px;
-    color: #333;
+    gap: 14px;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 11pt;
+    color: #222;
     z-index: 100;
   }
 
@@ -44,11 +45,10 @@
     background: #000;
     color: #fff;
     border: none;
-    padding: 7px 18px;
-    font-family: -apple-system, sans-serif;
-    font-size: 12px;
+    padding: 5px 16px;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 11pt;
     cursor: pointer;
-    border-radius: 3px;
   }
 
   @media print {
@@ -56,207 +56,185 @@
     body { padding: 0; max-width: none; }
   }
 
+  /* ── COVER ── */
   .cover {
-    border-bottom: 1px solid #000;
-    padding-bottom: 16pt;
-    margin-bottom: 20pt;
-    margin-top: 40px;
+    padding-top: 40px;
+    padding-bottom: 20pt;
+    border-bottom: 1pt solid #000;
+    margin-bottom: 24pt;
   }
 
   .paper-type {
-    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 8.5pt;
-    letter-spacing: 1.5px;
+    font-size: 10pt;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: #000;
-    margin-bottom: 12pt;
+    margin-bottom: 16pt;
   }
 
   h1 {
-    font-size: 17pt;
+    font-size: 18pt;
     font-weight: 600;
     line-height: 1.3;
-    color: #000;
-    margin-bottom: 10pt;
-  }
-
-  .author-line {
-    font-size: 11pt;
-    color: #000;
-    margin-bottom: 3pt;
-    font-family: 'EB Garamond', Georgia, serif;
-  }
-
-  .meta-line {
-    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 8.5pt;
-    color: #333;
-    margin-bottom: 2pt;
-  }
-
-  .status-line {
-    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 8.5pt;
-    color: #000;
+    margin-bottom: 14pt;
     font-style: italic;
-    margin-top: 8pt;
   }
 
+  .cover-author { font-size: 12pt; margin-bottom: 3pt; }
+  .cover-meta   { font-size: 10.5pt; color: #222; margin-bottom: 2pt; }
+  .cover-status { font-size: 10.5pt; font-style: italic; margin-top: 10pt; }
+
+  /* ── ABSTRACT ── */
   .abstract {
-    border: 1px solid #000;
-    padding: 14pt 16pt;
-    margin: 18pt 0;
+    margin: 20pt 0 0;
   }
 
   .abstract-label {
-    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 8pt;
-    letter-spacing: 1.5px;
+    font-size: 10pt;
+    font-weight: 600;
     text-transform: uppercase;
-    color: #000;
-    margin-bottom: 8pt;
+    letter-spacing: 0.5px;
+    margin-bottom: 6pt;
   }
 
   .abstract p {
-    font-size: 10.5pt;
-    line-height: 1.65;
-    color: #000;
-    margin: 0;
+    font-size: 11pt;
+    line-height: 1.7;
   }
 
   .keywords {
-    font-size: 9.5pt;
+    font-size: 10.5pt;
     margin-top: 10pt;
-    color: #000;
   }
 
+  /* ── SECTION HEADINGS ── */
   h2 {
-    font-size: 12.5pt;
+    font-size: 13pt;
     font-weight: 600;
-    color: #000;
-    margin: 24pt 0 6pt;
-    border-bottom: 0.5pt solid #000;
+    margin-bottom: 8pt;
+    margin-top: 0;
     padding-bottom: 3pt;
+    border-bottom: 0.75pt solid #000;
+    page-break-before: always;
   }
+
+  /* Cover section does not break */
+  .cover ~ h2:first-of-type { page-break-before: auto; }
 
   h3 {
-    font-size: 11.5pt;
+    font-size: 12pt;
     font-weight: 600;
     font-style: italic;
-    color: #000;
-    margin: 16pt 0 5pt;
+    margin: 18pt 0 5pt;
   }
 
-  p {
-    margin-bottom: 9pt;
-    color: #000;
-  }
+  p { margin-bottom: 9pt; }
 
-  ul, ol {
-    margin: 7pt 0 9pt 20pt;
-    color: #000;
-  }
-
+  ul, ol { margin: 6pt 0 10pt 22pt; }
   li { margin-bottom: 3pt; }
 
-  .formula {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 10.5pt;
-    background: #f9f9f9;
-    border: 0.5pt solid #bbb;
-    padding: 8pt 12pt;
-    margin: 10pt 0;
-    color: #000;
+  /* ── FORMULA — no box, displayed as equation ── */
+  .equation {
+    font-size: 12pt;
+    font-style: italic;
+    text-align: center;
+    margin: 14pt 0;
   }
 
+  /* ── TABLES ── */
   table {
     width: 100%;
     border-collapse: collapse;
     margin: 12pt 0;
-    font-size: 9.5pt;
-    color: #000;
+    font-size: 10pt;
   }
 
   th {
     background: #000;
     color: #fff;
-    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 7.5pt;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.3px;
     padding: 5pt 7pt;
     text-align: left;
   }
 
   td {
     padding: 4pt 7pt;
-    border: 0.5pt solid #ccc;
+    border: 0.5pt solid #aaa;
     vertical-align: top;
-    color: #000;
   }
 
-  tr:nth-child(even) td { background: #f9f9f9; }
+  tr:nth-child(even) td { background: #f5f5f5; }
 
+  /* ── DIVIDERS ── */
   hr {
-    border: none;
-    border-top: 0.5pt solid #000;
-    margin: 22pt 0;
+    display: none;
   }
+
+  /* ── REFERENCES ── */
+  .refs-section { page-break-before: always; }
 
   .refs p {
-    font-size: 10pt;
-    margin-bottom: 5pt;
-    padding-left: 24pt;
-    text-indent: -24pt;
+    font-size: 11pt;
+    margin-bottom: 6pt;
+    padding-left: 26pt;
+    text-indent: -26pt;
   }
 
+  /* ── APPENDIX ── */
+  .appendix-section { page-break-before: always; }
+
+  /* ── FOOTER ── */
   .doc-footer {
     border-top: 0.5pt solid #000;
-    margin-top: 28pt;
+    margin-top: 32pt;
     padding-top: 8pt;
-    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 7.5pt;
-    color: #333;
+    font-size: 9pt;
     text-align: center;
+    color: #333;
+    page-break-before: avoid;
   }
 
   h2 { page-break-after: avoid; }
+  h3 { page-break-after: avoid; }
   table { page-break-inside: avoid; }
-  .abstract { page-break-inside: avoid; }
 </style>
 </head>
 <body>
 
 <div class="print-bar">
-  <span>To save as PDF: press <strong>Ctrl+P</strong> (Windows) or <strong>⌘+P</strong> (Mac) → Save as PDF</span>
-  <button onclick="window.print()">Print / Save as PDF</button>
+  <span>Ctrl+P / ⌘+P → Save as PDF</span>
+  <button onclick="window.print()">Save as PDF</button>
 </div>
 
+<!-- ══════════════════════════════════════════════ COVER -->
 <div class="cover">
-  <div class="paper-type">Working Paper · Mykei Securities Ltd · April 2026</div>
+  <div class="paper-type">Working Paper</div>
   <h1>Economic Sterilisation: A Working Paper on Incentive-Based Retail Crime Deterrence</h1>
-  <p class="author-line"><strong>Michael Esema</strong>, MBA, MSc</p>
-  <p class="meta-line">Founder and Chief Executive Officer, Mykei Securities Ltd (Co. 16984969), Manchester, UK</p>
-  <p class="meta-line">Patent pending: GB2606630.8 · UK Intellectual Property Office · Filed 26 March 2026 · 17 claims</p>
-  <p class="meta-line">Correspondence: protocol@mykei.io</p>
-  <p class="status-line">Working draft. First published 2025. Revised April 2026. Version 2.0. Open to peer comment.</p>
+  <p class="cover-author"><strong>Michael Esema</strong>, MBA, MSc</p>
+  <p class="cover-meta">Founder, Mykei Securities Ltd (Co. 16984969), Manchester, UK</p>
+  <p class="cover-meta">Patent pending: GB2606630.8 · UK Intellectual Property Office · Filed 26 March 2026 · 17 claims</p>
+  <p class="cover-meta">Correspondence: protocol@mykei.io</p>
+  <p class="cover-status">Working draft. First published 2025. Revised April 2026. Open to peer comment.</p>
 </div>
 
+<!-- ══════════════════════════════════════════════ ABSTRACT -->
 <div class="abstract">
   <div class="abstract-label">Abstract</div>
   <p>
     Retail theft in the United Kingdom has continued to rise despite sustained spending on conventional security measures. This working paper argues that existing interventions focus on the act of theft while leaving intact the economic incentive that drives organised retail crime: the ability to convert stolen goods into cash through online resale platforms. It introduces Economic Sterilisation, a doctrine that targets the resale value of stolen goods through autonomous forensic marking, cryptographic cloud registration, and cross-platform marketplace disruption. The paper presents the ADN-1 Active Forensic Defence Node as the first operational implementation of this framework and draws on structured field research with 23 independent retailers in Greater Manchester. The doctrine is positioned within classical deterrence theory and situational crime prevention literature. This paper is a working draft. Findings are provisional. The doctrine is offered for scrutiny, replication, and refinement.
   </p>
-  <p class="keywords"><strong>Keywords:</strong> retail crime, organised retail crime, deterrence theory, forensic marking, economic sterilisation, situational crime prevention, resale disruption</p>
+  <p class="keywords"><em>Keywords:</em> retail crime, organised retail crime, deterrence theory, forensic marking, economic sterilisation, situational crime prevention, resale disruption</p>
 </div>
 
+<!-- ══════════════════════════════════════════════ SECTION 1 -->
 <h2>1. Introduction</h2>
 
 <h3>1.1 Background</h3>
-<p>Retail theft in the United Kingdom has reached a level where incremental improvements in security technology are no longer producing meaningful reductions in loss. The Association of Convenience Stores (ACS) 2026 Crime Report records 5.8 million incidents annually, with the sector spending £313 million on security measures. This expenditure has not reduced incident rates. The British Retail Consortium (BRC) Crime Survey of February 2026 confirms that a significant share of theft is organised. Groups select stores based on product density, staff coverage, surveillance blind spots, and proximity to resale infrastructure. This is target selection within a functioning economic model.</p>
+<p>Retail theft in the United Kingdom has reached a level where incremental improvements in security technology are no longer producing meaningful reductions in loss. The Association of Convenience Stores (ACS, 2026) records 5.8 million theft incidents annually, with the sector spending £313 million on security measures. This expenditure has not reduced incident rates. The British Retail Consortium (BRC, 2026) confirms that a significant share of theft is organised: groups select stores based on product density, staff coverage, surveillance blind spots, and proximity to resale infrastructure. This is target selection within a functioning economic model.</p>
 
 <h3>1.2 The Structural Problem</h3>
-<p>The dominant retail security model has remained largely unchanged for decades. CCTV systems record incidents, security personnel provide visible deterrence, electronic article surveillance tags create friction at exit points, and forensic marking systems enable property recovery and criminal prosecution. Each of these interventions acts on the moment of theft or its aftermath. None materially affects the underlying economic incentive: the ability to convert stolen goods into cash.</p>
+<p>The dominant retail security model has remained largely unchanged for decades. CCTV systems record incidents, security personnel provide visible deterrence, electronic article surveillance (EAS) tags create friction at exit points, and forensic marking systems enable property recovery and criminal prosecution. Each of these interventions acts on the moment of theft or its aftermath. None materially affects the underlying economic incentive: the ability to convert stolen goods into cash.</p>
 <p>The core misalignment is this: retail theft is commonly treated as an acquisition problem. In practice, it is a liquidation problem. A stolen item only has value if it can be resold. A product taken from a shelf but rendered unsellable has no economic utility to the offender. Current security increases the risk of acquisition. It does not reduce the expected return that motivates the act.</p>
 
 <h3>1.3 Research Questions</h3>
@@ -269,50 +247,48 @@
 </ol>
 
 <h3>1.4 Positionality and Bias</h3>
-<p>The author is the founder of Mykei Securities Ltd, the company developing the ADN-1 device that operationalises the doctrine examined in this paper. This dual role as researcher and commercial participant introduces an obvious potential for confirmation bias. Several methodological safeguards have been employed: the field interview protocol was structured with open-ended questions designed to permit negative responses; all retailer outcomes, including refusals, were recorded; and the sample was generated through cold, in-person outreach rather than warm introductions. The reader should treat the findings as hypothesis-generating rather than hypothesis-confirming. Independent replication by a disinterested research team would substantially strengthen the evidence base.</p>
+<p>The author is the founder of Mykei Securities Ltd, the company developing the ADN-1 device that operationalises the doctrine examined in this paper. This dual role as researcher and commercial participant introduces an obvious potential for confirmation bias. Several methodological safeguards were employed: the field interview protocol was structured with open-ended questions designed to permit negative responses; all retailer outcomes, including refusals, were recorded; and the sample was generated through cold, in-person outreach rather than warm introductions. The reader should treat the findings as hypothesis-generating rather than hypothesis-confirming. Independent replication by a disinterested research team would substantially strengthen the evidence base.</p>
 
 <h3>1.5 Scope and Limitations</h3>
 <p>This paper focuses on independent retail environments in the United Kingdom, with comparative reference to data from the United States, the European Union, and Australia. The primary field research is confined to Greater Manchester, with a sample frame of 23 completed interviews. The paper is best understood as the opening statement in a research programme. The questions it raises are more important than the answers it provides.</p>
 
-<hr>
-
+<!-- ══════════════════════════════════════════════ SECTION 2 -->
 <h2>2. Literature Review</h2>
 
 <h3>2.1 Deterrence Theory and the Rational Offender</h3>
-<p>Becker's (1968) economic model of crime establishes that individuals engage in criminal activity when the expected utility exceeds the expected cost. The relationship is expressed as:</p>
-<div class="formula">E(U) = (1 − p)G − pC</div>
-<p>where <em>p</em> is the probability of punishment, <em>G</em> is the gain from a successful act, and <em>C</em> is the cost of punishment. Most retail security interventions operate on the cost side: CCTV increases detection probability, EAS tags raise physical difficulty, and prosecution escalates penal severity. Yet the persistence and growth of organised retail crime, with the UK charge rate for shoplifting at approximately 11 percent (Home Office, 2025), suggests that cost-side interventions are insufficient. If <em>G</em> approaches zero because the stolen item cannot be liquidated, the equation collapses regardless of the probability of punishment. This is the theoretical premise of Economic Sterilisation: it does not increase <em>p</em> or <em>C</em>. It reduces <em>G</em>.</p>
+<p>Becker (1968) establishes that individuals engage in criminal activity when the expected utility exceeds the expected cost. The relationship is expressed as:</p>
+<div class="equation"><em>E</em>(<em>U</em>) = (1 − <em>p</em>)<em>G</em> − <em>pC</em></div>
+<p>where <em>p</em> is the probability of punishment, <em>G</em> is the gain from a successful act, and <em>C</em> is the cost of punishment. Most retail security interventions operate on the cost side: CCTV increases detection probability, EAS tags raise physical difficulty, and prosecution escalates penal severity. Yet the persistence and growth of organised retail crime, with the UK charge rate for shoplifting at approximately 11 per cent (Home Office, 2025), suggests that cost-side interventions are insufficient. If <em>G</em> approaches zero because the stolen item cannot be liquidated, the equation collapses regardless of the probability of punishment. This is the theoretical premise of Economic Sterilisation: it does not increase <em>p</em> or <em>C</em>. It reduces <em>G</em>.</p>
 
 <h3>2.2 Situational Crime Prevention</h3>
-<p>Clarke's (1980, 2008) situational crime prevention framework proposes 25 techniques for reducing crime opportunities organised under five categories: increase the effort, increase the risks, reduce the rewards, reduce provocations, and remove excuses. The "reduce the rewards" category includes property marking, removing targets, and disrupting markets. However, existing techniques primarily target physical goods recovery rather than digital resale channels (Sidebottom, 2011; European Crime Prevention Network, 2023). This paper identifies a gap: a sub-category of "digital resale channel disruption" has not been operationalised. Economic Sterilisation is proposed as the first systematic attempt to operationalise this sub-category.</p>
+<p>Clarke (1980, 2008) proposes 25 techniques for reducing crime opportunities, organised under five categories: increase the effort, increase the risks, reduce the rewards, reduce provocations, and remove excuses. The 'reduce the rewards' category includes property marking, removing targets, and disrupting markets. However, existing techniques primarily target physical goods recovery rather than digital resale channels (Sidebottom, Tilley and Eck, 2011; European Crime Prevention Network, 2023). This paper identifies a gap in the Clarke typology: a sub-category of autonomous digital resale disruption has not been operationalised. Economic Sterilisation is proposed as the first systematic attempt to fill this gap.</p>
 
 <h3>2.3 Routine Activity Theory</h3>
-<p>Felson and Cohen's (1979) routine activity theory defines crime as the convergence of a motivated offender, a suitable target, and the absence of capable guardianship in time and space. Economic Sterilisation modifies the target itself post-theft, rendering it commercially inert. The target, once marked and registered, is no longer suitable for resale.</p>
+<p>Felson and Cohen (1979) define crime as the convergence of a motivated offender, a suitable target, and the absence of capable guardianship in time and space. Economic Sterilisation modifies the target itself post-theft, rendering it commercially inert. The target, once marked and registered, is no longer suitable for resale, disrupting the convergence of the three elements after the initial criminal act.</p>
 
 <h3>2.4 Forensic Marking: Current Practice and Limitations</h3>
 <p>SelectaDNA and SmartWater represent the state of the art in forensic property marking. The deployment model is passive: the mark is not linked to any autonomous detection system, and no real-time registry connects marked items to resale platforms. While forensic marking has contributed to over 3,000 UK prosecutions, it has not addressed the immediate economic incentive of organised retail crime: the speed and anonymity of online resale. The gap is not in the chemistry. It is in the infrastructure connecting the chemical mark to the market.</p>
 
 <h3>2.5 Displacement and Diffusion of Benefits</h3>
-<p>Sidebottom et al. (2011) found that situational measures often displace crime geographically rather than eliminate it. The framework assumes deterrence effects are density-dependent: at low adoption, displacement is likely; at higher local adoption thresholds, the economic viability of targeting a retail cluster may decline, analogous to the burglar alarm adoption S-curve identified by Tilley et al. (2015).</p>
+<p>Sidebottom, Tilley and Eck (2011) found that situational measures often displace crime geographically rather than eliminate it. The European Crime Prevention Network (2023) corroborated this finding in the context of retail theft across European cities. The framework presented in this paper assumes that deterrence effects are density-dependent: at low adoption, displacement is likely; at higher local adoption thresholds, the economic viability of targeting a retail cluster may decline, analogous to the burglar alarm adoption S-curve identified by Tilley et al. (2015).</p>
 
 <h3>2.6 The Resale Platform Accelerant</h3>
 <p>The rise of online resale platforms has been identified as a primary accelerant of organised retail crime post-2020 (Europol, 2024; National Business Crime Centre, 2024). Platforms such as Vinted, with over 100 million users across 20 countries, offer near-instantaneous, low-friction, and often anonymous transaction environments. The Online Safety Act 2023 imposes duties on platforms to address illegal content, but enforcement mechanisms remain nascent.</p>
 
 <h3>2.7 Gaps in the Literature</h3>
-<p>Three key gaps are identified. First, no current security technology provides an integrated, real-time chain from theft detection to marketplace flagging. Second, the criminological typology of "removing rewards" has not been extended to accommodate autonomous digital resale disruption. Third, there is no publicly available primary field data on retailer receptivity to an incentive-based, rather than detection-based, security model.</p>
+<p>Three key gaps are identified. First, no current security technology provides an integrated, real-time chain from theft detection to marketplace flagging. Second, the criminological typology of reducing rewards has not been extended to accommodate autonomous digital resale disruption. Third, there is no publicly available primary field data on retailer receptivity to an incentive-based, rather than detection-based, security model. This paper seeks to address each of these gaps.</p>
 
-<hr>
-
+<!-- ══════════════════════════════════════════════ SECTION 3 -->
 <h2>3. Research Design and Methodology</h2>
 
 <h3>3.1 Approach</h3>
-<p>This study employed a mixed-methods design, combining secondary data analysis with primary qualitative field research. The secondary analysis drew on published crime statistics from the BRC, ACS, NRF, EuroCommerce, and national policing agencies.</p>
+<p>This study employed a mixed-methods design, combining secondary data analysis with primary qualitative field research. The secondary analysis drew on published crime statistics from the BRC, ACS, NRF, EuroCommerce, and national policing agencies, as well as theoretical literature in criminology and economics.</p>
 
 <h3>3.2 Primary Field Research</h3>
-<p>The primary research was conducted through in-person, structured interviews with independent retailers in Greater Manchester between 1 February and 15 March 2026. Greater Manchester was selected due to the region's variation in retail density, crime rates, and socioeconomic composition, with Greater Manchester Police data indicating retail crime above the national average (GMP, 2024).</p>
+<p>The primary research was conducted through in-person, structured interviews with independent retailers in Greater Manchester between 1 February and 15 March 2026. Greater Manchester was selected due to the region's variation in retail density, crime rates, and socioeconomic composition, with Greater Manchester Police (2024) data indicating retail crime above the national average and identified organised retail crime corridors in Cheetham Hill, Moston, and Longsight.</p>
 
 <h3>3.3 Sample and Recruitment</h3>
-<p>The sample frame comprised 23 independent retailers, defined as single-site or small-chain (fewer than five sites) brick-and-mortar businesses. Retailers were identified through geographic canvassing of high streets in Whitefield, Cheetham Hill, Moston, Prestwich, and Bury. This cold, in-person method was chosen to minimise selection bias. No prior relationships were leveraged and no retailers were pre-screened for receptiveness.</p>
+<p>The sample frame comprised 23 independent retailers, defined as single-site or small-chain (fewer than five sites) brick-and-mortar businesses. Retailers were identified through geographic canvassing of high streets and retail parades in Whitefield, Cheetham Hill, Moston, Prestwich, and Bury. Every eligible retail business encountered was approached. This cold, in-person method was deliberately chosen to minimise selection bias. No prior relationships were leveraged and no retailers were pre-screened for receptiveness.</p>
 
 <h3>3.4 Interview Protocol</h3>
 <p>Each interview followed a structured five-question protocol, administered before any discussion of price or product commitment:</p>
@@ -323,59 +299,68 @@
   <li>If a device could detect and mark a bulk sweep attempt autonomously, would that be useful to you, and why or why not?</li>
   <li>What would you expect to pay for a device that worked as described?</li>
 </ol>
+<p>Question 4 was deliberately designed to permit a negative response, to avoid confirmation bias. Question 5 introduced a price range of £100–£200 setup and £30–£50 monthly subscription, rather than a fixed number, to avoid anchoring effects.</p>
 
-<h3>3.5 Methodological Limitations</h3>
+<h3>3.5 Outcome Recording</h3>
+<p>Retailers who expressed interest were offered the opportunity to sign a non-binding Letter of Intent (LOI), committing to pilot participation and feedback provision with no financial obligation. Retailers who declined or were sceptical were recorded with the same level of detail. No payment or incentive was offered.</p>
+
+<h3>3.6 Methodological Limitations</h3>
+<p>This study has several significant limitations:</p>
 <ul>
-  <li>The sample size of 23 represents less than one percent of the estimated 2,800 independent retailers in Greater Manchester. The findings are not statistically generalisable.</li>
-  <li>The research was conducted by the author, who has a commercial interest in the ADN-1, introducing potential for confirmation bias that methodological safeguards mitigate but cannot eliminate.</li>
+  <li>The sample of 23 represents less than one per cent of the estimated 2,800 independent retailers in Greater Manchester. The findings are not statistically generalisable.</li>
+  <li>The research was conducted by the author, who has a commercial interest in the ADN-1. Methodological safeguards mitigate but cannot eliminate the risk of confirmation bias.</li>
   <li>No control group was included. No longitudinal outcomes are tracked at this stage.</li>
-  <li>The study is best regarded as a preliminary field exploration that identifies themes and hypotheses for larger-scale investigation.</li>
+  <li>The study is best regarded as preliminary field exploration that identifies themes and hypotheses for larger-scale investigation.</li>
 </ul>
 
-<hr>
-
+<!-- ══════════════════════════════════════════════ SECTION 4 -->
 <h2>4. The Doctrine Defined</h2>
 
 <h3>4.1 Formal Definition</h3>
 <p>Economic Sterilisation is defined as the removal of resale value from stolen goods at or immediately after the point of theft, such that the expected economic return of theft is materially reduced.</p>
 
 <h3>4.2 Theoretical Positioning</h3>
-<p>The doctrine extends classical deterrence theory, particularly Becker (1968), by intervening not at the point of risk but at the point of reward. Traditional security measures increase the perceived cost of offending. Economic Sterilisation reduces the expected benefit, thereby altering the underlying cost-benefit calculation. It is a demand-side intervention against the criminal supply chain, not a supply-side intervention at the shelf.</p>
+<p>The doctrine extends classical deterrence theory, particularly Becker (1968), by intervening not at the point of risk but at the point of reward. Traditional security measures increase the perceived cost of offending. Economic Sterilisation reduces the expected benefit, thereby altering the underlying cost-benefit calculation that governs rational criminal behaviour. It is a demand-side intervention against the criminal supply chain, not a supply-side intervention at the shelf.</p>
 
-<h3>4.3 Three Integrated Components</h3>
+<h3>4.3 Mechanism</h3>
+<p>Organised retail theft operates on a simple equation: expected value equals the probability of successful resale multiplied by the resale price. If resale is reliable, theft is viable. If resale becomes uncertain or legally risky, the expected value collapses. A store becomes unattractive not because it is watched, but because its goods are not worth taking.</p>
+
+<h3>4.4 Three Integrated Components</h3>
 <p><strong>Physical Layer — Forensic Marking.</strong> Synthetic DNA markers are deployed at the moment of confirmed theft. These markers bond to goods, packaging, and skin, are invisible under normal conditions, verifiable under UV light, and carry unique batch identifiers linked to specific events.</p>
 <p><strong>Digital Layer — Event Registration.</strong> Each deployment generates a structured forensic event record containing a timestamp, device identifier, location reference, and marker batch code. This record is transmitted securely and stored within a central registry. Each record is cryptographically signed and rendered immutable.</p>
-<p><strong>Market Layer — Resale Disruption.</strong> Registered batch identifiers are cross-referenced against listings on secondary marketplaces. At present, marketplace integration is conceptual and subject to platform cooperation. The current system architecture is designed to support such integration.</p>
+<p><strong>Market Layer — Resale Disruption.</strong> Registered batch identifiers are cross-referenced against listings on secondary marketplaces. At present, marketplace integration is conceptual and subject to platform cooperation. The system architecture is designed to support such integration, which will be tested through pilot partnerships.</p>
 
-<h3>4.4 Provisional Status</h3>
-<p>The doctrine as presented here is provisional. It is a hypothesis about the mechanism by which retail crime might be reduced, not a statement of proven effect. Each component requires independent validation. The doctrine would be challenged if resale disruption does not produce measurable changes in repeat targeting behaviour under controlled or quasi-controlled conditions.</p>
+<h3>4.5 Doctrine Distinct from Device</h3>
+<p>Economic Sterilisation is a conceptual framework. The ADN-1 is the first physical implementation. The doctrine could be implemented through other hardware configurations, provided they achieve the same three-component chain. The patent application (GB2606630.8, 17 claims) protects the specific integrated sequence, but the underlying doctrine is not patent-bound. It is a framework for investigation and policy debate.</p>
 
-<hr>
+<h3>4.6 Provisional Status</h3>
+<p>The doctrine as presented here is provisional. It is a hypothesis about the mechanism by which retail crime might be reduced, not a statement of proven effect. Each component requires independent validation. The framework is intended to be refined, challenged, or replaced as evidence accumulates.</p>
 
+<!-- ══════════════════════════════════════════════ SECTION 5 -->
 <h2>5. Technical Implementation: The ADN-1 System</h2>
 
 <h3>5.1 System Architecture</h3>
-<p>The ADN-1 Active Forensic Defence Node instantiates the Economic Sterilisation doctrine in a single, integrated unit. It performs four sequential functions: detection, confirmation, deployment, and registration.</p>
-<div class="formula">Detection → Confirmation → Marking → Registry → Marketplace Flagging</div>
+<p>The ADN-1 Active Forensic Defence Node instantiates the Economic Sterilisation doctrine in a single, integrated unit. It performs four sequential functions: detection, confirmation, deployment, and registration. The operational sequence is as follows: Detection → Confirmation → Marking → Registry → Marketplace Flagging.</p>
 
 <h3>5.2 Detection</h3>
-<p>Dual Time-of-Flight sensors operating at 940nm and delivering 30 readings per second per sensor monitor movement patterns across a defined shelf zone. The device mounts on the front price rail of a standard gondola shelf via a neodymium magnetic strip, requiring no drilling or mains wiring. A bilateral kinetic signature classifier requires both sensors to independently confirm a sweep event. The classifier runs entirely on-device, requiring no internet connection for the trigger decision.</p>
+<p>Dual VL53L1X Time-of-Flight sensors, operating at 940nm and delivering 30 readings per second per sensor, monitor movement patterns across a defined shelf zone. The device mounts on the front price rail of a standard gondola shelf via a neodymium magnetic strip, requiring no drilling or mains wiring. A bilateral kinetic signature classifier requires both sensors to independently confirm a sweep event within a defined time window. The classifier runs entirely on-device, requiring no internet connection for the trigger decision.</p>
 
 <h3>5.3 Confirmation and Deployment</h3>
-<p>A validation window filters out false triggers caused by restocking, isolated item handling, or normal browsing. Upon confirmation, a forensic marker is dispersed within 200 milliseconds of trigger. Coverage radius is approximately 1.2 metres.</p>
+<p>A short validation window filters out false triggers caused by restocking activity, isolated item handling, or normal customer browsing. Upon confirmation, a piezoelectric ultrasonic atomiser disperses a controlled forensic marker within 200 milliseconds of trigger. Coverage radius is approximately 1.2 metres.</p>
 
 <h3>5.4 Registration</h3>
-<p>Event data is transmitted to the Toxic Inventory Registry via encrypted channel. The event payload includes a UTC timestamp, device ID, store identifier, batch code, sensor readings, and a cryptographic event hash. No personal data is collected or stored.</p>
+<p>Event data is transmitted via MQTT over TLS 1.3 to the Toxic Inventory Registry, hosted on AWS IoT Core. The event payload includes a UTC timestamp, device ID, store identifier, batch code, sensor readings, and a SHA-256 event hash. No personal data is collected or stored. Event data is accessible to authorised law enforcement partners through a secure interface, subject to applicable legal frameworks.</p>
 
-<h3>5.5 Physical Specifications</h3>
-<p>Enclosure: 150mm × 40mm × 32mm. Power: USB-C. Mounting: neodymium magnetic strip to standard gondola price rail. Installation time: under five minutes. Unit cost at prototype: £99.25. Target production COGS at volume: £75.50.</p>
+<h3>5.5 Design Principles and Physical Specifications</h3>
+<p>The device has no camera, no microphone, no biometric sensors, and minimal local data retention. GDPR compliance is achieved through architectural exclusion of personal data, not policy controls. Enclosure dimensions: 150mm × 40mm × 32mm. Power: USB-C. Mounting: neodymium magnetic strip to standard gondola price rail. Installation time: under five minutes. Unit cost at prototype: £99.25. Target production COGS at volume: £75.50.</p>
 
-<hr>
-
+<!-- ══════════════════════════════════════════════ SECTION 6 -->
 <h2>6. Primary Field Research Findings</h2>
 
 <h3>6.1 Sample Characteristics</h3>
+<p>Table 1 summarises the five pilot Letter of Intent interviews drawn from the 23-retailer sample.</p>
 
+<p><strong>Table 1:</strong> Anonymised summary of completed pilot interviews</p>
 <table>
   <thead>
     <tr>
@@ -392,28 +377,33 @@
 </table>
 
 <h3>6.2 Aggregate Field Observations</h3>
+<p>Across all 23 completed interviews, the following patterns emerged:</p>
 <ul>
-  <li>100% of retailers reported repeat offenders as a significant problem.</li>
-  <li>0% believed CCTV provided meaningful deterrence against organised theft.</li>
-  <li>Approximately 78% expressed willingness to trial non-confrontational, autonomous security solutions.</li>
-  <li>Pricing sensitivity clustered at £100–£200 setup and £30–£50 monthly subscription.</li>
-  <li>The primary concern was not cost but the device's ability to operate without staff intervention.</li>
+  <li>100 per cent of retailers reported repeat offenders as a significant problem.</li>
+  <li>0 per cent believed CCTV provided meaningful deterrence against organised theft.</li>
+  <li>Approximately 78 per cent expressed willingness to trial non-confrontational, autonomous security solutions.</li>
+  <li>Pricing sensitivity clustered at the £100–£200 setup range and £30–£50 monthly subscription range.</li>
+  <li>The primary concern cited was not cost but the device's ability to operate without staff intervention.</li>
 </ul>
 
 <h3>6.3 Thematic Analysis</h3>
 <p><strong>Security inadequacy.</strong> CCTV was described consistently as a deterrent at best and ineffective against determined offenders. The limitation is structural: recording a crime does not prevent it from being profitable.</p>
-<p><strong>Demand for autonomous intervention.</strong> Hands-free, autonomous marking resonated strongly, particularly among retailers with lone-working staff.</p>
-<p><strong>Intuitive alignment with economic logic.</strong> Retailers' own language often anticipated the logic of Economic Sterilisation before the term was introduced. Comments such as "hits them where it hurts" and "they'll stop once they know goods can't be sold" suggest that the doctrine's central premise aligns with intuitive retailer understanding.</p>
+<p><strong>Demand for autonomous intervention.</strong> The concept of hands-free, autonomous marking resonated strongly, particularly among retailers with lone-working staff. The prospect of a device acting without staff involvement removes the risk of confrontation.</p>
+<p><strong>Intuitive alignment with economic logic.</strong> Retailers' own language often anticipated the logic of Economic Sterilisation before the term was introduced. Comments such as 'hits them where it hurts' and 'they'll stop once they know goods can't be sold' suggest that the doctrine's central premise aligns with intuitive retailer understanding of the problem.</p>
 
 <h3>6.4 Interpretive Caution</h3>
 <p>The five LOI signatories represent a self-selecting group of early adopters. Their responses may not generalise to the broader independent retail population. The positive conceptual receptivity establishes that the concept is intelligible and that some retailers are willing to pilot it. It does not establish that widespread adoption will occur, nor that adoption will produce the theorised reduction in theft.</p>
 
-<hr>
-
+<!-- ══════════════════════════════════════════════ SECTION 7 -->
 <h2>7. Economic Analysis</h2>
 
-<h3>7.1 Unit Economics for Retailers</h3>
+<h3>7.1 The Criminal Business Model</h3>
+<p>Organised retail crime functions as a structured economic activity with three stages: acquisition (theft), distribution (resale), and repeat. The model depends on the predictability and reliability of the liquidation phase. If stolen goods become unsellable, the acquisition phase loses its economic rationale.</p>
 
+<h3>7.2 Unit Economics for Retailers</h3>
+<p>The average independent retailer operates on margins of 3–5 per cent. At £40 per month, the ADN-1 subscription cost is exceeded by a single prevented theft event worth approximately £480 per year. Table 2 sets out the break-even analysis by basket value.</p>
+
+<p><strong>Table 2:</strong> Break-even analysis by basket value</p>
 <table>
   <thead>
     <tr><th>Basket Value</th><th>Monthly Cost</th><th>Events to Break Even</th><th>Annual Net Position</th></tr>
@@ -427,40 +417,43 @@
   </tbody>
 </table>
 
-<h3>7.2 Network Effects and Adoption Thresholds</h3>
-<p>The framework assumes deterrence effects are density-dependent. At low adoption, displacement to unprotected stores is likely. At higher local adoption thresholds, the economic viability of targeting a retail cluster may decline. The burglar alarm adoption S-curve (Tilley et al., 2015), which identifies approximately 30 percent penetration as a tipping point for area-wide effects, provides a provisional analogue.</p>
+<h3>7.3 Network Effects and Adoption Thresholds</h3>
+<p>The framework assumes that deterrence effects are density-dependent. At low adoption, displacement to unprotected stores is likely. At higher local adoption thresholds, the economic viability of targeting a retail cluster may decline as resale uncertainty increases across the area. The precise threshold is unknown and requires longitudinal study. The burglar alarm adoption S-curve (Tilley et al., 2015), which identifies approximately 30 per cent penetration as a tipping point for area-wide effects, provides a provisional analogue.</p>
 
-<h3>7.3 Company Economics</h3>
-<p>Prototype COGS: £99.25. Target production COGS at volume: £75.50. Break-even is nine paying customers at production COGS. Five LOIs are secured. The business model is hardware-enabled SaaS, with subscription margins of 70–80 percent.</p>
+<h3>7.4 Company Economics</h3>
+<p>Prototype COGS: £99.25. Target production COGS at volume: £75.50. Break-even for the company is nine paying customers at production COGS. Five LOIs are secured. The business model is hardware-enabled SaaS, with subscription margins of 70–80 per cent.</p>
 
-<hr>
-
+<!-- ══════════════════════════════════════════════ SECTION 8 -->
 <h2>8. Discussion</h2>
 
-<h3>8.1 Theoretical Contribution</h3>
-<p>This paper makes two theoretical contributions. First, it proposes Economic Sterilisation as an extension of Clarke's (1980) situational crime prevention framework, introducing a sub-category of autonomous digital resale disruption within the "remove the rewards" category. Second, it positions the doctrine within Becker's (1968) rational choice model as an intervention operating on the return side of the cost-benefit calculation.</p>
+<h3>8.1 Synthesis of Findings</h3>
+<p>The field findings, while limited, provide initial evidence that the Economic Sterilisation doctrine resonates with independent retailers at a practical level. The consistent themes of CCTV inadequacy, demand for autonomous intervention, and intuitive acceptance of incentive-based logic suggest that the doctrine addresses a genuine market gap. This is not validation of the doctrine's effectiveness. It is validation of its intelligibility and market relevance.</p>
 
-<h3>8.2 Unresolved Questions</h3>
+<h3>8.2 Theoretical Contribution</h3>
+<p>This paper makes two theoretical contributions. First, it proposes Economic Sterilisation as an extension of Clarke (1980) by introducing a sub-category of autonomous digital resale disruption within the 'remove the rewards' category of situational crime prevention. Second, it positions the doctrine within Becker's (1968) rational choice model as an intervention operating on the return side of the cost-benefit calculation, rather than the cost side.</p>
+
+<h3>8.3 Unresolved Questions</h3>
+<p>Several questions remain open and define the research programme that follows from this working paper:</p>
 <ul>
   <li><strong>Adoption thresholds.</strong> What deployment density is required to produce a measurable reduction in organised retail crime at the area level?</li>
-  <li><strong>Displacement vs. desistance.</strong> Does Economic Sterilisation cause offenders to exit criminal activity or merely relocate it?</li>
+  <li><strong>Displacement versus desistance.</strong> Does Economic Sterilisation cause offenders to exit criminal activity or merely relocate it?</li>
   <li><strong>Platform integration.</strong> The willingness of resale platforms to integrate external registry data is untested.</li>
   <li><strong>Adversarial adaptation.</strong> How quickly do organised retail crime networks adapt, and what countermeasures emerge?</li>
   <li><strong>Privacy and ethics.</strong> A forensic registry raises questions about data governance, retention, and function creep that require careful treatment.</li>
 </ul>
 
-<h3>8.3 Falsifiability</h3>
+<h3>8.4 Falsifiability</h3>
 <p>The doctrine would be challenged if resale disruption does not produce measurable changes in repeat targeting behaviour under controlled or quasi-controlled conditions. The Manchester Alpha Pilot is the first step toward testing this empirically.</p>
 
-<hr>
-
+<!-- ══════════════════════════════════════════════ SECTION 9 -->
 <h2>9. Conclusion</h2>
+
 <p>Retail security has focused on controlling behaviour at the shelf. Economic Sterilisation shifts the intervention point to the market. If stolen goods cannot be sold, theft ceases to function as an economic activity. The question this paper raises is not whether theft can be prevented, but whether it can be made economically irrational at scale.</p>
 <p>The Manchester Alpha Pilot, deploying five ADN-1 units across independent retail locations in Greater Manchester during Q2 2026, will test this thesis under real conditions. If the deterrence effect is measurable, the doctrine scales. If it is not, the data will say so and the doctrine will adapt.</p>
-<p>The doctrine is offered to the research community as a working hypothesis. It may be refined, challenged, or replaced as evidence accumulates.</p>
+<p>If validated, this would represent a shift from reactive security expenditure to incentive-based deterrence, with implications not only for retail but for other forms of economically motivated crime. The doctrine is offered to the research community as a working hypothesis. It may be refined, challenged, or replaced as evidence accumulates.</p>
 
-<hr>
-
+<!-- ══════════════════════════════════════════════ REFERENCES -->
+<div class="refs-section">
 <h2>References</h2>
 <div class="refs">
   <p>ACS (2026) <em>Crime Report 2026</em>. London: Association of Convenience Stores.</p>
@@ -475,22 +468,25 @@
   <p>Greater Manchester Police (2024) <em>Retail Crime Statistics: Greater Manchester Region</em>. Manchester: GMP.</p>
   <p>Home Office (2025) <em>Crime Outcomes in England and Wales</em>. London: Home Office.</p>
   <p>National Business Crime Centre (2024) <em>Operation Opal: Organised Retail Crime Intelligence Report</em>. London: NBCC.</p>
-  <p>SelectaDNA (2024) <em>Forensic Marking: Case Record</em>. Available at: https://www.selectadna.co.uk (Accessed: 10 April 2026).</p>
+  <p>SelectaDNA (2024) <em>Forensic Marking: Case Record</em> [Online]. Available at: https://www.selectadna.co.uk (Accessed: 10 April 2026).</p>
   <p>Sidebottom, A., Tilley, N. and Eck, J.E. (2011) 'Towards a more complete model of crime displacement', <em>Crime Science</em>, 1(1), pp. 1–13.</p>
-  <p>SmartWater (2024) <em>Technology Overview</em>. Available at: https://www.smartwater.com (Accessed: 10 April 2026).</p>
+  <p>SmartWater (2024) <em>Technology Overview</em> [Online]. Available at: https://www.smartwater.com (Accessed: 10 April 2026).</p>
   <p>Tilley, N., Thompson, R., Farrell, G., Grove, L. and Tseloni, A. (2015) 'Do burglar alarms affect burglary?', <em>Journal of Experimental Criminology</em>, 11(3), pp. 373–395.</p>
 </div>
+</div>
 
-<hr>
-
+<!-- ══════════════════════════════════════════════ APPENDIX -->
+<div class="appendix-section">
 <h2>Appendix A: Anonymised Summary of Primary Research</h2>
+
+<p><strong>Table A1:</strong> Full anonymised summary — 23-retailer sample (5 LOI signatories shown; remaining 18 on file)</p>
 
 <table>
   <thead>
     <tr><th>ID</th><th>Type</th><th>Area</th><th>Est. Monthly Loss</th><th>Current Security</th><th>Hardest Theft</th><th>Receptivity</th><th>Outcome</th></tr>
   </thead>
   <tbody>
-    <tr><td>A</td><td>Jeweller</td><td>M8</td><td>£800–£1,200</td><td>CCTV, glass cases</td><td>Coordinated grabs</td><td>Positive</td><td>LOI</td></tr>
+    <tr><td>A</td><td>Jeweller</td><td>M8</td><td>£800–£1,200</td><td>CCTV, glass cases, vigilance</td><td>Coordinated grabs</td><td>Positive</td><td>LOI</td></tr>
     <tr><td>B</td><td>Grocery / General</td><td>M12</td><td>£300–£500</td><td>CCTV only</td><td>Concealment</td><td>Positive</td><td>LOI</td></tr>
     <tr><td>C</td><td>Convenience</td><td>M8</td><td>£500–£700</td><td>CCTV, tags</td><td>Repeat offenders</td><td>Positive</td><td>LOI</td></tr>
     <tr><td>D</td><td>Poundstore</td><td>M40</td><td>£200–£400</td><td>None</td><td>Bulk grabs</td><td>Positive</td><td>LOI</td></tr>
@@ -500,8 +496,9 @@
 
 <div class="doc-footer">
   Correspondence: protocol@mykei.io &nbsp;·&nbsp; mykei.io &nbsp;·&nbsp; michaelesema.com/thesis<br>
-  Working draft · Revised April 2026 · Version 2.0 · Open to peer comment<br>
+  Working draft · Revised April 2026 · Open to peer comment<br>
   Patent No. GB2606630.8 · UK Intellectual Property Office · Mykei Securities Ltd · Co. 16984969
+</div>
 </div>
 
 </body>
