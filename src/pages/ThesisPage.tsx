@@ -159,17 +159,50 @@ export default function ThesisPage() {
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.24 }}>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: MUTED, marginBottom: 4 }}>
-              Michael Esema &nbsp;|&nbsp; Mykei Securities Ltd, Manchester
+              <strong>Michael Esema</strong>, MBA, MSc &nbsp;|&nbsp; Mykei Securities Ltd, Manchester, UK
             </p>
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: '#88887F', marginBottom: 8 }}>
-              First published 2025. Revised April 2026.
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#88887F', marginBottom: 8 }}>
+              First published 2025 · Revised April 2026 · Version 2.0
             </p>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: GOLD, fontWeight: 600, marginBottom: 8 }}>
-              Status: Working draft. Revised April 2026. Open to peer comment.
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: GOLD, fontWeight: 600, marginBottom: 6 }}>
+              Status: Working draft. Open to peer comment.
             </p>
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#88887F', marginBottom: 48 }}>
-              Patent No. 2606630.8 · UK Intellectual Property Office · Filed 23 March 2026
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#88887F', marginBottom: 20 }}>
+              Patent No. GB2606630.8 · UK Intellectual Property Office · Filed 26 March 2026 · 17 claims
             </p>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#88887F', marginBottom: 4 }}>
+              Correspondence: protocol@mykei.io
+            </p>
+            {/* Download and cite row */}
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' as const, marginBottom: 48, marginTop: 20 }}>
+              <a
+                href="/thesis/economic-sterilisation.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  background: INK, color: '#FAF8F3',
+                  fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
+                  letterSpacing: '0.14em', textTransform: 'uppercase' as const,
+                  padding: '10px 20px', borderRadius: 3, textDecoration: 'none',
+                }}
+              >
+                ↓ Download PDF
+              </a>
+              <a
+                href="#cite"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  border: `1px solid ${BORDER}`, color: MUTED,
+                  fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
+                  letterSpacing: '0.14em', textTransform: 'uppercase' as const,
+                  padding: '10px 20px', borderRadius: 3, textDecoration: 'none',
+                  background: BG_WHITE,
+                }}
+              >
+                Cite this paper
+              </a>
+            </div>
           </motion.div>
 
           {/* Abstract */}
@@ -219,6 +252,29 @@ export default function ThesisPage() {
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: GOLD, minWidth: 20 }}>{num}</span>
                 <span>{title}</span>
                 {expanding && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: GOLD, letterSpacing: '0.12em', opacity: 0.75 }}>· in progress</span>}
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Citation block */}
+          <motion.div
+            id="cite"
+            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}
+            style={{ background: BG_WHITE, border: `1px solid ${BORDER}`, borderRadius: 4, padding: '24px 32px', marginTop: 24 }}
+          >
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase' as const, color: GOLD, marginBottom: 14 }}>How to Cite</p>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11.5, lineHeight: 1.8, color: MUTED, marginBottom: 16, background: BG_WARM, padding: '12px 16px', borderRadius: 3 }}>
+              Esema, M. (2026) 'Economic Sterilisation: A Working Paper on Incentive-Based Retail Crime Deterrence', <em>Working Paper</em>. Manchester: Mykei Securities Ltd. Available at: michaelesema.com/thesis (Accessed: April 2026). Version 2.0.
+            </p>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: MUTED, marginBottom: 10, marginTop: 18 }}>Version History</p>
+            {([
+              ['v2.0', 'April 2026', 'Revised framing — working paper status; positionality section added; open questions and limitations expanded; 11-point research agenda added.'],
+              ['v1.0', '2025', 'Initial publication. Theoretical framework, ADN-1 technical specification, primary field research (5 retailers, Greater Manchester).'],
+            ] as [string, string, string][]).map(([ver, date, note]) => (
+              <div key={ver} style={{ display: 'flex', gap: 16, paddingBottom: 8, fontFamily: "'Outfit', sans-serif", fontSize: 13, color: MUTED, borderBottom: `1px solid ${BORDER}`, paddingTop: 8 }}>
+                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: GOLD, minWidth: 36, flexShrink: 0 }}>{ver}</span>
+                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: MUTED, minWidth: 64, flexShrink: 0 }}>{date}</span>
+                <span style={{ fontSize: 13 }}>{note}</span>
               </div>
             ))}
           </motion.div>
