@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'ScholarlyArticle',
-  headline: 'Economic Sterilisation: A Framework for Incentive-Based Retail Crime Deterrence',
+  headline: 'Economic Sterilisation: A Working Paper on Incentive-Based Retail Crime Deterrence',
   alternativeHeadline: 'Removing the Commercial Incentive for Retail Theft Through Forensic Marking and Real-Time Marketplace Flagging',
   description: 'A scholarly working paper examining Economic Sterilisation: the doctrine that stolen goods, once forensically marked and flagged across digital marketplaces, collapse in resale value and therefore in theft value. Primary field research conducted across five independent retailers in Greater Manchester, February to March 2026.',
   author: {
@@ -100,7 +100,7 @@ export default function ThesisPage() {
   const scriptRef = useRef<HTMLScriptElement | null>(null)
 
   useEffect(() => {
-    document.title = 'Economic Sterilisation: A Framework for Incentive-Based Retail Crime Deterrence | Michael Esema'
+    document.title = 'Economic Sterilisation: A Working Paper on Incentive-Based Retail Crime Deterrence | Michael Esema'
     const canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
     if (canonical) canonical.href = 'https://michaelesema.com/thesis'
     const script = document.createElement('script')
@@ -125,9 +125,20 @@ export default function ThesisPage() {
         paddingRight: 24,
       }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
+          {/* Research in progress banner */}
+          <motion.div
+            initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'rgba(184,150,46,0.10)', border: '1px solid rgba(184,150,46,0.35)', borderRadius: 3, padding: '7px 14px', marginBottom: 28 }}
+          >
+            <span style={{ width: 7, height: 7, borderRadius: '50%', background: GOLD, display: 'inline-block', animation: 'pulse 2s infinite' }} />
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase' as const, color: GOLD }}>
+              Research in Progress · Live Draft · Updated April 2026
+            </span>
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-            style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: GOLD, marginBottom: 28 }}
+            style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase' as const, color: MUTED, marginBottom: 28 }}
           >
             Working Paper · Mykei Securities Ltd · 2025
           </motion.p>
@@ -136,7 +147,7 @@ export default function ThesisPage() {
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }}
             style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 700, fontStyle: 'italic', lineHeight: 1.25, color: INK, marginBottom: 20 }}
           >
-            Economic Sterilisation: A Framework for Incentive-Based Retail Crime Deterrence
+            Economic Sterilisation: A Working Paper on Incentive-Based Retail Crime Deterrence
           </motion.h1>
 
           <motion.p
@@ -150,8 +161,11 @@ export default function ThesisPage() {
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: MUTED, marginBottom: 4 }}>
               Michael Esema &nbsp;|&nbsp; Mykei Securities Ltd, Manchester
             </p>
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: '#88887F', marginBottom: 12 }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: '#88887F', marginBottom: 8 }}>
               First published 2025. Revised April 2026.
+            </p>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: GOLD, fontWeight: 600, marginBottom: 8 }}>
+              Status: Working draft. Revised April 2026. Open to peer comment.
             </p>
             <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#88887F', marginBottom: 48 }}>
               Patent No. 2606630.8 · UK Intellectual Property Office · Filed 23 March 2026
@@ -165,7 +179,18 @@ export default function ThesisPage() {
           >
             <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, letterSpacing: '0.16em', textTransform: 'uppercase', color: GOLD, marginBottom: 14 }}>Abstract</p>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, lineHeight: 1.85, color: MUTED, margin: 0 }}>
-              Retail theft in the United Kingdom reached £1.8 billion in annual shrinkage in 2024, representing a 27% increase on the 2022 figure, despite sustained investment in conventional deterrence infrastructure. This paper argues that deterrence-based retail security has reached a structural ceiling because it addresses the act of theft without addressing the commercial incentive for theft. A new doctrine is proposed: Economic Sterilisation, defined as the systematic elimination of resale value from stolen goods through real-time forensic marking, cloud registration via the Toxic Inventory Registry (TIR), and automated marketplace flagging. The paper sets the doctrine against existing criminological theory, reviews the global evidence base across four jurisdictions, examines the technical implementation through the ADN-1 device, and presents primary qualitative field research conducted across five independent retailers in Greater Manchester between February and March 2026. All five retailers signed Letters of Intent following initial outreach, providing qualitative evidence of market readiness and commercial viability at the unit economics level. The doctrine is protected under Patent No. 2606630.8 (UK Intellectual Property Office, filed 23 March 2026). The paper concludes that Economic Sterilisation addresses the structural failure of deterrence by operating at the revenue layer of retail crime rather than the cost layer, and that threshold adoption within defined geographic retail clusters is sufficient to materially reduce the expected return from organised retail crime.
+              Retail theft in the United Kingdom reached £1.8 billion in annual shrinkage in 2024, representing a 27% increase on the 2022 figure, despite sustained investment in conventional deterrence infrastructure. This paper proposes that deterrence-based retail security has reached a structural ceiling because it addresses the act of theft without addressing the commercial incentive for theft. A new doctrine is introduced: Economic Sterilisation, defined as the systematic elimination of resale value from stolen goods through real-time forensic marking, cloud registration via the Toxic Inventory Registry (TIR), and automated marketplace flagging. The paper sets the doctrine against existing criminological theory, reviews the global evidence base across four jurisdictions, explores the technical implementation through the ADN-1 device, and presents primary qualitative field research conducted across five independent retailers in Greater Manchester between February and March 2026. All five retailers signed Letters of Intent following initial outreach, providing early qualitative evidence of market readiness and commercial viability at the unit economics level. The doctrine is protected under Patent No. 2606630.8 (UK Intellectual Property Office, filed 23 March 2026). The paper presents the hypothesis that Economic Sterilisation addresses the structural failure of deterrence by operating at the revenue layer of retail crime rather than the cost layer, and that threshold adoption within defined geographic retail clusters may materially reduce the expected return from organised retail crime. This hypothesis requires validation through controlled, longitudinal research. The author welcomes correspondence, critique, and collaboration from researchers and practitioners in criminology, retail security, and platform regulation.
+            </p>
+          </motion.div>
+
+          {/* Research status note */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.40 }}
+            style={{ border: `1px solid ${BORDER}`, borderRadius: 4, padding: '18px 24px', marginBottom: 32, background: BG_WHITE }}
+          >
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase' as const, color: MUTED, marginBottom: 10 }}>Research Status</p>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, lineHeight: 1.75, color: MUTED, margin: 0 }}>
+              This document is a live working paper. The theoretical framework and primary field research (Sections 1–7) reflect completed work. Sections 8–11 are being refined as the Manchester Alpha Pilot commences and real-world efficacy data becomes available. References and policy analysis will be expanded in the next revision. Sections marked for further development are noted inline.
             </p>
           </motion.div>
 
@@ -175,24 +200,25 @@ export default function ThesisPage() {
             style={{ background: BG_WHITE, border: `1px solid ${BORDER}`, borderRadius: 4, padding: '24px 32px' }}
           >
             <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, letterSpacing: '0.16em', textTransform: 'uppercase', color: GOLD, marginBottom: 16 }}>Contents</p>
-            {[
-              ['1', 'Introduction and Research Objectives'],
-              ['2', 'Literature Review'],
-              ['3', 'Research Design and Methodology'],
-              ['4', 'The Global Evidence Base'],
-              ['5', 'The Doctrine Defined'],
-              ['6', 'Technical Implementation: The ADN-1'],
-              ['7', 'Primary Field Research: Greater Manchester Validation Study'],
-              ['8', 'Economic Analysis'],
-              ['9', 'Policy Implications'],
-              ['10', 'Discussion'],
-              ['11', 'Conclusion, Limitations, and Future Research'],
-              ['', 'References'],
-              ['', 'Appendix A: Market Validation Register (excerpt)'],
-            ].map(([num, title]) => (
-              <div key={title} style={{ display: 'flex', gap: 16, paddingBottom: 8, fontFamily: "'Outfit', sans-serif", fontSize: 14, color: MUTED }}>
+            {([
+              ['1', 'Introduction, Objectives, and Positionality', false],
+              ['2', 'Literature Review', false],
+              ['3', 'Research Design, Methodology, and Limitations', false],
+              ['4', 'The Global Evidence Base', false],
+              ['5', 'The Doctrine Defined', false],
+              ['6', 'Technical Implementation: The ADN-1', false],
+              ['7', 'Primary Field Research: Greater Manchester Validation Study', false],
+              ['8', 'Economic Analysis', true],
+              ['9', 'Policy Implications', true],
+              ['10', 'Discussion', false],
+              ['11', 'Conclusion, Limitations, and Future Research', false],
+              ['', 'References', true],
+              ['', 'Appendix A: Market Validation Register (excerpt)', false],
+            ] as [string, string, boolean][]).map(([num, title, expanding]) => (
+              <div key={title || num} style={{ display: 'flex', alignItems: 'baseline', gap: 16, paddingBottom: 8, fontFamily: "'Outfit', sans-serif", fontSize: 14, color: MUTED }}>
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: GOLD, minWidth: 20 }}>{num}</span>
                 <span>{title}</span>
+                {expanding && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: GOLD, letterSpacing: '0.12em', opacity: 0.75 }}>· in progress</span>}
               </div>
             ))}
           </motion.div>
@@ -224,7 +250,11 @@ export default function ThesisPage() {
           </ol>
           <h3 style={h3}>1.2 Scope and Limitations</h3>
           <p style={body}>
-            This paper focuses on the independent retail sector in the United Kingdom, with reference to comparable international jurisdictions for context. It draws on secondary data from publicly available industry reports (BRC, ACS, NRF, EuroCommerce) and primary qualitative data from a small-sample field study conducted in Greater Manchester between February and March 2026. The field study sample of five retailers is intentionally limited to the Manchester Alpha Pilot cohort and does not claim statistical representativeness. Its purpose is to provide qualitative validation of the theoretical framework and unit economics model, not to generate generalisable quantitative findings. Limitations of this approach are addressed in Section 11.
+            This paper focuses on the independent retail sector in the United Kingdom, with reference to comparable international jurisdictions for context. It draws on secondary data from publicly available industry reports (BRC, ACS, NRF, EuroCommerce) and primary qualitative data from a small-sample field study conducted in Greater Manchester between February and March 2026. The field study sample of five retailers is intentionally limited to the Manchester Alpha Pilot cohort and does not claim statistical representativeness. Its purpose is to provide qualitative validation of the theoretical framework and unit economics model, not to generate generalisable quantitative findings. Limitations of this approach are addressed in Section 11. This paper is best understood as the opening statement in a research programme, not the final word. The questions it raises are more important than the answers it provides.
+          </p>
+          <h3 style={h3}>1.3 Positionality and Bias</h3>
+          <p style={body}>
+            The author is the founder of Mykei Securities Ltd, the company developing the ADN-1 device that operationalises the doctrine examined in this paper. This dual role as researcher and commercial participant introduces a potential for confirmation bias that cannot be fully eliminated. Several methodological safeguards have been applied: the field interview protocol used open-ended questions designed to permit negative responses; all retailer outcomes, including any refusals, were recorded; and the sample was generated through cold, in-person outreach rather than warm introductions. Nonetheless, the findings should be treated as hypothesis-generating rather than hypothesis-confirming. Independent replication by a disinterested research team would substantially strengthen the evidence base.
           </p>
 
           <Divider />
@@ -263,6 +293,10 @@ export default function ThesisPage() {
           <p style={body}>
             The literature reviewed above contains no equivalent to Economic Sterilisation as a doctrine: that is, no integrated framework combining autonomous forensic marking, cloud-based registry, and automated marketplace flagging as a single event-driven system accessible to an independent retailer without specialist security infrastructure or ongoing operational management. The closest analogues, SmartWater and SelectaDNA, are passive marking systems that require the marked property to be physically recovered and identified by law enforcement after a crime. They do not address the digital resale layer, do not operate autonomously at the point of theft, and do not generate a real-time cloud record of custody disruption. This gap is the theoretical space this paper addresses.
           </p>
+          <h3 style={h3}>2.5 Open Questions and Unresolved Debates</h3>
+          <p style={body}>
+            The literature reviewed above provides a theoretical foundation for Economic Sterilisation, but several questions remain open. The relationship between forensic marking density and geographic displacement of crime is not well understood. The threshold at which resale disruption produces net crime reduction rather than displacement has not been empirically established. The behavioural response of organised retail crime networks to autonomous marking technologies has not been studied, because the technology has not previously been deployed. And the willingness of resale platforms to integrate external registry data has not been systematically researched. This paper does not resolve these questions. It aims to provide a framework within which they can be investigated.
+          </p>
 
           <Divider />
 
@@ -289,6 +323,19 @@ export default function ThesisPage() {
           </p>
           <p style={body}>
             The primary research is explicitly qualitative and exploratory. It is not designed to produce statistically generalisable findings. Its function within this paper is threefold: to provide direct evidence of market readiness; to validate the unit economics model against retailer-reported theft losses; and to document qualitative responses to the doctrine and its pricing. The five-retailer interview sample constitutes the Manchester Alpha Pilot cohort. The broader 25-store outreach pipeline documented in the Market Validation Register constitutes an ongoing primary research programme targeting scale validation; that pipeline is a research output in its own right, demonstrating the geographic distribution and sectoral composition of independent retail exposure to organised crime in Greater Manchester. Data from the broader pipeline will be published in subsequent working papers as outreach is completed.
+          </p>
+          <h3 style={h3}>3.4 Methodological Limitations</h3>
+          <p style={body}>
+            The primary research design has several limitations that should be acknowledged before the findings are presented.
+          </p>
+          <ul style={{ ...body, paddingLeft: 28, marginBottom: 32 }}>
+            <li style={{ marginBottom: 14 }}><strong>Sample size and representativeness.</strong> The study interviewed five retailers in Greater Manchester. This is too small and too geographically concentrated to support statistical generalisation. The findings are qualitative, exploratory, and indicative.</li>
+            <li style={{ marginBottom: 14 }}><strong>Confirmation bias risk.</strong> The researcher is also the developer of the technology being validated. The structured question design and recording of all outcomes are intended as partial safeguards, but they do not eliminate the risk.</li>
+            <li style={{ marginBottom: 14 }}><strong>No control group.</strong> The study did not include a sample of retailers not exposed to the Economic Sterilisation concept, which limits causal inference.</li>
+            <li style={{ marginBottom: 14 }}><strong>Short time horizon.</strong> The study captures a single point of contact with each retailer. It does not track longitudinal outcomes such as pilot conversion rates, sustained usage, or actual theft reduction.</li>
+          </ul>
+          <p style={body}>
+            These limitations are significant. The study is best regarded as a preliminary field exploration that identifies themes and hypotheses for larger-scale investigation.
           </p>
 
           <Divider />
@@ -358,6 +405,9 @@ export default function ThesisPage() {
           </p>
           <p style={body}>
             Within Clarke's Situational Crime Prevention framework, Economic Sterilisation introduces a new prevention category not represented in Clarke's original typology: post-theft value destruction. Clarke's 25 techniques of situational crime prevention address increasing effort, increasing risk, reducing rewards, removing excuses, and reducing provocations. The closest analogue is "removing rewards," but Clarke's treatment of this category focuses on property marking for recovery, not on systematic resale market invalidation. Economic Sterilisation extends this category into a digitally integrated, real-time mechanism that Clarke's framework anticipated in theory but could not specify before the digital resale economy existed.
+          </p>
+          <p style={body}>
+            The doctrine as presented here is provisional. It is a hypothesis about the mechanism by which retail crime might be reduced, not a statement of proven effect. The three components, forensic marking, cloud registration, and marketplace flagging, each require independent validation. Their integration into a single operational chain has not yet been tested at scale. The doctrine is intended to be refined, challenged, or replaced as evidence accumulates.
           </p>
 
           <Divider />
@@ -454,14 +504,18 @@ export default function ThesisPage() {
           <p style={body}>
             All five retailers responded positively to the Economic Sterilisation concept when it was presented. The responses clustered around two themes. First, the autonomous operation of the system: Retailer B (Longsight) explicitly stated that staff would not confront offenders and that "a device that acts by itself is the only option" for their situation. This aligns with the documented safety dimension of the problem; the BRC records a 50% year-on-year increase in violence and abuse against retail workers, and any solution that requires staff intervention is, in practice, one that many retailers will not deploy. Second, the commercial targeting of resale: Retailer A's response, that the system "hits them where it hurts," reflects a direct intuitive understanding of the doctrine. Retailer C's observation that repeat offenders "would stop once they know goods can't be sold" reflects the same incentive-removal logic at the retailer level.
           </p>
-          <h3 style={h3}>7.6 Findings: Price Validation</h3>
+          <h3 style={h3}>7.6 Interpretive Caution</h3>
+          <p style={body}>
+            The findings reported above should be read with the methodological limitations set out in Section 3.4 in mind. The five retailers who signed Letters of Intent represent a self-selecting group of early adopters, and their responses may not generalise to the broader independent retail population. The positive conceptual receptivity documented here establishes that the Economic Sterilisation concept is intelligible to retailers and that some are willing to pilot it. It does not establish that widespread adoption will occur, nor that adoption will produce the theorised reduction in retail crime. These are questions for subsequent phases of research.
+          </p>
+          <h3 style={h3}>7.7 Findings: Price Validation</h3>
           <p style={body}>
             The proposed pricing of £149 one-time setup plus £40 per month was presented to all five retailers following the interview. Three retailers accepted the pricing without negotiation. One retailer expressed hesitation about the setup cost but accepted it after a one-week consideration period and a second visit. One retailer negotiated a pilot-rate reduction on the setup cost before signing. No retailer objected to the £40 monthly subscription. This pricing response validates the unit economics model.
           </p>
           <p style={body}>
             At the reported theft loss ranges, the break-even analysis is as follows. The lowest reported monthly loss in the sample is £200 to £400. At £40 per month subscription, break-even requires prevention or commercial sterilisation of one to two theft events per month. At a mid-range loss of £400 to £600, a single prevented event recovers the monthly subscription with margin. At the highest reported loss in the sample of £800 to £1,200, the annual subscription of £480 plus £149 setup totalling £629 represents less than one month's minimum reported loss. The return on investment across all five retailers is between 5x and 20x the annual subscription cost at conservatively estimated theft loss figures.
           </p>
-          <h3 style={h3}>7.7 Outcome</h3>
+          <h3 style={h3}>7.8 Outcome</h3>
           <p style={body}>
             All five retailers signed Letters of Intent to participate in the Manchester Alpha Pilot. This outcome, a 100% conversion rate from cold in-person approach, is not offered as a statistically generalisable finding. The sample is small, the approach was direct, and the researcher is also the founder of the product company. Nevertheless, the uniformity of the response, across retailers of different types, areas, and ownership demographics, approached without prior relationship, provides qualitative evidence that the doctrine addresses a problem that retailers recognise as real, urgent, and unresolved by existing solutions.
           </p>
@@ -529,6 +583,20 @@ export default function ThesisPage() {
           <p style={body}>
             There are important open questions. The doctrine's effectiveness is contingent on marketplace platform cooperation, whether voluntary or mandated. At present, TIR-to-marketplace API integration is at an early stage of development and platforms have no regulatory obligation to integrate. The Online Safety Act 2023 provides a plausible legal pathway to mandate, but this has not been tested. The doctrine is also contingent on broad TIR adoption: a sparsely populated registry has limited utility as a marketplace screening tool. These dependencies are addressed as limitations in Section 11.
           </p>
+          <h3 style={h3}>10.2 Unresolved Questions and Research Agenda</h3>
+          <p style={body}>
+            This paper raises more questions than it answers. The following are identified as priorities for further investigation.
+          </p>
+          <ul style={{ ...body, paddingLeft: 28, marginBottom: 32 }}>
+            <li style={{ marginBottom: 14 }}><strong>Adoption thresholds.</strong> What level of deployment density within a defined retail catchment is required to produce a measurable reduction in organised retail crime? This cannot be answered without a controlled, geographically defined pilot study with baseline and follow-up data.</li>
+            <li style={{ marginBottom: 14 }}><strong>Displacement versus desistance.</strong> Does Economic Sterilisation cause offenders to exit criminal activity, or merely relocate it to unprotected stores? Longitudinal data from mixed-adoption areas is required.</li>
+            <li style={{ marginBottom: 14 }}><strong>Platform integration.</strong> The marketplace flagging component depends on cooperation from resale platforms. The commercial and policy incentives for that cooperation have not been researched.</li>
+            <li style={{ marginBottom: 14 }}><strong>Adversarial adaptation.</strong> How quickly do organised retail crime networks adapt to autonomous forensic marking? What countermeasures emerge, and how effective are they?</li>
+            <li style={{ marginBottom: 14 }}><strong>Privacy and ethics.</strong> A forensic registry raises questions about data governance, retention, and the potential for function creep. These require independent ethical analysis.</li>
+          </ul>
+          <p style={body}>
+            These questions define the research programme that follows from this working paper. The author invites collaboration, data sharing, and critical engagement from researchers in criminology, economics, platform studies, and information security.
+          </p>
 
           <Divider />
 
@@ -536,13 +604,13 @@ export default function ThesisPage() {
           <h2 style={h2}>11. Conclusion, Limitations, and Future Research</h2>
           <h3 style={h3}>11.1 Conclusion</h3>
           <p style={body}>
-            This paper has argued that retail theft is not primarily a security failure but a market failure. Stolen goods command market prices on digital resale platforms, and no existing retail security product addresses that market. Economic Sterilisation is the doctrine that addresses it: the systematic elimination of resale value from stolen goods through autonomous forensic marking, cloud registration, and marketplace flagging, such that stolen goods become commercially inert before a buyer can be found.
+            This working paper has introduced Economic Sterilisation as a framework for rethinking retail theft as an economic problem rather than a security one. It has positioned the framework within the existing criminological literature, documented its first technical implementation through the ADN-1 device, and reported preliminary field validation suggesting that the concept resonates with independent retailers at a practical level.
           </p>
           <p style={body}>
-            The doctrine is grounded in the existing criminological literature, extends Clarke's Situational Crime Prevention framework into a new digital dimension, and has been technically implemented in the ADN-1 system. Primary field research across five independent retailers in Greater Manchester provides qualitative evidence of market readiness, unit economics viability, and conceptual alignment between the doctrine's design and the actual theft problem faced by retailers. The patent (No. 2606630.8, UK Intellectual Property Office, filed 23 March 2026) establishes the intellectual property record.
+            The paper has not demonstrated that Economic Sterilisation reduces organised retail crime. That demonstration requires longitudinal, controlled, and independently replicated research that is beyond the scope of this initial study. What the paper has done, and what it set out to do, is to establish a theoretical basis, a technical architecture, and an early-stage evidence base that together justify further investigation.
           </p>
           <p style={body}>
-            The doctrine does not claim to eliminate retail crime. It claims to change the economics of organised retail crime at the revenue layer, such that threshold adoption within defined geographic retail clusters is sufficient to make those geographies unprofitable for ORC actors. The Manchester Alpha Pilot, scheduled for Q2 2026 across five retail partners, will generate the first real-world efficacy data. This paper establishes the theoretical framework against which that data will be evaluated.
+            The doctrine is offered to the research community as a working hypothesis. It may be refined, challenged, or replaced as evidence accumulates. The Manchester Alpha Pilot, scheduled for Q2 2026, will generate the first real-world data against which the hypothesis can be tested. The author welcomes correspondence, critique, and collaboration.
           </p>
           <h3 style={h3}>11.2 Limitations</h3>
           <p style={body}>
@@ -557,6 +625,9 @@ export default function ThesisPage() {
 
           {/* References */}
           <h2 style={{ ...h2, marginTop: 32 }}>References</h2>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, lineHeight: 1.75, color: MUTED, fontStyle: 'italic', marginBottom: 24, padding: '12px 18px', border: `1px solid ${BORDER}`, borderRadius: 4, background: BG_WHITE }}>
+            Note on references. This working paper draws on a combination of academic literature, industry reports, and practitioner sources. The reference list is a working draft and may be incomplete. Suggestions for additional relevant literature are welcomed.
+          </p>
           <ol style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, lineHeight: 1.85, color: MUTED, paddingLeft: 20 }}>
             <li style={{ marginBottom: 14 }}>Association of Convenience Stores. (2024). <em>ACS Crime Report 2024</em>. ACS.</li>
             <li style={{ marginBottom: 14 }}>Australian Retailers Association. (2024). <em>Retail Crime Report 2024</em>. ARA.</li>
@@ -619,7 +690,7 @@ export default function ThesisPage() {
           {/* Cite as */}
           <div style={{ marginTop: 56, padding: '20px 24px', background: 'rgba(184,150,46,0.07)', borderLeft: `3px solid ${GOLD}`, borderRadius: 4 }}>
             <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: '#88887F', margin: 0, lineHeight: 1.7 }}>
-              Cite as: Esema, M. (2025). Economic Sterilisation: A Framework for Incentive-Based Retail Crime Deterrence. Working Paper. Mykei Securities Ltd. Available at: https://michaelesema.com/thesis
+              Cite as: Esema, M. (2025, revised April 2026). Economic Sterilisation: A Framework for Incentive-Based Retail Crime Deterrence. Working Paper [in progress]. Mykei Securities Ltd. Available at: https://michaelesema.com/thesis
             </p>
           </div>
         </article>
