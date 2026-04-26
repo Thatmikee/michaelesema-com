@@ -55,7 +55,7 @@ export default function TheftCounter() {
       gridTemplateColumns: '1fr 1px 1fr',
       gap: 'clamp(20px, 3vw, 44px)',
       alignItems: 'center',
-      border: '1px solid rgba(184,150,46,0.18)',
+      border: '1px solid rgba(184,150,46,0.45)',
       position: 'relative',
       overflow: 'hidden',
     }}>
@@ -65,7 +65,7 @@ export default function TheftCounter() {
         top: -60, left: -60,
         width: 200, height: 200,
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(184,150,46,0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(184,150,46,0.18) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -78,7 +78,7 @@ export default function TheftCounter() {
           textTransform: 'uppercase',
           color: 'var(--gold-light)',
           marginBottom: 10,
-          opacity: 0.7,
+          opacity: 1,
         }}>
           UK: lost today
         </div>
@@ -99,7 +99,7 @@ export default function TheftCounter() {
           fontSize: 8,
           color: 'var(--gold-light)',
           marginTop: 8,
-          opacity: 0.45,
+          opacity: 0.7,
           letterSpacing: '0.1em',
         }}>
           Source: BRC Annual Retail Crime Survey
@@ -138,7 +138,7 @@ export default function TheftCounter() {
           fontSize: 8,
           color: 'var(--gold-light)',
           marginTop: 8,
-          opacity: 0.45,
+          opacity: 0.7,
           letterSpacing: '0.1em',
         }}>
           Source: Eurocommerce Retail Report
