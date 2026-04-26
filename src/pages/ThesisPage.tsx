@@ -268,7 +268,7 @@ export default function ThesisPage() {
             </p>
             <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: MUTED, marginBottom: 10, marginTop: 18 }}>Version History</p>
             {([
-              ['v2.0', 'April 2026', 'Revised framing — working paper status; positionality section added; open questions and limitations expanded; 11-point research agenda added.'],
+              ['v2.0', 'April 2026', 'Revised framing: working paper status; positionality section added; open questions and limitations expanded; 11-point research agenda added.'],
               ['v1.0', '2025', 'Initial publication. Theoretical framework, ADN-1 technical specification, primary field research (5 retailers, Greater Manchester).'],
             ] as [string, string, string][]).map(([ver, date, note]) => (
               <div key={ver} style={{ display: 'flex', gap: 16, paddingBottom: 8, fontFamily: "'Outfit', sans-serif", fontSize: 13, color: MUTED, borderBottom: `1px solid ${BORDER}`, paddingTop: 8 }}>
@@ -551,7 +551,7 @@ export default function ThesisPage() {
             Three of the five retailers reported CCTV as their primary or sole security measure. One retailer supplemented CCTV with staff vigilance and display case security for high-value stock. One retailer reported no formal security measures, relying on deterrence by staff presence alone. One retailer had security tags on some high-value items. None of the five retailers reported a security arrangement that had materially reduced their theft losses. The universal complaint was that CCTV recorded theft without preventing it and that prosecution outcomes were so rare as to provide no deterrent signal to repeat offenders.
           </p>
           <BlockQuote>
-            "CCTV is a waste of money." — Retailer C, Cheetham Hill, February 2026.
+            "CCTV is a waste of money." Retailer C, Cheetham Hill, February 2026.
           </BlockQuote>
           <p style={body}>
             This assessment, while colloquial, is consistent with the structural critique of deterrence-based security articulated in Sections 2 and 5 of this paper. It is not that CCTV is without value; it is that CCTV without a connected outcome mechanism, prosecution, or resale disruption, does not alter the incentive structure for organised actors who have already discounted the prosecution risk.
