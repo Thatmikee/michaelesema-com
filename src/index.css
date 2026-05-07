@@ -5,13 +5,13 @@
 @layer base {
   :root {
     --bg:            #FFFFFF;
-    --bg-warm:       #F9F8F6;
-    --bg-section:    #F4F2EE;
-    --text-primary:  #0A0A0A;
-    --text-secondary:#4A4A48;
-    --text-muted:    #88887F;
-    --border:        #E4E0D8;
-    --border-light:  #EFECE6;
+    --bg-warm:       #FFFFFF;
+    --bg-section:    #F8F8F8;
+    --text-primary:  #1A1A1A;
+    --text-secondary:#6B6B6B;
+    --text-muted:    #6B6B6B;
+    --border:        #E8E8E8;
+    --border-light:  #EEEEEE;
     --gold:          #B8962E;
     --gold-light:    #D4AF37;
     --gold-dim:      rgba(184, 150, 46, 0.12);

@@ -52,7 +52,7 @@ export default function Connect() {
             fontFamily: "'Playfair Display', Georgia, serif",
             fontSize: 'clamp(28px, 4vw, 42px)',
             fontWeight: 400,
-            color: '#F5F5F0',
+            color: '#FFFFFF',
             marginBottom: 16,
             lineHeight: 1.2,
           }}>

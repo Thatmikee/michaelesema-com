@@ -24,11 +24,11 @@ const SCHEMA = {
   keywords: 'Economic Sterilisation, retail crime, forensic marking, synthetic DNA, ADN-1, Mykei Securities',
 }
 
-const GOLD = '#B8962E'
-const INK  = '#0A0A0A'
-const MUTED = '#4A4A48'
-const BORDER = '#E4E0D8'
-const BG_WARM = '#F9F8F6'
+const GOLD = '#C9A227'
+const INK  = '#1A1A1A'
+const MUTED = '#6B6B6B'
+const BORDER = '#E8E8E8'
+const BG_WARM = '#F8F8F8'
 
 export default function ThesisPage() {
   const scriptRef = useRef<HTMLScriptElement | null>(null)
