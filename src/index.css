@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+@source "./src";
+
+@layer base {
+  :root {
+    /* Deep editorial red on near-black */
+    --bg:              #0D0D0D;
+    --bg-section:      #111111;
+    --bg-surface:      #161616;
+    --text-primary:    #F5F0E8;
+    --text-secondary:  #A89E8E;
+    --text-muted:      #6B6560;
+    --border:          rgba(245, 240, 232, 0.08);
+    --border-mid:      rgba(245, 240, 232, 0.14);
+
+    /* Deep red accent range */
+    --red:             #A01818;
+    --red-bright:      #C0392B;
+    --red-dim:         rgba(160, 24, 24, 0.18);
+    --red-line:        rgba(160, 24, 24, 0.45);
+    --red-text:        #D4534A;
+
+    /* Reading surfaces */
+    --paper:           #F5F0E8;
+    --paper-dim:       rgba(245, 240, 232, 0.06);
+
+    /* Legacy gold vars neutralised - map to red for any leftover refs */
+    --gold:            #A01818;
+    --gold-light:      #C0392B;
+    --gold-dim:        rgba(160, 24, 24, 0.18);
+    --gold-line:       rgba(160, 24, 24, 0.35);
+    --gold-text:       #D4534A;
+    --light-bg:        #111111;
+    --light-border:    rgba(245, 240, 232, 0.08);
+    --text-dark:       #F5F0E8;
+    --text-dark-secondary: #A89E8E;
+    --dark:            #0D0D0D;
+    --dark-card:       #161616;
+    --dark-border:     rgba(245, 240, 232, 0.08);
+  }
+
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Outfit', -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--red);
+    color: #F5F0E8;
+  }
+}
+
+.font-display      { font-family: 'Playfair Display', Georgia, serif; }
+.font-mono-label   { font-family: 'JetBrains Mono', monospace; }
+
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--red);
+  transform-origin: left;
+  z-index: 9999;
+}
+
+/* Hairline divider */
+.doctrine-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--red);
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .nav-desktop     { display: none !important; }
+  .nav-mobile-btn  { display: block !important; }
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--red-text);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
