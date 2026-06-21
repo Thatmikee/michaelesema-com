@@ -14,7 +14,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export default function SystemExplained() {
   return (
-    <section id="doctrine" style={{ background: 'var(--bg-section)', padding: 'clamp(80px, 10vw, 130px) clamp(24px, 7vw, 80px)', position: 'relative' }}>
+    <section id="doctrine" style={{ background: 'var(--bg-section)', padding: 'clamp(48px, 6vw, 80px) clamp(24px, 7vw, 80px)', position: 'relative' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div className="doctrine-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 'clamp(48px, 7vw, 110px)', alignItems: 'start' }}>
 

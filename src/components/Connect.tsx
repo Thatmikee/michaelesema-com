@@ -22,9 +22,8 @@ export default function Connect() {
   return (
     <section id="connect" style={{
       background: 'var(--bg)',
-      padding: 'clamp(80px, 11vw, 130px) clamp(24px, 7vw, 80px)',
+      padding: 'clamp(48px, 6vw, 80px) clamp(24px, 7vw, 80px)',
       position: 'relative',
-      borderTop: '1px solid var(--border)',
     }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div className="connect-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(48px, 7vw, 100px)', alignItems: 'start' }}>

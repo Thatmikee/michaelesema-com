@@ -49,7 +49,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export default function Work() {
   return (
-    <section id="work" style={{ background: 'var(--bg)', padding: 'clamp(72px, 10vw, 120px) clamp(24px, 7vw, 80px)', position: 'relative' }}>
+    <section id="work" style={{ background: 'var(--bg)', padding: 'clamp(44px, 6vw, 72px) clamp(24px, 7vw, 80px)', position: 'relative' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <FadeIn>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>

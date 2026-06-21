@@ -22,7 +22,7 @@ export default function NigeriaSection() {
       id="nigeria"
       style={{
         background: 'var(--bg-section)',
-        padding: 'clamp(72px, 10vw, 120px) clamp(24px, 7vw, 80px)',
+        padding: 'clamp(44px, 6vw, 72px) clamp(24px, 7vw, 80px)',
         position: 'relative',
       }}
     >

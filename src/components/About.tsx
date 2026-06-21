@@ -53,12 +53,10 @@ export default function About() {
       style={{
         background: 'var(--bg-section)',
         position: 'relative',
-        borderTop: '1px solid var(--border)',
       }}
     >
-      <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 1, height: 56, background: 'linear-gradient(var(--red), transparent)' }} />
 
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(80px, 10vw, 120px) clamp(24px, 5vw, 80px)' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(48px, 6vw, 76px) clamp(24px, 5vw, 80px)' }}>
 
         <FadeIn>
           <div style={{ marginBottom: 64 }}>
@@ -169,7 +167,7 @@ export default function About() {
                 <div key={group.group} style={{
                   marginBottom: gi < credentials.length - 1 ? 32 : 0,
                   paddingBottom: gi < credentials.length - 1 ? 32 : 0,
-                  borderBottom: gi < credentials.length - 1 ? '1px solid var(--border)' : 'none',
+                  borderBottom: 'none',
                 }}>
                   <p style={{
                     fontFamily: "'JetBrains Mono', monospace",
