@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom'
 import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
-import DoctrineMarquee from './components/DoctrineMarquee'
 import ESInterview from './components/ESInterview'
 import About from './components/About'
 import Work from './components/Work'
@@ -26,7 +25,6 @@ function HomePage() {
       <Nav />
       <main id="main-content">
         <Hero />
-        <DoctrineMarquee />
         <SystemExplained />
         <Work />
         <About />
