@@ -1,19 +1,14 @@
 import Marquee from './ui/Marquee'
 
 const ITEMS = [
-  'Economic Sterilisation',
-  'Resale Interdiction',
-  'Forensic Asset Intelligence',
-  'Retail Theft Doctrine',
-  'Market Disruption',
-  'Chain-of-Custody Architecture',
-  'Origin Verification',
-  'Anti-Resale Infrastructure',
+  'Markets', 'Institutions', 'Nigeria', 'Manchester',
+  'Why Things Break', 'How Systems Fail', 'First Principles',
+  'African Business', 'Economic Crime', 'Diaspora', 'Building from Scratch',
 ]
 
 function Item({ text }: { text: string }) {
   return (
-    <span style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+    <span style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
       <span style={{
         fontFamily: "'JetBrains Mono', monospace",
         fontSize: 10.5,
@@ -24,14 +19,7 @@ function Item({ text }: { text: string }) {
       }}>
         {text}
       </span>
-      <span style={{
-        display: 'inline-block',
-        width: 3,
-        height: 3,
-        borderRadius: '50%',
-        background: 'var(--red)',
-        flexShrink: 0,
-      }} />
+      <span style={{ display: 'inline-block', width: 3, height: 3, borderRadius: '50%', background: 'var(--red)', flexShrink: 0 }} />
     </span>
   )
 }
@@ -39,35 +27,14 @@ function Item({ text }: { text: string }) {
 export default function DoctrineMarquee() {
   return (
     <div style={{
-      borderTop: '1px solid var(--border)',
-      borderBottom: '1px solid var(--border)',
-      background: 'var(--bg-section)',
-      padding: '18px 0',
-      overflow: 'hidden',
-      position: 'relative',
+      borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)',
+      background: 'var(--bg-section)', padding: '16px 0', overflow: 'hidden', position: 'relative',
     }}>
-      {/* Left fade mask */}
-      <div style={{
-        position: 'absolute',
-        left: 0, top: 0, bottom: 0,
-        width: 120,
-        background: 'linear-gradient(to right, var(--bg-section), transparent)',
-        zIndex: 2,
-        pointerEvents: 'none',
-      }} />
-      {/* Right fade mask */}
-      <div style={{
-        position: 'absolute',
-        right: 0, top: 0, bottom: 0,
-        width: 120,
-        background: 'linear-gradient(to left, var(--bg-section), transparent)',
-        zIndex: 2,
-        pointerEvents: 'none',
-      }} />
-
+      <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 100, background: 'linear-gradient(to right, var(--bg-section), transparent)', zIndex: 2, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 100, background: 'linear-gradient(to left, var(--bg-section), transparent)', zIndex: 2, pointerEvents: 'none' }} />
       <Marquee pauseOnHover repeat={3}>
         {ITEMS.map(item => (
-          <span key={item} style={{ display: 'flex', alignItems: 'center', marginRight: 28 }}>
+          <span key={item} style={{ display: 'flex', alignItems: 'center', marginRight: 24 }}>
             <Item text={item} />
           </span>
         ))}
