@@ -5,7 +5,7 @@ const items = [
   {
     tag: 'Company',
     title: 'Mykei Securities Ltd',
-    body: 'A UK company (No. 16984969) built on one idea: that retail theft is a market problem, not a security one. The doctrine is Economic Sterilisation. The first R&D pathway is ADN-1, a patent-pending forensic deterrence node.',
+    body: 'A UK company (No. 16984969) built on one idea: that retail theft is a market problem, not a security one. The doctrine is Economic Sterilisation. The first R&D pathway is the Active Deterrence Node, a patent-pending forensic deterrence device.',
     href: 'https://mykei.io',
     external: true,
     featured: true,
@@ -50,8 +50,6 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 export default function Work() {
   return (
     <section id="work" style={{ background: 'var(--bg)', padding: 'clamp(72px, 10vw, 120px) clamp(24px, 7vw, 80px)', position: 'relative' }}>
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'var(--border)' }} />
-
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <FadeIn>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>

@@ -15,8 +15,6 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 export default function SystemExplained() {
   return (
     <section id="doctrine" style={{ background: 'var(--bg-section)', padding: 'clamp(80px, 10vw, 130px) clamp(24px, 7vw, 80px)', position: 'relative' }}>
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'var(--border)' }} />
-
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div className="doctrine-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 'clamp(48px, 7vw, 110px)', alignItems: 'start' }}>
 
@@ -64,9 +62,8 @@ export default function SystemExplained() {
 
             <FadeIn delay={0.28}>
               <p style={{ fontSize: 'clamp(14px, 1.35vw, 16px)', lineHeight: 1.95, color: 'var(--text-secondary)', fontWeight: 300 }}>
-                The dream is an institution. Not a product line. Not a security company with a clever
-                name. An intellectual contribution that outlasts all the individual proofs of concept
-                and still has the same argument at its centre: remove the commercial reward from the
+                The dream is an institution. Something that outlasts every individual proof of concept
+                and still carries the same argument at its centre: remove the commercial reward from the
                 crime and the crime loses its logic.
               </p>
             </FadeIn>
