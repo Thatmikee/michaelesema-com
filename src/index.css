@@ -4,102 +4,58 @@
 
 @layer base {
   :root {
-    /* Deep editorial red on near-black */
-    --bg:              #0D0D0D;
-    --bg-section:      #111111;
-    --bg-surface:      #161616;
-    --text-primary:    #F5F0E8;
-    --text-secondary:  #A89E8E;
-    --text-muted:      #6B6560;
-    --border:          rgba(245, 240, 232, 0.08);
-    --border-mid:      rgba(245, 240, 232, 0.14);
+    --bg:              #FFFFFF;
+    --bg-section:      #F7F5F0;
+    --bg-surface:      #F0EDE7;
+    --text-primary:    #111111;
+    --text-secondary:  #555555;
+    --text-muted:      #888888;
+    --border:          rgba(0, 0, 0, 0.09);
+    --border-mid:      rgba(0, 0, 0, 0.15);
 
-    /* Deep red accent range */
     --red:             #A01818;
     --red-bright:      #C0392B;
-    --red-dim:         rgba(160, 24, 24, 0.18);
-    --red-line:        rgba(160, 24, 24, 0.45);
-    --red-text:        #D4534A;
+    --red-dim:         rgba(160, 24, 24, 0.10);
+    --red-line:        rgba(160, 24, 24, 0.30);
+    --red-text:        #A01818;
 
-    /* Reading surfaces */
-    --paper:           #F5F0E8;
-    --paper-dim:       rgba(245, 240, 232, 0.06);
-
-    /* Legacy gold vars neutralised - map to red for any leftover refs */
+    /* Legacy aliases — components reference these */
     --gold:            #A01818;
     --gold-light:      #C0392B;
-    --gold-dim:        rgba(160, 24, 24, 0.18);
-    --gold-line:       rgba(160, 24, 24, 0.35);
-    --gold-text:       #D4534A;
-    --light-bg:        #111111;
-    --light-border:    rgba(245, 240, 232, 0.08);
-    --text-dark:       #F5F0E8;
-    --text-dark-secondary: #A89E8E;
-    --dark:            #0D0D0D;
-    --dark-card:       #161616;
-    --dark-border:     rgba(245, 240, 232, 0.08);
+    --gold-dim:        rgba(160, 24, 24, 0.10);
+    --gold-line:       rgba(160, 24, 24, 0.28);
+    --gold-text:       #A01818;
+    --light-bg:        #F7F5F0;
+    --light-border:    rgba(0, 0, 0, 0.07);
+    --text-dark:       #111111;
+    --text-dark-secondary: #555555;
+    --dark:            #111111;
+    --dark-card:       #1E1E1E;
+    --dark-border:     rgba(0, 0, 0, 0.09);
   }
 
-  *, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-  body {
-    background: var(--bg);
-    color: var(--text-primary);
-    font-family: 'Outfit', -apple-system, sans-serif;
-    overflow-x: hidden;
-  }
+  body { background: var(--bg); color: var(--text-primary); font-family: 'Outfit', -apple-system, sans-serif; overflow-x: hidden; }
 
-  ::selection {
-    background: var(--red);
-    color: #F5F0E8;
-  }
+  ::selection { background: #A01818; color: #fff; }
 }
-
-.font-display      { font-family: 'Playfair Display', Georgia, serif; }
-.font-mono-label   { font-family: 'JetBrains Mono', monospace; }
 
 .scroll-progress {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: var(--red);
-  transform-origin: left;
-  z-index: 9999;
-}
-
-/* Hairline divider */
-.doctrine-rule {
-  width: 40px;
-  height: 1px;
-  background: var(--red);
-  display: block;
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px; background: var(--red); transform-origin: left; z-index: 9999;
 }
 
 @media (max-width: 640px) {
-  .nav-desktop     { display: none !important; }
-  .nav-mobile-btn  { display: block !important; }
+  .nav-desktop    { display: none !important; }
+  .nav-mobile-btn { display: block !important; }
 }
 
-a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--red-text);
-  outline-offset: 3px;
-}
+a:focus-visible, button:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

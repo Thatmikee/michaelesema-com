@@ -17,7 +17,6 @@ import ThesisPage from './pages/ThesisPage'
 import ProtocolPage from './pages/ProtocolPage'
 import NotFoundPage from './pages/NotFoundPage'
 import GrainOverlay from './components/ui/GrainOverlay'
-import CustomCursor from './components/ui/CustomCursor'
 import './index.css'
 
 function HomePage() {
@@ -48,7 +47,6 @@ function App() {
   return (
     <>
       <GrainOverlay opacity={0.032} />
-      {!prefersReducedMotion && <CustomCursor />}
       {!prefersReducedMotion && <motion.div className="scroll-progress" style={{ scaleX }} />}
       <Routes>
         <Route path="/"          element={<HomePage />} />
