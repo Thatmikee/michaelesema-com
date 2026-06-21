@@ -83,8 +83,9 @@ export default function About() {
                 Michael Esema grew up in Abuja. He studied at Benson Idahosa University in Benin City,
                 earned his MBA from the Nigerian Defence Academy in Kaduna, and completed an MSc in
                 International Business Management at Manchester Metropolitan University in 2024.
-                His first leadership role came at 21 as President of NUASA at BIU. It taught him
-                what it means to build something from nothing inside an institution.
+                Before any of that, he was building things. Student government at BIU, emergency
+                response work with NEMA, running B's Hive and the Silent Lounge. Each one taught
+                him the same lesson: institutions move slowly, so the people inside them have to move first.
               </p>
 
               <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: 'var(--text-secondary)', fontWeight: 300 }}>
@@ -96,9 +97,9 @@ export default function About() {
               </p>
 
               <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: 'var(--text-secondary)', fontWeight: 300 }}>
-                The patent application is filed. The company is registered. The goal is to push
-                the doctrine to doctoral level, formalise it as an academic contribution, and build
-                the institutional infrastructure around it. Not just a company. Something that lasts.
+                The patent is filed. The company is registered. The work now is to take the doctrine
+                to doctoral level, formalise it as an academic contribution, and build the
+                infrastructure around it. Not just a company. Something that lasts.
               </p>
 
               <blockquote style={{
