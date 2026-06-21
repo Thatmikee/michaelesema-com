@@ -38,6 +38,36 @@ export default function Hero() {
       overflow: 'hidden',
     }}>
 
+      {/* Portrait — right side, fades in behind headline */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 0.3, ease }}
+        style={{
+          position: 'absolute',
+          right: 0,
+          bottom: 0,
+          top: 0,
+          width: 'clamp(260px, 36vw, 520px)',
+          zIndex: 1,
+          pointerEvents: 'none',
+        }}
+        className="hero-portrait-wrap"
+      >
+        <img
+          src="/michael-esema-hero.jpg"
+          alt="Michael Esema"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center top',
+            maskImage: 'linear-gradient(to left, rgba(0,0,0,0.55) 0%, transparent 80%)',
+            WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,0.55) 0%, transparent 80%)',
+          }}
+        />
+      </motion.div>
+
       <div style={{ maxWidth: 860, position: 'relative', zIndex: 2 }}>
 
         {/* Red hairline */}
@@ -101,6 +131,10 @@ export default function Hero() {
             </motion.span>
           </span>
         </h1>
+
+        <style>{`
+          @media (max-width: 640px) { .hero-portrait-wrap { display: none !important; } }
+        `}</style>
 
         {/* Lede */}
         <motion.p

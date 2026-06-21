@@ -28,8 +28,8 @@ export default function Nav() {
         position: 'fixed',
         top: 0, left: 0, right: 0,
         zIndex: 1000,
-        background: scrolled ? 'rgba(13,13,13,0.96)' : 'transparent',
-        borderBottom: scrolled ? '1px solid rgba(245,240,232,0.08)' : '1px solid transparent',
+        background: scrolled ? 'rgba(255,255,255,0.96)' : 'transparent',
+        borderBottom: scrolled ? '1px solid rgba(0,0,0,0.08)' : '1px solid transparent',
         backdropFilter: scrolled ? 'blur(16px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
         transition: 'background 0.35s ease, border-color 0.35s ease',
@@ -128,8 +128,8 @@ export default function Nav() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             style={{
-              background: 'rgba(13,13,13,0.98)',
-              borderTop: '1px solid rgba(245,240,232,0.08)',
+              background: 'rgba(255,255,255,0.98)',
+              borderTop: '1px solid rgba(0,0,0,0.08)',
               overflow: 'hidden',
             }}
           >
@@ -151,7 +151,7 @@ export default function Nav() {
                       fontFamily: "'Playfair Display', serif",
                       fontSize: 24,
                       fontStyle: 'italic',
-                      color: 'var(--text-primary)',
+                      color: '#111111',
                       textDecoration: 'none',
                     }}
                   >

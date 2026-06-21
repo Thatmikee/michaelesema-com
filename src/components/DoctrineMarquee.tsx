@@ -27,8 +27,7 @@ function Item({ text }: { text: string }) {
 export default function DoctrineMarquee() {
   return (
     <div style={{
-      borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)',
-      background: 'var(--bg-section)', padding: '16px 0', overflow: 'hidden', position: 'relative',
+      background: 'var(--bg-section)', padding: '14px 0', overflow: 'hidden', position: 'relative',
     }}>
       <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 100, background: 'linear-gradient(to right, var(--bg-section), transparent)', zIndex: 2, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 100, background: 'linear-gradient(to left, var(--bg-section), transparent)', zIndex: 2, pointerEvents: 'none' }} />

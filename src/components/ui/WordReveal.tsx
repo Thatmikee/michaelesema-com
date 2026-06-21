@@ -31,19 +31,20 @@ export default function WordReveal({
 
   const word = {
     hidden:  { opacity: 0, y: reduce ? 0 : 20, filter: reduce ? 'none' : 'blur(4px)' },
-    visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as number[] } },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as any } },
   }
 
+  const MotionTag = motion[Tag as keyof typeof motion] as typeof motion.p
+
   return (
-    <motion.span
-      ref={ref as React.Ref<HTMLElement>}
+    <MotionTag
+      ref={ref as React.Ref<HTMLParagraphElement>}
       className={className}
       style={{ display: 'block', ...style }}
       variants={container}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      as={Tag as any}
     >
       {words.map((w, i) => (
         <motion.span
@@ -54,6 +55,6 @@ export default function WordReveal({
           {w}
         </motion.span>
       ))}
-    </motion.span>
+    </MotionTag>
   )
 }
