@@ -134,13 +134,15 @@ export default function Work() {
                 href={item.href}
                 target={item.external ? '_blank' : undefined}
                 rel={item.external ? 'noopener noreferrer' : undefined}
+                className="work-card"
                 style={{
                   display: 'block',
                   background: '#FFFFFF',
                   textDecoration: 'none',
                   overflow: 'hidden',
-                  transition: 'transform 0.3s, box-shadow 0.3s',
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                   boxShadow: '0 2px 16px rgba(0,0,0,0.06)',
+                  cursor: 'pointer',
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLAnchorElement
@@ -159,13 +161,12 @@ export default function Work() {
                     src={item.img}
                     alt={item.title}
                     loading="lazy"
+                    className="work-card-img"
                     style={{
                       width: '100%', height: '100%',
                       objectFit: 'cover',
-                      transition: 'transform 0.4s',
+                      transition: 'transform 0.4s ease',
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.04)')}
-                    onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                   />
                   {/* Tag */}
                   <span style={{
@@ -222,6 +223,11 @@ export default function Work() {
       <style>{`
         @media (max-width: 700px) {
           .work-grid { grid-template-columns: 1fr !important; }
+        }
+        .work-card:hover .work-card-img { transform: scale(1.04); }
+        @media (prefers-reduced-motion: reduce) {
+          .work-card-img { transition: none !important; }
+          .work-card { transition: none !important; }
         }
       `}</style>
     </section>

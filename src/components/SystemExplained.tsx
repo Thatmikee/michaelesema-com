@@ -90,11 +90,7 @@ export default function SystemExplained() {
                 <div style={{
                   background: '#F4F4F4',
                   padding: '22px 24px',
-                  transition: 'background 0.2s',
-                  cursor: 'default',
                 }}
-                onMouseEnter={e => (e.currentTarget.style.background = '#EAEAEA')}
-                onMouseLeave={e => (e.currentTarget.style.background = '#F4F4F4')}
                 >
                   <p style={{
                     fontFamily: "'Poppins', sans-serif",
@@ -109,7 +105,7 @@ export default function SystemExplained() {
                   <p style={{
                     fontFamily: "'Outfit', sans-serif",
                     fontSize: 12.5,
-                    color: '#777',
+                    color: '#555',
                     fontWeight: 300,
                     lineHeight: 1.6,
                   }}>

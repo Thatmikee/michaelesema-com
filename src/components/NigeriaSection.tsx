@@ -142,7 +142,7 @@ export default function NigeriaSection() {
                 fontSize: 11,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
-                color: '#999',
+                color: '#767676',
                 marginTop: 14,
               }}>
                 The greeting I share with the Nigerian community every 12 June
