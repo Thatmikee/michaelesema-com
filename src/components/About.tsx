@@ -41,11 +41,10 @@ export default function About() {
         fontFamily: "'Poppins', sans-serif",
         fontWeight: 900,
         fontSize: 'clamp(72px, 14vw, 200px)',
-        color: 'rgba(0,0,0,0.04)',
+        color: 'rgba(160,24,24,0.06)',
         userSelect: 'none', pointerEvents: 'none',
         whiteSpace: 'nowrap',
         letterSpacing: '-3px',
-        textTransform: 'uppercase',
         lineHeight: 1,
       }}>
         About me
@@ -76,12 +75,12 @@ export default function About() {
 
           {/* Photo with geometric accent */}
           <FadeIn delay={0.12}>
-            <figure style={{ position: 'relative', margin: 0, paddingBottom: 20, paddingRight: 20 }}>
-              {/* Red geometric block */}
+            <figure style={{ position: 'relative', margin: 0, paddingBottom: 24, paddingLeft: 24 }}>
+              {/* Red geometric block — top-left, like the yellow block in reference */}
               <div style={{
                 position: 'absolute',
-                top: -18, right: -18,
-                width: '72%', height: '72%',
+                top: -24, left: -24,
+                width: '80%', height: '80%',
                 background: '#A01818',
                 zIndex: 0,
               }} />
@@ -155,28 +154,29 @@ export default function About() {
                 The patent is filed. The company is registered. The doctorate is the next step.
               </p>
 
-              {/* Stats */}
-              <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+              {/* Stats — horizontal pill badges, matching reference layout */}
+              <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
                 {STATS.map(stat => (
                   <div key={stat.sub} style={{
                     background: '#1A1A1A',
-                    padding: '22px 32px',
+                    padding: '14px 22px',
                     display: 'flex',
-                    flexDirection: 'column',
-                    gap: 6,
-                    minWidth: 140,
+                    alignItems: 'center',
+                    gap: 14,
+                    borderRadius: 10,
                   }}>
                     <span style={{
                       fontFamily: "'Poppins', sans-serif",
-                      fontWeight: 800, fontSize: 36,
+                      fontWeight: 800, fontSize: 38,
                       color: '#A01818', lineHeight: 1,
                     }}>
                       {stat.label}
                     </span>
                     <span style={{
                       fontFamily: "'Outfit', sans-serif",
-                      fontSize: 12.5, color: 'rgba(255,255,255,0.6)',
-                      fontWeight: 400, letterSpacing: '0.04em',
+                      fontSize: 12.5, color: 'rgba(255,255,255,0.7)',
+                      fontWeight: 400, lineHeight: 1.45,
+                      maxWidth: 80,
                     }}>
                       {stat.sub}
                     </span>

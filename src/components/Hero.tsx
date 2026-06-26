@@ -24,11 +24,15 @@ export default function Hero() {
       overflow: 'hidden',
     }}>
 
-      {/* Subtle dot grid */}
+      {/* Circuit grid pattern */}
       <div style={{
         position: 'absolute', inset: 0,
-        backgroundImage: `radial-gradient(circle, rgba(160,24,24,0.07) 1px, transparent 1px)`,
-        backgroundSize: '44px 44px',
+        backgroundImage: `
+          linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+          radial-gradient(circle, rgba(160,24,24,0.08) 1.5px, transparent 1.5px)
+        `,
+        backgroundSize: '60px 60px, 60px 60px, 30px 30px',
         pointerEvents: 'none',
       }} />
 
@@ -40,7 +44,17 @@ export default function Hero() {
         pointerEvents: 'none',
       }} />
 
-      <div style={{ maxWidth: 1100, position: 'relative', zIndex: 1 }}>
+      {/* Curved swoosh — bleeds next section colour into hero bottom-right */}
+      <div className="hero-swoosh" style={{
+        position: 'absolute',
+        bottom: 0, right: 0,
+        background: '#F2F2F2',
+        borderRadius: '80px 0 0 0',
+        zIndex: 1,
+        pointerEvents: 'none',
+      }} />
+
+      <div style={{ maxWidth: 1100, position: 'relative', zIndex: 2 }}>
 
         <motion.p {...fadeUp(0.05)} style={{
           fontFamily: "'Poppins', sans-serif",
@@ -145,6 +159,17 @@ export default function Hero() {
       <style>{`
         @media (max-width: 640px) {
           .hero-br-mobile { display: none; }
+        }
+        .hero-swoosh {
+          width: 58%;
+          height: 130px;
+        }
+        @media (max-width: 768px) {
+          .hero-swoosh {
+            width: 72%;
+            height: 90px;
+            border-radius: 60px 0 0 0;
+          }
         }
       `}</style>
     </section>

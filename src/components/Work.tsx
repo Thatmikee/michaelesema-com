@@ -93,6 +93,10 @@ export default function Work() {
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
               marginBottom: 16,
+              display: 'inline-block',
+              border: '1.5px solid #A01818',
+              borderRadius: 50,
+              padding: '6px 20px',
             }}>
               Recent Projects
             </p>
