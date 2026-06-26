@@ -13,18 +13,18 @@
     --border:          rgba(0, 0, 0, 0.09);
     --border-mid:      rgba(0, 0, 0, 0.15);
 
-    --red:             #A01818;
-    --red-bright:      #C0392B;
+    --red:             #3B5BDB;
+    --red-bright:      #4D7AFF;
     --red-dim:         rgba(160, 24, 24, 0.10);
     --red-line:        rgba(160, 24, 24, 0.30);
-    --red-text:        #A01818;
+    --red-text:        #3B5BDB;
 
     /* Legacy aliases — components reference these */
-    --gold:            #A01818;
-    --gold-light:      #C0392B;
+    --gold:            #3B5BDB;
+    --gold-light:      #4D7AFF;
     --gold-dim:        rgba(160, 24, 24, 0.10);
     --gold-line:       rgba(160, 24, 24, 0.28);
-    --gold-text:       #A01818;
+    --gold-text:       #3B5BDB;
     --light-bg:        #F7F5F0;
     --light-border:    rgba(0, 0, 0, 0.07);
     --text-dark:       #111111;
@@ -42,7 +42,7 @@
 
   ::-webkit-scrollbar { display: none; }
 
-  ::selection { background: #A01818; color: #fff; }
+  ::selection { background: #3B5BDB; color: #fff; }
 }
 
 .scroll-progress {

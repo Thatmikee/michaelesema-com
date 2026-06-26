@@ -89,12 +89,12 @@ export default function Work() {
               fontFamily: "'Poppins', sans-serif",
               fontWeight: 700,
               fontSize: 'clamp(11px, 1vw, 13px)',
-              color: '#A01818',
+              color: '#3B5BDB',
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
               marginBottom: 16,
               display: 'inline-block',
-              border: '1.5px solid #A01818',
+              border: '1.5px solid #3B5BDB',
               borderRadius: 50,
               padding: '6px 20px',
             }}>
@@ -175,7 +175,7 @@ export default function Work() {
                   {/* Tag */}
                   <span style={{
                     position: 'absolute', top: 14, left: 14,
-                    background: '#A01818', color: '#fff',
+                    background: '#3B5BDB', color: '#fff',
                     fontFamily: "'Poppins', sans-serif",
                     fontWeight: 700, fontSize: 10,
                     letterSpacing: '0.1em', textTransform: 'uppercase',
@@ -210,7 +210,7 @@ export default function Work() {
                     fontFamily: "'Poppins', sans-serif",
                     fontWeight: 600,
                     fontSize: 12,
-                    color: '#A01818',
+                    color: '#3B5BDB',
                     letterSpacing: '0.06em',
                     textTransform: 'uppercase',
                     marginTop: 18,

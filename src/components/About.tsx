@@ -41,7 +41,7 @@ export default function About() {
         fontFamily: "'Poppins', sans-serif",
         fontWeight: 900,
         fontSize: 'clamp(72px, 14vw, 200px)',
-        color: 'rgba(160,24,24,0.06)',
+        color: 'rgba(59,91,219,0.06)',
         userSelect: 'none', pointerEvents: 'none',
         whiteSpace: 'nowrap',
         letterSpacing: '-3px',
@@ -57,7 +57,7 @@ export default function About() {
             fontFamily: "'Poppins', sans-serif",
             fontWeight: 700,
             fontSize: 'clamp(11px, 1vw, 13px)',
-            color: '#A01818',
+            color: '#3B5BDB',
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
             marginBottom: 52,
@@ -76,12 +76,12 @@ export default function About() {
           {/* Photo with geometric accent */}
           <FadeIn delay={0.12}>
             <figure style={{ position: 'relative', margin: 0, paddingBottom: 24, paddingLeft: 24 }}>
-              {/* Red geometric block — top-left, like the yellow block in reference */}
+              {/* Yellow geometric block — exactly like reference */}
               <div style={{
                 position: 'absolute',
                 top: -24, left: -24,
                 width: '80%', height: '80%',
-                background: '#A01818',
+                background: '#F5C518',
                 zIndex: 0,
               }} />
               <img
@@ -107,10 +107,9 @@ export default function About() {
                 fontFamily: "'Poppins', sans-serif",
                 fontSize: 'clamp(26px, 3.5vw, 42px)',
                 fontWeight: 800,
-                color: '#1A1A1A',
+                color: '#3B5BDB',
                 lineHeight: 1.08,
                 marginBottom: 28,
-                textTransform: 'uppercase',
                 letterSpacing: '-0.5px',
               }}>
                 About me
@@ -168,7 +167,7 @@ export default function About() {
                     <span style={{
                       fontFamily: "'Poppins', sans-serif",
                       fontWeight: 800, fontSize: 38,
-                      color: '#A01818', lineHeight: 1,
+                      color: '#3B5BDB', lineHeight: 1,
                     }}>
                       {stat.label}
                     </span>

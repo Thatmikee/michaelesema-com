@@ -50,7 +50,7 @@ export default function SystemExplained() {
                 fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700,
                 fontSize: 'clamp(11px, 1vw, 13px)',
-                color: '#A01818',
+                color: '#3B5BDB',
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
                 marginBottom: 20,

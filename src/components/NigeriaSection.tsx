@@ -39,7 +39,7 @@ export default function NigeriaSection() {
                 fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700,
                 fontSize: 'clamp(11px, 1vw, 13px)',
-                color: '#A01818',
+                color: '#3B5BDB',
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
                 marginBottom: 20,
@@ -57,7 +57,7 @@ export default function NigeriaSection() {
                 marginBottom: 28,
               }}>
                 Nigeria made me.<br />
-                <span style={{ color: '#A01818' }}>I have not forgotten it.</span>
+                <span style={{ color: '#3B5BDB' }}>I have not forgotten it.</span>
               </h2>
             </FadeIn>
 
@@ -109,7 +109,7 @@ export default function NigeriaSection() {
                   borderRadius: 3,
                   transition: 'background 0.2s',
                 }}
-                onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = '#A01818')}
+                onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = '#3B5BDB')}
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = '#1A1A1A')}
               >
                 See the Probata protocol →
@@ -123,7 +123,7 @@ export default function NigeriaSection() {
                 position: 'absolute',
                 top: -12, left: -12,
                 bottom: 12, right: 12,
-                border: '2px solid #A01818',
+                border: '2px solid #3B5BDB',
                 pointerEvents: 'none',
                 opacity: 0.35,
               }} />

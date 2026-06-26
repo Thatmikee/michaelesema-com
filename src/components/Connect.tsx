@@ -35,7 +35,7 @@ export default function Connect() {
       {/* Dot grid */}
       <div style={{
         position: 'absolute', inset: 0,
-        backgroundImage: `radial-gradient(circle, rgba(160,24,24,0.06) 1px, transparent 1px)`,
+        backgroundImage: `radial-gradient(circle, rgba(59,91,219,0.06) 1px, transparent 1px)`,
         backgroundSize: '44px 44px',
         pointerEvents: 'none',
       }} />
@@ -55,7 +55,7 @@ export default function Connect() {
                 fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700,
                 fontSize: 'clamp(11px, 1vw, 13px)',
-                color: '#A01818',
+                color: '#3B5BDB',
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
                 marginBottom: 20,
@@ -132,7 +132,7 @@ export default function Connect() {
                       {link.sub}
                     </p>
                   </div>
-                  <span style={{ color: '#A01818', fontSize: 20, flexShrink: 0, marginTop: 2 }}>↗</span>
+                  <span style={{ color: '#3B5BDB', fontSize: 20, flexShrink: 0, marginTop: 2 }}>↗</span>
                 </a>
               ))}
             </div>
