@@ -1,10 +1,4 @@
-import { motion, useReducedMotion, type Variants } from 'framer-motion'
-import AnimatedGradientText from './ui/AnimatedGradientText'
-
-const LINE1 = ['I', 'wrote', 'a', 'doctrine.']
-const LINE2 = ['I', 'filed', 'a', 'patent.']
-const LINE3 = ['I', 'am', 'building', 'the']
-const WORD_LAST = 'institution.'
+import { motion, useReducedMotion } from 'framer-motion'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ease = [0.16, 1, 0.3, 1] as any
@@ -12,148 +6,147 @@ const ease = [0.16, 1, 0.3, 1] as any
 export default function Hero() {
   const reduce = useReducedMotion()
 
-  const wordVariants: Variants = {
-    hidden:  { opacity: 0, y: reduce ? 0 : 20, filter: reduce ? 'none' : 'blur(5px)' },
-    visible: (i: number) => ({
-      opacity: 1, y: 0, filter: 'blur(0px)',
-      transition: { duration: 0.65, delay: 0.2 + i * 0.08, ease },
-    }),
-  }
-
   const fadeUp = (delay: number) => ({
-    initial: reduce ? {} : { opacity: 0, y: 14 },
+    initial: reduce ? {} : { opacity: 0, y: 28 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, delay, ease },
+    transition: { duration: 0.85, delay, ease },
   })
 
   return (
     <section style={{
       minHeight: '100dvh',
-      background: 'var(--bg)',
+      background: '#0A0B18',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'flex-end',
-      padding: 'clamp(120px, 14vw, 160px) clamp(32px, 8vw, 100px) clamp(64px, 9vw, 110px)',
+      justifyContent: 'center',
+      padding: 'clamp(110px, 13vw, 150px) clamp(32px, 8vw, 100px) clamp(64px, 8vw, 100px)',
       position: 'relative',
       overflow: 'hidden',
     }}>
 
-      {/* Portrait — right side, fades in behind headline */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.3, ease }}
-        style={{
-          position: 'absolute',
-          right: 0,
-          bottom: 0,
-          top: 0,
-          width: 'clamp(260px, 36vw, 520px)',
-          zIndex: 1,
-          pointerEvents: 'none',
-        }}
-        className="hero-portrait-wrap"
-      >
-        <img
-          src="/michael-esema-hero.jpg"
-          alt="Michael Esema"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center top',
-            maskImage: 'linear-gradient(to left, rgba(0,0,0,0.55) 0%, transparent 80%)',
-            WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,0.55) 0%, transparent 80%)',
-          }}
-        />
-      </motion.div>
+      {/* Subtle dot grid */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: `radial-gradient(circle, rgba(160,24,24,0.07) 1px, transparent 1px)`,
+        backgroundSize: '44px 44px',
+        pointerEvents: 'none',
+      }} />
 
-      <div style={{ maxWidth: 860, position: 'relative', zIndex: 2 }}>
+      {/* Red glow accent — bottom right */}
+      <div style={{
+        position: 'absolute', right: '-10%', bottom: '-20%',
+        width: '50vw', height: '50vw',
+        background: 'radial-gradient(circle, rgba(160,24,24,0.12) 0%, transparent 65%)',
+        pointerEvents: 'none',
+      }} />
 
-        {/* Red hairline */}
-        <motion.div {...fadeUp(0.1)} style={{ width: 36, height: 1, background: 'var(--red)', marginBottom: 32 }} />
+      <div style={{ maxWidth: 1100, position: 'relative', zIndex: 1 }}>
 
-        {/* Three-line staggered headline */}
-        <h1 style={{
-          fontFamily: "'Playfair Display', Georgia, serif",
-          fontSize: 'clamp(38px, 6vw, 80px)',
-          fontWeight: 400,
-          lineHeight: 1.12,
-          letterSpacing: '-0.3px',
+        <motion.p {...fadeUp(0.05)} style={{
+          fontFamily: "'Poppins', sans-serif",
+          fontSize: 'clamp(13px, 1.3vw, 16px)',
+          fontWeight: 600,
+          color: 'rgba(255,255,255,0.45)',
+          letterSpacing: '0.12em',
+          textTransform: 'uppercase',
+          marginBottom: 20,
         }}>
-          {/* Line 1 */}
-          <span style={{ display: 'block', marginBottom: 2 }}>
-            {LINE1.map((word, i) => (
-              <motion.span key={i} custom={i} variants={wordVariants} initial="hidden" animate="visible"
-                style={{ display: 'inline-block', marginRight: '0.2em', color: 'var(--text-primary)' }}>
-                {word}
-              </motion.span>
-            ))}
-          </span>
-          {/* Line 2 */}
-          <span style={{ display: 'block', marginBottom: 2 }}>
-            {LINE2.map((word, i) => {
-              const gi = LINE1.length + i
-              return (
-                <motion.span key={gi} custom={gi} variants={wordVariants} initial="hidden" animate="visible"
-                  style={{ display: 'inline-block', marginRight: '0.2em', color: 'var(--text-primary)' }}>
-                  {word}
-                </motion.span>
-              )
-            })}
-          </span>
-          {/* Line 3 — last word animated */}
-          <span style={{ display: 'block' }}>
-            {LINE3.map((word, i) => {
-              const gi = LINE1.length + LINE2.length + i
-              return (
-                <motion.span key={gi} custom={gi} variants={wordVariants} initial="hidden" animate="visible"
-                  style={{ display: 'inline-block', marginRight: '0.2em', color: 'var(--text-primary)' }}>
-                  {word}
-                </motion.span>
-              )
-            })}
-            <motion.span
-              custom={LINE1.length + LINE2.length + LINE3.length}
-              variants={wordVariants}
-              initial="hidden"
-              animate="visible"
-              style={{ display: 'inline-block', paddingBottom: 4 }}
-            >
-              <AnimatedGradientText style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
-                fontStyle: 'italic',
-                fontSize: 'clamp(38px, 6vw, 80px)',
-                lineHeight: 1.12,
-              }}>
-                {WORD_LAST}
-              </AnimatedGradientText>
-            </motion.span>
-          </span>
-        </h1>
-
-        <style>{`
-          @media (max-width: 640px) { .hero-portrait-wrap { display: none !important; } }
-        `}</style>
-
-        {/* Lede */}
-        <motion.p
-          {...fadeUp(1.1)}
-          style={{
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: 'clamp(15px, 1.5vw, 18px)',
-            fontWeight: 300,
-            lineHeight: 1.85,
-            color: 'var(--text-secondary)',
-            maxWidth: 500,
-            marginTop: 30,
-          }}
-        >
-          MBA. MSc International Business Management. Founder of Mykei Securities Ltd.
-          The doctrine is Economic Sterilisation. The PhD is the next move.
-          Abuja raised me. Manchester is where I built the proof.
+          Hi,
         </motion.p>
+
+        <motion.h1 {...fadeUp(0.15)} style={{
+          fontFamily: "'Poppins', sans-serif",
+          fontSize: 'clamp(40px, 7.5vw, 96px)',
+          fontWeight: 900,
+          lineHeight: 1.02,
+          letterSpacing: '-1.5px',
+          textTransform: 'uppercase',
+          color: '#FFFFFF',
+          margin: 0,
+        }}>
+          I am Michael,<br />
+          a Business<br />
+          Thinker &amp; Founder.<br />
+          <span style={{ color: '#A01818' }}>I wrote the Doctrine<br />for Economic<br className="hero-br-mobile" /> Sterilisation.</span>
+        </motion.h1>
+
+        <motion.p {...fadeUp(0.45)} style={{
+          fontFamily: "'Outfit', sans-serif",
+          fontSize: 'clamp(14.5px, 1.4vw, 17px)',
+          fontWeight: 300,
+          color: 'rgba(255,255,255,0.5)',
+          marginTop: 36,
+          maxWidth: 460,
+          lineHeight: 1.85,
+        }}>
+          MBA. MSc International Business Management. Founder of Mykei Securities Ltd.
+          The patent is filed. Manchester is where I built the proof.
+        </motion.p>
+
+        <motion.div {...fadeUp(0.6)} style={{
+          display: 'flex', gap: 16, marginTop: 44, flexWrap: 'wrap',
+        }}>
+          <a
+            href="#work"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: 10,
+              background: '#A01818', color: '#fff',
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: 700, fontSize: 13,
+              letterSpacing: '0.06em', textTransform: 'uppercase',
+              padding: '15px 32px', textDecoration: 'none',
+              transition: 'background 0.2s, transform 0.15s',
+              borderRadius: 3,
+            }}
+            onMouseEnter={e => {
+              const el = e.currentTarget as HTMLAnchorElement
+              el.style.background = '#C0392B'
+              el.style.transform = 'translateY(-1px)'
+            }}
+            onMouseLeave={e => {
+              const el = e.currentTarget as HTMLAnchorElement
+              el.style.background = '#A01818'
+              el.style.transform = 'translateY(0)'
+            }}
+          >
+            View My Work
+          </a>
+          <a
+            href="https://www.linkedin.com/in/michaelesema"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: 10,
+              background: 'transparent', color: '#fff',
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: 700, fontSize: 13,
+              letterSpacing: '0.06em', textTransform: 'uppercase',
+              padding: '15px 32px', textDecoration: 'none',
+              border: '2px solid rgba(255,255,255,0.25)',
+              borderRadius: 3,
+              transition: 'border-color 0.2s, transform 0.15s',
+            }}
+            onMouseEnter={e => {
+              const el = e.currentTarget as HTMLAnchorElement
+              el.style.borderColor = 'rgba(255,255,255,0.65)'
+              el.style.transform = 'translateY(-1px)'
+            }}
+            onMouseLeave={e => {
+              const el = e.currentTarget as HTMLAnchorElement
+              el.style.borderColor = 'rgba(255,255,255,0.25)'
+              el.style.transform = 'translateY(0)'
+            }}
+          >
+            Connect ↗
+          </a>
+        </motion.div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .hero-br-mobile { display: none; }
+        }
+      `}</style>
     </section>
   )
 }

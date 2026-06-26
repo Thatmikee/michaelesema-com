@@ -1,199 +1,196 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import TypingText from './ui/TypingText'
 
-const QUOTE = "Theft works because stolen goods hold value. Remove that value and the crime stops making sense. That is not a security problem. It is a commercial one."
-
-const credentials = [
-  {
-    group: 'Formation',
-    items: [
-      { title: 'MSc International Business Management', sub: 'Manchester Metropolitan University', note: '2024, Merit' },
-      { title: 'Master of Business Administration', sub: 'Nigerian Defence Academy', note: '2022' },
-      { title: 'BSc (Hons) Accounting', sub: 'Benson Idahosa University', note: '2018' },
-    ],
-  },
-  {
-    group: 'Certifications',
-    items: [
-      { title: 'Lean Six Sigma', sub: '', note: '2025' },
-      { title: 'Level 7 Advanced Diploma, Project Management', sub: '', note: '2025' },
-    ],
-  },
-  {
-    group: 'Roles',
-    items: [
-      { title: 'Founder and CEO', sub: 'Mykei Securities Ltd (Co. 16984969)', note: 'Manchester, United Kingdom' },
-      { title: 'Alumni Coordinator, Diaspora', sub: 'Dept. of Accounting, Benson Idahosa University', note: 'UK Chapter' },
-    ],
-  },
-]
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ease = [0.16, 1, 0.3, 1] as any
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const ref    = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 0, y: 32 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.85, delay, ease }}
     >
       {children}
     </motion.div>
   )
 }
 
+const STATS = [
+  { label: '3', sub: 'Degrees earned' },
+  { label: '1', sub: 'Patent filed' },
+]
+
 export default function About() {
-  const [quoteDone, setQuoteDone] = useState(false)
-
   return (
-    <section
-      id="about"
-      style={{
-        background: 'var(--bg-section)',
-        position: 'relative',
-      }}
-    >
+    <section id="about" style={{
+      background: '#F2F2F2',
+      position: 'relative',
+      overflow: 'hidden',
+      padding: 'clamp(72px, 9vw, 110px) clamp(32px, 8vw, 100px)',
+    }}>
 
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(48px, 6vw, 76px) clamp(24px, 5vw, 80px)' }}>
+      {/* Watermark */}
+      <div style={{
+        position: 'absolute',
+        right: '-2%', top: '50%',
+        transform: 'translateY(-50%)',
+        fontFamily: "'Poppins', sans-serif",
+        fontWeight: 900,
+        fontSize: 'clamp(72px, 14vw, 200px)',
+        color: 'rgba(0,0,0,0.04)',
+        userSelect: 'none', pointerEvents: 'none',
+        whiteSpace: 'nowrap',
+        letterSpacing: '-3px',
+        textTransform: 'uppercase',
+        lineHeight: 1,
+      }}>
+        About me
+      </div>
+
+      <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
         <FadeIn>
-          <div style={{ marginBottom: 64 }}>
-            <h2 style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(26px, 3vw, 40px)',
-              fontWeight: 400,
-              color: 'var(--text-primary)',
-              lineHeight: 1.15,
-              maxWidth: 560,
-            }}>
-              Business thinker. Founder.<br />
-              <em style={{ color: 'var(--text-secondary)', fontStyle: 'italic' }}>Headed toward doctoral research.</em>
-            </h2>
-          </div>
+          <p style={{
+            fontFamily: "'Poppins', sans-serif",
+            fontWeight: 700,
+            fontSize: 'clamp(11px, 1vw, 13px)',
+            color: '#A01818',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            marginBottom: 52,
+          }}>
+            About me
+          </p>
         </FadeIn>
 
-        <div className="about-grid" style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 'clamp(40px, 6vw, 88px)' }}>
+        <div className="about-main-grid" style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1.15fr',
+          gap: 'clamp(48px, 7vw, 90px)',
+          alignItems: 'start',
+        }}>
 
-          <FadeIn delay={0.1}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 26 }}>
-
-              <p style={{ fontSize: 'clamp(16px, 1.5vw, 19px)', lineHeight: 1.85, color: 'var(--text-primary)', fontWeight: 400 }}>
-                Michael Esema grew up in Abuja. He studied at Benson Idahosa University in Benin City,
-                earned his MBA from the Nigerian Defence Academy in Kaduna, and completed an MSc in
-                International Business Management at Manchester Metropolitan University in 2024.
-                Before any of that, he was building things. Student government at BIU, emergency
-                response work with NEMA, running B's Hive and the Silent Lounge. Each one taught
-                him the same lesson: institutions move slowly, so the people inside them have to move first.
-              </p>
-
-              <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: 'var(--text-secondary)', fontWeight: 300 }}>
-                When he arrived in Manchester in 2023, he started going into shops. Corner stores,
-                jewellers, off-licences. Sitting with owners who had cameras, tags, and guard contracts
-                and were still absorbing losses every week. He kept returning to the question Mike
-                Sutton's research first raised and the industry had largely stopped asking: why does
-                theft pay? His answer became the doctrine.
-              </p>
-
-              <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: 'var(--text-secondary)', fontWeight: 300 }}>
-                The patent is filed. The company is registered. The work now is to take the doctrine
-                to doctoral level, formalise it as an academic contribution, and build the
-                infrastructure around it. Not just a company. Something that lasts.
-              </p>
-
-              <blockquote style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: 'clamp(16px, 1.6vw, 19px)',
-                fontStyle: 'italic',
-                color: 'var(--text-primary)',
-                lineHeight: 1.65,
-                padding: '22px 0 22px 22px',
-                borderLeft: '2px solid var(--red)',
-                margin: '8px 0',
-                minHeight: 96,
-              }}>
-                <TypingText
-                  text={QUOTE}
-                  speed={22}
-                  delay={0.2}
-                  onDone={() => setQuoteDone(true)}
-                />
-              </blockquote>
-
-              {quoteDone && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6 }}
-                  style={{ display: 'flex', alignItems: 'center', gap: 8 }}
-                >
-                  <span style={{ display: 'block', width: 20, height: 1, background: 'var(--red)' }} />
-                  <span style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: 9,
-                    letterSpacing: '0.16em',
-                    textTransform: 'uppercase',
-                    color: 'var(--text-muted)',
-                  }}>
-                    Michael Esema, 2026
-                  </span>
-                </motion.div>
-              )}
-
-              <a href="/about" style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
-                letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: 'var(--red-text)', textDecoration: 'none',
-                marginTop: 4, transition: 'opacity 0.2s',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = '0.6')}
-              onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-              >
-                Full account
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
+          {/* Photo with geometric accent */}
+          <FadeIn delay={0.12}>
+            <figure style={{ position: 'relative', margin: 0, paddingBottom: 20, paddingRight: 20 }}>
+              {/* Red geometric block */}
+              <div style={{
+                position: 'absolute',
+                top: -18, right: -18,
+                width: '72%', height: '72%',
+                background: '#A01818',
+                zIndex: 0,
+              }} />
+              <img
+                src="/michael-esema-hero.jpg"
+                alt="Michael Esema, founder of Mykei Securities Ltd"
+                style={{
+                  width: '100%',
+                  display: 'block',
+                  position: 'relative',
+                  zIndex: 1,
+                  objectFit: 'cover',
+                  objectPosition: 'center top',
+                  maxHeight: 500,
+                }}
+              />
+            </figure>
           </FadeIn>
 
-          {/* Credentials */}
+          {/* Bio and stats */}
           <FadeIn delay={0.22}>
-            <div style={{
-              background: 'var(--bg-surface)',
-              border: '1px solid var(--border)',
-              padding: 'clamp(24px, 3vw, 40px)',
-            }}>
-              {credentials.map((group, gi) => (
-                <div key={group.group} style={{
-                  marginBottom: gi < credentials.length - 1 ? 32 : 0,
-                  paddingBottom: gi < credentials.length - 1 ? 32 : 0,
-                  borderBottom: 'none',
-                }}>
-                  <p style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: 8.5, fontWeight: 500, letterSpacing: '0.22em',
-                    textTransform: 'uppercase', color: 'var(--red-text)', marginBottom: 16,
+            <div>
+              <h2 style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontSize: 'clamp(26px, 3.5vw, 42px)',
+                fontWeight: 800,
+                color: '#1A1A1A',
+                lineHeight: 1.08,
+                marginBottom: 28,
+                textTransform: 'uppercase',
+                letterSpacing: '-0.5px',
+              }}>
+                About me
+              </h2>
+
+              <p style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: 'clamp(14px, 1.4vw, 16px)',
+                color: '#555',
+                lineHeight: 1.9,
+                fontWeight: 300,
+                marginBottom: 18,
+              }}>
+                Michael Esema grew up in Abuja. He studied at Benson Idahosa University in Benin City,
+                earned an MBA from the Nigerian Defence Academy in Kaduna, and completed an MSc in
+                International Business Management at Manchester Metropolitan University in 2024.
+              </p>
+              <p style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: 'clamp(14px, 1.4vw, 16px)',
+                color: '#555',
+                lineHeight: 1.9,
+                fontWeight: 300,
+                marginBottom: 18,
+              }}>
+                Before any of that, he was building things. Student government at BIU, emergency
+                response work with NEMA, running B's Hive and the Silent Lounge. Each taught
+                him the same lesson: institutions move slowly, so the people inside them have to move first.
+              </p>
+              <p style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: 'clamp(14px, 1.4vw, 16px)',
+                color: '#555',
+                lineHeight: 1.9,
+                fontWeight: 300,
+                marginBottom: 44,
+              }}>
+                In Manchester he walked into shops. Corner stores, jewellers, off-licences. Sat with
+                owners absorbing losses every week. The question Mike Sutton's research first raised
+                and the industry had stopped asking: why does theft pay? His answer became the doctrine.
+                The patent is filed. The company is registered. The doctorate is the next step.
+              </p>
+
+              {/* Stats */}
+              <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+                {STATS.map(stat => (
+                  <div key={stat.sub} style={{
+                    background: '#1A1A1A',
+                    padding: '22px 32px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 6,
+                    minWidth: 140,
                   }}>
-                    {group.group}
-                  </p>
-                  {group.items.map(item => (
-                    <div key={item.title} style={{ marginBottom: 14 }}>
-                      <p style={{ fontSize: 14, fontWeight: 500, color: 'var(--text-primary)', lineHeight: 1.35 }}>{item.title}</p>
-                      {item.sub && <p style={{ fontSize: 12.5, color: 'var(--text-secondary)', fontWeight: 300, marginTop: 2 }}>{item.sub}</p>}
-                      <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: 'var(--text-muted)', marginTop: 4 }}>{item.note}</p>
-                    </div>
-                  ))}
-                </div>
-              ))}
+                    <span style={{
+                      fontFamily: "'Poppins', sans-serif",
+                      fontWeight: 800, fontSize: 36,
+                      color: '#A01818', lineHeight: 1,
+                    }}>
+                      {stat.label}
+                    </span>
+                    <span style={{
+                      fontFamily: "'Outfit', sans-serif",
+                      fontSize: 12.5, color: 'rgba(255,255,255,0.6)',
+                      fontWeight: 400, letterSpacing: '0.04em',
+                    }}>
+                      {stat.sub}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </FadeIn>
         </div>
       </div>
 
       <style>{`
-        @media (max-width: 860px) {
-          .about-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+        @media (max-width: 768px) {
+          .about-main-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>

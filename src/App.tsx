@@ -25,9 +25,9 @@ function HomePage() {
       <Nav />
       <main id="main-content">
         <Hero />
+        <About />
         <SystemExplained />
         <Work />
-        <About />
         <ESInterview />
         <NigeriaSection />
         <Connect />
