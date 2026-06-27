@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const links = [
-  { label: 'About',    href: '#about' },
-  { label: 'Work',     href: '#work' },
-  { label: 'Thinking', href: '#thinking' },
-  { label: 'Thesis',   href: '/thesis' },
+  { label: 'About',    href: '/#about' },
+  { label: 'Focus',    href: '/#focus' },
+  { label: 'Work',     href: '/#work' },
+  { label: 'Thinking', href: '/#thinking' },
+  { label: 'Paper',    href: '/thesis' },
   { label: 'Mykei',    href: 'https://mykei.io', external: true },
 ]
 

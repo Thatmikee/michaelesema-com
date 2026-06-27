@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="An ownership registry ledger with rows, verification marks and a chain of custody link">
+  <rect width="800" height="600" fill="#f4f1ea"/>
+  <ellipse cx="400" cy="498" rx="180" ry="22" fill="#0e1226" opacity="0.05"/>
+  <!-- ledger -->
+  <rect x="170" y="120" width="460" height="338" rx="8" fill="#ffffff" stroke="#0e1226" stroke-width="3"/>
+  <!-- header -->
+  <rect x="170" y="120" width="460" height="50" rx="8" fill="#0e1226"/>
+  <rect x="170" y="150" width="460" height="20" fill="#0e1226"/>
+  <g fill="#f4f1ea">
+    <rect x="196" y="140" width="120" height="10" rx="3"/>
+    <rect x="360" y="140" width="90" height="10" rx="3"/>
+    <rect x="510" y="140" width="60" height="10" rx="3" opacity="0.7"/>
+  </g>
+  <!-- column dividers -->
+  <g stroke="#0e1226" stroke-width="1.5" opacity="0.18">
+    <path d="M338 170 V458 M486 170 V458"/>
+  </g>
+  <!-- rows -->
+  <g stroke="#0e1226" stroke-width="1.5" opacity="0.18">
+    <path d="M170 218 H630 M170 266 H630 M170 314 H630 M170 362 H630 M170 410 H630"/>
+  </g>
+  <!-- highlighted verified row -->
+  <rect x="171" y="266" width="458" height="48" fill="#2457ff" opacity="0.10"/>
+  <!-- row entries -->
+  <g fill="#0e1226" opacity="0.7">
+    <rect x="196" y="189" width="110" height="9" rx="3"/>
+    <rect x="362" y="189" width="84" height="9" rx="3"/>
+    <rect x="196" y="285" width="110" height="9" rx="3"/>
+    <rect x="362" y="285" width="84" height="9" rx="3"/>
+    <rect x="196" y="333" width="110" height="9" rx="3"/>
+    <rect x="362" y="333" width="84" height="9" rx="3"/>
+    <rect x="196" y="381" width="110" height="9" rx="3"/>
+    <rect x="362" y="381" width="84" height="9" rx="3"/>
+    <rect x="196" y="429" width="110" height="9" rx="3"/>
+    <rect x="362" y="429" width="84" height="9" rx="3"/>
+  </g>
+  <!-- verification check marks -->
+  <g fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M520 192 l9 9 16 -18" stroke="#0e1226" opacity="0.6"/>
+    <path d="M520 288 l9 9 16 -18" stroke="#2457ff"/>
+    <path d="M520 336 l9 9 16 -18" stroke="#0e1226" opacity="0.6"/>
+    <path d="M520 432 l9 9 16 -18" stroke="#0e1226" opacity="0.6"/>
+  </g>
+  <!-- chain of custody link -->
+  <g fill="none" stroke="#0e1226" stroke-width="4">
+    <rect x="600" y="486" width="46" height="26" rx="13"/>
+    <rect x="632" y="486" width="46" height="26" rx="13" stroke="#2457ff"/>
+  </g>
+</svg>

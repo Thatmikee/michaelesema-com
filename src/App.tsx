@@ -2,13 +2,12 @@ import { Routes, Route } from 'react-router-dom'
 import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
-import ESInterview from './components/ESInterview'
 import About from './components/About'
+import FocusAreas from './components/FocusAreas'
 import Work from './components/Work'
-import Writing from './components/Writing'
+import Thinking from './components/Thinking'
 import Connect from './components/Connect'
 import Footer from './components/Footer'
-import SystemExplained from './components/SystemExplained'
 import NigeriaSection from './components/NigeriaSection'
 import PhilosophyPage from './pages/PhilosophyPage'
 import AboutPage from './pages/AboutPage'
@@ -27,10 +26,9 @@ function HomePage() {
       <main id="main-content">
         <Hero />
         <About />
-        <SystemExplained />
+        <FocusAreas />
         <Work />
-        <Writing />
-        <ESInterview />
+        <Thinking />
         <NigeriaSection />
         <Connect />
       </main>

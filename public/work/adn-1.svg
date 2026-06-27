@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Technical sketch of a compact electronic defence module with a sensor lens and an exploded lid">
+  <rect width="800" height="600" fill="#eef0ee"/>
+  <!-- faint blueprint grid -->
+  <g stroke="#2457ff" stroke-width="1" opacity="0.10">
+    <path d="M0 60 H800 M0 120 H800 M0 180 H800 M0 240 H800 M0 300 H800 M0 360 H800 M0 420 H800 M0 480 H800 M0 540 H800"/>
+    <path d="M60 0 V600 M120 0 V600 M180 0 V600 M240 0 V600 M300 0 V600 M360 0 V600 M420 0 V600 M480 0 V600 M540 0 V600 M600 0 V600 M660 0 V600 M720 0 V600"/>
+  </g>
+  <!-- exploded lid -->
+  <g stroke="#0e1226" stroke-width="2.5" fill="#f7f7f4" opacity="0.85">
+    <rect x="270" y="120" width="260" height="44" rx="12"/>
+  </g>
+  <g stroke="#0e1226" stroke-width="1.5" stroke-dasharray="5 6" opacity="0.45">
+    <path d="M280 164 V206 M520 164 V206"/>
+  </g>
+  <!-- module body -->
+  <rect x="250" y="206" width="300" height="230" rx="22" fill="#fbfbf8" stroke="#0e1226" stroke-width="3"/>
+  <!-- mounting holes -->
+  <g fill="none" stroke="#0e1226" stroke-width="2.5">
+    <circle cx="292" cy="248" r="11"/>
+    <circle cx="508" cy="248" r="11"/>
+    <circle cx="292" cy="394" r="11"/>
+    <circle cx="508" cy="394" r="11"/>
+  </g>
+  <!-- sensor lens -->
+  <circle cx="400" cy="321" r="52" fill="none" stroke="#0e1226" stroke-width="3"/>
+  <circle cx="400" cy="321" r="30" fill="#2457ff" opacity="0.16"/>
+  <circle cx="400" cy="321" r="30" fill="none" stroke="#2457ff" stroke-width="2.5"/>
+  <circle cx="400" cy="321" r="9" fill="#2457ff"/>
+  <!-- dimension line -->
+  <g stroke="#0e1226" stroke-width="2" opacity="0.55" stroke-linecap="round">
+    <path d="M250 470 H360 M440 470 H550"/>
+    <path d="M250 462 V478 M550 462 V478"/>
+  </g>
+</svg>

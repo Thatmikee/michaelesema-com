@@ -20,163 +20,140 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 }
 
 const PROOF_CARDS = [
-  { num: 'Founder', label: 'Mykei Securities Ltd, UK' },
-  { num: 'Patent', label: 'Filed at UK IPO, March 2026' },
-  { num: 'UK R&D', label: 'Retail crime, deterrence and asset intelligence' },
+  { title: 'Founder', label: 'Mykei Securities Ltd' },
+  { title: 'Patent filed', label: 'UK IPO, March 2026' },
+  { title: 'Research', label: 'Security, incentives and asset integrity' },
+  { title: 'Builder', label: 'From idea to prototype' },
 ]
 
 export default function About() {
   return (
     <section id="about" style={{
-      background: '#f4f4f2',
+      background: 'var(--page-bg)',
       position: 'relative',
       overflow: 'hidden',
-      padding: 'clamp(80px, 10vw, 120px) clamp(32px, 8vw, 100px)',
+      padding: 'clamp(88px, 11vw, 140px) clamp(32px, 8vw, 100px)',
     }}>
 
-      {/* Ghost watermark */}
+      {/* Large pale ghost heading */}
       <div aria-hidden="true" style={{
         position: 'absolute',
-        right: '-2%', top: '50%',
-        transform: 'translateY(-50%)',
+        right: '4%', top: 'clamp(28px, 5vw, 56px)',
         fontFamily: "'Poppins', sans-serif",
         fontWeight: 900,
-        fontSize: 'clamp(80px, 15vw, 220px)',
-        color: 'rgba(36,87,255,0.05)',
+        fontSize: 'clamp(64px, 13vw, 190px)',
+        color: 'rgba(14,18,38,0.045)',
         userSelect: 'none', pointerEvents: 'none',
         whiteSpace: 'nowrap',
-        letterSpacing: '-3px',
+        letterSpacing: '-4px',
         lineHeight: 1,
       }}>
         About me
       </div>
 
       <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 1 }}>
-
-        <FadeIn>
-          <p style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontWeight: 700,
-            fontSize: 'clamp(11px, 1vw, 13px)',
-            color: '#4d7cff',
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            marginBottom: 52,
-          }}>
-            About me
-          </p>
-        </FadeIn>
-
         <div className="about-main-grid" style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1.2fr',
-          gap: 'clamp(48px, 7vw, 90px)',
-          alignItems: 'start',
+          gridTemplateColumns: '0.95fr 1.15fr',
+          gap: 'clamp(48px, 7vw, 96px)',
+          alignItems: 'center',
         }}>
 
-          {/* Photo with yellow geometric accent */}
-          <FadeIn delay={0.12}>
-            <figure style={{ position: 'relative', margin: 0, paddingBottom: 24, paddingLeft: 24 }}>
+          {/* Portrait framed by geometric blocks */}
+          <FadeIn delay={0.1}>
+            <figure className="about-portrait" style={{ position: 'relative', margin: 0, padding: '26px 0 26px 26px' }}>
+              {/* Yellow block (signature, behind, lower-left) */}
               <div aria-hidden="true" style={{
                 position: 'absolute',
-                top: -24, left: -24,
-                width: '80%', height: '80%',
-                background: '#F5C518',
+                left: 0, bottom: 0,
+                width: '74%', height: '82%',
+                background: 'var(--yellow)',
+                zIndex: 0,
+              }} />
+              {/* Navy block (depth, behind, upper-right) */}
+              <div aria-hidden="true" style={{
+                position: 'absolute',
+                right: -14, top: 0,
+                width: '34%', height: '46%',
+                background: 'var(--navy)',
                 zIndex: 0,
               }} />
               <img
                 src="/michael-esema-hero.jpg"
-                alt="Michael Esema, founder of Mykei Securities Ltd, based in Manchester"
+                alt="Portrait of Michael Esema, founder of Mykei Securities Ltd, based in Manchester"
                 style={{
-                  width: '100%',
-                  display: 'block',
                   position: 'relative',
                   zIndex: 1,
+                  width: '100%',
+                  display: 'block',
+                  aspectRatio: '4 / 5',
                   objectFit: 'cover',
-                  objectPosition: 'center top',
-                  maxHeight: 500,
+                  objectPosition: 'center 12%',
+                  borderRadius: 4,
                 }}
               />
             </figure>
           </FadeIn>
 
           {/* Bio and proof cards */}
-          <FadeIn delay={0.22}>
+          <FadeIn delay={0.2}>
             <div>
-              <h2 style={{
+              <p style={{
                 fontFamily: "'Poppins', sans-serif",
-                fontSize: 'clamp(26px, 3.5vw, 44px)',
-                fontWeight: 800,
-                color: '#111111',
-                lineHeight: 1.08,
-                marginBottom: 28,
-                letterSpacing: '-0.5px',
+                fontWeight: 700,
+                fontSize: 'clamp(12px, 1.1vw, 14px)',
+                color: 'var(--accent)',
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                marginBottom: 22,
               }}>
                 About me
-              </h2>
-
-              <p style={{
-                fontFamily: "'Outfit', sans-serif",
-                fontSize: 'clamp(14px, 1.4vw, 16px)',
-                color: '#555',
-                lineHeight: 1.9,
-                fontWeight: 300,
-                marginBottom: 18,
-              }}>
-                Michael Esema is a founder, researcher and systems builder. He founded Mykei Securities Ltd
-                in the UK and has spent years working on a practical question: why does crime persist,
-                and what does it take to change the economics that sustain it?
-              </p>
-              <p style={{
-                fontFamily: "'Outfit', sans-serif",
-                fontSize: 'clamp(14px, 1.4vw, 16px)',
-                color: '#555',
-                lineHeight: 1.9,
-                fontWeight: 300,
-                marginBottom: 18,
-              }}>
-                He grew up in Abuja, studied at Benson Idahosa University and the Nigerian Defence
-                Academy, and completed an MSc in International Business Management at Manchester
-                Metropolitan University in 2024. Before any of that he was building things: student
-                government, emergency response work with NEMA, running B&apos;s Hive and the Silent Lounge.
-              </p>
-              <p style={{
-                fontFamily: "'Outfit', sans-serif",
-                fontSize: 'clamp(14px, 1.4vw, 16px)',
-                color: '#555',
-                lineHeight: 1.9,
-                fontWeight: 300,
-                marginBottom: 44,
-              }}>
-                In Manchester he sat with shop owners absorbing losses every week and asked the question
-                the security industry had stopped asking: why does theft pay? That question became the
-                research, the patent, the company, and a broader body of work across retail crime,
-                resale deterrence, asset intelligence, and industrial security systems.
               </p>
 
-              {/* 3 proof cards */}
-              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+              {[
+                'Michael Esema is a founder, researcher and builder behind Mykei Securities Ltd, a UK-first security venture working on asset protection, resale-driven theft and evidence-led prevention.',
+                'His work asks a practical question: what happens after something is stolen, and how can that resale route be made weaker before the theft happens?',
+                'He grew up in Nigeria, studied Accounting at Benson Idahosa University, completed an MBA at the Nigerian Defence Academy, and later earned an MSc in International Business Management at Manchester Metropolitan University. Before Mykei, his path moved through student leadership, emergency-management exposure, hospitality operations, finance and frontline support work in the UK.',
+                'The common thread is practical systems: where they fail, who they leave exposed, and how they can be redesigned so harm is harder to profit from.',
+              ].map((para, i) => (
+                <p key={i} style={{
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: 'clamp(14px, 1.35vw, 16px)',
+                  color: 'var(--text-secondary)',
+                  lineHeight: 1.85,
+                  fontWeight: 300,
+                  marginBottom: i === 3 ? 40 : 18,
+                }}>
+                  {para}
+                </p>
+              ))}
+
+              {/* 4 compact proof cards */}
+              <div className="proof-grid" style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap: 12,
+              }}>
                 {PROOF_CARDS.map(card => (
-                  <div key={card.num} style={{
-                    background: '#111111',
-                    padding: '16px 20px',
+                  <div key={card.title} style={{
+                    background: 'var(--navy)',
+                    padding: '16px 18px',
                     borderRadius: 12,
-                    minWidth: 120,
                   }}>
                     <p style={{
                       fontFamily: "'Poppins', sans-serif",
                       fontWeight: 800,
                       fontSize: 'clamp(13px, 1.2vw, 15px)',
-                      color: '#4d7cff',
+                      color: 'var(--accent)',
                       lineHeight: 1.2,
                       marginBottom: 6,
                     }}>
-                      {card.num}
+                      {card.title}
                     </p>
                     <p style={{
                       fontFamily: "'Outfit', sans-serif",
-                      fontSize: 11.5,
-                      color: 'rgba(255,255,255,0.55)',
+                      fontSize: 12,
+                      color: 'rgba(255,255,255,0.6)',
                       fontWeight: 400,
                       lineHeight: 1.45,
                     }}>
@@ -191,8 +168,12 @@ export default function About() {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 820px) {
           .about-main-grid { grid-template-columns: 1fr !important; }
+          .about-portrait { max-width: 420px; }
+        }
+        @media (max-width: 420px) {
+          .proof-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>

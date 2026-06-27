@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="A desk still life with a cup of tea, an open notebook and a pen, for writing and public thinking">
+  <rect width="800" height="600" fill="#f4f1ea"/>
+  <ellipse cx="400" cy="486" rx="250" ry="26" fill="#0e1226" opacity="0.05"/>
+  <!-- steam -->
+  <g fill="none" stroke="#0e1226" stroke-width="2.5" opacity="0.4" stroke-linecap="round">
+    <path d="M236 196 q-14 -22 0 -44 q14 -22 0 -44"/>
+    <path d="M276 196 q-14 -22 0 -44 q14 -22 0 -44"/>
+  </g>
+  <!-- saucer -->
+  <ellipse cx="256" cy="408" rx="120" ry="26" fill="#ffffff" stroke="#0e1226" stroke-width="3"/>
+  <!-- cup -->
+  <path d="M180 300 h152 l-14 92 a16 16 0 0 1 -16 14 h-92 a16 16 0 0 1 -16 -14 z"
+        fill="#ffffff" stroke="#0e1226" stroke-width="3" stroke-linejoin="round"/>
+  <!-- tea surface -->
+  <ellipse cx="256" cy="302" rx="74" ry="14" fill="#f5c518" opacity="0.85" stroke="#0e1226" stroke-width="3"/>
+  <!-- handle -->
+  <path d="M332 320 q52 6 46 52 q-6 34 -50 34" fill="none" stroke="#0e1226" stroke-width="3"/>
+  <!-- open notebook -->
+  <g stroke="#0e1226" stroke-width="3" stroke-linejoin="round">
+    <path d="M420 326 l92 -22 v150 l-92 22 z" fill="#ffffff"/>
+    <path d="M512 304 l92 22 v150 l-92 -22 z" fill="#f7f5ef"/>
+  </g>
+  <!-- spiral binding -->
+  <g stroke="#0e1226" stroke-width="2.5" opacity="0.6">
+    <path d="M512 312 v150"/>
+    <path d="M506 322 h12 M506 344 h12 M506 366 h12 M506 388 h12 M506 410 h12 M506 432 h12"/>
+  </g>
+  <!-- ruled lines -->
+  <g stroke="#0e1226" stroke-width="2" opacity="0.4" stroke-linecap="round">
+    <path d="M438 348 l60 -14 M438 372 l60 -14 M438 396 l52 -12"/>
+  </g>
+  <path d="M526 338 l60 14" stroke="#2457ff" stroke-width="2.5" opacity="0.8" stroke-linecap="round"/>
+  <!-- pen -->
+  <g stroke="#0e1226" stroke-width="3" stroke-linejoin="round">
+    <path d="M404 470 l150 -150 l24 24 l-150 150 z" fill="#0e1226"/>
+    <path d="M404 470 l30 -30 l-6 -6 z" fill="#f5c518"/>
+  </g>
+</svg>
