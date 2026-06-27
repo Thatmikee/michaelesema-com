@@ -58,7 +58,7 @@ export default function About() {
             fontFamily: "'Poppins', sans-serif",
             fontWeight: 700,
             fontSize: 'clamp(11px, 1vw, 13px)',
-            color: '#2457ff',
+            color: '#4d7cff',
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
             marginBottom: 52,
@@ -167,7 +167,7 @@ export default function About() {
                       fontFamily: "'Poppins', sans-serif",
                       fontWeight: 800,
                       fontSize: 'clamp(13px, 1.2vw, 15px)',
-                      color: '#2457ff',
+                      color: '#4d7cff',
                       lineHeight: 1.2,
                       marginBottom: 6,
                     }}>

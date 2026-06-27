@@ -90,14 +90,14 @@ function CardVisual({ type }: { type: string }) {
           left: 24, right: 24,
           top: 24 + i * 26,
           height: 1.5,
-          background: i === 2 ? '#2457ff' : 'rgba(0,0,0,0.1)',
+          background: i === 2 ? '#4d7cff' : 'rgba(0,0,0,0.1)',
           borderRadius: 2,
         }} />
       ))}
       <div style={{
         position: 'absolute', left: 24, top: 24,
         width: 40, height: 40,
-        background: '#2457ff',
+        background: '#4d7cff',
         opacity: 0.12,
         borderRadius: 4,
       }} />
@@ -124,7 +124,7 @@ function CardVisual({ type }: { type: string }) {
         position: 'absolute', left: '50%', top: '50%',
         transform: 'translate(-50%, -50%)',
         width: 12, height: 12,
-        background: '#2457ff',
+        background: '#4d7cff',
         borderRadius: 2,
         opacity: 0.8,
       }} />
@@ -146,7 +146,7 @@ function CardVisual({ type }: { type: string }) {
             top: 24 + row * 38,
             width: 28, height: 20,
             border: '1.5px solid',
-            borderColor: (row === 0 && col === 1) ? '#2457ff' : 'rgba(0,0,0,0.12)',
+            borderColor: (row === 0 && col === 1) ? '#4d7cff' : 'rgba(0,0,0,0.12)',
             borderRadius: 4,
             background: (row === 0 && col === 1) ? 'rgba(36,87,255,0.08)' : 'transparent',
           }} />
@@ -164,7 +164,7 @@ function CardVisual({ type }: { type: string }) {
           bottom: 24,
           width: 20,
           height: 30 + i * 18,
-          background: i === 2 ? '#2457ff' : 'rgba(255,255,255,0.12)',
+          background: i === 2 ? '#4d7cff' : 'rgba(255,255,255,0.12)',
           borderRadius: '3px 3px 0 0',
         }} />
       ))}
@@ -187,7 +187,7 @@ function CardVisual({ type }: { type: string }) {
           <div style={{
             width: 20, height: 20,
             borderRadius: 3,
-            background: i === 1 ? '#2457ff' : 'rgba(0,0,0,0.08)',
+            background: i === 1 ? '#4d7cff' : 'rgba(0,0,0,0.08)',
             flexShrink: 0,
           }} />
           <div style={{
@@ -234,12 +234,12 @@ export default function Work() {
               fontFamily: "'Poppins', sans-serif",
               fontWeight: 700,
               fontSize: 'clamp(11px, 1vw, 13px)',
-              color: '#2457ff',
+              color: '#4d7cff',
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
               marginBottom: 16,
               display: 'inline-block',
-              border: '1.5px solid #2457ff',
+              border: '1.5px solid #4d7cff',
               borderRadius: 50,
               padding: '6px 20px',
             }}>
@@ -299,7 +299,7 @@ export default function Work() {
                   {/* Tag */}
                   <span style={{
                     position: 'absolute', top: 14, left: 14, zIndex: 2,
-                    background: '#2457ff', color: '#fff',
+                    background: '#4d7cff', color: '#fff',
                     fontFamily: "'Poppins', sans-serif",
                     fontWeight: 700, fontSize: 10,
                     letterSpacing: '0.1em', textTransform: 'uppercase',
@@ -334,7 +334,7 @@ export default function Work() {
                     fontFamily: "'Poppins', sans-serif",
                     fontWeight: 600,
                     fontSize: 12,
-                    color: '#2457ff',
+                    color: '#4d7cff',
                     letterSpacing: '0.06em',
                     textTransform: 'uppercase',
                     marginTop: 18,

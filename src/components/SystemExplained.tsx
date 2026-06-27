@@ -103,7 +103,7 @@ export default function SystemExplained() {
                   borderLeft: '2px solid transparent',
                   transition: 'border-color 0.2s',
                 }}
-                onMouseEnter={e => ((e.currentTarget as HTMLDivElement).style.borderLeftColor = '#2457ff')}
+                onMouseEnter={e => ((e.currentTarget as HTMLDivElement).style.borderLeftColor = '#4d7cff')}
                 onMouseLeave={e => ((e.currentTarget as HTMLDivElement).style.borderLeftColor = 'transparent')}
                 >
                   <p style={{

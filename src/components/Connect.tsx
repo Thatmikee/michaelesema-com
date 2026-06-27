@@ -68,7 +68,7 @@ export default function Connect() {
               }}>
                 Let&apos;s talk<br />
                 about something<br />
-                <span style={{ color: '#2457ff' }}>worth building.</span>
+                <span style={{ color: '#4d7cff' }}>worth building.</span>
               </h2>
               <p style={{
                 fontFamily: "'Outfit', sans-serif",
@@ -127,7 +127,7 @@ export default function Connect() {
                       {link.sub}
                     </p>
                   </div>
-                  <span style={{ color: '#2457ff', fontSize: 20, flexShrink: 0, marginTop: 2 }}>&#8599;</span>
+                  <span style={{ color: '#4d7cff', fontSize: 20, flexShrink: 0, marginTop: 2 }}>&#8599;</span>
                 </a>
               ))}
             </div>

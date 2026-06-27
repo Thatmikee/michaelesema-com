@@ -6,7 +6,7 @@
   :root {
     --page-bg:         #f4f4f2;
     --hero-bg:         #050817;
-    --accent:          #2457ff;
+    --accent:          #4d7cff;
     --accent-hover:    #3d6aff;
     --accent-dim:      rgba(36, 87, 255, 0.10);
 
@@ -19,18 +19,18 @@
     --border:          rgba(0, 0, 0, 0.09);
     --border-mid:      rgba(0, 0, 0, 0.15);
 
-    --red:             #2457ff;
+    --red:             #4d7cff;
     --red-bright:      #3d6aff;
     --red-dim:         rgba(36, 87, 255, 0.10);
     --red-line:        rgba(36, 87, 255, 0.30);
-    --red-text:        #2457ff;
+    --red-text:        #4d7cff;
 
     /* Legacy aliases — components reference these */
-    --gold:            #2457ff;
+    --gold:            #4d7cff;
     --gold-light:      #3d6aff;
     --gold-dim:        rgba(36, 87, 255, 0.10);
     --gold-line:       rgba(36, 87, 255, 0.28);
-    --gold-text:       #2457ff;
+    --gold-text:       #4d7cff;
     --light-bg:        #f4f4f2;
     --light-border:    rgba(0, 0, 0, 0.07);
     --text-dark:       #111111;
@@ -52,7 +52,7 @@
 
   ::-webkit-scrollbar { display: none; }
 
-  ::selection { background: #2457ff; color: #fff; }
+  ::selection { background: #4d7cff; color: #fff; }
 }
 
 .scroll-progress {
