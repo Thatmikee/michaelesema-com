@@ -3,6 +3,7 @@ import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
+import Milestones from './components/Milestones'
 import FocusAreas from './components/FocusAreas'
 import Work from './components/Work'
 import Thinking from './components/Thinking'
@@ -26,6 +27,7 @@ function HomePage() {
       <main id="main-content">
         <Hero />
         <About />
+        <Milestones />
         <FocusAreas />
         <Work />
         <Thinking />

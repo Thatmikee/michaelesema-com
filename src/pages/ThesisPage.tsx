@@ -32,7 +32,8 @@ const SCHEMA = {
   ],
 }
 
-const ACCENT = '#2457ff'
+const ACCENT = '#9a6a0c'   // readable ochre for label text and links (WCAG AA on white)
+const RULE = '#f2a91c'     // brighter amber for rules and accent bars
 const INK = '#161616'
 const MUTED = '#565656'
 const BORDER = '#E6E6E6'
@@ -224,7 +225,7 @@ export default function ThesisPage() {
               style={{
                 background: BG_WARM,
                 border: `1px solid ${BORDER}`,
-                borderLeft: `3px solid ${ACCENT}`,
+                borderLeft: `3px solid ${RULE}`,
                 borderRadius: 4,
                 padding: '28px 32px',
               }}
@@ -377,7 +378,7 @@ export default function ThesisPage() {
             </div>
 
             {/* Cite as */}
-            <div style={{ marginTop: 40, padding: '20px 24px', background: 'rgba(36,87,255,0.06)', borderLeft: `3px solid ${ACCENT}`, borderRadius: 4 }}>
+            <div style={{ marginTop: 40, padding: '20px 24px', background: 'rgba(242,169,28,0.10)', borderLeft: `3px solid ${RULE}`, borderRadius: 4 }}>
               <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, letterSpacing: '0.16em', textTransform: 'uppercase', color: ACCENT, marginBottom: 10 }}>
                 Cite as
               </p>

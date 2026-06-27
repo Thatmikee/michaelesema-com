@@ -3,107 +3,108 @@ import { motion, useReducedMotion } from 'framer-motion'
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ease = [0.16, 1, 0.3, 1] as any
 
-// Existing verified LinkedIn URL (also present in index.html JSON-LD sameAs).
+// Existing verified LinkedIn URL (also in index.html JSON-LD sameAs).
 const LINKEDIN = 'https://www.linkedin.com/in/michaelesema'
 
 export default function Hero() {
   const reduce = useReducedMotion()
-
   const fadeUp = (delay: number) => ({
-    initial: reduce ? {} : { opacity: 0, y: 26 },
+    initial: reduce ? {} : { opacity: 0, y: 24 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.8, delay, ease },
   })
 
   return (
-    <section aria-label="Introduction" style={{ background: 'var(--page-bg)', padding: 0 }}>
-      {/* Dark navy card, flush to the top so the fixed nav always sits on dark,
-          with a sculptural asymmetric bottom-right sweep into the light page. */}
-      <div
-        style={{
-          position: 'relative',
-          overflow: 'hidden',
-          background: 'var(--navy)',
-          margin: '0 clamp(0px, 1.4vw, 18px)',
-          borderRadius: '0 0 clamp(56px, 11vw, 128px) 28px',
-          minHeight: 'min(92vh, 820px)',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-end',
-          padding: 'clamp(120px, 15vw, 180px) clamp(28px, 7vw, 96px) clamp(64px, 8vw, 104px)',
-        }}
-      >
-        {/* Faint grid texture only — no glows, no gradients */}
-        <div aria-hidden="true" style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px)
-          `,
-          backgroundSize: '68px 68px',
-          maskImage: 'radial-gradient(120% 100% at 30% 20%, #000 40%, transparent 100%)',
-          WebkitMaskImage: 'radial-gradient(120% 100% at 30% 20%, #000 40%, transparent 100%)',
-          pointerEvents: 'none',
-        }} />
+    <section
+      aria-label="Introduction"
+      style={{
+        background: 'var(--hero-bg)',
+        position: 'relative',
+        overflow: 'hidden',
+        minHeight: 'min(94vh, 860px)',
+        display: 'flex',
+        alignItems: 'flex-end',
+      }}
+    >
+      <div className="hero-grid" style={{
+        maxWidth: 1280, margin: '0 auto', width: '100%',
+        display: 'grid',
+        gridTemplateColumns: '1.05fr 0.95fr',
+        alignItems: 'end',
+        minHeight: 'inherit',
+      }}>
+        {/* Left: statement */}
+        <div className="hero-copy" style={{
+          padding: 'clamp(120px, 14vw, 170px) clamp(28px, 5vw, 56px) clamp(64px, 9vw, 110px)',
+          zIndex: 2,
+        }}>
+          <motion.div {...fadeUp(0.05)} aria-hidden="true" style={{
+            width: 46, height: 6, background: 'var(--accent)', borderRadius: 3, marginBottom: 26,
+          }} />
 
-        <div style={{ maxWidth: 1080, position: 'relative', zIndex: 2, width: '100%', margin: '0 auto' }}>
-          <motion.h1 {...fadeUp(0.08)} style={{
+          <motion.h1 {...fadeUp(0.12)} style={{
             fontFamily: "'Poppins', sans-serif",
-            fontSize: 'clamp(28px, 4.5vw, 58px)',
+            fontSize: 'clamp(40px, 7vw, 84px)',
             fontWeight: 900,
-            lineHeight: 1.08,
-            letterSpacing: '-0.5px',
+            lineHeight: 0.98,
+            letterSpacing: '-1.5px',
             textTransform: 'uppercase',
-            color: '#FFFFFF',
+            color: 'var(--ink)',
             margin: 0,
           }}>
-            Michael Esema.<br />
-            Founder. Researcher. Builder.<br />
-            Working where{' '}
-            <span style={{ color: 'var(--accent)' }}>
-              security,<br />incentives and asset protection
-            </span>
-            {' '}meet.
+            Michael<br />Esema
           </motion.h1>
 
-          <motion.p {...fadeUp(0.32)} style={{
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: 'clamp(14px, 1.4vw, 17px)',
-            fontWeight: 300,
-            color: 'rgba(255,255,255,0.55)',
-            marginTop: 30,
-            maxWidth: 540,
-            lineHeight: 1.8,
+          <motion.p {...fadeUp(0.26)} style={{
+            fontFamily: "'Poppins', sans-serif",
+            fontSize: 'clamp(17px, 2vw, 23px)',
+            fontWeight: 600,
+            lineHeight: 1.4,
+            color: 'var(--ink)',
+            marginTop: 26,
+            maxWidth: 460,
+            letterSpacing: '-0.3px',
           }}>
-            I build security ideas and practical systems that make stolen assets
+            Founder, researcher and builder working where{' '}
+            <span style={{
+              backgroundImage: 'linear-gradient(var(--accent), var(--accent))',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: '0 88%',
+              backgroundSize: '100% 0.32em',
+            }}>
+              security, ownership and resale markets
+            </span>
+            {' '}meet.
+          </motion.p>
+
+          <motion.p {...fadeUp(0.36)} style={{
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: 'clamp(14px, 1.4vw, 16px)',
+            fontWeight: 300,
+            lineHeight: 1.75,
+            color: 'var(--text-secondary)',
+            marginTop: 20,
+            maxWidth: 430,
+          }}>
+            I build practical security ideas and systems that make stolen assets
             harder to sell, move, use or deny.
           </motion.p>
 
-          <motion.div {...fadeUp(0.46)} style={{
-            display: 'flex', gap: 18, marginTop: 42, flexWrap: 'wrap', alignItems: 'center',
-          }}>
+          <motion.div {...fadeUp(0.46)} style={{ display: 'flex', gap: 16, marginTop: 36, flexWrap: 'wrap', alignItems: 'center' }}>
             <a
               href="#work"
               style={{
                 display: 'inline-flex', alignItems: 'center',
-                background: 'var(--accent)', color: '#fff',
+                background: 'var(--accent)', color: 'var(--ink)',
                 fontFamily: "'Poppins', sans-serif",
-                fontWeight: 700, fontSize: 12.5,
-                letterSpacing: '0.06em', textTransform: 'uppercase',
+                fontWeight: 700, fontSize: 13,
+                letterSpacing: '0.01em',
                 padding: '15px 30px', textDecoration: 'none',
                 borderRadius: 8,
                 transition: 'background 0.2s, transform 0.15s',
               }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLAnchorElement
-                el.style.background = 'var(--accent-hover)'
-                el.style.transform = 'translateY(-1px)'
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLAnchorElement
-                el.style.background = 'var(--accent)'
-                el.style.transform = 'translateY(0)'
-              }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'var(--accent-hover)'; el.style.transform = 'translateY(-1px)' }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'var(--accent)'; el.style.transform = 'translateY(0)' }}
             >
               View my work
             </a>
@@ -114,68 +115,56 @@ export default function Hero() {
               rel="noopener noreferrer"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
-                color: 'rgba(255,255,255,0.72)',
+                color: 'var(--ink)',
                 fontFamily: "'Poppins', sans-serif",
-                fontWeight: 600, fontSize: 12.5,
-                letterSpacing: '0.06em', textTransform: 'uppercase',
-                padding: '15px 4px', textDecoration: 'none',
-                borderBottom: '1.5px solid rgba(255,255,255,0.22)',
-                transition: 'color 0.2s, border-color 0.2s',
+                fontWeight: 600, fontSize: 13,
+                padding: '15px 6px', textDecoration: 'none',
+                borderBottom: '2px solid var(--border-mid)',
+                transition: 'border-color 0.2s',
               }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLAnchorElement
-                el.style.color = '#ffffff'
-                el.style.borderBottomColor = 'rgba(255,255,255,0.6)'
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLAnchorElement
-                el.style.color = 'rgba(255,255,255,0.72)'
-                el.style.borderBottomColor = 'rgba(255,255,255,0.22)'
-              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = 'var(--accent)' }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = 'var(--border-mid)' }}
             >
               Connect
             </a>
           </motion.div>
         </div>
 
-        {/* Tasteful circular scroll control (icon only) */}
-        <motion.a
-          href="#about"
-          aria-label="Scroll to about section"
-          initial={reduce ? {} : { opacity: 0, scale: 0.8 }}
+        {/* Right: integrated portrait (grey background blends into hero) */}
+        <motion.div
+          className="hero-portrait"
+          initial={reduce ? {} : { opacity: 0, scale: 1.03 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.7, ease }}
-          style={{
-            position: 'absolute',
-            right: 'clamp(26px, 6vw, 72px)',
-            bottom: 'clamp(40px, 7vw, 80px)',
-            width: 52, height: 52,
-            borderRadius: '50%',
-            border: '1.5px solid rgba(255,255,255,0.28)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: 'rgba(255,255,255,0.85)',
-            zIndex: 3,
-            transition: 'background 0.25s, border-color 0.25s, transform 0.25s',
-          }}
-          className="hero-scroll-dot"
-          onMouseEnter={e => {
-            const el = e.currentTarget as HTMLAnchorElement
-            el.style.background = 'var(--accent)'
-            el.style.borderColor = 'var(--accent)'
-            el.style.transform = 'translateY(3px)'
-          }}
-          onMouseLeave={e => {
-            const el = e.currentTarget as HTMLAnchorElement
-            el.style.background = 'transparent'
-            el.style.borderColor = 'rgba(255,255,255,0.28)'
-            el.style.transform = 'translateY(0)'
-          }}
+          transition={{ duration: 1.1, ease }}
+          style={{ position: 'relative', alignSelf: 'end', height: '100%', minHeight: 360 }}
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 5v14M19 12l-7 7-7-7" />
-          </svg>
-        </motion.a>
+          <img
+            src="/michael-esema-portrait.jpg"
+            alt="Michael Esema, founder of Mykei Securities Ltd, in a black leather jacket"
+            style={{
+              position: 'absolute',
+              right: 0, bottom: 0,
+              height: '100%', width: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center top',
+            }}
+          />
+        </motion.div>
       </div>
+
+      <style>{`
+        @media (max-width: 860px) {
+          .hero-grid { grid-template-columns: 1fr !important; }
+          .hero-copy { order: 2; padding-top: 24px !important; }
+          .hero-portrait { order: 1; height: auto !important; min-height: 0 !important; }
+          .hero-portrait img {
+            position: relative !important;
+            height: auto !important;
+            max-height: 56vh;
+            object-position: center 18% !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }

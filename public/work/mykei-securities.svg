@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="A protected asset: a sealed cube with a marked band, representing asset protection and company infrastructure">
-  <rect width="800" height="600" fill="#f4f1ea"/>
-  <ellipse cx="400" cy="472" rx="170" ry="26" fill="#0e1226" opacity="0.06"/>
+  <rect width="800" height="600" fill="#f1efeb"/>
+  <ellipse cx="400" cy="472" rx="170" ry="26" fill="#232323" opacity="0.06"/>
   <!-- isometric asset cube -->
-  <g stroke="#0e1226" stroke-width="3" stroke-linejoin="round">
+  <g stroke="#232323" stroke-width="3" stroke-linejoin="round">
     <polygon points="400,150 540,228 400,306 260,228" fill="#ffffff"/>
     <polygon points="260,228 400,306 400,452 260,374" fill="#e8e4da"/>
     <polygon points="400,306 540,228 540,374 400,452" fill="#dcd7cb"/>
   </g>
   <!-- marked band across the front faces -->
   <g stroke-linejoin="round">
-    <polygon points="260,300 400,378 400,408 260,330" fill="#2457ff" opacity="0.92"/>
-    <polygon points="400,378 540,300 540,330 400,408" fill="#1c47d6" opacity="0.92"/>
+    <polygon points="260,300 400,378 400,408 260,330" fill="#f2a91c" opacity="0.92"/>
+    <polygon points="400,378 540,300 540,330 400,408" fill="#cf9410" opacity="0.92"/>
   </g>
   <!-- registration seal -->
-  <circle cx="400" cy="370" r="26" fill="#f4f1ea" stroke="#0e1226" stroke-width="3"/>
+  <circle cx="400" cy="370" r="26" fill="#f1efeb" stroke="#232323" stroke-width="3"/>
   <circle cx="400" cy="370" r="9" fill="#f5c518"/>
   <!-- corner ticks suggesting a perimeter -->
-  <g stroke="#0e1226" stroke-width="3" fill="none" opacity="0.5" stroke-linecap="round">
+  <g stroke="#232323" stroke-width="3" fill="none" opacity="0.5" stroke-linecap="round">
     <path d="M120 120 h34 M120 120 v34"/>
     <path d="M680 120 h-34 M680 120 v34"/>
     <path d="M120 500 h34 M120 500 v-34"/>

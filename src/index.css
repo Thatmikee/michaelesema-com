@@ -4,47 +4,49 @@
 
 @layer base {
   :root {
-    --page-bg:         #f4f4f2;
-    --hero-bg:         #050817;
-    --accent:          #4d7cff;
-    --accent-hover:    #3d6aff;
-    --accent-dim:      rgba(36, 87, 255, 0.10);
+    /* Light "Selfy"-style founder palette: warm light grey + single amber accent */
+    --page-bg:         #ececea;
+    --hero-bg:         #e4e4e1;
+    --accent:          #f2a91c;
+    --accent-hover:    #df9a0e;
+    --accent-dim:      rgba(242, 169, 28, 0.14);
 
-    --bg:              #f4f4f2;
-    --bg-section:      #f4f4f2;
+    --bg:              #ececea;
+    --bg-section:      #ececea;
     --bg-surface:      #ffffff;
-    --text-primary:    #111111;
-    --text-secondary:  #555555;
-    --text-muted:      #888888;
-    --border:          rgba(0, 0, 0, 0.09);
-    --border-mid:      rgba(0, 0, 0, 0.15);
+    --ink:             #232323;
+    --text-primary:    #232323;
+    --text-secondary:  #585855;
+    --text-muted:      #8c8c88;
+    --border:          rgba(0, 0, 0, 0.08);
+    --border-mid:      rgba(0, 0, 0, 0.14);
 
-    --yellow:          #f5c518;
-    --navy:            #0e1226;
+    --yellow:          #f2a91c;
+    --navy:            #232323;
 
-    --red:             #4d7cff;
-    --red-bright:      #3d6aff;
-    --red-dim:         rgba(36, 87, 255, 0.10);
-    --red-line:        rgba(36, 87, 255, 0.30);
-    --red-text:        #4d7cff;
+    --red:             #f2a91c;
+    --red-bright:      #df9a0e;
+    --red-dim:         rgba(242, 169, 28, 0.14);
+    --red-line:        rgba(242, 169, 28, 0.30);
+    --red-text:        #b9810f;
 
     /* Legacy aliases — components reference these */
-    --gold:            #4d7cff;
-    --gold-light:      #3d6aff;
-    --gold-dim:        rgba(36, 87, 255, 0.10);
-    --gold-line:       rgba(36, 87, 255, 0.28);
-    --gold-text:       #4d7cff;
-    --light-bg:        #f4f4f2;
+    --gold:            #f2a91c;
+    --gold-light:      #df9a0e;
+    --gold-dim:        rgba(242, 169, 28, 0.14);
+    --gold-line:       rgba(242, 169, 28, 0.28);
+    --gold-text:       #b9810f;
+    --light-bg:        #ececea;
     --light-border:    rgba(0, 0, 0, 0.07);
-    --text-dark:       #111111;
-    --text-dark-secondary: #555555;
-    --dark:            #111111;
-    --dark-card:       #1E1E1E;
-    --dark-border:     rgba(0, 0, 0, 0.09);
+    --text-dark:       #232323;
+    --text-dark-secondary: #585855;
+    --dark:            #232323;
+    --dark-card:       #2a2a2a;
+    --dark-border:     rgba(0, 0, 0, 0.08);
 
-    --radius-card:     16px;
-    --radius-hero:     32px;
-    --shadow-card:     0 2px 20px rgba(0,0,0,0.06);
+    --radius-card:     14px;
+    --radius-hero:     28px;
+    --shadow-card:     0 2px 18px rgba(0,0,0,0.05);
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
