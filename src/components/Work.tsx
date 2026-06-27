@@ -7,35 +7,51 @@ const ease = [0.16, 1, 0.3, 1] as any
 const items = [
   {
     title: 'Mykei Securities Ltd',
-    body: 'A UK company built on one idea: that retail theft is a market problem, not a security one. The doctrine is Economic Sterilisation.',
+    body: 'A UK security company working on retail crime, asset protection and resale deterrence. The thesis is that crime is an incentives problem, and incentives can be redesigned.',
     href: 'https://mykei.io',
     external: true,
     tag: 'Company',
     visual: 'mykei',
   },
   {
-    title: 'Economic Sterilisation Research',
-    body: 'A framework built from Mike Sutton\'s Market Reduction Approach. Make stolen goods commercially worthless and the incentive for theft dissolves.',
-    href: '/thesis',
-    external: false,
-    tag: 'Doctrine',
-    visual: 'research',
-  },
-  {
     title: 'ADN-1 Active Defense Node',
-    body: 'Patent-pending forensic deterrence hardware for retail. Designed to make removal costly, traceable, and commercially pointless for would-be thieves.',
+    body: 'Patent-pending deterrence hardware designed for retail environments. Makes bulk removal costly, traceable and commercially pointless at the point of attempt.',
     href: 'https://mykei.io',
     external: true,
     tag: 'Hardware',
     visual: 'adn',
   },
   {
-    title: 'Mykei Registry / Event Record',
-    body: 'An asset registry and event-log infrastructure for tracking ownership, provenance, and chain of custody across the supply chain.',
+    title: 'Economic Sterilisation',
+    body: 'A doctrine built from Mike Sutton\'s Market Reduction Approach. Remove the commercial utility of stolen goods and the underlying incentive for theft dissolves.',
+    href: '/thesis',
+    external: false,
+    tag: 'Doctrine',
+    visual: 'research',
+  },
+  {
+    title: 'Mykei Registry',
+    body: 'An asset registry and event-record infrastructure for tracking ownership, provenance and chain of custody. The proof layer that survives a theft.',
     href: 'https://mykei.io/signal',
     external: true,
     tag: 'Infrastructure',
     visual: 'registry',
+  },
+  {
+    title: 'Retail Crime and Resale Deterrence',
+    body: 'Research into why stolen goods hold value, how resale markets sustain theft, and what structural interventions actually shift behaviour at scale.',
+    href: '/thesis',
+    external: false,
+    tag: 'Research',
+    visual: 'resale',
+  },
+  {
+    title: 'Writing, Research and Public Thinking',
+    body: 'Essays, field notes and public thinking on security, incentives, retail crime, asset intelligence and the process of building Mykei from first principles.',
+    href: '#thinking',
+    external: false,
+    tag: 'Writing',
+    visual: 'writing',
   },
 ]
 
@@ -139,6 +155,52 @@ function CardVisual({ type }: { type: string }) {
     </div>
   )
 
+  if (type === 'resale') return (
+    <div style={{ ...styles, background: '#0e1020', overflow: 'hidden' }}>
+      {[0,1,2,3,4].map(i => (
+        <div key={i} style={{
+          position: 'absolute',
+          left: 24 + i * 34,
+          bottom: 24,
+          width: 20,
+          height: 30 + i * 18,
+          background: i === 2 ? '#2457ff' : 'rgba(255,255,255,0.12)',
+          borderRadius: '3px 3px 0 0',
+        }} />
+      ))}
+      <div style={{
+        position: 'absolute', left: 24, top: 24, right: 24,
+        height: 1, background: 'rgba(255,255,255,0.08)',
+      }} />
+    </div>
+  )
+
+  if (type === 'writing') return (
+    <div style={{ ...styles, background: '#f8f8f6', overflow: 'hidden' }}>
+      {[0,1,2,3].map(i => (
+        <div key={i} style={{
+          position: 'absolute',
+          left: 24, right: 24,
+          top: 32 + i * 34,
+          display: 'flex', alignItems: 'center', gap: 10,
+        }}>
+          <div style={{
+            width: 20, height: 20,
+            borderRadius: 3,
+            background: i === 1 ? '#2457ff' : 'rgba(0,0,0,0.08)',
+            flexShrink: 0,
+          }} />
+          <div style={{
+            height: 8,
+            borderRadius: 4,
+            background: 'rgba(0,0,0,0.09)',
+            width: `${55 + (i % 3) * 18}%`,
+          }} />
+        </div>
+      ))}
+    </div>
+  )
+
   return null
 }
 
@@ -193,14 +255,14 @@ export default function Work() {
               textTransform: 'uppercase',
               maxWidth: 480,
             }}>
-              What I am building
+              Work
             </h2>
           </div>
         </FadeIn>
 
         <div className="work-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
+          gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 20,
         }}>
           {items.map((item, i) => (
@@ -287,7 +349,10 @@ export default function Work() {
       </div>
 
       <style>{`
-        @media (max-width: 700px) {
+        @media (max-width: 900px) {
+          .work-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 600px) {
           .work-grid { grid-template-columns: 1fr !important; }
         }
         @media (prefers-reduced-motion: reduce) {

@@ -22,7 +22,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 const PROOF_CARDS = [
   { num: 'Founder', label: 'Mykei Securities Ltd, UK' },
   { num: 'Patent', label: 'Filed at UK IPO, March 2026' },
-  { num: 'UK-first', label: 'R&D in retail crime economics' },
+  { num: 'UK R&D', label: 'Retail crime, deterrence and asset intelligence' },
 ]
 
 export default function About() {
@@ -123,9 +123,9 @@ export default function About() {
                 fontWeight: 300,
                 marginBottom: 18,
               }}>
-                Michael Esema grew up in Abuja. He studied at Benson Idahosa University in Benin City,
-                earned an MBA from the Nigerian Defence Academy in Kaduna, and completed an MSc in
-                International Business Management at Manchester Metropolitan University in 2024.
+                Michael Esema is a founder, researcher and systems builder. He founded Mykei Securities Ltd
+                in the UK and has spent years working on a practical question: why does crime persist,
+                and what does it take to change the economics that sustain it?
               </p>
               <p style={{
                 fontFamily: "'Outfit', sans-serif",
@@ -135,9 +135,10 @@ export default function About() {
                 fontWeight: 300,
                 marginBottom: 18,
               }}>
-                Before any of that, he was building things. Student government at BIU, emergency
-                response work with NEMA, running B&apos;s Hive and the Silent Lounge. Each taught
-                him the same lesson: institutions move slowly, so the people inside them have to move first.
+                He grew up in Abuja, studied at Benson Idahosa University and the Nigerian Defence
+                Academy, and completed an MSc in International Business Management at Manchester
+                Metropolitan University in 2024. Before any of that he was building things: student
+                government, emergency response work with NEMA, running B&apos;s Hive and the Silent Lounge.
               </p>
               <p style={{
                 fontFamily: "'Outfit', sans-serif",
@@ -147,10 +148,10 @@ export default function About() {
                 fontWeight: 300,
                 marginBottom: 44,
               }}>
-                In Manchester he walked into shops. Corner stores, jewellers, off-licences. Sat with
-                owners absorbing losses every week. The question Mike Sutton&apos;s research first raised
-                and the industry had stopped asking: why does theft pay? His answer became the doctrine.
-                The patent is filed. The company is registered. The doctorate is the next step.
+                In Manchester he sat with shop owners absorbing losses every week and asked the question
+                the security industry had stopped asking: why does theft pay? That question became the
+                research, the patent, the company, and a broader body of work across retail crime,
+                resale deterrence, asset intelligence, and industrial security systems.
               </p>
 
               {/* 3 proof cards */}

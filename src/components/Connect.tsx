@@ -56,17 +56,6 @@ export default function Connect() {
 
           <FadeIn>
             <div>
-              <p style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 700,
-                fontSize: 'clamp(11px, 1vw, 13px)',
-                color: '#2457ff',
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                marginBottom: 20,
-              }}>
-                Contact
-              </p>
               <h2 style={{
                 fontFamily: "'Poppins', sans-serif",
                 fontSize: 'clamp(28px, 4vw, 52px)',
@@ -77,9 +66,9 @@ export default function Connect() {
                 color: '#111111',
                 marginBottom: 28,
               }}>
-                If you have<br />
-                something real to say,<br />
-                <span style={{ color: '#2457ff' }}>I will read it.</span>
+                Let&apos;s talk<br />
+                about something<br />
+                <span style={{ color: '#2457ff' }}>worth building.</span>
               </h2>
               <p style={{
                 fontFamily: "'Outfit', sans-serif",
@@ -89,9 +78,10 @@ export default function Connect() {
                 fontWeight: 300,
                 maxWidth: 380,
               }}>
-                Relevant to investors, researchers in retail crime or criminology,
-                retail security professionals, media covering organised crime, and
-                any founder building in adjacent territory.
+                Investors, researchers, retail and security professionals,
+                journalists covering organised crime and loss prevention,
+                founders building nearby. If you have something real to say,
+                I will read it.
               </p>
             </div>
           </FadeIn>

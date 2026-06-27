@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const links = [
   { label: 'About',    href: '#about' },
   { label: 'Work',     href: '#work' },
-  { label: 'Writing',  href: '#writing' },
+  { label: 'Thinking', href: '#thinking' },
   { label: 'Thesis',   href: '/thesis' },
   { label: 'Mykei',    href: 'https://mykei.io', external: true },
 ]

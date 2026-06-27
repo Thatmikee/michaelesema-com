@@ -58,20 +58,21 @@ export default function Hero() {
         {/* Content */}
         <div style={{ maxWidth: 1100, position: 'relative', zIndex: 2 }}>
 
-          <motion.h1 {...fadeUp(0.1)} style={{
+            <motion.h1 {...fadeUp(0.1)} style={{
             fontFamily: "'Poppins', sans-serif",
-            fontSize: 'clamp(38px, 7vw, 96px)',
+            fontSize: 'clamp(30px, 4.8vw, 64px)',
             fontWeight: 900,
-            lineHeight: 1.0,
-            letterSpacing: '-1.5px',
+            lineHeight: 1.05,
+            letterSpacing: '-1px',
             textTransform: 'uppercase',
             color: '#FFFFFF',
             margin: 0,
           }}>
-            Hi, I&apos;m Michael Esema,<br />
-            Founder of Mykei Securities.<br />
-            I work on{' '}
-            <span style={{ color: '#2457ff' }}>Economic<br className="hero-accent-br" /> Sterilisation.</span>
+            Michael Esema.<br />
+            Founder. Researcher. Builder.<br />
+            Working where{' '}
+            <span style={{ color: '#2457ff' }}>security,<br />incentives and systems</span>
+            {' '}meet.
           </motion.h1>
 
           <motion.p {...fadeUp(0.4)} style={{
@@ -80,18 +81,20 @@ export default function Hero() {
             fontWeight: 300,
             color: 'rgba(255,255,255,0.48)',
             marginTop: 32,
-            maxWidth: 500,
+            maxWidth: 520,
             lineHeight: 1.85,
           }}>
-            Building systems that make stolen goods harder to use, harder to sell,
-            harder to move, and harder to deny.
+            I build ideas, ventures and security systems for a world where crime is
+            harder to monetise, assets are harder to exploit, and prevention is
+            designed into the system.
           </motion.p>
 
           <motion.div {...fadeUp(0.55)} style={{
             display: 'flex', gap: 14, marginTop: 48, flexWrap: 'wrap',
+            alignItems: 'center',
           }}>
             <a
-              href="/thesis"
+              href="#work"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 10,
                 background: '#2457ff', color: '#fff',
@@ -99,7 +102,7 @@ export default function Hero() {
                 fontWeight: 700, fontSize: 12.5,
                 letterSpacing: '0.07em', textTransform: 'uppercase',
                 padding: '15px 32px', textDecoration: 'none',
-                borderRadius: 4,
+                borderRadius: 6,
                 transition: 'background 0.2s, transform 0.15s',
               }}
               onMouseEnter={e => {
@@ -113,10 +116,13 @@ export default function Hero() {
                 el.style.transform = 'translateY(0)'
               }}
             >
-              Read the thesis
+              View my work
             </a>
+            {/* LinkedIn — connect CTA */}
             <a
-              href="#connect"
+              href="https://www.linkedin.com/in/michaelesema"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 display: 'inline-flex', alignItems: 'center',
                 color: 'rgba(255,255,255,0.7)',
@@ -138,7 +144,7 @@ export default function Hero() {
                 el.style.borderBottomColor = 'rgba(255,255,255,0.25)'
               }}
             >
-              Contact me
+              Connect
             </a>
           </motion.div>
         </div>

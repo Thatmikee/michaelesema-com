@@ -66,17 +66,6 @@ export default function SystemExplained() {
 
           <FadeIn>
             <div>
-              <p style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 700,
-                fontSize: 'clamp(11px, 1vw, 13px)',
-                color: '#2457ff',
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                marginBottom: 20,
-              }}>
-                What I work on
-              </p>
               <h2 style={{
                 fontFamily: "'Poppins', sans-serif",
                 fontSize: 'clamp(28px, 3.8vw, 48px)',

@@ -19,40 +19,48 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   )
 }
 
-const ESSAYS = [
+const PIECES = [
   {
     number: '01',
-    title: 'Why Stolen Goods Have Value: A Market Analysis',
-    excerpt: 'Theft persists because stolen goods find buyers. The value chain that makes retail crime rational, and why disrupting it starts with understanding resale markets.',
+    title: 'Crime as an incentives problem',
+    excerpt: 'Most security responses treat crime as a behaviour problem. It is not. It is an economics problem. Change the incentive structure and the behaviour follows.',
     href: '/thesis',
-    status: 'Read',
   },
   {
     number: '02',
-    title: 'Economic Sterilisation: The Doctrine',
-    excerpt: 'The full intellectual case for removing the commercial utility of stolen goods. Built on Sutton\'s 1998 research, extended into a workable infrastructure doctrine.',
+    title: 'Making stolen goods harder to monetise',
+    excerpt: 'The resale market is not a side effect of theft. It is the reason theft happens at all. Remove the buyer, remove the cash-out route, and the whole chain loses its logic.',
     href: '/thesis',
-    status: 'Read',
   },
   {
     number: '03',
-    title: 'What Retail Crime Actually Costs',
-    excerpt: 'Beyond the shrinkage line in the accounts. The second-order costs: insurance premium drift, stock inaccuracy, staff retention, and community damage.',
+    title: 'Retail loss, colleague safety and resale markets',
+    excerpt: 'Shrinkage data understates the damage. The real cost is in staff morale, insurance drift, stock inaccuracy and the quiet accumulation of unrecorded harm.',
     href: '/thesis',
-    status: 'Read',
+  },
+  {
+    number: '04',
+    title: 'Industrial intelligence and future security infrastructure',
+    excerpt: 'The next generation of security systems will not be passive. They will sense, record, mark, and create friction at every step of an attempted crime.',
+    href: 'https://mykei.io/signal',
+  },
+  {
+    number: '05',
+    title: 'Founder notes from building Mykei',
+    excerpt: 'What it actually looks like to turn research into a company. The decisions, the wrong turns, the moments where the theory met something harder.',
+    href: 'https://mykei.io/signal',
   },
 ]
 
 export default function Writing() {
   return (
-    <section id="writing" style={{
+    <section id="thinking" style={{
       background: '#050817',
       padding: 'clamp(80px, 10vw, 120px) clamp(32px, 8vw, 100px)',
       position: 'relative',
       overflow: 'hidden',
     }}>
 
-      {/* Circuit dot texture */}
       <div aria-hidden="true" style={{
         position: 'absolute', inset: 0,
         backgroundImage: `radial-gradient(circle, rgba(36,87,255,0.05) 1px, transparent 1px)`,
@@ -62,7 +70,7 @@ export default function Writing() {
 
       <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
-        <div className="writing-header" style={{
+        <div className="thinking-header" style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'flex-end',
@@ -81,7 +89,7 @@ export default function Writing() {
                 textTransform: 'uppercase',
                 marginBottom: 16,
               }}>
-                Writing
+                Thinking
               </p>
               <h2 style={{
                 fontFamily: "'Poppins', sans-serif",
@@ -92,7 +100,7 @@ export default function Writing() {
                 letterSpacing: '-0.5px',
                 textTransform: 'uppercase',
               }}>
-                Thinking in public
+                Ideas in public
               </h2>
             </div>
           </FadeIn>
@@ -129,73 +137,61 @@ export default function Writing() {
           </FadeIn>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-          {ESSAYS.map((essay, i) => (
-            <FadeIn key={essay.number} delay={0.08 + i * 0.07}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {PIECES.map((piece, i) => (
+            <FadeIn key={piece.number} delay={0.06 + i * 0.06}>
               <a
-                href={essay.href}
+                href={piece.href}
+                target={piece.href.startsWith('http') ? '_blank' : undefined}
+                rel={piece.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 style={{
                   textDecoration: 'none',
                   display: 'grid',
-                  gridTemplateColumns: '64px 1fr auto',
-                  gap: 32,
+                  gridTemplateColumns: '52px 1fr',
+                  gap: '0 28px',
                   alignItems: 'start',
-                  padding: '36px 0',
-                  borderBottom: i < ESSAYS.length - 1
-                    ? '1px solid rgba(255,255,255,0.07)'
-                    : '1px solid rgba(255,255,255,0.07)',
+                  padding: '30px 0',
+                  borderBottom: '1px solid rgba(255,255,255,0.07)',
                   transition: 'opacity 0.2s',
                 }}
-                className="essay-row"
-                onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.opacity = '0.65')}
+                className="thinking-row"
+                onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.opacity = '0.6')}
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.opacity = '1')}
               >
                 <p style={{
                   fontFamily: "'Poppins', sans-serif",
                   fontWeight: 800,
-                  fontSize: 13,
+                  fontSize: 12,
                   color: '#2457ff',
                   letterSpacing: '0.05em',
                   lineHeight: 1,
-                  paddingTop: 4,
+                  paddingTop: 5,
                 }}>
-                  {essay.number}
+                  {piece.number}
                 </p>
                 <div>
                   <h3 style={{
                     fontFamily: "'Poppins', sans-serif",
                     fontWeight: 700,
-                    fontSize: 'clamp(15px, 1.6vw, 19px)',
+                    fontSize: 'clamp(14px, 1.5vw, 18px)',
                     color: '#ffffff',
                     lineHeight: 1.25,
-                    marginBottom: 12,
+                    marginBottom: 10,
                     letterSpacing: '-0.2px',
                   }}>
-                    {essay.title}
+                    {piece.title}
                   </h3>
                   <p style={{
                     fontFamily: "'Outfit', sans-serif",
                     fontSize: 'clamp(13px, 1.2vw, 14.5px)',
-                    color: 'rgba(255,255,255,0.45)',
+                    color: 'rgba(255,255,255,0.42)',
                     lineHeight: 1.75,
                     fontWeight: 300,
-                    maxWidth: 540,
+                    maxWidth: 580,
                   }}>
-                    {essay.excerpt}
+                    {piece.excerpt}
                   </p>
                 </div>
-                <p style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontWeight: 600,
-                  fontSize: 11.5,
-                  color: '#2457ff',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  paddingTop: 4,
-                  whiteSpace: 'nowrap',
-                }}>
-                  {essay.status} &rarr;
-                </p>
               </a>
             </FadeIn>
           ))}
@@ -203,12 +199,11 @@ export default function Writing() {
       </div>
 
       <style>{`
-        @media (max-width: 600px) {
-          .essay-row { grid-template-columns: 40px 1fr !important; }
-          .essay-row > p:last-child { display: none; }
+        @media (max-width: 500px) {
+          .thinking-row { grid-template-columns: 36px 1fr !important; gap: 0 16px !important; }
         }
         @media (prefers-reduced-motion: reduce) {
-          .essay-row { transition: none !important; }
+          .thinking-row { transition: none !important; }
         }
       `}</style>
     </section>
