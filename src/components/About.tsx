@@ -19,29 +19,30 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   )
 }
 
-const STATS = [
-  { label: '3', sub: 'Degrees earned' },
-  { label: '1', sub: 'Patent filed' },
+const PROOF_CARDS = [
+  { num: 'Founder', label: 'Mykei Securities Ltd, UK' },
+  { num: 'Patent', label: 'Filed at UK IPO, March 2026' },
+  { num: 'UK-first', label: 'R&D in retail crime economics' },
 ]
 
 export default function About() {
   return (
     <section id="about" style={{
-      background: '#F2F2F2',
+      background: '#f4f4f2',
       position: 'relative',
       overflow: 'hidden',
-      padding: 'clamp(72px, 9vw, 110px) clamp(32px, 8vw, 100px)',
+      padding: 'clamp(80px, 10vw, 120px) clamp(32px, 8vw, 100px)',
     }}>
 
-      {/* Watermark */}
-      <div style={{
+      {/* Ghost watermark */}
+      <div aria-hidden="true" style={{
         position: 'absolute',
         right: '-2%', top: '50%',
         transform: 'translateY(-50%)',
         fontFamily: "'Poppins', sans-serif",
         fontWeight: 900,
-        fontSize: 'clamp(72px, 14vw, 200px)',
-        color: 'rgba(59,91,219,0.06)',
+        fontSize: 'clamp(80px, 15vw, 220px)',
+        color: 'rgba(36,87,255,0.05)',
         userSelect: 'none', pointerEvents: 'none',
         whiteSpace: 'nowrap',
         letterSpacing: '-3px',
@@ -57,7 +58,7 @@ export default function About() {
             fontFamily: "'Poppins', sans-serif",
             fontWeight: 700,
             fontSize: 'clamp(11px, 1vw, 13px)',
-            color: '#3B5BDB',
+            color: '#2457ff',
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
             marginBottom: 52,
@@ -68,16 +69,15 @@ export default function About() {
 
         <div className="about-main-grid" style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1.15fr',
+          gridTemplateColumns: '1fr 1.2fr',
           gap: 'clamp(48px, 7vw, 90px)',
           alignItems: 'start',
         }}>
 
-          {/* Photo with geometric accent */}
+          {/* Photo with yellow geometric accent */}
           <FadeIn delay={0.12}>
             <figure style={{ position: 'relative', margin: 0, paddingBottom: 24, paddingLeft: 24 }}>
-              {/* Yellow geometric block — exactly like reference */}
-              <div style={{
+              <div aria-hidden="true" style={{
                 position: 'absolute',
                 top: -24, left: -24,
                 width: '80%', height: '80%',
@@ -86,7 +86,7 @@ export default function About() {
               }} />
               <img
                 src="/michael-esema-hero.jpg"
-                alt="Michael Esema, founder of Mykei Securities Ltd"
+                alt="Michael Esema, founder of Mykei Securities Ltd, based in Manchester"
                 style={{
                   width: '100%',
                   display: 'block',
@@ -100,14 +100,14 @@ export default function About() {
             </figure>
           </FadeIn>
 
-          {/* Bio and stats */}
+          {/* Bio and proof cards */}
           <FadeIn delay={0.22}>
             <div>
               <h2 style={{
                 fontFamily: "'Poppins', sans-serif",
-                fontSize: 'clamp(26px, 3.5vw, 42px)',
+                fontSize: 'clamp(26px, 3.5vw, 44px)',
                 fontWeight: 800,
-                color: '#3B5BDB',
+                color: '#111111',
                 lineHeight: 1.08,
                 marginBottom: 28,
                 letterSpacing: '-0.5px',
@@ -136,7 +136,7 @@ export default function About() {
                 marginBottom: 18,
               }}>
                 Before any of that, he was building things. Student government at BIU, emergency
-                response work with NEMA, running B's Hive and the Silent Lounge. Each taught
+                response work with NEMA, running B&apos;s Hive and the Silent Lounge. Each taught
                 him the same lesson: institutions move slowly, so the people inside them have to move first.
               </p>
               <p style={{
@@ -148,37 +148,39 @@ export default function About() {
                 marginBottom: 44,
               }}>
                 In Manchester he walked into shops. Corner stores, jewellers, off-licences. Sat with
-                owners absorbing losses every week. The question Mike Sutton's research first raised
+                owners absorbing losses every week. The question Mike Sutton&apos;s research first raised
                 and the industry had stopped asking: why does theft pay? His answer became the doctrine.
                 The patent is filed. The company is registered. The doctorate is the next step.
               </p>
 
-              {/* Stats — horizontal pill badges, matching reference layout */}
-              <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-                {STATS.map(stat => (
-                  <div key={stat.sub} style={{
-                    background: '#1A1A1A',
-                    padding: '14px 22px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 14,
-                    borderRadius: 10,
+              {/* 3 proof cards */}
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                {PROOF_CARDS.map(card => (
+                  <div key={card.num} style={{
+                    background: '#111111',
+                    padding: '16px 20px',
+                    borderRadius: 12,
+                    minWidth: 120,
                   }}>
-                    <span style={{
+                    <p style={{
                       fontFamily: "'Poppins', sans-serif",
-                      fontWeight: 800, fontSize: 38,
-                      color: '#3B5BDB', lineHeight: 1,
+                      fontWeight: 800,
+                      fontSize: 'clamp(13px, 1.2vw, 15px)',
+                      color: '#2457ff',
+                      lineHeight: 1.2,
+                      marginBottom: 6,
                     }}>
-                      {stat.label}
-                    </span>
-                    <span style={{
+                      {card.num}
+                    </p>
+                    <p style={{
                       fontFamily: "'Outfit', sans-serif",
-                      fontSize: 12.5, color: 'rgba(255,255,255,0.7)',
-                      fontWeight: 400, lineHeight: 1.45,
-                      maxWidth: 80,
+                      fontSize: 11.5,
+                      color: 'rgba(255,255,255,0.55)',
+                      fontWeight: 400,
+                      lineHeight: 1.45,
                     }}>
-                      {stat.sub}
-                    </span>
+                      {card.label}
+                    </p>
                   </div>
                 ))}
               </div>

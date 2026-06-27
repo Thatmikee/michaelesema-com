@@ -18,29 +18,34 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 }
 
 const LINKS = [
-  { label: 'LinkedIn', sub: 'Writing about doctrine, theft economics, and the build', href: 'https://www.linkedin.com/in/michaelesema' },
-  { label: 'The Signal', sub: 'Mykei field notes and the real story', href: 'https://mykei.io/signal' },
-  { label: 'Mykei.io', sub: 'The company behind the doctrine', href: 'https://mykei.io' },
+  {
+    label: 'LinkedIn',
+    sub: 'Investors, researchers, and retail security stakeholders',
+    href: 'https://www.linkedin.com/in/michaelesema',
+    external: true,
+  },
+  {
+    label: 'The Signal',
+    sub: 'Field notes from the Mykei build, published on mykei.io',
+    href: 'https://mykei.io/signal',
+    external: true,
+  },
+  {
+    label: 'Mykei.io',
+    sub: 'The company, the doctrine, and the R&D pathway',
+    href: 'https://mykei.io',
+    external: true,
+  },
 ]
 
 export default function Connect() {
   return (
     <section id="connect" style={{
-      background: '#0A0B18',
-      padding: 'clamp(72px, 9vw, 110px) clamp(32px, 8vw, 100px)',
+      background: '#f4f4f2',
+      padding: 'clamp(80px, 10vw, 120px) clamp(32px, 8vw, 100px)',
       position: 'relative',
-      overflow: 'hidden',
     }}>
-
-      {/* Dot grid */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        backgroundImage: `radial-gradient(circle, rgba(59,91,219,0.06) 1px, transparent 1px)`,
-        backgroundSize: '44px 44px',
-        pointerEvents: 'none',
-      }} />
-
-      <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
 
         <div className="connect-grid" style={{
           display: 'grid',
@@ -55,7 +60,7 @@ export default function Connect() {
                 fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700,
                 fontSize: 'clamp(11px, 1vw, 13px)',
-                color: '#3B5BDB',
+                color: '#2457ff',
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
                 marginBottom: 20,
@@ -69,24 +74,24 @@ export default function Connect() {
                 lineHeight: 1.07,
                 letterSpacing: '-0.5px',
                 textTransform: 'uppercase',
-                color: '#FFFFFF',
+                color: '#111111',
                 marginBottom: 28,
               }}>
-                I write.<br />
-                <span style={{ color: 'rgba(255,255,255,0.4)' }}>I read everything sent to me.</span>
+                If you have<br />
+                something real to say,<br />
+                <span style={{ color: '#2457ff' }}>I will read it.</span>
               </h2>
               <p style={{
                 fontFamily: "'Outfit', sans-serif",
                 fontSize: 'clamp(14px, 1.4vw, 16px)',
                 lineHeight: 1.9,
-                color: 'rgba(255,255,255,0.55)',
+                color: '#666',
                 fontWeight: 300,
                 maxWidth: 380,
               }}>
-                No newsletter. No funnel. I write on LinkedIn about Economic Sterilisation,
-                stolen-goods markets, and building a doctrine-company from Manchester.
-                The Signal carries field notes from the Mykei side.
-                If you have something real to say, I will read it.
+                Relevant to investors, researchers in retail crime or criminology,
+                retail security professionals, media covering organised crime, and
+                any founder building in adjacent territory.
               </p>
             </div>
           </FadeIn>
@@ -97,8 +102,8 @@ export default function Connect() {
                 <a
                   key={link.href}
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
                   style={{
                     textDecoration: 'none',
                     display: 'flex',
@@ -106,10 +111,10 @@ export default function Connect() {
                     justifyContent: 'space-between',
                     gap: 16,
                     padding: '24px 0',
-                    borderBottom: i < LINKS.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
+                    borderBottom: i < LINKS.length - 1 ? '1px solid rgba(0,0,0,0.09)' : 'none',
                     transition: 'opacity 0.2s',
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.opacity = '0.6')}
+                  onMouseEnter={e => (e.currentTarget.style.opacity = '0.55')}
                   onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
                 >
                   <div>
@@ -117,7 +122,7 @@ export default function Connect() {
                       fontFamily: "'Poppins', sans-serif",
                       fontWeight: 700,
                       fontSize: 'clamp(16px, 1.6vw, 20px)',
-                      color: '#FFFFFF',
+                      color: '#111111',
                       marginBottom: 5,
                       letterSpacing: '-0.2px',
                     }}>
@@ -126,13 +131,13 @@ export default function Connect() {
                     <p style={{
                       fontFamily: "'Outfit', sans-serif",
                       fontSize: 13,
-                      color: 'rgba(255,255,255,0.4)',
+                      color: '#888',
                       fontWeight: 300,
                     }}>
                       {link.sub}
                     </p>
                   </div>
-                  <span style={{ color: '#3B5BDB', fontSize: 20, flexShrink: 0, marginTop: 2 }}>↗</span>
+                  <span style={{ color: '#2457ff', fontSize: 20, flexShrink: 0, marginTop: 2 }}>&#8599;</span>
                 </a>
               ))}
             </div>

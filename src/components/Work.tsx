@@ -7,37 +7,140 @@ const ease = [0.16, 1, 0.3, 1] as any
 const items = [
   {
     title: 'Mykei Securities Ltd',
-    body: 'A UK company built on one idea: that retail theft is a market problem, not a security one. The doctrine is Economic Sterilisation. The first R&D pathway is the Active Deterrence Node, a patent-pending forensic deterrence device.',
+    body: 'A UK company built on one idea: that retail theft is a market problem, not a security one. The doctrine is Economic Sterilisation.',
     href: 'https://mykei.io',
     external: true,
-    img: 'https://picsum.photos/seed/retail-security-store-uk/800/480',
     tag: 'Company',
+    visual: 'mykei',
   },
   {
-    title: 'Economic Sterilisation',
-    body: 'A framework built from Mike Sutton\'s Market Reduction Approach. Make stolen goods commercially worthless and the incentive for theft dissolves. Written as a thesis, filed as a patent, now being built as infrastructure.',
+    title: 'Economic Sterilisation Research',
+    body: 'A framework built from Mike Sutton\'s Market Reduction Approach. Make stolen goods commercially worthless and the incentive for theft dissolves.',
     href: '/thesis',
     external: false,
-    img: 'https://picsum.photos/seed/research-doctrine-economics/800/480',
     tag: 'Doctrine',
+    visual: 'research',
   },
   {
-    title: 'The Signal',
-    body: 'Field notes from the build. How the thinking developed, what changed, what the data shows. The actual process as it is happening, published on the Mykei website.',
+    title: 'ADN-1 Active Defense Node',
+    body: 'Patent-pending forensic deterrence hardware for retail. Designed to make removal costly, traceable, and commercially pointless for would-be thieves.',
+    href: 'https://mykei.io',
+    external: true,
+    tag: 'Hardware',
+    visual: 'adn',
+  },
+  {
+    title: 'Mykei Registry / Event Record',
+    body: 'An asset registry and event-log infrastructure for tracking ownership, provenance, and chain of custody across the supply chain.',
     href: 'https://mykei.io/signal',
     external: true,
-    img: 'https://picsum.photos/seed/writing-notes-journal/800/480',
-    tag: 'Writing',
-  },
-  {
-    title: 'Probata',
-    body: 'A registry-first programme in early design for Nigerian asset owners. In Nigeria, high-value equipment becomes anonymous within hours of theft. Probata is the proof layer, the record that survives the disappearance.',
-    href: '/protocol',
-    external: false,
-    img: 'https://picsum.photos/seed/nigeria-city-assets/800/480',
-    tag: 'Nigeria',
+    tag: 'Infrastructure',
+    visual: 'registry',
   },
 ]
+
+function CardVisual({ type }: { type: string }) {
+  const styles: React.CSSProperties = {
+    width: '100%', height: '100%',
+    position: 'absolute', inset: 0,
+  }
+
+  if (type === 'mykei') return (
+    <div style={{ ...styles, background: '#050817', overflow: 'hidden' }}>
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: `
+          linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)
+        `,
+        backgroundSize: '32px 32px',
+      }} />
+      <div style={{
+        position: 'absolute', left: '50%', top: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 80, height: 80,
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(36,87,255,0.3) 0%, transparent 70%)',
+        border: '1.5px solid rgba(36,87,255,0.4)',
+      }} />
+    </div>
+  )
+
+  if (type === 'research') return (
+    <div style={{ ...styles, background: '#f8f8f6', overflow: 'hidden' }}>
+      {[0,1,2,3,4,5].map(i => (
+        <div key={i} style={{
+          position: 'absolute',
+          left: 24, right: 24,
+          top: 24 + i * 26,
+          height: 1.5,
+          background: i === 2 ? '#2457ff' : 'rgba(0,0,0,0.1)',
+          borderRadius: 2,
+        }} />
+      ))}
+      <div style={{
+        position: 'absolute', left: 24, top: 24,
+        width: 40, height: 40,
+        background: '#2457ff',
+        opacity: 0.12,
+        borderRadius: 4,
+      }} />
+    </div>
+  )
+
+  if (type === 'adn') return (
+    <div style={{ ...styles, background: '#0e1020', overflow: 'hidden' }}>
+      <div style={{
+        position: 'absolute', left: '50%', top: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 60, height: 60,
+        border: '1.5px solid rgba(36,87,255,0.5)',
+        borderRadius: 8,
+      }} />
+      <div style={{
+        position: 'absolute', left: '50%', top: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 36, height: 36,
+        border: '1.5px solid rgba(36,87,255,0.3)',
+        borderRadius: 5,
+      }} />
+      <div style={{
+        position: 'absolute', left: '50%', top: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 12, height: 12,
+        background: '#2457ff',
+        borderRadius: 2,
+        opacity: 0.8,
+      }} />
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: `radial-gradient(circle, rgba(36,87,255,0.05) 1px, transparent 1px)`,
+        backgroundSize: '24px 24px',
+      }} />
+    </div>
+  )
+
+  if (type === 'registry') return (
+    <div style={{ ...styles, background: '#f4f4f2', overflow: 'hidden' }}>
+      {[0,1,2].map(row => (
+        [0,1,2,3].map(col => (
+          <div key={`${row}-${col}`} style={{
+            position: 'absolute',
+            left: 24 + col * 44,
+            top: 24 + row * 38,
+            width: 28, height: 20,
+            border: '1.5px solid',
+            borderColor: (row === 0 && col === 1) ? '#2457ff' : 'rgba(0,0,0,0.12)',
+            borderRadius: 4,
+            background: (row === 0 && col === 1) ? 'rgba(36,87,255,0.08)' : 'transparent',
+          }} />
+        ))
+      ))}
+    </div>
+  )
+
+  return null
+}
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -57,31 +160,11 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 export default function Work() {
   return (
     <section id="work" style={{
-      background: '#F2F2F2',
-      padding: 'clamp(72px, 9vw, 110px) clamp(32px, 8vw, 100px)',
+      background: '#f4f4f2',
+      padding: 'clamp(80px, 10vw, 120px) clamp(32px, 8vw, 100px)',
       position: 'relative',
-      overflow: 'hidden',
     }}>
-
-      {/* Watermark */}
-      <div style={{
-        position: 'absolute',
-        left: '-2%', top: '50%',
-        transform: 'translateY(-50%)',
-        fontFamily: "'Poppins', sans-serif",
-        fontWeight: 900,
-        fontSize: 'clamp(72px, 14vw, 200px)',
-        color: 'rgba(0,0,0,0.04)',
-        userSelect: 'none', pointerEvents: 'none',
-        whiteSpace: 'nowrap',
-        letterSpacing: '-3px',
-        textTransform: 'uppercase',
-        lineHeight: 1,
-      }}>
-        My Work
-      </div>
-
-      <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
 
         <FadeIn>
           <div style={{ marginBottom: 60 }}>
@@ -89,48 +172,36 @@ export default function Work() {
               fontFamily: "'Poppins', sans-serif",
               fontWeight: 700,
               fontSize: 'clamp(11px, 1vw, 13px)',
-              color: '#3B5BDB',
+              color: '#2457ff',
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
               marginBottom: 16,
               display: 'inline-block',
-              border: '1.5px solid #3B5BDB',
+              border: '1.5px solid #2457ff',
               borderRadius: 50,
               padding: '6px 20px',
             }}>
-              Recent Projects
+              Projects
             </p>
             <h2 style={{
               fontFamily: "'Poppins', sans-serif",
               fontSize: 'clamp(28px, 3.8vw, 48px)',
               fontWeight: 800,
-              color: '#1A1A1A',
+              color: '#111111',
               lineHeight: 1.07,
               letterSpacing: '-0.5px',
               textTransform: 'uppercase',
-              maxWidth: 500,
+              maxWidth: 480,
             }}>
               What I am building
             </h2>
-            <p style={{
-              fontFamily: "'Outfit', sans-serif",
-              fontSize: 'clamp(14px, 1.35vw, 16px)',
-              color: '#666',
-              lineHeight: 1.8,
-              fontWeight: 300,
-              marginTop: 14,
-              maxWidth: 420,
-            }}>
-              These are the projects that form the infrastructure around the doctrine.
-              Feel free to visit any of them.
-            </p>
           </div>
         </FadeIn>
 
         <div className="work-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: 24,
+          gap: 20,
         }}>
           {items.map((item, i) => (
             <FadeIn key={item.title} delay={0.08 + i * 0.07}>
@@ -144,6 +215,7 @@ export default function Work() {
                   background: '#FFFFFF',
                   textDecoration: 'none',
                   overflow: 'hidden',
+                  borderRadius: 16,
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                   boxShadow: '0 2px 16px rgba(0,0,0,0.06)',
                   cursor: 'pointer',
@@ -151,7 +223,7 @@ export default function Work() {
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLAnchorElement
                   el.style.transform = 'translateY(-4px)'
-                  el.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)'
+                  el.style.boxShadow = '0 10px 36px rgba(0,0,0,0.10)'
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget as HTMLAnchorElement
@@ -159,27 +231,17 @@ export default function Work() {
                   el.style.boxShadow = '0 2px 16px rgba(0,0,0,0.06)'
                 }}
               >
-                {/* Image */}
-                <div style={{ position: 'relative', overflow: 'hidden', height: 220 }}>
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    loading="lazy"
-                    className="work-card-img"
-                    style={{
-                      width: '100%', height: '100%',
-                      objectFit: 'cover',
-                      transition: 'transform 0.4s ease',
-                    }}
-                  />
+                {/* Abstract visual */}
+                <div style={{ position: 'relative', height: 200 }}>
+                  <CardVisual type={item.visual} />
                   {/* Tag */}
                   <span style={{
-                    position: 'absolute', top: 14, left: 14,
-                    background: '#3B5BDB', color: '#fff',
+                    position: 'absolute', top: 14, left: 14, zIndex: 2,
+                    background: '#2457ff', color: '#fff',
                     fontFamily: "'Poppins', sans-serif",
                     fontWeight: 700, fontSize: 10,
                     letterSpacing: '0.1em', textTransform: 'uppercase',
-                    padding: '4px 10px',
+                    padding: '4px 12px', borderRadius: 50,
                   }}>
                     {item.tag}
                   </span>
@@ -190,8 +252,8 @@ export default function Work() {
                   <h3 style={{
                     fontFamily: "'Poppins', sans-serif",
                     fontWeight: 700,
-                    fontSize: 'clamp(16px, 1.6vw, 19px)',
-                    color: '#1A1A1A',
+                    fontSize: 'clamp(15px, 1.5vw, 18px)',
+                    color: '#111111',
                     marginBottom: 10,
                     lineHeight: 1.25,
                   }}>
@@ -210,12 +272,12 @@ export default function Work() {
                     fontFamily: "'Poppins', sans-serif",
                     fontWeight: 600,
                     fontSize: 12,
-                    color: '#3B5BDB',
+                    color: '#2457ff',
                     letterSpacing: '0.06em',
                     textTransform: 'uppercase',
                     marginTop: 18,
                   }}>
-                    {item.external ? 'Visit ↗' : 'Read more →'}
+                    {item.external ? 'Visit' : 'Read more'} &rarr;
                   </p>
                 </div>
               </a>
@@ -228,9 +290,7 @@ export default function Work() {
         @media (max-width: 700px) {
           .work-grid { grid-template-columns: 1fr !important; }
         }
-        .work-card:hover .work-card-img { transform: scale(1.04); }
         @media (prefers-reduced-motion: reduce) {
-          .work-card-img { transition: none !important; }
           .work-card { transition: none !important; }
         }
       `}</style>

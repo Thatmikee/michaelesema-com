@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import ESInterview from './components/ESInterview'
 import About from './components/About'
 import Work from './components/Work'
+import Writing from './components/Writing'
 import Connect from './components/Connect'
 import Footer from './components/Footer'
 import SystemExplained from './components/SystemExplained'
@@ -28,6 +29,7 @@ function HomePage() {
         <About />
         <SystemExplained />
         <Work />
+        <Writing />
         <ESInterview />
         <NigeriaSection />
         <Connect />
