@@ -102,19 +102,32 @@ export default function ThesisPage() {
 
   useEffect(() => {
     window.scrollTo({ top: 0 })
-    document.title = 'From Market Reduction to Economic Sterilisation | Michael Esema'
+
+    const title = 'From Market Reduction to Economic Sterilisation | Michael Esema'
+    const url = 'https://michaelesema.com/thesis'
+
+    // Keep all public metadata consistent with this page.
+    document.title = title
+    const setContent = (sel: string, val: string) => {
+      const el = document.querySelector(sel)
+      if (el) el.setAttribute('content', val)
+    }
+    setContent('meta[name="description"]', SCHEMA.description)
+    setContent('meta[property="og:title"]', title)
+    setContent('meta[property="og:description"]', SCHEMA.description)
+    setContent('meta[property="og:url"]', url)
+    setContent('meta[property="og:type"]', 'article')
+    setContent('meta[name="twitter:title"]', title)
+    setContent('meta[name="twitter:description"]', SCHEMA.description)
 
     const canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
-    if (canonical) canonical.setAttribute('href', 'https://michaelesema.com/thesis')
+    if (canonical) canonical.setAttribute('href', url)
     else {
       const link = document.createElement('link')
       link.rel = 'canonical'
-      link.href = 'https://michaelesema.com/thesis'
+      link.href = url
       document.head.appendChild(link)
     }
-
-    const meta = document.querySelector('meta[name="description"]')
-    if (meta) meta.setAttribute('content', SCHEMA.description)
 
     const script = document.createElement('script')
     script.type = 'application/ld+json'

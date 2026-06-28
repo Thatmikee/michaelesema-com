@@ -107,23 +107,68 @@ const ENTRIES: Entry[] = [
   },
 ]
 
+// Claim-safe answers to the questions customers and the wider audience actually ask.
+const FAQS: { q: string; a: string }[] = [
+  {
+    q: 'Who is Michael Esema?',
+    a: 'Michael Esema is the founder of Mykei Securities Ltd, a UK-first asset-integrity and anti-resale-crime company based in Manchester. He is a founder, researcher and builder working where security, ownership and resale markets meet. He grew up in Nigeria, studied Accounting at Benson Idahosa University, completed an MBA at the Nigerian Defence Academy, and earned an MSc in International Business Management at Manchester Metropolitan University.',
+  },
+  {
+    q: 'What does Mykei Securities do?',
+    a: 'Mykei is an early-stage UK asset-integrity and anti-resale-crime company. The work is about making stolen goods harder to sell, move, use or deny, through asset marking, ownership records, incident records and verification.',
+  },
+  {
+    q: 'What is Economic Sterilisation, in plain terms?',
+    a: 'It is a practical framework for reducing the resale confidence and economic acceptability of stolen goods. It builds on Mike Sutton’s Market Reduction Approach in criminology. It is not a claim to have invented the idea that resale markets drive theft.',
+  },
+  {
+    q: 'Does this stop theft?',
+    a: 'It aims to weaken the resale route that makes theft pay, not to guarantee theft stops. No field validation has been completed. Real-world precedents such as smartphone kill switches and the UK Scrap Metal Dealers Act 2013 show market-side measures can reduce theft when the resale check is near-universal or enforced at a chokepoint.',
+  },
+  {
+    q: 'What is ADN?',
+    a: 'Active Defense Node (ADN) is Mykei’s active defence architecture for event-linked marking, asset protection and registry-linked evidence. It sits on a patent-pending R&D pathway, UK patent application No. 2606630.8. It is not AI, and the application is pending, not a granted patent.',
+  },
+  {
+    q: 'Can I buy or use Mykei today?',
+    a: 'Mykei is early stage. The doctrine, the working paper and prototype work are public, and commercial pilots are being explored. There is no live marketplace, police or insurer integration.',
+  },
+  {
+    q: 'Is this surveillance or marketplace monitoring?',
+    a: 'No. Mykei does not flag listings or monitor sellers. What it produces are structured incident and ownership records compiled from the owner’s own account. They are not legal proof, and the registry is not described as immutable.',
+  },
+]
+
 const SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'Blog',
-  '@id': 'https://michaelesema.com/thinking',
-  name: 'Thinking in public',
-  description:
-    'Michael Esema on theft economics, asset protection, resale markets, evidence records, industrial intelligence and building Mykei Securities.',
-  url: 'https://michaelesema.com/thinking',
-  author: { '@type': 'Person', '@id': 'https://michaelesema.com/#person', name: 'Michael Esema' },
-  blogPost: ENTRIES.map(e => ({
-    '@type': 'BlogPosting',
-    headline: e.title,
-    description: e.summary,
-    url: `https://michaelesema.com/thinking#${e.slug}`,
-    author: { '@type': 'Person', '@id': 'https://michaelesema.com/#person', name: 'Michael Esema' },
-    publisher: { '@type': 'Organization', name: 'Mykei Securities Ltd', url: 'https://mykei.io' },
-  })),
+  '@graph': [
+    {
+      '@type': 'Blog',
+      '@id': 'https://michaelesema.com/thinking',
+      name: 'Thinking in public',
+      description:
+        'Michael Esema on theft economics, asset protection, resale markets, evidence records, industrial intelligence and building Mykei Securities.',
+      url: 'https://michaelesema.com/thinking',
+      author: { '@type': 'Person', '@id': 'https://michaelesema.com/#person', name: 'Michael Esema' },
+      blogPost: ENTRIES.map(e => ({
+        '@type': 'BlogPosting',
+        headline: e.title,
+        description: e.summary,
+        url: `https://michaelesema.com/thinking#${e.slug}`,
+        author: { '@type': 'Person', '@id': 'https://michaelesema.com/#person', name: 'Michael Esema' },
+        publisher: { '@type': 'Organization', name: 'Mykei Securities Ltd', url: 'https://mykei.io' },
+      })),
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': 'https://michaelesema.com/thinking#faq',
+      mainEntity: FAQS.map(f => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
 }
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -145,18 +190,31 @@ export default function ThinkingPage() {
   useEffect(() => {
     // Honour deep links to a specific note.
     if (!window.location.hash) window.scrollTo({ top: 0 })
-    document.title = 'Thinking in public | Michael Esema'
 
+    const title = 'Thinking in public | Michael Esema'
     const desc = 'Michael Esema on theft economics, asset protection, resale markets, evidence records, industrial intelligence and building Mykei Securities.'
-    const meta = document.querySelector('meta[name="description"]')
-    if (meta) meta.setAttribute('content', desc)
+    const url = 'https://michaelesema.com/thinking'
+
+    // Keep all public metadata consistent with this page.
+    document.title = title
+    const setContent = (sel: string, val: string) => {
+      const el = document.querySelector(sel)
+      if (el) el.setAttribute('content', val)
+    }
+    setContent('meta[name="description"]', desc)
+    setContent('meta[property="og:title"]', title)
+    setContent('meta[property="og:description"]', desc)
+    setContent('meta[property="og:url"]', url)
+    setContent('meta[property="og:type"]', 'article')
+    setContent('meta[name="twitter:title"]', title)
+    setContent('meta[name="twitter:description"]', desc)
 
     const canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
-    if (canonical) canonical.setAttribute('href', 'https://michaelesema.com/thinking')
+    if (canonical) canonical.setAttribute('href', url)
     else {
       const link = document.createElement('link')
       link.rel = 'canonical'
-      link.href = 'https://michaelesema.com/thinking'
+      link.href = url
       document.head.appendChild(link)
     }
 
@@ -265,6 +323,28 @@ export default function ThinkingPage() {
                 </article>
               </FadeIn>
             ))}
+
+            {/* Questions customers and the audience ask */}
+            <FadeIn>
+              <div id="faq" style={{ scrollMarginTop: 90, marginTop: 'clamp(48px, 6vw, 72px)', paddingTop: 'clamp(40px, 5vw, 56px)', borderTop: '1px solid var(--border)' }}>
+                <h2 style={{
+                  fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: 'clamp(24px, 3.4vw, 38px)',
+                  color: 'var(--ink)', letterSpacing: '-0.8px', marginBottom: 'clamp(28px, 4vw, 40px)',
+                }}>
+                  Questions<span style={{ color: 'var(--accent)' }}>.</span>
+                </h2>
+                {FAQS.map((f, i) => (
+                  <div key={f.q} style={{ padding: '20px 0', borderBottom: i < FAQS.length - 1 ? '1px solid var(--border)' : 'none' }}>
+                    <h3 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 'clamp(16px, 1.8vw, 20px)', color: 'var(--ink)', letterSpacing: '-0.2px', marginBottom: 8, lineHeight: 1.3 }}>
+                      {f.q}
+                    </h3>
+                    <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 'clamp(14px, 1.4vw, 16px)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.8, maxWidth: 640 }}>
+                      {f.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
 
             <div style={{ marginTop: 'clamp(40px, 5vw, 56px)', paddingTop: 28, borderTop: '1px solid var(--border)' }}>
               <Link to="/#work" className="think-rel" style={{ ...relStyle, fontSize: 14 }}>Back to the work</Link>
