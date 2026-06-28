@@ -57,14 +57,14 @@ const ITEMS: Item[] = [
     body: 'Public thinking on shrinkage, colleague safety, resale markets and incentive design.',
     thumb: retailThumb,
     alt: 'A retail shelf with tagged products and a printed receipt',
-    kind: 'internal', href: '#thinking', action: 'See thinking',
+    kind: 'internal', href: '/thinking', action: 'See thinking',
   },
   {
     title: 'Writing and Public Thinking',
     body: 'Founder notes, essays and field observations from building Mykei.',
     thumb: writingThumb,
     alt: 'A desk still life with a cup of tea, an open notebook and a pen',
-    kind: 'internal', href: '#thinking', action: 'See thinking',
+    kind: 'internal', href: '/thinking', action: 'See thinking',
   },
 ]
 

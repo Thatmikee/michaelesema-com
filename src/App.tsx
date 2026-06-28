@@ -14,6 +14,7 @@ import PhilosophyPage from './pages/PhilosophyPage'
 import AboutPage from './pages/AboutPage'
 import PrivacyPage from './pages/PrivacyPage'
 import ThesisPage from './pages/ThesisPage'
+import ThinkingPage from './pages/ThinkingPage'
 import ProtocolPage from './pages/ProtocolPage'
 import NotFoundPage from './pages/NotFoundPage'
 import GrainOverlay from './components/ui/GrainOverlay'
@@ -54,6 +55,7 @@ function App() {
         <Route path="/about"     element={<AboutPage />} />
         <Route path="/privacy"   element={<PrivacyPage />} />
         <Route path="/thesis"    element={<ThesisPage />} />
+        <Route path="/thinking"  element={<ThinkingPage />} />
         <Route path="/protocol"  element={<ProtocolPage />} />
         <Route path="*"          element={<NotFoundPage />} />
       </Routes>

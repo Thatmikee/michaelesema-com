@@ -5,7 +5,7 @@ const links = [
   { label: 'About',    href: '/#about' },
   { label: 'Focus',    href: '/#focus' },
   { label: 'Work',     href: '/#work' },
-  { label: 'Thinking', href: '/#thinking' },
+  { label: 'Thinking', href: '/thinking' },
   { label: 'Paper',    href: '/thesis' },
   { label: 'Mykei',    href: 'https://mykei.io', external: true },
 ]
