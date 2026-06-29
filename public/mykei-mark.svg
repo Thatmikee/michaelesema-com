@@ -1,13 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="The Mykei Securities monogram in gold on a warm neutral background, representing the company brand and asset-protection work">
-  <rect width="800" height="600" fill="#f1efeb"/>
-  <ellipse cx="400" cy="492" rx="140" ry="20" fill="#232323" opacity="0.06"/>
-  <g stroke="#232323" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round">
-    <path d="M120 120 h34 M120 120 v34"/>
-    <path d="M680 120 h-34 M680 120 v34"/>
-    <path d="M120 500 h34 M120 500 v-34"/>
-    <path d="M680 500 h-34 M680 500 v-34"/>
-  </g>
-  <svg x="244" y="100" width="312" height="392" viewBox="0 0 1073 1342" preserveAspectRatio="xMidYMid meet">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" 
+     viewBox="0 0 1073 1342" 
+     width="1073" height="1342">
   <g transform="translate(0.000000,1342.000000) scale(0.100000,-0.100000)" fill="#C6A44E" stroke="none">
     <path d="M6151 11305 c-178 -39 -194 -47 -984 -517 -26 -15 -50 -28 -53 -28
 -12 0 -263 -156 -304 -188 -154 -123 -247 -258 -329 -477 -41 -111 -53 -320
@@ -77,5 +71,4 @@
 -63 112 -20 39 -49 93 -65 120 -15 28 -43 78 -62 113 -19 34 -35 62 -37 62 -2
 0 -21 -41 -42 -92z"/>
   </g>
-  </svg>
 </svg>

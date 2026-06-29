@@ -9,7 +9,7 @@ export default function AboutPage() {
     document.title = 'About Michael Esema | Founder & CEO, Mykei Securities | MBA · MSc · Manchester'
 
     const meta = document.querySelector('meta[name="description"]')
-    if (meta) meta.setAttribute('content', "Michael Esema, Founder and CEO of Mykei Securities Ltd. Nigerian entrepreneur based in Manchester, UK. MBA, MSc. Developer of the ADN-1 R&D pathway and proposer of Economic Sterilisation as Mykei's operational extension of Market Reduction theory.")
+    if (meta) meta.setAttribute('content', "Michael Esema, Founder and CEO of Mykei Securities Ltd. Nigerian entrepreneur based in Manchester, UK. MBA, MSc. Developer of the ADN R&D pathway and proposer of Economic Sterilisation as Mykei's operational extension of Market Reduction theory.")
 
     const canonical = document.querySelector('link[rel="canonical"]')
     if (canonical) canonical.setAttribute('href', 'https://michaelesema.com/about')
@@ -25,6 +25,13 @@ export default function AboutPage() {
         'name': 'Michael Esema',
         'jobTitle': 'Founder & CEO',
         'worksFor': { '@type': 'Organization', 'name': 'Mykei Securities Ltd', 'url': 'https://mykei.io' },
+        'description': 'Founder of Mykei Securities Ltd. Designs his own brand identities and websites, and has built ventures across the UK and Nigeria.',
+        'knowsAbout': ['Anti-resale crime', 'Asset integrity', 'Retail security', 'Economic Sterilisation', 'Graphic design', 'Brand identity', 'Web design', 'Entrepreneurship', 'Agribusiness'],
+        'alumniOf': [
+          { '@type': 'CollegeOrUniversity', 'name': 'Manchester Metropolitan University' },
+          { '@type': 'CollegeOrUniversity', 'name': 'Nigerian Defence Academy' },
+          { '@type': 'CollegeOrUniversity', 'name': 'Benson Idahosa University' },
+        ],
         'url': 'https://michaelesema.com/about',
         'sameAs': [
           'https://www.linkedin.com/in/michaelesema',
@@ -41,7 +48,7 @@ export default function AboutPage() {
     <>
       <Helmet>
         <title>About Michael Esema | Founder & CEO, Mykei Securities | MBA · MSc · Manchester</title>
-        <meta name="description" content="Michael Esema (Michael Essien Esema), Nigerian-born entrepreneur based in Manchester, UK. Founder of Mykei Securities Ltd, developer of the ADN-1 R&D pathway, and proposer of Economic Sterilisation as Mykei's operational extension of Market Reduction theory. MBA, MSc. UK patent application No. 2606630.8 pending." />
+        <meta name="description" content="Michael Esema (Michael Essien Esema), Nigerian-born entrepreneur based in Manchester, UK. Founder of Mykei Securities Ltd, developer of the ADN R&D pathway, and proposer of Economic Sterilisation as Mykei's operational extension of Market Reduction theory. MBA, MSc. UK patent application No. 2606630.8 pending." />
         <link rel="canonical" href="https://michaelesema.com/about" />
         <meta property="og:title" content="About Michael Esema | Founder & CEO, Mykei Securities" />
         <meta property="og:description" content="Founder of Mykei Securities. Anti-resale crime, asset integrity, Economic Sterilisation, and UK patent application No. 2606630.8." />
@@ -85,7 +92,7 @@ export default function AboutPage() {
               marginBottom: 36,
             }}>
               I share updates on Economic Sterilisation, Sutton and Market Reduction,
-              ADN-1 R&D, and the reality of building an anti-resale crime company from Manchester.
+              ADN R&D, and the reality of building an anti-resale crime company from Manchester.
             </p>
             <a
               href="https://www.linkedin.com/in/michaelesema"

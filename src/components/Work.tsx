@@ -8,6 +8,7 @@ const esThumb = '/work/economic-sterilisation.svg'
 const registryThumb = '/work/mykei-registry.svg'
 const retailThumb = '/work/retail-deterrence.svg'
 const writingThumb = '/work/writing.svg'
+const silentThumb = '/work/silent-lounging.svg'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ease = [0.16, 1, 0.3, 1] as any
@@ -28,7 +29,7 @@ const ITEMS: Item[] = [
     title: 'Mykei Securities Ltd',
     body: 'A UK-first security venture working on asset integrity, retail crime and resale deterrence.',
     thumb: mykeiThumb,
-    alt: 'A sealed, marked asset representing Mykei Securities asset protection',
+    alt: 'The Mykei Securities logo: the company building asset-integrity and resale-deterrence systems',
     kind: 'external', href: 'https://mykei.io', action: 'mykei.io',
   },
   {
@@ -50,7 +51,7 @@ const ITEMS: Item[] = [
     body: 'A proposed evidence-record layer for ownership, provenance, incidents and chain of custody.',
     thumb: registryThumb,
     alt: 'An ownership registry ledger with verification marks and a chain-of-custody link',
-    kind: 'status', status: 'Concept note',
+    kind: 'internal', href: '/registry', action: 'Read concept note',
   },
   {
     title: 'Retail Crime and Resale Deterrence',
@@ -65,6 +66,13 @@ const ITEMS: Item[] = [
     thumb: writingThumb,
     alt: 'A desk still life with a cup of tea, an open notebook and a pen',
     kind: 'internal', href: '/thinking', action: 'See thinking',
+  },
+  {
+    title: 'Silent Lounging',
+    body: 'A silent-disco lounge experience that brings people together through wireless headphones, in collaboration with Silent Party 9ja.',
+    thumb: silentThumb,
+    alt: 'Headphones with a soft glow, representing the Silent Lounging silent-disco experience',
+    kind: 'status', status: 'In collaboration',
   },
 ]
 

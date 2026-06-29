@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="A pair of wireless headphones with a soft glow, representing a silent-disco lounging experience">
+  <rect width="800" height="600" fill="#f1efeb"/>
+  <ellipse cx="400" cy="486" rx="150" ry="22" fill="#232323" opacity="0.06"/>
+  <g fill="#f2a91c">
+    <circle cx="286" cy="350" r="78" opacity="0.12"/>
+    <circle cx="514" cy="350" r="78" opacity="0.12"/>
+  </g>
+  <g fill="none" stroke="#232323" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M286 350 V250 Q286 150 400 150 Q514 150 514 250 V350"/>
+  </g>
+  <g stroke="#232323" stroke-width="6" stroke-linejoin="round">
+    <rect x="252" y="338" width="68" height="118" rx="26" fill="#ffffff"/>
+    <rect x="480" y="338" width="68" height="118" rx="26" fill="#ffffff"/>
+    <rect x="266" y="356" width="40" height="82" rx="16" fill="#f2a91c" opacity="0.9" stroke="none"/>
+    <rect x="494" y="356" width="40" height="82" rx="16" fill="#f2a91c" opacity="0.9" stroke="none"/>
+  </g>
+  <g fill="none" stroke="#232323" stroke-width="4" stroke-linecap="round" opacity="0.35">
+    <path d="M566 372 q22 22 0 44"/>
+    <path d="M590 358 q40 36 0 72"/>
+    <path d="M234 372 q-22 22 0 44"/>
+    <path d="M210 358 q-40 36 0 72"/>
+  </g>
+  <g stroke="#232323" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round">
+    <path d="M120 120 h34 M120 120 v34"/>
+    <path d="M680 120 h-34 M680 120 v34"/>
+    <path d="M120 500 h34 M120 500 v-34"/>
+    <path d="M680 500 h-34 M680 500 v-34"/>
+  </g>
+</svg>

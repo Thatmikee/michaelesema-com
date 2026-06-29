@@ -105,6 +105,30 @@ const ENTRIES: Entry[] = [
     ],
     related: [{ label: 'Mykei Securities', href: 'https://mykei.io', external: true }, { label: 'The paper', href: '/thesis' }],
   },
+  {
+    n: '06',
+    slug: 'what-building-brands-taught-me-about-trust',
+    title: 'What building brands taught me about trust',
+    summary: 'Why I design the brands and interfaces myself, and what visual clarity has to do with security.',
+    paras: [
+      'I design most of what my work puts in front of people: the logos, the websites, the decks, the small visual decisions that add up to whether someone takes the work seriously. The Mykei brand, this site and the marks behind my other ventures are my own.',
+      'I did not come to design through a studio. I came to it through need. When you are building something from nothing, you cannot wait for someone else to make it look credible, so I learned to do it: brand marks, layout, typography, the difference between a page that reassures and a page that makes people hesitate.',
+      'That work turned out to be closer to security than I expected. Both are about trust. A brand is a promise about what a thing is. A security record is a promise about what an asset is. In both cases the job is to make an honest claim legible, and to avoid dressing up something you cannot back.',
+      'Designing the public face of the work also keeps me honest, because the clearest design is usually the one with nothing to hide.',
+    ],
+  },
+  {
+    n: '07',
+    slug: 'building-companies-across-two-continents',
+    title: 'Building companies across two continents',
+    summary: 'What it means to build in the UK and Nigeria at once, and why I keep doing both.',
+    paras: [
+      'I build in two places. Mykei is a UK company working on asset integrity and resale crime. Alongside it, I have worked on ventures rooted in Nigeria, from a footwear brand I started years ago to agribusiness and productive-use energy plans, and on the business plans and grant work behind them.',
+      'The two contexts teach different lessons. The UK rewards process, evidence and patience. Nigeria rewards resourcefulness and the ability to make something work when the infrastructure does not. Carrying both makes me a more careful builder.',
+      'What connects them is the same instinct: take a real problem, design a practical system around it, and refuse to overstate what it can do yet.',
+      'I do not treat the Nigerian work as a side project or the UK work as the only serious one. They are two halves of the same habit, building things meant to last rather than things meant to impress.',
+    ],
+  },
 ]
 
 // Claim-safe answers to the questions customers and the wider audience actually ask.
