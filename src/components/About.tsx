@@ -57,8 +57,9 @@ export default function About() {
             maxWidth: 720,
             margin: '0 auto clamp(44px, 6vw, 64px)',
           }}>
-            Michael Esema is the founder behind Mykei Securities Ltd, a UK-first security venture
-            working on asset protection, resale-driven theft and evidence-led prevention.
+            Michael Esema is a graphics and multimedia designer working out of Manchester,
+            building brand identities and websites for small businesses through his studio,
+            Teal Sand Studios.
           </p>
         </FadeIn>
 
@@ -70,8 +71,9 @@ export default function About() {
           }}>
             <div>
               <p style={{ ...col, marginBottom: 18 }}>
-                His work asks a practical question: what happens after something is stolen, and how
-                can that resale route be made weaker before the theft happens?
+                He designs the whole object, not a screen of it. Identity, type system, layout,
+                motion and the front end that ships it, on the theory that a brand only exists
+                once someone can actually visit it.
               </p>
               <p style={{ ...col, margin: 0 }}>
                 He grew up in Nigeria, studied Accounting at Benson Idahosa University, completed an
@@ -81,14 +83,42 @@ export default function About() {
             </div>
             <div>
               <p style={{ ...col, marginBottom: 18 }}>
-                Before Mykei, his path moved through student leadership, emergency-management
-                exposure, hospitality operations, finance and frontline support work in the UK.
+                Before design became the work, his path moved through student leadership,
+                emergency-management exposure, hospitality operations, finance and frontline
+                support work in the UK. He also founded a UK security company and took a system
+                from idea to a filed patent application.
               </p>
               <p style={{ ...col, margin: 0 }}>
-                The common thread is practical systems: where they fail, who they leave exposed, and
-                how they can be redesigned so harm is harder to profit from.
+                The common thread is practical systems: where they fail, who they leave exposed,
+                and how they can be rebuilt so they hold. Design is the same problem with a
+                different surface.
               </p>
             </div>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.22}>
+          <div style={{ marginTop: 'clamp(44px, 6vw, 64px)', maxWidth: 720, marginLeft: 'auto', marginRight: 'auto' }}>
+            <p style={{ ...col, fontWeight: 500, color: 'var(--ink)', marginBottom: 12 }}>
+              Before this.
+            </p>
+            <p style={{ ...col, marginBottom: 14 }}>
+              I founded Mykei Securities Ltd, a UK security venture working on asset integrity
+              and resale-driven theft, and took it from a written thesis to a filed UK patent
+              application. I built the research, the brand, the product architecture and both
+              websites myself.
+            </p>
+            <p style={{ ...col, marginBottom: 14 }}>
+              Mykei is paused. The company still exists and the patent application is being
+              held, but there is no active product and no active outreach while I focus on
+              design work.
+            </p>
+            <p style={{ ...col, margin: 0 }}>
+              I keep it here because it is the honest answer to whether I can finish things. I
+              have run a company, defended an idea in writing, filed IP and shipped the sites
+              that carried all of it. When I say I will build your site and hand it over
+              working, that is what the claim is standing on.
+            </p>
           </div>
         </FadeIn>
       </div>

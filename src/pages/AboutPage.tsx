@@ -6,10 +6,10 @@ import Footer from '../components/Footer'
 
 export default function AboutPage() {
   useEffect(() => {
-    document.title = 'About Michael Esema | Founder & CEO, Mykei Securities | MBA · MSc · Manchester'
+    document.title = 'About Michael Esema | Graphics & Multimedia Designer | Teal Sand Studios, Manchester'
 
     const meta = document.querySelector('meta[name="description"]')
-    if (meta) meta.setAttribute('content', "Michael Esema, Founder and CEO of Mykei Securities Ltd. Nigerian entrepreneur based in Manchester, UK. MBA, MSc. Developer of the ADN R&D pathway and proposer of Economic Sterilisation as Mykei's operational extension of Market Reduction theory.")
+    if (meta) meta.setAttribute('content', "Michael Esema, graphics and multimedia designer in Manchester. Brand identity and websites for small businesses through Teal Sand Studios. Designer of the Silent Party 9ja site. Previously founder of Mykei Securities Ltd. MBA, MSc.")
 
     const canonical = document.querySelector('link[rel="canonical"]')
     if (canonical) canonical.setAttribute('href', 'https://michaelesema.com/about')
@@ -23,10 +23,10 @@ export default function AboutPage() {
         '@id': 'https://michaelesema.com/#person',
         '@type': 'Person',
         'name': 'Michael Esema',
-        'jobTitle': 'Founder & CEO',
-        'worksFor': { '@type': 'Organization', 'name': 'Mykei Securities Ltd', 'url': 'https://mykei.io' },
-        'description': 'Founder of Mykei Securities Ltd. Designs his own brand identities and websites, and has built ventures across the UK and Nigeria.',
-        'knowsAbout': ['Anti-resale crime', 'Asset integrity', 'Retail security', 'Economic Sterilisation', 'Graphic design', 'Brand identity', 'Web design', 'Entrepreneurship', 'Agribusiness'],
+        'jobTitle': 'Graphics & Multimedia Designer',
+        'worksFor': { '@type': 'Organization', 'name': 'Teal Sand Studios' },
+        'description': 'Graphics and multimedia designer building brand identities and websites for small businesses. Previously founder of Mykei Securities Ltd.',
+        'knowsAbout': ['Graphic design', 'Brand identity', 'Web design', 'Design systems', 'Multimedia design', 'Entrepreneurship', 'Asset integrity'],
         'alumniOf': [
           { '@type': 'CollegeOrUniversity', 'name': 'Manchester Metropolitan University' },
           { '@type': 'CollegeOrUniversity', 'name': 'Nigerian Defence Academy' },
@@ -47,11 +47,11 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>About Michael Esema | Founder & CEO, Mykei Securities | MBA · MSc · Manchester</title>
-        <meta name="description" content="Michael Esema (Michael Essien Esema), Nigerian-born entrepreneur based in Manchester, UK. Founder of Mykei Securities Ltd, developer of the ADN R&D pathway, and proposer of Economic Sterilisation as Mykei's operational extension of Market Reduction theory. MBA, MSc. UK patent application No. 2606630.8 pending." />
+        <title>About Michael Esema | Graphics & Multimedia Designer | Teal Sand Studios, Manchester</title>
+        <meta name="description" content="Michael Esema, graphics and multimedia designer in Manchester. Brand identity and websites for small businesses through Teal Sand Studios. Designer of the Silent Party 9ja site. Previously founder of Mykei Securities Ltd. MBA, MSc." />
         <link rel="canonical" href="https://michaelesema.com/about" />
-        <meta property="og:title" content="About Michael Esema | Founder & CEO, Mykei Securities" />
-        <meta property="og:description" content="Founder of Mykei Securities. Anti-resale crime, asset integrity, Economic Sterilisation, and UK patent application No. 2606630.8." />
+        <meta property="og:title" content="About Michael Esema | Graphics & Multimedia Designer, Teal Sand Studios" />
+        <meta property="og:description" content="Brand identity and websites for small businesses. Designer of the Silent Party 9ja site. Previously founder of Mykei Securities Ltd." />
         <meta property="og:url" content="https://michaelesema.com/about" />
       </Helmet>
       <Nav />
@@ -91,8 +91,8 @@ export default function AboutPage() {
               color: 'rgba(245,245,240,0.72)',
               marginBottom: 36,
             }}>
-              I share updates on Economic Sterilisation, Sutton and Market Reduction,
-              ADN R&D, and the reality of building an anti-resale crime company from Manchester.
+              I post design work in progress, finished sites, and what I learn building
+              for small businesses.
             </p>
             <a
               href="https://www.linkedin.com/in/michaelesema"

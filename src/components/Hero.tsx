@@ -65,16 +65,16 @@ export default function Hero() {
             maxWidth: 460,
             letterSpacing: '-0.3px',
           }}>
-            Founder, researcher and builder working where{' '}
+            Graphics and multimedia designer building{' '}
             <span style={{
               backgroundImage: 'linear-gradient(var(--accent), var(--accent))',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: '0 88%',
               backgroundSize: '100% 0.32em',
             }}>
-              security, ownership and resale markets
+              brand identities and websites
             </span>
-            {' '}meet.
+            {' '}for small businesses.
           </motion.p>
 
           <motion.p {...fadeUp(0.36)} style={{
@@ -86,8 +86,8 @@ export default function Hero() {
             marginTop: 20,
             maxWidth: 430,
           }}>
-            I build practical security ideas and systems that make stolen assets
-            harder to sell, move, use or deny.
+            I design the whole thing and I ship it. Identity, layout, motion, copy,
+            live site. Fast, contract based, no agency in between.
           </motion.p>
 
           <motion.div {...fadeUp(0.46)} style={{ display: 'flex', gap: 16, marginTop: 36, flexWrap: 'wrap', alignItems: 'center' }}>
@@ -106,7 +106,7 @@ export default function Hero() {
               onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'var(--accent-hover)'; el.style.transform = 'translateY(-1px)' }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'var(--accent)'; el.style.transform = 'translateY(0)' }}
             >
-              View my work
+              See the work
             </a>
             {/* Connect opens LinkedIn in a new tab */}
             <a
@@ -140,7 +140,7 @@ export default function Hero() {
         >
           <img
             src="/michael-esema-portrait.jpg"
-            alt="Michael Esema, founder of Mykei Securities Ltd, in a black leather jacket"
+            alt="Michael Esema, graphics and multimedia designer, in a black leather jacket"
             style={{
               position: 'absolute',
               right: 0, bottom: 0,

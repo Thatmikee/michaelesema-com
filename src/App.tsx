@@ -13,10 +13,7 @@ import NigeriaSection from './components/NigeriaSection'
 import PhilosophyPage from './pages/PhilosophyPage'
 import AboutPage from './pages/AboutPage'
 import PrivacyPage from './pages/PrivacyPage'
-import ThesisPage from './pages/ThesisPage'
 import ThinkingPage from './pages/ThinkingPage'
-import ProtocolPage from './pages/ProtocolPage'
-import RegistryPage from './pages/RegistryPage'
 import NotFoundPage from './pages/NotFoundPage'
 import GrainOverlay from './components/ui/GrainOverlay'
 import './index.css'
@@ -55,10 +52,7 @@ function App() {
         <Route path="/philosophy" element={<PhilosophyPage />} />
         <Route path="/about"     element={<AboutPage />} />
         <Route path="/privacy"   element={<PrivacyPage />} />
-        <Route path="/thesis"    element={<ThesisPage />} />
         <Route path="/thinking"  element={<ThinkingPage />} />
-        <Route path="/protocol"  element={<ProtocolPage />} />
-        <Route path="/registry"  element={<RegistryPage />} />
         <Route path="*"          element={<NotFoundPage />} />
       </Routes>
     </>

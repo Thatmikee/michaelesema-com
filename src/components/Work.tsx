@@ -26,8 +26,15 @@ type Item = {
 
 const ITEMS: Item[] = [
   {
+    title: 'Silent Party 9ja',
+    body: 'A full site and design system for an Abuja silent-disco brand, designed and built end to end through Teal Sand Studios. Built as a nightlife lookbook, with a channel dial that re-tunes the accent colour across the page.',
+    thumb: silentThumb,
+    alt: 'Headphones with a soft glow, representing the Silent Party 9ja silent-disco brand',
+    kind: 'status', status: 'Live soon',
+  },
+  {
     title: 'Mykei Securities Ltd',
-    body: 'A UK-first security venture working on asset integrity, retail crime and resale deterrence.',
+    body: 'A UK security venture I founded, covering asset integrity and resale deterrence. Currently paused. The site and brand are mine.',
     thumb: mykeiThumb,
     alt: 'The Mykei Securities logo: the company building asset-integrity and resale-deterrence systems',
     kind: 'external', href: 'https://mykei.io', action: 'mykei.io',
@@ -37,21 +44,21 @@ const ITEMS: Item[] = [
     body: 'Active defence architecture for event-linked marking, asset protection and evidence records.',
     thumb: adnThumb,
     alt: 'Technical sketch of the ADN defence module with a sensor lens',
-    kind: 'status', status: 'In development',
+    kind: 'status', status: 'Paused',
   },
   {
     title: 'Economic Sterilisation',
     body: 'An applied framework for reducing resale confidence and commercial acceptability in stolen goods.',
     thumb: esThumb,
     alt: 'A working paper in an evidence folder with a highlighted line',
-    kind: 'internal', href: '/thesis', action: 'Read paper',
+    kind: 'status', status: 'Research',
   },
   {
     title: 'Mykei Registry',
     body: 'A proposed evidence-record layer for ownership, provenance, incidents and chain of custody.',
     thumb: registryThumb,
     alt: 'An ownership registry ledger with verification marks and a chain-of-custody link',
-    kind: 'internal', href: '/registry', action: 'Read concept note',
+    kind: 'status', status: 'Research',
   },
   {
     title: 'Retail Crime and Resale Deterrence',
@@ -62,17 +69,10 @@ const ITEMS: Item[] = [
   },
   {
     title: 'Writing and Public Thinking',
-    body: 'Founder notes, essays and field observations from building Mykei.',
+    body: 'Notes, essays and field observations from building Mykei and from design work.',
     thumb: writingThumb,
     alt: 'A desk still life with a cup of tea, an open notebook and a pen',
     kind: 'internal', href: '/thinking', action: 'See thinking',
-  },
-  {
-    title: 'Silent Lounging',
-    body: 'A silent-disco lounge experience that brings people together through wireless headphones, in collaboration with Silent Party 9ja.',
-    thumb: silentThumb,
-    alt: 'Headphones with a soft glow, representing the Silent Lounging silent-disco experience',
-    kind: 'status', status: 'In collaboration',
   },
 ]
 
@@ -161,7 +161,7 @@ export default function Work() {
               color: 'var(--text-secondary)', fontWeight: 300,
               marginTop: 16, maxWidth: 460, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7,
             }}>
-              Some of what I am building, researching and writing right now.
+              Design work first, then the research and the company that came before it.
             </p>
           </div>
         </FadeIn>
