@@ -3,7 +3,6 @@ import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
-import Milestones from './components/Milestones'
 import FocusAreas from './components/FocusAreas'
 import Work from './components/Work'
 import Thinking from './components/Thinking'
@@ -25,12 +24,13 @@ function HomePage() {
       <Nav />
       <main id="main-content">
         <Hero />
-        <About />
-        <Milestones />
-        <FocusAreas />
+        {/* Evidence before biography. The previous order opened with three
+            sections about who he is before showing a single thing he made. */}
         <Work />
-        <Thinking />
+        <FocusAreas />
+        <About />
         <NigeriaSection />
+        <Thinking />
         <Connect />
       </main>
       <Footer />

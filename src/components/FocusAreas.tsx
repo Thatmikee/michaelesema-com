@@ -19,28 +19,12 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 // Qualitative emphasis (not fake percentages): a 5-segment strength meter + a label.
 const ITEMS: { name: string; tag: string; level: number }[] = [
-  { name: 'Asset integrity',        tag: 'Core',     level: 5 },
-  { name: 'Retail crime',           tag: 'Core',     level: 5 },
-  { name: 'Resale markets',         tag: 'Core',     level: 5 },
-  { name: 'Proof of ownership',     tag: 'Building', level: 4 },
-  { name: 'Evidence records',       tag: 'Building', level: 4 },
-  { name: 'Security infrastructure',tag: 'Research', level: 3 },
-  { name: 'Industrial intelligence',tag: 'Research', level: 3 },
-  { name: 'Founder strategy',       tag: 'Ongoing',  level: 4 },
+  { name: 'Product design',   tag: 'Structure and interface', level: 5 },
+  { name: 'Websites',         tag: 'Design and front end',  level: 5 },
+  { name: 'Brand systems',    tag: 'Identity and type',             level: 5 },
+  { name: 'Product building', tag: 'Idea to first version',      level: 4 },
 ]
 
-function Meter({ level }: { level: number }) {
-  return (
-    <span aria-hidden="true" style={{ display: 'inline-flex', gap: 4 }}>
-      {[1, 2, 3, 4, 5].map(n => (
-        <span key={n} style={{
-          width: 16, height: 6, borderRadius: 2,
-          background: n <= level ? 'var(--accent)' : 'rgba(0,0,0,0.10)',
-        }} />
-      ))}
-    </span>
-  )
-}
 
 export default function FocusAreas() {
   return (
@@ -59,7 +43,7 @@ export default function FocusAreas() {
               letterSpacing: '-1px',
               marginBottom: 14,
             }}>
-              Focus areas<span style={{ color: 'var(--accent)' }}>.</span>
+              What I do<span style={{ color: 'var(--accent)' }}>.</span>
             </h2>
             <p style={{
               fontFamily: "'Outfit', sans-serif",
@@ -67,7 +51,7 @@ export default function FocusAreas() {
               color: 'var(--text-secondary)',
               fontWeight: 300, lineHeight: 1.75,
             }}>
-              The problem areas I research, build and write around, with where my attention sits today.
+              Four things I do, and what each one actually involves.
             </p>
           </div>
         </FadeIn>
@@ -94,18 +78,17 @@ export default function FocusAreas() {
                 }}>
                   {item.name}
                 </span>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 14, flexShrink: 0 }}>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 14, minWidth: 0 }}>
                   <span style={{
                     fontFamily: "'JetBrains Mono', monospace",
                     fontSize: 10.5,
                     textTransform: 'uppercase',
                     letterSpacing: '0.08em',
                     color: 'var(--text-muted)',
-                    minWidth: 56, textAlign: 'right',
+                    minWidth: 0, textAlign: 'right', whiteSpace: 'normal',
                   }}>
                     {item.tag}
                   </span>
-                  <Meter level={item.level} />
                 </span>
               </div>
             </FadeIn>

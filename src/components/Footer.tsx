@@ -55,8 +55,8 @@ export default function Footer() {
             fontFamily: "'Outfit', sans-serif", fontSize: 14, color: 'var(--text-secondary)',
             fontWeight: 300, lineHeight: 1.7, marginTop: 14, maxWidth: 320,
           }}>
-            Founder, researcher and builder. Building Mykei Securities Ltd, a UK-first security
-            venture working on asset protection and resale-driven theft.
+            Product designer and builder, working from Manchester on digital products,
+            websites and brand systems. Available for selected freelance and studio work.
           </p>
         </div>
 

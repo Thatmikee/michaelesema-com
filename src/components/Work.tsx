@@ -3,10 +3,7 @@ import { motion, useInView } from 'framer-motion'
 
 // Thumbnails live in /public/work and are served by URL (not module imports).
 const mykeiThumb = '/work/mykei-securities-site.png'
-const adnThumb = '/work/adn-1.svg'
 const esThumb = '/work/economic-sterilisation-page.png'
-const registryThumb = '/work/mykei-registry.svg'
-const retailThumb = '/work/retail-deterrence.svg'
 const writingThumb = '/work/signal-publication.png'
 const silentThumb = '/work/silent-lounging.svg'
 
@@ -26,53 +23,32 @@ type Item = {
 
 const ITEMS: Item[] = [
   {
-    title: 'Silent Party 9ja',
-    body: 'A full site and design system for an Abuja silent-disco brand, designed and built end to end through Teal Sand Studios. Built as a nightlife lookbook, with a channel dial that re-tunes the accent colour across the page.',
-    thumb: silentThumb,
-    alt: 'Headphones with a soft glow, representing the Silent Party 9ja silent-disco brand',
-    kind: 'status', status: 'Live soon',
-  },
-  {
-    title: 'Mykei Securities Ltd',
-    body: 'Brand, type system and full site, designed and built by me. Editorial serif on a nine-value palette, every figure sourced. The venture behind it is paused; the design work is shipped and live.',
+    title: 'Mykei Securities',
+    body: 'Security technology, product, research and brand. I founded it, then took an unresolved problem through research, doctrine, product architecture, brand, two websites and a filed UK patent application.',
     thumb: mykeiThumb,
-    alt: 'The mykei.io homepage: Playfair display headline in black and red on white, above a dark technical band',
+    alt: 'The mykei.io homepage: an editorial serif headline in black and red on white above a dark technical band',
     kind: 'external', href: 'https://mykei.io', action: 'mykei.io',
   },
   {
-    title: 'ADN',
-    body: 'Active defence architecture for event-linked marking, asset protection and evidence records.',
-    thumb: adnThumb,
-    alt: 'Technical sketch of the ADN defence module with a sensor lens',
-    kind: 'status', status: 'Paused',
-  },
-  {
-    title: 'Economic Sterilisation',
-    body: 'A long-form argument set as a reading page. Measure, hierarchy and citation styling designed for something people actually finish.',
-    thumb: esThumb,
-    alt: 'The Economic Sterilisation page on mykei.io, set as a long-form reading layout',
-    kind: 'external', href: 'https://mykei.io/economic-sterilisation', action: 'Read it',
-  },
-  {
-    title: 'Mykei Registry',
-    body: 'A proposed evidence-record layer for ownership, provenance, incidents and chain of custody.',
-    thumb: registryThumb,
-    alt: 'An ownership registry ledger with verification marks and a chain-of-custody link',
-    kind: 'status', status: 'Research',
-  },
-  {
-    title: 'Retail Crime and Resale Deterrence',
-    body: 'Public thinking on shrinkage, colleague safety, resale markets and incentive design.',
-    thumb: retailThumb,
-    alt: 'A retail shelf with tagged products and a printed receipt',
-    kind: 'internal', href: '/thinking', action: 'See thinking',
+    title: 'Teal Sand Studios',
+    body: 'A studio built on one idea: small businesses should be able to have websites that look and work like serious businesses. I set the direction and the production approach around identity, web and reusable creative systems.',
+    thumb: silentThumb,
+    alt: 'Silent Party 9ja, the studio first piece: a nightlife lookbook built around a channel dial',
+    kind: 'status', status: 'Studio',
   },
   {
     title: 'The Signal',
-    body: 'A retail crime publication I design and run. Masthead, issue system, data figures and corrections policy. Published twice a week.',
+    body: 'A retail crime publication I design and run. Masthead, issue system, data figures and a corrections policy that stays on the record. Published twice a week.',
     thumb: writingThumb,
     alt: 'The Signal front page: a masthead, issue numbering and stacked article entries',
     kind: 'external', href: 'https://mykei.io/signal', action: 'Read The Signal',
+  },
+  {
+    title: 'Economic Sterilisation',
+    body: 'A long-form argument set as a reading page. Measure, hierarchy and citation styling designed for something people actually finish, with the limits of the evidence stated in the text.',
+    thumb: esThumb,
+    alt: 'The Economic Sterilisation page, set as a long-form reading layout',
+    kind: 'external', href: 'https://mykei.io/economic-sterilisation', action: 'Read it',
   },
 ]
 
@@ -153,7 +129,7 @@ export default function Work() {
               fontWeight: 800, color: 'var(--ink)',
               letterSpacing: '-1px', margin: 0,
             }}>
-              Recent work<span style={{ color: 'var(--accent)' }}>.</span>
+              Selected work<span style={{ color: 'var(--accent)' }}>.</span>
             </h2>
             <p style={{
               fontFamily: "'Outfit', sans-serif",
@@ -161,12 +137,12 @@ export default function Work() {
               color: 'var(--text-secondary)', fontWeight: 300,
               marginTop: 16, maxWidth: 460, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7,
             }}>
-              Design work first, then the research and the company that came before it.
+              Four things I took from a rough idea to something people can actually use.
             </p>
           </div>
         </FadeIn>
 
-        <div className="work-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
+        <div className="work-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 28 }}>
           {ITEMS.map((item, i) => {
             const inner = (
               <>
@@ -220,7 +196,7 @@ export default function Work() {
         }
         .work-card:hover .reveal-underline { background-size: 100% 2px; }
         .work-card:hover .open-mark { background: var(--accent); color: var(--ink); }
-        @media (max-width: 900px) { .work-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+        @media (max-width: 900px) { .work-grid { grid-template-columns: 1fr !important; } }
         @media (max-width: 600px) { .work-grid { grid-template-columns: 1fr !important; } }
         @media (prefers-reduced-motion: reduce) {
           .work-card, .work-card .reveal-underline, .work-card .open-mark { transition: none !important; }

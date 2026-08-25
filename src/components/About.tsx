@@ -57,9 +57,9 @@ export default function About() {
             maxWidth: 720,
             margin: '0 auto clamp(44px, 6vw, 64px)',
           }}>
-            Michael Esema is a graphics and multimedia designer working out of Manchester,
-            building brand identities and websites for small businesses through his studio,
-            Teal Sand Studios.
+            I work from Manchester, designing and building digital products, websites and
+            brand systems. I tend to look at how something works before I look at how it
+            appears, which is usually where the interesting problems are.
           </p>
         </FadeIn>
 
@@ -100,24 +100,18 @@ export default function About() {
         <FadeIn delay={0.22}>
           <div style={{ marginTop: 'clamp(44px, 6vw, 64px)', maxWidth: 720, marginLeft: 'auto', marginRight: 'auto' }}>
             <p style={{ ...col, fontWeight: 500, color: 'var(--ink)', marginBottom: 12 }}>
-              Before this.
+              The work is the evidence.
             </p>
             <p style={{ ...col, marginBottom: 14 }}>
-              I founded Mykei Securities Ltd, a UK security venture working on asset integrity
-              and resale-driven theft, and took it from a written thesis to a filed UK patent
-              application. I built the research, the brand, the product architecture and both
-              websites myself.
-            </p>
-            <p style={{ ...col, marginBottom: 14 }}>
-              Mykei is paused. The company still exists and the patent application is being
-              held, but there is no active product and no active outreach while I focus on
-              design work.
+              I am less interested in collecting titles than in making things. A finished
+              identity. A working website. A product prototype. A useful system. A piece of
+              research that survives scrutiny. Something that can be put in front of another
+              person and used.
             </p>
             <p style={{ ...col, margin: 0 }}>
-              I keep it here because it is the honest answer to whether I can finish things. I
-              have run a company, defended an idea in writing, filed IP and shipped the sites
-              that carried all of it. When I say I will build your site and hand it over
-              working, that is what the claim is standing on.
+              Those experiences changed the way I design. I look at systems before surfaces.
+              How does it work. Where does it fail. What does the person using it actually
+              need. What happens when it leaves the screen.
             </p>
           </div>
         </FadeIn>

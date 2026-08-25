@@ -65,16 +65,16 @@ export default function Hero() {
             maxWidth: 460,
             letterSpacing: '-0.3px',
           }}>
-            Graphics and multimedia designer building{' '}
+            Product designer and builder. I design and build{' '}
             <span style={{
               backgroundImage: 'linear-gradient(var(--accent), var(--accent))',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: '0 88%',
               backgroundSize: '100% 0.32em',
             }}>
-              brand identities and websites
+              digital products, websites and brand systems
             </span>
-            {' '}for small businesses.
+            {' '}for people who need their ideas to work in the real world.
           </motion.p>
 
           <motion.p {...fadeUp(0.36)} style={{
@@ -86,8 +86,9 @@ export default function Hero() {
             marginTop: 20,
             maxWidth: 430,
           }}>
-            I design the whole thing and I ship it. Identity, layout, motion, copy,
-            live site. Fast, contract based, no agency in between.
+            My work sits between design, technology and business. Defining a product
+            and its structure, designing the interface, building the front end, and
+            shipping the thing. I care about the whole object, not just the screen.
           </motion.p>
 
           <motion.div {...fadeUp(0.46)} style={{ display: 'flex', gap: 16, marginTop: 36, flexWrap: 'wrap', alignItems: 'center' }}>
@@ -140,7 +141,7 @@ export default function Hero() {
         >
           <img
             src="/michael-esema-portrait.jpg"
-            alt="Michael Esema, graphics and multimedia designer, in a black leather jacket"
+            alt="Michael Esema, product designer and builder, in a black leather jacket"
             style={{
               position: 'absolute',
               right: 0, bottom: 0,

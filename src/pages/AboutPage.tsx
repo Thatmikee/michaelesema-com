@@ -9,7 +9,7 @@ export default function AboutPage() {
     document.title = 'About Michael Esema | Graphics & Multimedia Designer | Teal Sand Studios, Manchester'
 
     const meta = document.querySelector('meta[name="description"]')
-    if (meta) meta.setAttribute('content', "Michael Esema, graphics and multimedia designer in Manchester. Brand identity and websites for small businesses through Teal Sand Studios. Designer of the Silent Party 9ja site. Previously founder of Mykei Securities Ltd. MBA, MSc.")
+    if (meta) meta.setAttribute('content', "Michael Esema, product designer and builder in Manchester. Digital products, websites and brand systems, from problem and structure through design to a shipped front end.")
 
     const canonical = document.querySelector('link[rel="canonical"]')
     if (canonical) canonical.setAttribute('href', 'https://michaelesema.com/about')
@@ -48,7 +48,7 @@ export default function AboutPage() {
     <>
       <Helmet>
         <title>About Michael Esema | Graphics & Multimedia Designer | Teal Sand Studios, Manchester</title>
-        <meta name="description" content="Michael Esema, graphics and multimedia designer in Manchester. Brand identity and websites for small businesses through Teal Sand Studios. Designer of the Silent Party 9ja site. Previously founder of Mykei Securities Ltd. MBA, MSc." />
+        <meta name="description" content="Michael Esema, product designer and builder in Manchester. Digital products, websites and brand systems, from problem and structure through design to a shipped front end." />
         <link rel="canonical" href="https://michaelesema.com/about" />
         <meta property="og:title" content="About Michael Esema | Graphics & Multimedia Designer, Teal Sand Studios" />
         <meta property="og:description" content="Brand identity and websites for small businesses. Designer of the Silent Party 9ja site. Previously founder of Mykei Securities Ltd." />
