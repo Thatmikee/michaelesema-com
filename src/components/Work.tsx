@@ -2,12 +2,12 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 // Thumbnails live in /public/work and are served by URL (not module imports).
-const mykeiThumb = '/work/mykei-securities.svg'
+const mykeiThumb = '/work/mykei-securities-site.png'
 const adnThumb = '/work/adn-1.svg'
-const esThumb = '/work/economic-sterilisation.svg'
+const esThumb = '/work/economic-sterilisation-page.png'
 const registryThumb = '/work/mykei-registry.svg'
 const retailThumb = '/work/retail-deterrence.svg'
-const writingThumb = '/work/writing.svg'
+const writingThumb = '/work/signal-publication.png'
 const silentThumb = '/work/silent-lounging.svg'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -34,9 +34,9 @@ const ITEMS: Item[] = [
   },
   {
     title: 'Mykei Securities Ltd',
-    body: 'A UK security venture I founded, covering asset integrity and resale deterrence. Currently paused. The site and brand are mine.',
+    body: 'Brand, type system and full site, designed and built by me. Editorial serif on a nine-value palette, every figure sourced. The venture behind it is paused; the design work is shipped and live.',
     thumb: mykeiThumb,
-    alt: 'The Mykei Securities logo: the company building asset-integrity and resale-deterrence systems',
+    alt: 'The mykei.io homepage: Playfair display headline in black and red on white, above a dark technical band',
     kind: 'external', href: 'https://mykei.io', action: 'mykei.io',
   },
   {
@@ -48,10 +48,10 @@ const ITEMS: Item[] = [
   },
   {
     title: 'Economic Sterilisation',
-    body: 'An applied framework for reducing resale confidence and commercial acceptability in stolen goods.',
+    body: 'A long-form argument set as a reading page. Measure, hierarchy and citation styling designed for something people actually finish.',
     thumb: esThumb,
-    alt: 'A working paper in an evidence folder with a highlighted line',
-    kind: 'status', status: 'Research',
+    alt: 'The Economic Sterilisation page on mykei.io, set as a long-form reading layout',
+    kind: 'external', href: 'https://mykei.io/economic-sterilisation', action: 'Read it',
   },
   {
     title: 'Mykei Registry',
@@ -68,11 +68,11 @@ const ITEMS: Item[] = [
     kind: 'internal', href: '/thinking', action: 'See thinking',
   },
   {
-    title: 'Writing and Public Thinking',
-    body: 'Notes, essays and field observations from building Mykei and from design work.',
+    title: 'The Signal',
+    body: 'A retail crime publication I design and run. Masthead, issue system, data figures and corrections policy. Published twice a week.',
     thumb: writingThumb,
-    alt: 'A desk still life with a cup of tea, an open notebook and a pen',
-    kind: 'internal', href: '/thinking', action: 'See thinking',
+    alt: 'The Signal front page: a masthead, issue numbering and stacked article entries',
+    kind: 'external', href: 'https://mykei.io/signal', action: 'Read The Signal',
   },
 ]
 
