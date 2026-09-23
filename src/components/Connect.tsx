@@ -44,21 +44,20 @@ export default function Connect() {
               fontWeight: 800, lineHeight: 1.08,
               letterSpacing: '-1px', color: 'var(--ink)', marginBottom: 26,
             }}>
-              Let&apos;s talk about{' '}
+              Let&apos;s{' '}
               <span style={{
                 backgroundImage: 'linear-gradient(var(--accent), var(--accent))',
                 backgroundRepeat: 'no-repeat', backgroundPosition: '0 92%', backgroundSize: '100% 0.28em',
               }}>
-                work worth building.
+                talk.
               </span>
             </h2>
             <p style={{
               fontFamily: "'Outfit', sans-serif", fontSize: 'clamp(14px, 1.4vw, 16px)',
               lineHeight: 1.85, color: 'var(--text-secondary)', fontWeight: 300, maxWidth: 380,
             }}>
-              Investors, researchers, retail and security professionals, and journalists covering
-              organised crime and loss prevention. If there is something real to discuss, I would
-              like to hear it.
+              Recruiters and hiring managers in commercial finance and FP&amp;A, and anyone
+              researching retail crime and loss. CV available on request.
             </p>
           </div>
         </FadeIn>

@@ -57,9 +57,8 @@ export default function About() {
             maxWidth: 720,
             margin: '0 auto clamp(44px, 6vw, 64px)',
           }}>
-            I work from Manchester, designing and building digital products, websites and
-            brand systems. I tend to look at how something works before I look at how it
-            appears, which is usually where the interesting problems are.
+            I grew up in Nigeria and now live and work in Manchester. I look at how something
+            works before how it looks, which is usually where the money leaks.
           </p>
         </FadeIn>
 
@@ -71,27 +70,22 @@ export default function About() {
           }}>
             <div>
               <p style={{ ...col, marginBottom: 18 }}>
-                He designs the whole object, not a screen of it. Identity, type system, layout,
-                motion and the front end that ships it, on the theory that a brand only exists
-                once someone can actually visit it.
+                I studied Accounting at Benson Idahosa University, did an MBA at the Nigerian
+                Defence Academy, then an MSc in International Business Management at Manchester
+                Metropolitan University.
               </p>
               <p style={{ ...col, margin: 0 }}>
-                He grew up in Nigeria, studied Accounting at Benson Idahosa University, completed an
-                MBA at the Nigerian Defence Academy, and later earned an MSc in International Business
-                Management at Manchester Metropolitan University.
+                My working life has run through student leadership, emergency management
+                administration, hotel finance and operations as Head Accountant, frontline
+                support work in the UK, and design. The thread through all of it is the same:
+                how systems work, where they fail, and what it costs when they do.
               </p>
             </div>
             <div>
-              <p style={{ ...col, marginBottom: 18 }}>
-                Before design became the work, his path moved through student leadership,
-                emergency-management exposure, hospitality operations, finance and frontline
-                support work in the UK. He also founded a UK security company and took a system
-                from idea to a filed patent application.
-              </p>
               <p style={{ ...col, margin: 0 }}>
-                The common thread is practical systems: where they fail, who they leave exposed,
-                and how they can be rebuilt so they hold. Design is the same problem with a
-                different surface.
+                Next is commercial finance and FP&amp;A, where accounting knowledge, analysis and
+                clear presentation all matter. I&apos;m building Power BI skills towards PL-300
+                and considering CIMA.
               </p>
             </div>
           </div>
@@ -102,16 +96,10 @@ export default function About() {
             <p style={{ ...col, fontWeight: 500, color: 'var(--ink)', marginBottom: 12 }}>
               The work is the evidence.
             </p>
-            <p style={{ ...col, marginBottom: 14 }}>
-              I am less interested in collecting titles than in making things. A finished
-              identity. A working website. A product prototype. A useful system. A piece of
-              research that survives scrutiny. Something that can be put in front of another
-              person and used.
-            </p>
             <p style={{ ...col, margin: 0 }}>
-              Those experiences changed the way I design. I look at systems before surfaces.
-              How does it work. Where does it fail. What does the person using it actually
-              need. What happens when it leaves the screen.
+              I&apos;d rather show a finished thing than list a title. A working website. A
+              prototype. A piece of research that survives scrutiny. Something another person
+              can pick up and use.
             </p>
           </div>
         </FadeIn>

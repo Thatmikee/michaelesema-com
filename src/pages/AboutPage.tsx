@@ -6,10 +6,10 @@ import Footer from '../components/Footer'
 
 export default function AboutPage() {
   useEffect(() => {
-    document.title = 'About Michael Esema | Graphics & Multimedia Designer | Teal Sand Studios, Manchester'
+    document.title = 'About Michael Esema | Finance and Commercial Analytics'
 
     const meta = document.querySelector('meta[name="description"]')
-    if (meta) meta.setAttribute('content', "Michael Esema, product designer and builder in Manchester. Digital products, websites and brand systems, from problem and structure through design to a shipped front end.")
+    if (meta) meta.setAttribute('content', "Michael Esema, finance professional heading into commercial finance and FP&A. BSc Accounting, MBA, MSc International Business Management. Building Power BI skills towards PL-300.")
 
     const canonical = document.querySelector('link[rel="canonical"]')
     if (canonical) canonical.setAttribute('href', 'https://michaelesema.com/about')
@@ -23,10 +23,9 @@ export default function AboutPage() {
         '@id': 'https://michaelesema.com/#person',
         '@type': 'Person',
         'name': 'Michael Esema',
-        'jobTitle': 'Graphics & Multimedia Designer',
-        'worksFor': { '@type': 'Organization', 'name': 'Teal Sand Studios' },
-        'description': 'Graphics and multimedia designer building brand identities and websites for small businesses. Previously founder of Mykei Securities Ltd.',
-        'knowsAbout': ['Graphic design', 'Brand identity', 'Web design', 'Design systems', 'Multimedia design', 'Entrepreneurship', 'Asset integrity'],
+        'jobTitle': 'Finance and Commercial Analytics',
+        'description': 'Finance professional heading into commercial finance and FP&A. BSc Accounting, MBA, MSc International Business Management. Building Power BI skills towards PL-300.',
+        'knowsAbout': ['Financial reporting', 'Commercial analysis', 'Power BI', 'Accounting', 'Graphic design', 'Brand identity', 'Web design', 'Entrepreneurship', 'Asset integrity'],
         'alumniOf': [
           { '@type': 'CollegeOrUniversity', 'name': 'Manchester Metropolitan University' },
           { '@type': 'CollegeOrUniversity', 'name': 'Nigerian Defence Academy' },
@@ -47,11 +46,11 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>About Michael Esema | Graphics & Multimedia Designer | Teal Sand Studios, Manchester</title>
-        <meta name="description" content="Michael Esema, product designer and builder in Manchester. Digital products, websites and brand systems, from problem and structure through design to a shipped front end." />
+        <title>About Michael Esema | Finance and Commercial Analytics</title>
+        <meta name="description" content="Michael Esema, finance professional heading into commercial finance and FP&A. BSc Accounting, MBA, MSc International Business Management. Building Power BI skills towards PL-300." />
         <link rel="canonical" href="https://michaelesema.com/about" />
-        <meta property="og:title" content="About Michael Esema | Graphics & Multimedia Designer, Teal Sand Studios" />
-        <meta property="og:description" content="Brand identity and websites for small businesses. Designer of the Silent Party 9ja site. Previously founder of Mykei Securities Ltd." />
+        <meta property="og:title" content="About Michael Esema | Finance and Commercial Analytics" />
+        <meta property="og:description" content="Finance professional heading into commercial finance and FP&A. BSc Accounting, MBA, MSc International Business Management. Building Power BI skills towards PL-300." />
         <meta property="og:url" content="https://michaelesema.com/about" />
       </Helmet>
       <Nav />

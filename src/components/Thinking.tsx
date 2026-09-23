@@ -23,7 +23,8 @@ const ENTRIES = [
   { n: '02', slug: 'making-stolen-goods-harder-to-monetise', title: 'Making stolen goods harder to monetise', line: 'Practical ways to strip resale value out of an item, both before and after it is taken.' },
   { n: '03', slug: 'retail-loss-colleague-safety-resale-markets', title: 'Retail loss, colleague safety and resale markets', line: 'What shrinkage costs the people on the floor, and how resale demand keeps the pressure on.' },
   { n: '04', slug: 'industrial-intelligence-security-infrastructure', title: 'Industrial intelligence and future security infrastructure', line: 'Where evidence records, asset intelligence and hardware meet the next decade of prevention.' },
-  { n: '05', slug: 'founder-notes-building-mykei', title: 'Founder notes from building Mykei', line: 'Field notes on turning a single question into research, a patent filing and a company.' },
+  { n: '05', slug: 'founder-notes-building-mykei', title: 'Notes from building Mykei', line: 'Field notes on turning one question into research and a patent filing.' },
+  { n: '06', slug: null, title: 'Learning commercial finance in public', line: 'Power BI builds, CIMA reading and what I get wrong along the way.' },
 ]
 
 export default function Thinking() {
@@ -44,18 +45,15 @@ export default function Thinking() {
         </FadeIn>
 
         <div>
-          {ENTRIES.map((e, i) => (
-            <FadeIn key={e.n} delay={0.04 + i * 0.05}>
-              <Link
-                to={`/thinking#${e.slug}`}
-                className="thinking-row"
-                style={{
-                  display: 'grid', gridTemplateColumns: '58px 1fr auto',
-                  gap: 'clamp(14px, 3vw, 32px)', alignItems: 'baseline',
-                  padding: 'clamp(22px, 3vw, 30px) 0', textDecoration: 'none',
-                  borderBottom: i < ENTRIES.length - 1 ? '1px solid var(--border)' : 'none',
-                }}
-              >
+          {ENTRIES.map((e, i) => {
+            const rowStyle: React.CSSProperties = {
+              display: 'grid', gridTemplateColumns: '58px 1fr auto',
+              gap: 'clamp(14px, 3vw, 32px)', alignItems: 'baseline',
+              padding: 'clamp(22px, 3vw, 30px) 0', textDecoration: 'none',
+              borderBottom: i < ENTRIES.length - 1 ? '1px solid var(--border)' : 'none',
+            }
+            const rowContent = (
+              <>
                 <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: 'clamp(18px, 2vw, 24px)', color: 'var(--accent)', letterSpacing: '-0.5px' }}>
                   {e.n}
                 </span>
@@ -71,15 +69,30 @@ export default function Thinking() {
                     {e.line}
                   </p>
                 </div>
-                <span aria-hidden="true" className="thinking-arrow" style={{
-                  alignSelf: 'center', color: 'var(--text-muted)', display: 'inline-flex',
-                  transition: 'color 0.2s, transform 0.2s',
-                }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-                </span>
-              </Link>
-            </FadeIn>
-          ))}
+                {e.slug ? (
+                  <span aria-hidden="true" className="thinking-arrow" style={{
+                    alignSelf: 'center', color: 'var(--text-muted)', display: 'inline-flex',
+                    transition: 'color 0.2s, transform 0.2s',
+                  }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                  </span>
+                ) : <span />}
+              </>
+            )
+            return (
+              <FadeIn key={e.n} delay={0.04 + i * 0.05}>
+                {e.slug ? (
+                  <Link to={`/thinking#${e.slug}`} className="thinking-row" style={rowStyle}>
+                    {rowContent}
+                  </Link>
+                ) : (
+                  <div className="thinking-row" style={rowStyle}>
+                    {rowContent}
+                  </div>
+                )}
+              </FadeIn>
+            )
+          })}
         </div>
 
         <FadeIn delay={0.1}>

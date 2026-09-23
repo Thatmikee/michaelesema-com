@@ -65,16 +65,16 @@ export default function Hero() {
             maxWidth: 460,
             letterSpacing: '-0.3px',
           }}>
-            Product designer and builder. I design and build{' '}
+            I know where the numbers come from,{' '}
             <span style={{
               backgroundImage: 'linear-gradient(var(--accent), var(--accent))',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: '0 88%',
               backgroundSize: '100% 0.32em',
             }}>
-              digital products, websites and brand systems
+              and how to make them readable
             </span>
-            {' '}for people who need their ideas to work in the real world.
+            .
           </motion.p>
 
           <motion.p {...fadeUp(0.36)} style={{
@@ -86,9 +86,10 @@ export default function Hero() {
             marginTop: 20,
             maxWidth: 430,
           }}>
-            My work sits between design, technology and business. Defining a product
-            and its structure, designing the interface, building the front end, and
-            shipping the thing. I care about the whole object, not just the screen.
+            Background in accounting operations as a Head Accountant, covering Record to
+            Report, Procure to Pay and Order to Cash. BSc Accounting, MBA and MSc International
+            Business Management. Now building Power BI skills towards PL-300 and moving into
+            commercial finance and FP&amp;A.
           </motion.p>
 
           <motion.div {...fadeUp(0.46)} style={{ display: 'flex', gap: 16, marginTop: 36, flexWrap: 'wrap', alignItems: 'center' }}>
@@ -141,7 +142,7 @@ export default function Hero() {
         >
           <img
             src="/michael-esema-portrait.jpg"
-            alt="Michael Esema, product designer and builder, in a black leather jacket"
+            alt="Michael Esema, in a black leather jacket"
             style={{
               position: 'absolute',
               right: 0, bottom: 0,

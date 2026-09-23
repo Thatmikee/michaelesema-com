@@ -24,21 +24,21 @@ type Item = {
 const ITEMS: Item[] = [
   {
     title: 'Mykei Securities',
-    body: 'Security technology, product, research and brand. I founded it, then took an unresolved problem through research, doctrine, product architecture, brand, two websites and a filed UK patent application.',
+    body: 'Security research and product development, done in my own time. I took one question, why stolen goods keep their resale value, through research, product design, brand, two websites and a filed UK patent application.',
     thumb: mykeiThumb,
     alt: 'The mykei.io homepage: an editorial serif headline in black and red on white above a dark technical band',
     kind: 'external', href: 'https://mykei.io', action: 'mykei.io',
   },
   {
     title: 'Teal Sand Studios',
-    body: 'A studio built on one idea: small businesses should be able to have websites that look and work like serious businesses. I set the direction and the production approach around identity, web and reusable creative systems.',
+    body: 'A creative studio project where I set the visual direction, identity and production approach. First piece: Silent Party 9ja, a nightlife lookbook built around a channel dial.',
     thumb: silentThumb,
     alt: 'Silent Party 9ja, the studio first piece: a nightlife lookbook built around a channel dial',
     kind: 'status', status: 'Studio',
   },
   {
     title: 'The Signal',
-    body: 'A retail crime publication I design and run. Masthead, issue system, data figures and a corrections policy that stays on the record. Published twice a week.',
+    body: 'A retail crime publication I design and write. Masthead, issue system, data figures and a corrections policy that stays on the record.',
     thumb: writingThumb,
     alt: 'The Signal front page: a masthead, issue numbering and stacked article entries',
     kind: 'external', href: 'https://mykei.io/signal', action: 'Read The Signal',

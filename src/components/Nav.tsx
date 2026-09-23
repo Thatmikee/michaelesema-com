@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const links = [
+const links: { label: string; href: string; external?: boolean }[] = [
   { label: 'About',    href: '/#about' },
   { label: 'Focus',    href: '/#focus' },
   { label: 'Work',     href: '/#work' },
   { label: 'Thinking', href: '/thinking' },
   { label: 'Paper',    href: '/thesis' },
-  { label: 'Mykei',    href: 'https://mykei.io', external: true },
 ]
 
 export default function Nav() {

@@ -44,10 +44,10 @@ export default function NigeriaSection() {
               fontFamily: "'Outfit', sans-serif", fontSize: 'clamp(14px, 1.35vw, 16px)',
               color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.85, maxWidth: 560,
             }}>
-              Nigeria shaped Michael&apos;s understanding of asset loss, informal markets and the
-              cost of weak ownership records. Mykei&apos;s current operating focus is UK-first, but
-              the long-term vision includes practical asset-integrity systems for markets where proof
-              of ownership, resale confidence and recovery evidence are still fragile.
+              Growing up in Nigeria showed me what loss looks like when ownership is hard to prove
+              and stolen goods sell easily in informal markets. That&apos;s where my interest in the
+              economics of theft started, and why my work on Mykei focuses on resale value rather
+              than the moment of theft.
             </p>
           </div>
         </FadeIn>

@@ -44,7 +44,7 @@ export default function PrivacyPage() {
           {[
             {
               heading: 'Who this is',
-              body: 'This is the personal site of Michael Esema, Founder & CEO of Mykei Securities Ltd (Company No. 16984969), based in Manchester, UK. For any data-related enquiries, contact privacy@mykei.io.',
+              body: 'This is the personal site of Michael Esema, based in Manchester, UK. Michael also founded Mykei Securities Ltd (Company No. 16984969). For any data-related enquiries, contact privacy@mykei.io.',
             },
             {
               heading: 'What data is collected',

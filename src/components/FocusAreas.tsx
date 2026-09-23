@@ -19,10 +19,10 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 // Qualitative emphasis (not fake percentages): a 5-segment strength meter + a label.
 const ITEMS: { name: string; tag: string; level: number }[] = [
-  { name: 'Product design',   tag: 'Structure and interface', level: 5 },
-  { name: 'Websites',         tag: 'Design and front end',  level: 5 },
-  { name: 'Brand systems',    tag: 'Identity and type',             level: 5 },
-  { name: 'Product building', tag: 'Idea to first version',      level: 4 },
+  { name: 'Financial reporting',  tag: 'Month-end, payables, receivables', level: 5 },
+  { name: 'Commercial analysis',  tag: 'Costs, margins and controls',      level: 5 },
+  { name: 'Data visualisation',   tag: 'Power BI, working towards PL-300', level: 4 },
+  { name: 'Design',               tag: 'Brand, layout and front end',      level: 5 },
 ]
 
 
