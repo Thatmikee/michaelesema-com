@@ -195,7 +195,7 @@ export default function Work() {
           transition: background-size 0.35s ease;
         }
         .work-card:hover .reveal-underline { background-size: 100% 2px; }
-        .work-card:hover .open-mark { background: var(--accent); color: var(--ink); }
+        .work-card:hover .open-mark { background: var(--accent); color: #fff; }
         @media (max-width: 900px) { .work-grid { grid-template-columns: 1fr !important; } }
         @media (max-width: 600px) { .work-grid { grid-template-columns: 1fr !important; } }
         @media (prefers-reduced-motion: reduce) {

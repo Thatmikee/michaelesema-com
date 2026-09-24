@@ -19,17 +19,17 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 // Qualitative emphasis (not fake percentages): a 5-segment strength meter + a label.
 const ITEMS: { name: string; tag: string; level: number }[] = [
-  { name: 'Financial reporting',  tag: 'Month-end, payables, receivables', level: 5 },
-  { name: 'Commercial analysis',  tag: 'Costs, margins and controls',      level: 5 },
-  { name: 'Data visualisation',   tag: 'Power BI, working towards PL-300', level: 4 },
-  { name: 'Design',               tag: 'Brand, layout and front end',      level: 5 },
+  { name: 'International business analysis', tag: 'Trade, aid, debt, markets',        level: 5 },
+  { name: 'Financial analysis',              tag: 'Reporting, margins, controls',     level: 5 },
+  { name: 'Data visualisation',              tag: 'Power BI, working towards PL-300', level: 4 },
+  { name: 'Design',                          tag: 'Brand, layout and front end',      level: 5 },
 ]
 
 
 export default function FocusAreas() {
   return (
     <section id="focus" style={{
-      background: 'var(--bg-surface)',
+      background: 'var(--section-tint)',
       padding: 'clamp(80px, 10vw, 124px) clamp(28px, 8vw, 100px)',
     }}>
       <div style={{ maxWidth: 1040, margin: '0 auto' }}>

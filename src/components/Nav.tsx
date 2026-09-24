@@ -49,7 +49,7 @@ export default function Nav() {
           color: 'var(--ink)',
           letterSpacing: '-0.4px',
         }}>
-          Michael Esema<span style={{ color: 'var(--accent)' }}>.</span>
+          Michael Esema<span style={{ color: 'var(--highlight)' }}>.</span>
         </a>
 
         <ul style={{ display: 'flex', gap: 30, listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }} className="nav-desktop">
@@ -136,7 +136,7 @@ export default function Nav() {
       </AnimatePresence>
 
       <style>{`
-        .nav-link:hover { border-bottom-color: var(--accent) !important; }
+        .nav-link:hover { border-bottom-color: var(--accent-hover) !important; }
       `}</style>
     </motion.nav>
   )

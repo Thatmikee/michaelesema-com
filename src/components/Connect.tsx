@@ -46,7 +46,7 @@ export default function Connect() {
             }}>
               Let&apos;s{' '}
               <span style={{
-                backgroundImage: 'linear-gradient(var(--accent), var(--accent))',
+                backgroundImage: 'linear-gradient(var(--highlight), var(--highlight))',
                 backgroundRepeat: 'no-repeat', backgroundPosition: '0 92%', backgroundSize: '100% 0.28em',
               }}>
                 talk.
@@ -56,8 +56,9 @@ export default function Connect() {
               fontFamily: "'Outfit', sans-serif", fontSize: 'clamp(14px, 1.4vw, 16px)',
               lineHeight: 1.85, color: 'var(--text-secondary)', fontWeight: 300, maxWidth: 380,
             }}>
-              Recruiters and hiring managers in commercial finance and FP&amp;A, and anyone
-              researching retail crime and loss. CV available on request.
+              Recruiters and hiring managers in finance, international organisations and
+              development finance, and anyone working on trade, aid or West African economies.
+              CV available on request.
             </p>
           </div>
         </FadeIn>
@@ -100,7 +101,7 @@ export default function Connect() {
       </div>
 
       <style>{`
-        .connect-row:hover .connect-mark { background: var(--accent); border-color: var(--accent); color: var(--ink); transform: translateX(2px); }
+        .connect-row:hover .connect-mark { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateX(2px); }
         @media (max-width: 768px) { .connect-grid { grid-template-columns: 1fr !important; } }
         @media (prefers-reduced-motion: reduce) { .connect-mark { transition: none !important; } }
       `}</style>

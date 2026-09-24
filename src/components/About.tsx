@@ -28,7 +28,7 @@ const col: React.CSSProperties = {
 export default function About() {
   return (
     <section id="about" style={{
-      background: 'var(--bg-surface)',
+      background: 'var(--section-tint)',
       padding: 'clamp(80px, 10vw, 130px) clamp(28px, 8vw, 100px)',
     }}>
       <div style={{ maxWidth: 920, margin: '0 auto' }}>
@@ -83,9 +83,9 @@ export default function About() {
             </div>
             <div>
               <p style={{ ...col, margin: 0 }}>
-                Next is commercial finance and FP&amp;A, where accounting knowledge, analysis and
-                clear presentation all matter. I&apos;m building Power BI skills towards PL-300
-                and considering CIMA.
+                Next is finance and international business: commercial finance, and the
+                institutions that move money across borders. I&apos;m building Power BI skills
+                towards PL-300 and considering CIMA.
               </p>
             </div>
           </div>

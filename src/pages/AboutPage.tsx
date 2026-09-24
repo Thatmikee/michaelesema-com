@@ -6,10 +6,10 @@ import Footer from '../components/Footer'
 
 export default function AboutPage() {
   useEffect(() => {
-    document.title = 'About Michael Esema | Finance and Commercial Analytics'
+    document.title = 'About Michael Esema | Finance and International Business Analysis'
 
     const meta = document.querySelector('meta[name="description"]')
-    if (meta) meta.setAttribute('content', "Michael Esema, finance professional heading into commercial finance and FP&A. BSc Accounting, MBA, MSc International Business Management. Building Power BI skills towards PL-300.")
+    if (meta) meta.setAttribute('content', "Michael Esema, finance and international business analyst based in Manchester. BSc Accounting, MBA, MSc International Business Management.")
 
     const canonical = document.querySelector('link[rel="canonical"]')
     if (canonical) canonical.setAttribute('href', 'https://michaelesema.com/about')
@@ -23,9 +23,9 @@ export default function AboutPage() {
         '@id': 'https://michaelesema.com/#person',
         '@type': 'Person',
         'name': 'Michael Esema',
-        'jobTitle': 'Finance and Commercial Analytics',
-        'description': 'Finance professional heading into commercial finance and FP&A. BSc Accounting, MBA, MSc International Business Management. Building Power BI skills towards PL-300.',
-        'knowsAbout': ['Financial reporting', 'Commercial analysis', 'Power BI', 'Accounting', 'Graphic design', 'Brand identity', 'Web design', 'Entrepreneurship', 'Asset integrity'],
+        'jobTitle': 'Finance and International Business Analyst',
+        'description': 'Finance and international business analyst based in Manchester. BSc Accounting, MBA, MSc International Business Management.',
+        'knowsAbout': ['Financial analysis', 'International business', 'Trade', 'Development finance', 'Data visualisation', 'Power BI', 'Graphic design', 'Brand identity', 'Web design', 'Entrepreneurship', 'Asset integrity'],
         'alumniOf': [
           { '@type': 'CollegeOrUniversity', 'name': 'Manchester Metropolitan University' },
           { '@type': 'CollegeOrUniversity', 'name': 'Nigerian Defence Academy' },
@@ -46,11 +46,11 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>About Michael Esema | Finance and Commercial Analytics</title>
-        <meta name="description" content="Michael Esema, finance professional heading into commercial finance and FP&A. BSc Accounting, MBA, MSc International Business Management. Building Power BI skills towards PL-300." />
+        <title>About Michael Esema | Finance and International Business Analysis</title>
+        <meta name="description" content="Michael Esema, finance and international business analyst based in Manchester. BSc Accounting, MBA, MSc International Business Management." />
         <link rel="canonical" href="https://michaelesema.com/about" />
-        <meta property="og:title" content="About Michael Esema | Finance and Commercial Analytics" />
-        <meta property="og:description" content="Finance professional heading into commercial finance and FP&A. BSc Accounting, MBA, MSc International Business Management. Building Power BI skills towards PL-300." />
+        <meta property="og:title" content="About Michael Esema | Finance and International Business Analysis" />
+        <meta property="og:description" content="Finance and international business analyst based in Manchester. BSc Accounting, MBA, MSc International Business Management." />
         <meta property="og:url" content="https://michaelesema.com/about" />
       </Helmet>
       <Nav />
@@ -69,7 +69,7 @@ export default function AboutPage() {
               fontSize: 10,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: 'var(--gold)',
+              color: 'var(--accent-on-dark)',
               marginBottom: 16,
             }}>
               Connect
@@ -97,10 +97,11 @@ export default function AboutPage() {
               href="https://www.linkedin.com/in/michaelesema"
               target="_blank"
               rel="noopener noreferrer"
+              className="about-cta-link"
               style={{
                 display: 'inline-block',
-                background: 'var(--gold)',
-                color: 'var(--dark)',
+                background: 'var(--accent)',
+                color: '#fff',
                 padding: '13px 32px',
                 fontSize: 14,
                 fontWeight: 700,
@@ -112,6 +113,11 @@ export default function AboutPage() {
             </a>
           </div>
         </section>
+        <style>{`
+          /* Global focus outline is teal, which fails 3:1 against this section's
+             dark background — override with the light-on-dark accent instead. */
+          .about-cta-link:focus-visible { outline: 2px solid var(--accent-on-dark); outline-offset: 3px; }
+        `}</style>
       </main>
       <Footer />
     </>

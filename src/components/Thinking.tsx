@@ -19,18 +19,17 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 }
 
 const ENTRIES = [
-  { n: '01', slug: 'crime-as-an-incentives-problem', title: 'Crime as an incentives problem', line: 'Why theft persists while the payoff still rewards it, and what shifts when you change the maths.' },
-  { n: '02', slug: 'making-stolen-goods-harder-to-monetise', title: 'Making stolen goods harder to monetise', line: 'Practical ways to strip resale value out of an item, both before and after it is taken.' },
-  { n: '03', slug: 'retail-loss-colleague-safety-resale-markets', title: 'Retail loss, colleague safety and resale markets', line: 'What shrinkage costs the people on the floor, and how resale demand keeps the pressure on.' },
-  { n: '04', slug: 'industrial-intelligence-security-infrastructure', title: 'Industrial intelligence and future security infrastructure', line: 'Where evidence records, asset intelligence and hardware meet the next decade of prevention.' },
+  { n: '01', slug: null, title: 'Two Wallets', line: 'One global story, measured in two household budgets: the UK and Nigeria.' },
+  { n: '02', slug: null, title: 'The number behind the speech', line: 'Summits, budgets and the money that actually moves.' },
+  { n: '03', slug: null, title: 'Chart of the week', line: 'Official data, rebuilt in Power BI.' },
+  { n: '04', slug: null, title: 'Why stolen goods keep their value', line: 'The economics of theft and resale markets.' },
   { n: '05', slug: 'founder-notes-building-mykei', title: 'Notes from building Mykei', line: 'Field notes on turning one question into research and a patent filing.' },
-  { n: '06', slug: null, title: 'Learning commercial finance in public', line: 'Power BI builds, CIMA reading and what I get wrong along the way.' },
 ]
 
 export default function Thinking() {
   return (
     <section id="thinking" style={{
-      background: 'var(--bg-surface)',
+      background: 'var(--section-tint)',
       padding: 'clamp(80px, 10vw, 124px) clamp(28px, 8vw, 100px)',
     }}>
       <div style={{ maxWidth: 920, margin: '0 auto' }}>
@@ -110,7 +109,7 @@ export default function Thinking() {
       </div>
 
       <style>{`
-        .thinking-row:hover .thinking-title { color: var(--accent-hover); }
+        .thinking-row:hover .thinking-title { color: var(--accent); }
         .thinking-row:hover .thinking-arrow { color: var(--accent); transform: translateX(3px); }
       `}</style>
     </section>

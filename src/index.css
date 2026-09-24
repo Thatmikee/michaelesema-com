@@ -4,12 +4,20 @@
 
 @layer base {
   :root {
-    /* Light "Selfy"-style founder palette: warm light grey + single amber accent */
+    /* Light "Selfy"-style founder palette: warm light grey + royal teal primary,
+       mustard kept only for the logo dot, text-underline highlights and the
+       scroll progress bar (see --highlight below). */
     --page-bg:         #ececea;
     --hero-bg:         #e4e4e1;
-    --accent:          #f2a91c;
-    --accent-hover:    #df9a0e;
-    --accent-dim:      rgba(242, 169, 28, 0.14);
+    --accent:          #0F5E6B;
+    --accent-hover:    #1F8A96;
+    --accent-active:   #0D5560;
+    --accent-dim:      rgba(15, 94, 107, 0.14);
+    --accent-on-dark:  #4FB8C4;
+    --section-tint:    #E8F2F3;
+
+    --highlight:       #f2a91c;
+    --highlight-hover: #df9a0e;
 
     --bg:              #ececea;
     --bg-section:      #ececea;
@@ -62,7 +70,7 @@
 
 .scroll-progress {
   position: fixed; top: 0; left: 0; right: 0;
-  height: 2px; background: var(--red); transform-origin: left; z-index: 9999;
+  height: 2px; background: var(--highlight); transform-origin: left; z-index: 9999;
 }
 
 @media (max-width: 640px) {
@@ -70,7 +78,7 @@
   .nav-mobile-btn { display: block !important; }
 }
 
-a:focus-visible, button:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 /* Accessibility: skip link is visually hidden until keyboard focus, then
    appears as a small neat focus button. It must never sit visibly at the top
