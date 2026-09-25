@@ -44,10 +44,9 @@ export default function NigeriaSection() {
               fontFamily: "'Outfit', sans-serif", fontSize: 'clamp(14px, 1.35vw, 16px)',
               color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.85, maxWidth: 560,
             }}>
-              Nigeria shaped Michael&apos;s understanding of asset loss, informal markets and the
-              cost of weak ownership records. Mykei&apos;s current operating focus is UK-first, but
-              the long-term vision includes practical asset-integrity systems for markets where proof
-              of ownership, resale confidence and recovery evidence are still fragile.
+              Growing up in Nigeria and working in the UK means I see most global stories from
+              both sides. One country pays more, the other earns more, and often neither shows up
+              where people actually live. That&apos;s the lens for everything I write.
             </p>
           </div>
         </FadeIn>
@@ -61,10 +60,10 @@ export default function NigeriaSection() {
               <rect width="240" height="200" rx="6" fill="#f1efeb" />
               <g stroke="#232323" strokeWidth="2" opacity="0.18"><path d="M30 40 H210 M30 96 H210" /></g>
               <circle cx="62" cy="64" r="9" fill="none" stroke="#232323" strokeWidth="2.5" />
-              <circle cx="62" cy="64" r="3" fill="#f2a91c" />
+              <circle cx="62" cy="64" r="3" fill="var(--accent)" />
               <circle cx="184" cy="120" r="9" fill="none" stroke="#232323" strokeWidth="2.5" />
-              <circle cx="184" cy="120" r="3" fill="#f2a91c" />
-              <path d="M70 70 C 110 100, 140 96, 176 116" fill="none" stroke="#f2a91c" strokeWidth="2" strokeDasharray="4 5" />
+              <circle cx="184" cy="120" r="3" fill="var(--accent)" />
+              <path d="M70 70 C 110 100, 140 96, 176 116" fill="none" stroke="var(--accent)" strokeWidth="2" strokeDasharray="4 5" />
               <g stroke="#232323" strokeWidth="2" opacity="0.5" strokeLinecap="round"><path d="M30 158 H150" /><path d="M30 172 H120" /></g>
             </svg>
             <p style={{

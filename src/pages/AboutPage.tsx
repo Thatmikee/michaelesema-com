@@ -6,10 +6,10 @@ import Footer from '../components/Footer'
 
 export default function AboutPage() {
   useEffect(() => {
-    document.title = 'About Michael Esema | Graphics & Multimedia Designer | Teal Sand Studios, Manchester'
+    document.title = 'About Michael Esema | Finance and International Business Analysis'
 
     const meta = document.querySelector('meta[name="description"]')
-    if (meta) meta.setAttribute('content', "Michael Esema, product designer and builder in Manchester. Digital products, websites and brand systems, from problem and structure through design to a shipped front end.")
+    if (meta) meta.setAttribute('content', "Michael Esema, finance and international business analyst based in Manchester. BSc Accounting, MBA, MSc International Business Management.")
 
     const canonical = document.querySelector('link[rel="canonical"]')
     if (canonical) canonical.setAttribute('href', 'https://michaelesema.com/about')
@@ -23,10 +23,9 @@ export default function AboutPage() {
         '@id': 'https://michaelesema.com/#person',
         '@type': 'Person',
         'name': 'Michael Esema',
-        'jobTitle': 'Graphics & Multimedia Designer',
-        'worksFor': { '@type': 'Organization', 'name': 'Teal Sand Studios' },
-        'description': 'Graphics and multimedia designer building brand identities and websites for small businesses. Previously founder of Mykei Securities Ltd.',
-        'knowsAbout': ['Graphic design', 'Brand identity', 'Web design', 'Design systems', 'Multimedia design', 'Entrepreneurship', 'Asset integrity'],
+        'jobTitle': 'Finance and International Business Analyst',
+        'description': 'Finance and international business analyst based in Manchester. BSc Accounting, MBA, MSc International Business Management.',
+        'knowsAbout': ['Financial analysis', 'International business', 'Trade', 'Development finance', 'Data visualisation', 'Power BI', 'Graphic design', 'Brand identity', 'Web design', 'Entrepreneurship', 'Asset integrity'],
         'alumniOf': [
           { '@type': 'CollegeOrUniversity', 'name': 'Manchester Metropolitan University' },
           { '@type': 'CollegeOrUniversity', 'name': 'Nigerian Defence Academy' },
@@ -47,11 +46,11 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>About Michael Esema | Graphics & Multimedia Designer | Teal Sand Studios, Manchester</title>
-        <meta name="description" content="Michael Esema, product designer and builder in Manchester. Digital products, websites and brand systems, from problem and structure through design to a shipped front end." />
+        <title>About Michael Esema | Finance and International Business Analysis</title>
+        <meta name="description" content="Michael Esema, finance and international business analyst based in Manchester. BSc Accounting, MBA, MSc International Business Management." />
         <link rel="canonical" href="https://michaelesema.com/about" />
-        <meta property="og:title" content="About Michael Esema | Graphics & Multimedia Designer, Teal Sand Studios" />
-        <meta property="og:description" content="Brand identity and websites for small businesses. Designer of the Silent Party 9ja site. Previously founder of Mykei Securities Ltd." />
+        <meta property="og:title" content="About Michael Esema | Finance and International Business Analysis" />
+        <meta property="og:description" content="Finance and international business analyst based in Manchester. BSc Accounting, MBA, MSc International Business Management." />
         <meta property="og:url" content="https://michaelesema.com/about" />
       </Helmet>
       <Nav />
@@ -70,7 +69,7 @@ export default function AboutPage() {
               fontSize: 10,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: 'var(--gold)',
+              color: 'var(--accent-on-dark)',
               marginBottom: 16,
             }}>
               Connect
@@ -98,10 +97,11 @@ export default function AboutPage() {
               href="https://www.linkedin.com/in/michaelesema"
               target="_blank"
               rel="noopener noreferrer"
+              className="about-cta-link"
               style={{
                 display: 'inline-block',
-                background: 'var(--gold)',
-                color: 'var(--dark)',
+                background: 'var(--accent)',
+                color: '#fff',
                 padding: '13px 32px',
                 fontSize: 14,
                 fontWeight: 700,
@@ -113,6 +113,11 @@ export default function AboutPage() {
             </a>
           </div>
         </section>
+        <style>{`
+          /* Global focus outline is teal, which fails 3:1 against this section's
+             dark background — override with the light-on-dark accent instead. */
+          .about-cta-link:focus-visible { outline: 2px solid var(--accent-on-dark); outline-offset: 3px; }
+        `}</style>
       </main>
       <Footer />
     </>

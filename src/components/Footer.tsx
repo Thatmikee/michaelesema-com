@@ -49,14 +49,13 @@ export default function Footer() {
             textDecoration: 'none', fontFamily: "'Poppins', sans-serif",
             fontWeight: 800, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.4px',
           }}>
-            Michael Esema<span style={{ color: 'var(--accent)' }}>.</span>
+            Michael Esema<span style={{ color: 'var(--highlight)' }}>.</span>
           </a>
           <p style={{
             fontFamily: "'Outfit', sans-serif", fontSize: 14, color: 'var(--text-secondary)',
             fontWeight: 300, lineHeight: 1.7, marginTop: 14, maxWidth: 320,
           }}>
-            Product designer and builder, working from Manchester on digital products,
-            websites and brand systems. Available for selected freelance and studio work.
+            Finance and international business analysis, based in Manchester.
           </p>
         </div>
 

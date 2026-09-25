@@ -92,8 +92,8 @@ const ENTRIES: Entry[] = [
   {
     n: '05',
     slug: 'founder-notes-building-mykei',
-    title: 'Founder notes from building Mykei',
-    summary: 'Field notes on turning a single question into research, a patent filing and a company.',
+    title: 'Notes from building Mykei',
+    summary: 'Field notes on turning one question into research and a patent filing.',
     paras: [
       'Mykei did not start as a perfect company deck. It started with a question.',
       'Why does theft keep paying?',
@@ -135,7 +135,7 @@ const ENTRIES: Entry[] = [
 const FAQS: { q: string; a: string }[] = [
   {
     q: 'Who is Michael Esema?',
-    a: 'Michael Esema is the founder of Mykei Securities Ltd, a UK-first asset-integrity and anti-resale-crime company based in Manchester. He is a founder, researcher and builder working where security, ownership and resale markets meet. He grew up in Nigeria, studied Accounting at Benson Idahosa University, completed an MBA at the Nigerian Defence Academy, and earned an MSc in International Business Management at Manchester Metropolitan University.',
+    a: 'Michael Esema is a finance and international business analyst based in Manchester. He grew up in Nigeria, studied Accounting at Benson Idahosa University, completed an MBA at the Nigerian Defence Academy, and earned an MSc in International Business Management at Manchester Metropolitan University. He also founded Mykei Securities Ltd, an asset-integrity and anti-resale-crime venture, and works on design through Teal Sand Studios.',
   },
   {
     q: 'What does Mykei Securities do?',
@@ -296,14 +296,14 @@ export default function ThinkingPage() {
               fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: 'var(--text-muted)',
               letterSpacing: '0.04em', marginTop: 24,
             }}>
-              By Michael Esema, Founder, Mykei Securities Ltd
+              By Michael Esema
             </p>
           </div>
         </section>
 
         {/* Entries */}
         <section style={{
-          background: 'var(--bg-surface)',
+          background: 'var(--section-tint)',
           padding: 'clamp(56px, 7vw, 88px) clamp(28px, 8vw, 100px) clamp(72px, 9vw, 110px)',
         }}>
           <div style={{ maxWidth: 760, margin: '0 auto' }}>
@@ -379,7 +379,7 @@ export default function ThinkingPage() {
       <Footer />
 
       <style>{`
-        .think-rel:hover { color: var(--ink) !important; border-bottom-color: var(--accent) !important; }
+        .think-rel:hover { color: var(--ink) !important; border-bottom-color: var(--accent-hover) !important; }
       `}</style>
     </>
   )

@@ -65,16 +65,16 @@ export default function Hero() {
             maxWidth: 460,
             letterSpacing: '-0.3px',
           }}>
-            Product designer and builder. I design and build{' '}
+            I read the numbers behind world headlines,{' '}
             <span style={{
-              backgroundImage: 'linear-gradient(var(--accent), var(--accent))',
+              backgroundImage: 'linear-gradient(var(--highlight), var(--highlight))',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: '0 88%',
               backgroundSize: '100% 0.32em',
             }}>
-              digital products, websites and brand systems
+              and show what they cost ordinary people
             </span>
-            {' '}for people who need their ideas to work in the real world.
+            .
           </motion.p>
 
           <motion.p {...fadeUp(0.36)} style={{
@@ -86,9 +86,10 @@ export default function Hero() {
             marginTop: 20,
             maxWidth: 430,
           }}>
-            My work sits between design, technology and business. Defining a product
-            and its structure, designing the interface, building the front end, and
-            shipping the thing. I care about the whole object, not just the screen.
+            Finance and international business analyst. Head Accountant background covering
+            Record to Report, Procure to Pay and Order to Cash, with a BSc in Accounting, an
+            MBA and an MSc in International Business Management. I follow trade, aid, debt and
+            markets through official data, for readers in the UK and West Africa.
           </motion.p>
 
           <motion.div {...fadeUp(0.46)} style={{ display: 'flex', gap: 16, marginTop: 36, flexWrap: 'wrap', alignItems: 'center' }}>
@@ -96,7 +97,7 @@ export default function Hero() {
               href="#work"
               style={{
                 display: 'inline-flex', alignItems: 'center',
-                background: 'var(--accent)', color: 'var(--ink)',
+                background: 'var(--accent)', color: '#fff',
                 fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700, fontSize: 13,
                 letterSpacing: '0.01em',
@@ -104,7 +105,7 @@ export default function Hero() {
                 borderRadius: 8,
                 transition: 'background 0.2s, transform 0.15s',
               }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'var(--accent-hover)'; el.style.transform = 'translateY(-1px)' }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'var(--accent-active)'; el.style.transform = 'translateY(-1px)' }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'var(--accent)'; el.style.transform = 'translateY(0)' }}
             >
               See the work
@@ -123,7 +124,7 @@ export default function Hero() {
                 borderBottom: '2px solid var(--border-mid)',
                 transition: 'border-color 0.2s',
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = 'var(--accent)' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = 'var(--accent-hover)' }}
               onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = 'var(--border-mid)' }}
             >
               Connect
@@ -141,7 +142,7 @@ export default function Hero() {
         >
           <img
             src="/michael-esema-portrait.jpg"
-            alt="Michael Esema, product designer and builder, in a black leather jacket"
+            alt="Michael Esema, in a black leather jacket"
             style={{
               position: 'absolute',
               right: 0, bottom: 0,
