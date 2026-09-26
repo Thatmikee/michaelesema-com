@@ -21,7 +21,6 @@ const LINKS = [
   { label: 'LinkedIn', sub: 'Where I post and connect', href: 'https://www.linkedin.com/in/michaelesema', external: true },
   { label: 'Mykei.io', sub: 'The company and the R&D pathway', href: 'https://mykei.io', external: true },
   { label: 'Email', sub: 'hello@michaelesema.com', href: 'mailto:hello@michaelesema.com', external: false },
-  { label: 'Paper', sub: 'From Market Reduction to Economic Sterilisation', href: '/thesis', external: false },
 ]
 
 export default function Connect() {

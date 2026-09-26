@@ -6,7 +6,6 @@ const links: { label: string; href: string; external?: boolean }[] = [
   { label: 'Focus',    href: '/#focus' },
   { label: 'Work',     href: '/#work' },
   { label: 'Thinking', href: '/thinking' },
-  { label: 'Paper',    href: '/thesis' },
 ]
 
 export default function Nav() {
