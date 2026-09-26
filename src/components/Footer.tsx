@@ -6,7 +6,6 @@ const exploreLinks = [
   { label: 'Focus', href: '/#focus' },
   { label: 'Work', href: '/#work' },
   { label: 'Thinking', href: '/#thinking' },
-  { label: 'Paper', href: '/thesis' },
 ]
 
 const elsewhere = [
