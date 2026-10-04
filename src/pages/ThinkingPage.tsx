@@ -44,7 +44,6 @@ const ENTRIES: Entry[] = [
       'This is why I keep returning to asset identity, evidence records, marking, verification and resale friction. They do not replace enforcement. They change the condition that enforcement usually arrives too late to affect.',
       'For me, crime prevention is not only about catching people after the fact. It is about designing systems where stolen goods lose confidence before they reach the market.',
     ],
-    related: [{ label: 'The paper: Economic Sterilisation', href: '/thesis' }],
   },
   {
     n: '02',
@@ -59,7 +58,7 @@ const ENTRIES: Entry[] = [
       'A buyer, handler, reseller or platform should have more reason to pause. An owner should have better proof. A retailer or asset holder should not be left with only CCTV footage and an incident number. An item should carry a story that survives the theft event.',
       'That is the commercial idea behind Economic Sterilisation. It is not a claim that resale markets are new. It is an attempt to turn that known market problem into a practical operating model.',
     ],
-    related: [{ label: 'Read the paper', href: '/thesis' }, { label: 'Mykei Securities', href: 'https://mykei.io', external: true }],
+    related: [{ label: 'Mykei Securities', href: 'https://mykei.io', external: true }],
   },
   {
     n: '03',
@@ -103,7 +102,7 @@ const ENTRIES: Entry[] = [
       'The founder work is connecting all of that without pretending the road is shorter than it is.',
       'I am building in public because the problem is public. Theft, resale confidence, ownership proof and weak evidence systems affect more than one company. Mykei is my attempt to build something practical inside that space.',
     ],
-    related: [{ label: 'Mykei Securities', href: 'https://mykei.io', external: true }, { label: 'The paper', href: '/thesis' }],
+    related: [{ label: 'Mykei Securities', href: 'https://mykei.io', external: true }],
   },
   {
     n: '06',
