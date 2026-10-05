@@ -36,7 +36,7 @@ export default function FocusAreas() {
         <FadeIn>
           <div style={{ marginBottom: 'clamp(36px, 5vw, 56px)', maxWidth: 560 }}>
             <h2 style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Fraunces', serif",
               fontSize: 'clamp(28px, 4vw, 46px)',
               fontWeight: 800,
               color: 'var(--ink)',
@@ -46,7 +46,7 @@ export default function FocusAreas() {
               What I do<span style={{ color: 'var(--accent)' }}>.</span>
             </h2>
             <p style={{
-              fontFamily: "'Outfit', sans-serif",
+              fontFamily: "'Hanken Grotesk', sans-serif",
               fontSize: 'clamp(14px, 1.35vw, 16px)',
               color: 'var(--text-secondary)',
               fontWeight: 300, lineHeight: 1.75,
@@ -70,7 +70,7 @@ export default function FocusAreas() {
                 borderBottom: '1px solid var(--border)',
               }}>
                 <span style={{
-                  fontFamily: "'Poppins', sans-serif",
+                  fontFamily: "'Fraunces', serif",
                   fontWeight: 600,
                   fontSize: 'clamp(14px, 1.4vw, 16.5px)',
                   color: 'var(--ink)',

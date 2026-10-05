@@ -42,7 +42,7 @@ export default function Nav() {
       }}>
         <a href="/" style={{
           textDecoration: 'none',
-          fontFamily: "'Poppins', sans-serif",
+          fontFamily: "'Fraunces', serif",
           fontWeight: 800,
           fontSize: 19,
           color: 'var(--ink)',
@@ -60,7 +60,7 @@ export default function Nav() {
                 rel={link.external ? 'noopener noreferrer' : undefined}
                 className="nav-link"
                 style={{
-                  fontFamily: "'Poppins', sans-serif",
+                  fontFamily: "'Fraunces', serif",
                   fontSize: 13.5,
                   fontWeight: 500,
                   color: 'var(--text-primary)',
@@ -120,7 +120,7 @@ export default function Nav() {
                     rel={link.external ? 'noopener noreferrer' : undefined}
                     onClick={() => setMenuOpen(false)}
                     style={{
-                      fontFamily: "'Poppins', sans-serif",
+                      fontFamily: "'Fraunces', serif",
                       fontSize: 22, fontWeight: 700,
                       color: 'var(--ink)', textDecoration: 'none', letterSpacing: '-0.3px',
                     }}

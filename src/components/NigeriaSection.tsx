@@ -32,7 +32,7 @@ export default function NigeriaSection() {
         <FadeIn>
           <div>
             <h2 style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Fraunces', serif",
               fontSize: 'clamp(23px, 3.1vw, 36px)',
               fontWeight: 800, color: 'var(--ink)',
               letterSpacing: '-0.6px', lineHeight: 1.14, marginBottom: 22,
@@ -41,7 +41,7 @@ export default function NigeriaSection() {
               <span style={{ color: 'var(--accent)' }}>Building from the UK.</span>
             </h2>
             <p style={{
-              fontFamily: "'Outfit', sans-serif", fontSize: 'clamp(14px, 1.35vw, 16px)',
+              fontFamily: "'Hanken Grotesk', sans-serif", fontSize: 'clamp(14px, 1.35vw, 16px)',
               color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.85, maxWidth: 560,
             }}>
               Growing up in Nigeria and working in the UK means I see most global stories from

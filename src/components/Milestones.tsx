@@ -65,7 +65,7 @@ export default function Milestones() {
             }}>
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 14 }}>{item.icon}</div>
               <p style={{
-                fontFamily: "'Poppins', sans-serif",
+                fontFamily: "'Fraunces', serif",
                 fontWeight: 700,
                 fontSize: 'clamp(15px, 1.6vw, 19px)',
                 color: 'var(--ink)',
@@ -75,7 +75,7 @@ export default function Milestones() {
                 {item.title}
               </p>
               <p style={{
-                fontFamily: "'Outfit', sans-serif",
+                fontFamily: "'Hanken Grotesk', sans-serif",
                 fontSize: 12.5,
                 color: 'var(--text-muted)',
                 lineHeight: 1.4,

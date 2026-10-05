@@ -81,7 +81,7 @@ export default function Writing() {
           <FadeIn>
             <div>
               <p style={{
-                fontFamily: "'Poppins', sans-serif",
+                fontFamily: "'Fraunces', serif",
                 fontWeight: 700,
                 fontSize: 'clamp(11px, 1vw, 13px)',
                 color: '#4d7cff',
@@ -92,7 +92,7 @@ export default function Writing() {
                 Thinking
               </p>
               <h2 style={{
-                fontFamily: "'Poppins', sans-serif",
+                fontFamily: "'Fraunces', serif",
                 fontSize: 'clamp(28px, 3.8vw, 48px)',
                 fontWeight: 800,
                 color: '#ffffff',
@@ -110,7 +110,7 @@ export default function Writing() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                fontFamily: "'Poppins', sans-serif",
+                fontFamily: "'Fraunces', serif",
                 fontWeight: 600,
                 fontSize: 12,
                 color: 'rgba(255,255,255,0.45)',
@@ -159,7 +159,7 @@ export default function Writing() {
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.opacity = '1')}
               >
                 <p style={{
-                  fontFamily: "'Poppins', sans-serif",
+                  fontFamily: "'Fraunces', serif",
                   fontWeight: 800,
                   fontSize: 12,
                   color: '#4d7cff',
@@ -171,7 +171,7 @@ export default function Writing() {
                 </p>
                 <div>
                   <h3 style={{
-                    fontFamily: "'Poppins', sans-serif",
+                    fontFamily: "'Fraunces', serif",
                     fontWeight: 700,
                     fontSize: 'clamp(14px, 1.5vw, 18px)',
                     color: '#ffffff',
@@ -182,7 +182,7 @@ export default function Writing() {
                     {piece.title}
                   </h3>
                   <p style={{
-                    fontFamily: "'Outfit', sans-serif",
+                    fontFamily: "'Hanken Grotesk', sans-serif",
                     fontSize: 'clamp(13px, 1.2vw, 14.5px)',
                     color: 'rgba(255,255,255,0.42)',
                     lineHeight: 1.75,

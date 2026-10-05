@@ -132,7 +132,7 @@ export default function PhilosophyPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55, duration: 0.8 }}
             style={{
-              fontFamily: "'Outfit', sans-serif",
+              fontFamily: "'Hanken Grotesk', sans-serif",
               fontSize: 'clamp(15px, 1.8vw, 18px)',
               lineHeight: 1.75,
               color: 'var(--text-secondary)',
@@ -190,7 +190,7 @@ export default function PhilosophyPage() {
                 {p.name}
               </h2>
               <p style={{
-                fontFamily: "'Outfit', sans-serif",
+                fontFamily: "'Hanken Grotesk', sans-serif",
                 fontSize: 'clamp(14px, 1.5vw, 16px)',
                 lineHeight: 1.85,
                 color: 'var(--text-secondary)',

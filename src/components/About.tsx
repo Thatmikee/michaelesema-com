@@ -18,7 +18,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 }
 
 const col: React.CSSProperties = {
-  fontFamily: "'Outfit', sans-serif",
+  fontFamily: "'Hanken Grotesk', sans-serif",
   fontSize: 'clamp(14px, 1.35vw, 16px)',
   color: 'var(--text-secondary)',
   lineHeight: 1.85,
@@ -34,7 +34,7 @@ export default function About() {
       <div style={{ maxWidth: 920, margin: '0 auto' }}>
         <FadeIn>
           <h2 style={{
-            fontFamily: "'Poppins', sans-serif",
+            fontFamily: "'Fraunces', serif",
             fontSize: 'clamp(30px, 4.4vw, 52px)',
             fontWeight: 800,
             color: 'var(--ink)',
@@ -48,7 +48,7 @@ export default function About() {
 
         <FadeIn delay={0.1}>
           <p style={{
-            fontFamily: "'Outfit', sans-serif",
+            fontFamily: "'Hanken Grotesk', sans-serif",
             fontSize: 'clamp(17px, 2vw, 22px)',
             color: 'var(--ink)',
             lineHeight: 1.55,

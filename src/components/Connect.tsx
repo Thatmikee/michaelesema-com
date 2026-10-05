@@ -38,7 +38,7 @@ export default function Connect() {
         <FadeIn>
           <div>
             <h2 style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Fraunces', serif",
               fontSize: 'clamp(30px, 4.4vw, 54px)',
               fontWeight: 800, lineHeight: 1.08,
               letterSpacing: '-1px', color: 'var(--ink)', marginBottom: 26,
@@ -52,7 +52,7 @@ export default function Connect() {
               </span>
             </h2>
             <p style={{
-              fontFamily: "'Outfit', sans-serif", fontSize: 'clamp(14px, 1.4vw, 16px)',
+              fontFamily: "'Hanken Grotesk', sans-serif", fontSize: 'clamp(14px, 1.4vw, 16px)',
               lineHeight: 1.85, color: 'var(--text-secondary)', fontWeight: 300, maxWidth: 380,
             }}>
               Recruiters and hiring managers in finance, international organisations and
@@ -76,10 +76,10 @@ export default function Connect() {
                 }}
               >
                 <div>
-                  <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 'clamp(17px, 1.7vw, 21px)', color: 'var(--ink)', marginBottom: 5, letterSpacing: '-0.2px' }}>
+                  <p style={{ fontFamily: "'Fraunces', serif", fontWeight: 700, fontSize: 'clamp(17px, 1.7vw, 21px)', color: 'var(--ink)', marginBottom: 5, letterSpacing: '-0.2px' }}>
                     {link.label}
                   </p>
-                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: 'var(--text-muted)', fontWeight: 300 }}>
+                  <p style={{ fontFamily: "'Hanken Grotesk', sans-serif", fontSize: 13, color: 'var(--text-muted)', fontWeight: 300 }}>
                     {link.sub}
                   </p>
                 </div>
