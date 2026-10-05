@@ -89,7 +89,7 @@ export default function ESInterview() {
             color: 'var(--text-muted)',
             lineHeight: 1.7,
             marginBottom: 56,
-            fontFamily: "'Outfit', sans-serif",
+            fontFamily: "'Hanken Grotesk', sans-serif",
           }}>
             Michael Esema on building a doctrine, not a product.
           </p>
@@ -133,7 +133,7 @@ export default function ESInterview() {
                   paddingTop: 3,
                 }}>A</span>
                 <p style={{
-                  fontFamily: "'Outfit', sans-serif",
+                  fontFamily: "'Hanken Grotesk', sans-serif",
                   fontSize: 'clamp(14px, 1.5vw, 16px)',
                   fontWeight: 300,
                   color: 'var(--text-secondary)',

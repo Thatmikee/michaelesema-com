@@ -42,7 +42,7 @@ export default function SystemExplained() {
         position: 'absolute',
         left: '-2%', top: '50%',
         transform: 'translateY(-50%)',
-        fontFamily: "'Poppins', sans-serif",
+        fontFamily: "'Fraunces', serif",
         fontWeight: 900,
         fontSize: 'clamp(80px, 15vw, 220px)',
         color: 'rgba(0,0,0,0.03)',
@@ -67,7 +67,7 @@ export default function SystemExplained() {
           <FadeIn>
             <div>
               <h2 style={{
-                fontFamily: "'Poppins', sans-serif",
+                fontFamily: "'Fraunces', serif",
                 fontSize: 'clamp(28px, 3.8vw, 48px)',
                 fontWeight: 800,
                 color: '#111111',
@@ -79,7 +79,7 @@ export default function SystemExplained() {
                 Focus Areas
               </h2>
               <p style={{
-                fontFamily: "'Outfit', sans-serif",
+                fontFamily: "'Hanken Grotesk', sans-serif",
                 fontSize: 'clamp(14px, 1.35vw, 16px)',
                 color: '#666',
                 lineHeight: 1.85,
@@ -107,7 +107,7 @@ export default function SystemExplained() {
                 onMouseLeave={e => ((e.currentTarget as HTMLDivElement).style.borderLeftColor = 'transparent')}
                 >
                   <p style={{
-                    fontFamily: "'Poppins', sans-serif",
+                    fontFamily: "'Fraunces', serif",
                     fontWeight: 700,
                     fontSize: 'clamp(12.5px, 1.1vw, 14px)',
                     color: '#111111',
@@ -117,7 +117,7 @@ export default function SystemExplained() {
                     {area.label}
                   </p>
                   <p style={{
-                    fontFamily: "'Outfit', sans-serif",
+                    fontFamily: "'Hanken Grotesk', sans-serif",
                     fontSize: 12.5,
                     color: '#555',
                     fontWeight: 300,

@@ -1,10 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ease = [0.16, 1, 0.3, 1] as any
-
-// Existing verified LinkedIn URL (also in index.html JSON-LD sameAs).
-const LINKEDIN = 'https://www.linkedin.com/in/michaelesema'
+const ease = [0.16, 1, 0.3, 1] as const
 
 export default function Hero() {
   const reduce = useReducedMotion()
@@ -38,96 +34,55 @@ export default function Hero() {
           padding: 'clamp(120px, 14vw, 170px) clamp(28px, 5vw, 56px) clamp(64px, 9vw, 110px)',
           zIndex: 2,
         }}>
-          <motion.div {...fadeUp(0.05)} aria-hidden="true" style={{
-            width: 46, height: 6, background: 'var(--accent)', borderRadius: 3, marginBottom: 26,
-          }} />
-
-          <motion.h1 {...fadeUp(0.12)} style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontSize: 'clamp(40px, 7vw, 84px)',
-            fontWeight: 900,
-            lineHeight: 0.98,
-            letterSpacing: '-1.5px',
+          <motion.p {...fadeUp(0.05)} style={{
+            fontFamily: "'Hanken Grotesk', sans-serif",
+            fontSize: 13,
+            fontWeight: 600,
+            letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            color: 'var(--ink)',
+            color: 'var(--accent)',
             margin: 0,
           }}>
-            Michael<br />Esema
-          </motion.h1>
+            Michael Esema
+          </motion.p>
 
-          <motion.p {...fadeUp(0.26)} style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontSize: 'clamp(17px, 2vw, 23px)',
-            fontWeight: 600,
-            lineHeight: 1.4,
+          <motion.h1 {...fadeUp(0.16)} style={{
+            fontFamily: "'Fraunces', serif",
+            fontOpticalSizing: 'auto',
+            fontSize: 'clamp(32px, 4.6vw, 54px)',
+            fontWeight: 650,
+            lineHeight: 1.18,
+            letterSpacing: '-0.4px',
             color: 'var(--ink)',
-            marginTop: 26,
-            maxWidth: 460,
-            letterSpacing: '-0.3px',
+            margin: '10px 0 0',
+            maxWidth: 560,
           }}>
-            I read the numbers behind world headlines,{' '}
+            I started in accounting because I wanted to understand how businesses
+            actually work. Now I use that to{' '}
             <span style={{
               backgroundImage: 'linear-gradient(var(--highlight), var(--highlight))',
               backgroundRepeat: 'no-repeat',
-              backgroundPosition: '0 88%',
-              backgroundSize: '100% 0.32em',
+              backgroundPosition: '0 92%',
+              backgroundSize: '100% 0.28em',
             }}>
-              and show what they cost ordinary people
+              build and lead them
             </span>
             .
-          </motion.p>
+          </motion.h1>
 
-          <motion.p {...fadeUp(0.36)} style={{
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: 'clamp(14px, 1.4vw, 16px)',
-            fontWeight: 300,
-            lineHeight: 1.75,
-            color: 'var(--text-secondary)',
-            marginTop: 20,
-            maxWidth: 430,
-          }}>
-            Finance and international business analyst. Head Accountant background covering
-            Record to Report, Procure to Pay and Order to Cash, with a BSc in Accounting, an
-            MBA and an MSc in International Business Management. I follow trade, aid, debt and
-            markets through official data, for readers in the UK and West Africa.
-          </motion.p>
-
-          <motion.div {...fadeUp(0.46)} style={{ display: 'flex', gap: 16, marginTop: 36, flexWrap: 'wrap', alignItems: 'center' }}>
-            <a
-              href="#work"
-              style={{
-                display: 'inline-flex', alignItems: 'center',
-                background: 'var(--accent)', color: '#fff',
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 700, fontSize: 13,
-                letterSpacing: '0.01em',
-                padding: '15px 30px', textDecoration: 'none',
-                borderRadius: 8,
-                transition: 'background 0.2s, transform 0.15s',
-              }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'var(--accent-active)'; el.style.transform = 'translateY(-1px)' }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'var(--accent)'; el.style.transform = 'translateY(0)' }}
-            >
-              See the work
-            </a>
-            {/* Connect opens LinkedIn in a new tab */}
-            <a
-              href={LINKEDIN}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                color: 'var(--ink)',
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 600, fontSize: 13,
-                padding: '15px 6px', textDecoration: 'none',
-                borderBottom: '2px solid var(--border-mid)',
-                transition: 'border-color 0.2s',
-              }}
-              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = 'var(--accent-hover)' }}
-              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = 'var(--border-mid)' }}
-            >
-              Connect
+          <motion.div {...fadeUp(0.46)}>
+            <a href="#work" className="hero-link" style={{
+              display: 'inline-flex', alignItems: 'center',
+              color: 'var(--accent)',
+              fontFamily: "'Hanken Grotesk', sans-serif",
+              fontWeight: 600, fontSize: 13,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              marginTop: 40,
+              textDecoration: 'none',
+              borderBottom: '1px solid transparent',
+            }}>
+              Selected work <span aria-hidden="true">↓</span>
             </a>
           </motion.div>
         </div>
@@ -155,6 +110,7 @@ export default function Hero() {
       </div>
 
       <style>{`
+        .hero-link:hover, .hero-link:focus-visible { border-bottom-color: var(--accent); }
         @media (max-width: 860px) {
           .hero-grid { grid-template-columns: 1fr !important; }
           .hero-copy { order: 2; padding-top: 24px !important; }

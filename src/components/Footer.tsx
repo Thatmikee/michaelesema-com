@@ -15,7 +15,7 @@ const elsewhere = [
 ]
 
 const linkStyle: React.CSSProperties = {
-  fontFamily: "'Outfit', sans-serif",
+  fontFamily: "'Hanken Grotesk', sans-serif",
   fontSize: 14,
   color: 'var(--text-secondary)',
   textDecoration: 'none',
@@ -45,13 +45,13 @@ export default function Footer() {
       }}>
         <div>
           <a href="/" style={{
-            textDecoration: 'none', fontFamily: "'Poppins', sans-serif",
+            textDecoration: 'none', fontFamily: "'Fraunces', serif",
             fontWeight: 800, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.4px',
           }}>
             Michael Esema<span style={{ color: 'var(--highlight)' }}>.</span>
           </a>
           <p style={{
-            fontFamily: "'Outfit', sans-serif", fontSize: 14, color: 'var(--text-secondary)',
+            fontFamily: "'Hanken Grotesk', sans-serif", fontSize: 14, color: 'var(--text-secondary)',
             fontWeight: 300, lineHeight: 1.7, marginTop: 14, maxWidth: 320,
           }}>
             Finance and international business analysis, based in Manchester.
@@ -100,7 +100,7 @@ export default function Footer() {
         <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11.5, color: 'var(--text-muted)', letterSpacing: '0.03em' }}>
           © {YEAR} Michael Esema
         </p>
-        <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: 'var(--text-muted)' }}>
+        <span style={{ fontFamily: "'Hanken Grotesk', sans-serif", fontSize: 11, color: 'var(--text-muted)' }}>
           Not affiliated with MYKI password manager
         </span>
         <a href="/privacy" className="footer-link" style={{ ...linkStyle, fontSize: 11.5, color: 'var(--text-muted)' }}>

@@ -84,7 +84,7 @@ function CardFooter({ item }: { item: Item }) {
   if (item.kind === 'external') {
     return (
       <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
-        <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600, fontSize: 12.5, color: 'var(--ink)' }}>
+        <span style={{ fontFamily: "'Fraunces', serif", fontWeight: 600, fontSize: 12.5, color: 'var(--ink)' }}>
           {item.action}
         </span>
         <span className="open-mark" style={{
@@ -106,7 +106,7 @@ function CardFooter({ item }: { item: Item }) {
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hover)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /><path d="M9 13h6M9 17h4" />
       </svg>
-      <span className="reveal-underline" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600, fontSize: 12.5 }}>
+      <span className="reveal-underline" style={{ fontFamily: "'Fraunces', serif", fontWeight: 600, fontSize: 12.5 }}>
         {item.action}
       </span>
     </span>
@@ -118,13 +118,14 @@ export default function Work() {
     <section id="work" style={{
       background: 'var(--bg)',
       padding: 'clamp(80px, 10vw, 124px) clamp(28px, 8vw, 100px)',
+      scrollMarginTop: 90,
       borderTop: '1px solid var(--border)',
     }}>
       <div style={{ maxWidth: 1120, margin: '0 auto' }}>
         <FadeIn>
           <div style={{ textAlign: 'center', marginBottom: 'clamp(44px, 6vw, 64px)' }}>
             <h2 style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Fraunces', serif",
               fontSize: 'clamp(28px, 4vw, 46px)',
               fontWeight: 800, color: 'var(--ink)',
               letterSpacing: '-1px', margin: 0,
@@ -132,7 +133,7 @@ export default function Work() {
               Selected work<span style={{ color: 'var(--accent)' }}>.</span>
             </h2>
             <p style={{
-              fontFamily: "'Outfit', sans-serif",
+              fontFamily: "'Hanken Grotesk', sans-serif",
               fontSize: 'clamp(14px, 1.3vw, 16px)',
               color: 'var(--text-secondary)', fontWeight: 300,
               marginTop: 16, maxWidth: 460, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7,
@@ -150,10 +151,10 @@ export default function Work() {
                   <img src={item.thumb} alt={item.alt} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
                 <div style={{ padding: '22px 24px 24px' }}>
-                  <h3 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 'clamp(15px, 1.5vw, 18px)', color: 'var(--ink)', marginBottom: 10, lineHeight: 1.25 }}>
+                  <h3 style={{ fontFamily: "'Fraunces', serif", fontWeight: 700, fontSize: 'clamp(15px, 1.5vw, 18px)', color: 'var(--ink)', marginBottom: 10, lineHeight: 1.25 }}>
                     {item.title}
                   </h3>
-                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 'clamp(13px, 1.2vw, 14.5px)', color: 'var(--text-secondary)', lineHeight: 1.7, fontWeight: 300, marginBottom: 20 }}>
+                  <p style={{ fontFamily: "'Hanken Grotesk', sans-serif", fontSize: 'clamp(13px, 1.2vw, 14.5px)', color: 'var(--text-secondary)', lineHeight: 1.7, fontWeight: 300, marginBottom: 20 }}>
                     {item.body}
                   </p>
                   <CardFooter item={item} />

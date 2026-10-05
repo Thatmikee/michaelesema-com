@@ -35,7 +35,7 @@ export default function Thinking() {
       <div style={{ maxWidth: 920, margin: '0 auto' }}>
         <FadeIn>
           <h2 style={{
-            fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(28px, 4vw, 46px)',
+            fontFamily: "'Fraunces', serif", fontSize: 'clamp(28px, 4vw, 46px)',
             fontWeight: 800, color: 'var(--ink)', letterSpacing: '-1px', textAlign: 'center',
             marginBottom: 'clamp(40px, 5vw, 60px)',
           }}>
@@ -53,18 +53,18 @@ export default function Thinking() {
             }
             const rowContent = (
               <>
-                <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: 'clamp(18px, 2vw, 24px)', color: 'var(--accent)', letterSpacing: '-0.5px' }}>
+                <span style={{ fontFamily: "'Fraunces', serif", fontWeight: 800, fontSize: 'clamp(18px, 2vw, 24px)', color: 'var(--accent)', letterSpacing: '-0.5px' }}>
                   {e.n}
                 </span>
                 <div>
                   <h3 className="thinking-title" style={{
-                    fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 'clamp(17px, 1.9vw, 23px)',
+                    fontFamily: "'Fraunces', serif", fontWeight: 700, fontSize: 'clamp(17px, 1.9vw, 23px)',
                     color: 'var(--ink)', letterSpacing: '-0.3px', lineHeight: 1.25, marginBottom: 8,
                     transition: 'color 0.2s',
                   }}>
                     {e.title}
                   </h3>
-                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 'clamp(14px, 1.3vw, 16px)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.7, maxWidth: 560 }}>
+                  <p style={{ fontFamily: "'Hanken Grotesk', sans-serif", fontSize: 'clamp(14px, 1.3vw, 16px)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.7, maxWidth: 560 }}>
                     {e.line}
                   </p>
                 </div>
@@ -98,7 +98,7 @@ export default function Thinking() {
           <div style={{ textAlign: 'center', marginTop: 'clamp(36px, 5vw, 52px)' }}>
             <Link to="/thinking" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
-              fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 13,
+              fontFamily: "'Fraunces', serif", fontWeight: 700, fontSize: 13,
               color: 'var(--ink)', textDecoration: 'none',
               border: '1.5px solid var(--border-mid)', borderRadius: 50, padding: '11px 24px',
             }}>
