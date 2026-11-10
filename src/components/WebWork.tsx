@@ -8,8 +8,8 @@ const LEAD: Item = {
 }
 const PAIR: Item[] = [
   {
-    title: 'Silent Party 9ja', kind: 'Brand and website concept',
-    body: 'A silent-disco night where each channel owns a colour and only one is live at a time. Logo, type and booking site.',
+    title: 'Silent Party 9ja', kind: 'Brand and booking site',
+    body: 'A silent-disco brand I worked with part-time from 2018 to 2023. In the new identity each channel owns a colour and only one is live at a time.',
     img: '/work/sp9ja-screen.jpg', alt: 'Silent Party 9ja homepage: the loudest night you will never hear',
   },
   {
