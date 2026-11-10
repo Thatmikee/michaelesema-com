@@ -24,7 +24,7 @@ export default function NotFoundPage() {
         <div>
           <p
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: 'var(--font-mono)',
               fontSize: 11,
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
@@ -36,7 +36,7 @@ export default function NotFoundPage() {
           </p>
           <h1
             style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
+              fontFamily: 'var(--font-sans)',
               fontSize: 'clamp(28px, 4vw, 44px)',
               fontWeight: 400,
               color: 'var(--text-primary)',
@@ -53,7 +53,7 @@ export default function NotFoundPage() {
             style={{
               display: 'inline-flex',
               background: 'var(--text-primary)',
-              color: '#fff',
+              color: 'var(--on-light)',
               padding: '12px 26px',
               fontSize: 13,
               fontWeight: 600,

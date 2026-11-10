@@ -99,7 +99,7 @@ export default function PhilosophyPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: 'var(--font-mono)',
               fontSize: 10,
               letterSpacing: '0.22em',
               textTransform: 'uppercase' as const,
@@ -114,7 +114,7 @@ export default function PhilosophyPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
+              fontFamily: 'var(--font-sans)',
               fontSize: 'clamp(44px, 7vw, 90px)',
               fontWeight: 700,
               fontStyle: 'italic',
@@ -132,7 +132,7 @@ export default function PhilosophyPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55, duration: 0.8 }}
             style={{
-              fontFamily: "'Hanken Grotesk', sans-serif",
+              fontFamily: 'var(--font-sans)',
               fontSize: 'clamp(15px, 1.8vw, 18px)',
               lineHeight: 1.75,
               color: 'var(--text-secondary)',
@@ -167,7 +167,7 @@ export default function PhilosophyPage() {
           >
             {/* Number */}
             <div style={{
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: 'var(--font-mono)',
               fontSize: 'clamp(11px, 1.4vw, 13px)',
               letterSpacing: '0.15em',
               color: 'var(--gold-text)',
@@ -179,7 +179,7 @@ export default function PhilosophyPage() {
             {/* Content */}
             <div>
               <h2 style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: 'var(--font-sans)',
                 fontSize: 'clamp(22px, 3vw, 34px)',
                 fontWeight: 600,
                 fontStyle: 'italic',
@@ -190,7 +190,7 @@ export default function PhilosophyPage() {
                 {p.name}
               </h2>
               <p style={{
-                fontFamily: "'Hanken Grotesk', sans-serif",
+                fontFamily: 'var(--font-sans)',
                 fontSize: 'clamp(14px, 1.5vw, 16px)',
                 lineHeight: 1.85,
                 color: 'var(--text-secondary)',
@@ -216,7 +216,7 @@ export default function PhilosophyPage() {
         <a
           href="/"
           style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: 'var(--font-mono)',
             fontSize: 10,
             letterSpacing: '0.18em',
             textTransform: 'uppercase' as const,
@@ -234,7 +234,7 @@ export default function PhilosophyPage() {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: 'var(--font-mono)',
             fontSize: 10,
             letterSpacing: '0.18em',
             textTransform: 'uppercase' as const,

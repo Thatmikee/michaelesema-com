@@ -1,142 +1,51 @@
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
 
-const links: { label: string; href: string; external?: boolean }[] = [
-  { label: 'About',    href: '/#about' },
-  { label: 'Focus',    href: '/#focus' },
-  { label: 'Work',     href: '/#work' },
-  { label: 'Thinking', href: '/thinking' },
+const links = [
+  { label: 'Work', href: '/#work' },
+  { label: 'Films', href: '/#films' },
+  { label: 'Process', href: '/#process' },
+  { label: 'About', href: '/about' },
 ]
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
+  const [open, setOpen] = useState(false)
   return (
-    <motion.nav
-      initial={{ y: -16, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      style={{
-        position: 'fixed',
-        top: 0, left: 0, right: 0,
-        zIndex: 1000,
-        background: scrolled ? 'rgba(255,255,255,0.86)' : 'transparent',
-        borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
-        backdropFilter: scrolled ? 'blur(14px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(14px)' : 'none',
-        transition: 'background 0.35s ease, border-color 0.35s ease',
-      }}
-    >
-      <div style={{
-        maxWidth: 1200, margin: '0 auto',
-        padding: '0 clamp(24px, 5vw, 60px)',
-        height: 68,
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+    <header style={{ position: 'fixed', top: 14, left: 0, right: 0, zIndex: 50, display: 'flex', justifyContent: 'center', padding: '0 16px', pointerEvents: 'none' }}>
+      <nav aria-label="Primary" className="glass" style={{
+        pointerEvents: 'auto', display: 'flex', alignItems: 'center', gap: 6,
+        height: 52, padding: '0 8px 0 18px', borderRadius: 999, maxWidth: 720, width: '100%',
       }}>
-        <a href="/" style={{
-          textDecoration: 'none',
-          fontFamily: "'Fraunces', serif",
-          fontWeight: 800,
-          fontSize: 19,
-          color: 'var(--ink)',
-          letterSpacing: '-0.4px',
-        }}>
-          Michael Esema<span style={{ color: 'var(--highlight)' }}>.</span>
+        <a href="/" style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', textDecoration: 'none', letterSpacing: '-0.01em', marginRight: 'auto' }}>
+          Michael Esema
         </a>
-
-        <ul style={{ display: 'flex', gap: 30, listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }} className="nav-desktop">
-          {links.map(link => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                target={link.external ? '_blank' : undefined}
-                rel={link.external ? 'noopener noreferrer' : undefined}
-                className="nav-link"
-                style={{
-                  fontFamily: "'Fraunces', serif",
-                  fontSize: 13.5,
-                  fontWeight: 500,
-                  color: 'var(--text-primary)',
-                  textDecoration: 'none',
-                  paddingBottom: 3,
-                  borderBottom: '2px solid transparent',
-                  transition: 'border-color 0.2s, color 0.2s',
-                  display: 'inline-flex', alignItems: 'center', gap: 4,
-                }}
-              >
-                {link.label}
-                {link.external && (
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.5 }}>
-                    <path d="M7 17 17 7M9 7h8v8" />
-                  </svg>
-                )}
+        <ul className="nav-desktop" style={{ display: 'flex', listStyle: 'none', gap: 2, alignItems: 'center' }}>
+          {links.map(l => (
+            <li key={l.href}>
+              <a href={l.href} className="nav-item" style={{ display: 'inline-block', padding: '8px 12px', borderRadius: 999, fontSize: 14, fontWeight: 500, color: 'var(--text-secondary)', textDecoration: 'none' }}>
+                {l.label}
               </a>
             </li>
           ))}
+          <li><a href="mailto:hello@michaelesema.com" className="pill pill-solid" style={{ height: 36, padding: '0 16px', fontSize: 14 }}>Email</a></li>
         </ul>
-
-        <button
-          onClick={() => setMenuOpen(o => !o)}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={menuOpen}
-          aria-controls="site-navigation-menu"
-          style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: 6, color: 'var(--ink)' }}
-          className="nav-mobile-btn"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9">
-            {menuOpen ? <path d="M6 18L18 6M6 6l12 12" /> : <path d="M4 6h16M4 12h16M4 18h16"/>}
-          </svg>
+        <button className="nav-mobile-btn" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(o => !o)}
+          style={{ display: 'none', background: 'none', border: 0, color: 'var(--ink)', fontSize: 14, fontWeight: 500, padding: '8px 12px', cursor: 'pointer', fontFamily: 'var(--font-sans)' }}>
+          {open ? 'Close' : 'Menu'}
         </button>
-      </div>
-
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            id="site-navigation-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            style={{ background: 'rgba(255,255,255,0.98)', borderTop: '1px solid var(--border)', overflow: 'hidden' }}
-          >
-            <ul style={{ listStyle: 'none', margin: 0, padding: '12px clamp(24px,5vw,60px) 24px' }}>
-              {links.map((link, i) => (
-                <motion.li
-                  key={link.href}
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05, duration: 0.35 }}
-                  style={{ padding: '13px 0', borderBottom: '1px solid var(--border)' }}
-                >
-                  <a
-                    href={link.href}
-                    target={link.external ? '_blank' : undefined}
-                    rel={link.external ? 'noopener noreferrer' : undefined}
-                    onClick={() => setMenuOpen(false)}
-                    style={{
-                      fontFamily: "'Fraunces', serif",
-                      fontSize: 22, fontWeight: 700,
-                      color: 'var(--ink)', textDecoration: 'none', letterSpacing: '-0.3px',
-                    }}
-                  >
-                    {link.label}{link.external && <span style={{ color: 'var(--accent)' }}> ↗</span>}
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
+      </nav>
+      {open && (
+        <div id="mobile-menu" className="glass" style={{ pointerEvents: 'auto', position: 'absolute', top: 64, left: 16, right: 16, borderRadius: 22, padding: 10 }}>
+          {[...links, { label: 'Email', href: 'mailto:hello@michaelesema.com' }].map(l => (
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} style={{ display: 'block', padding: '14px 16px', fontSize: 17, fontWeight: 500, color: 'var(--ink)', textDecoration: 'none', borderRadius: 12 }}>
+              {l.label}
+            </a>
+          ))}
+        </div>
+      )}
       <style>{`
-        .nav-link:hover { border-bottom-color: var(--accent-hover) !important; }
+        .nav-item:hover { color: var(--ink); background: rgba(255,255,255,0.06); }
+        @media (max-width: 640px) { .nav-desktop { display: none !important; } .nav-mobile-btn { display: block !important; } }
       `}</style>
-    </motion.nav>
+    </header>
   )
 }

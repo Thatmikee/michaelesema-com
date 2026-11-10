@@ -1,116 +1,152 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fraunces:opsz,wght@9..144,400..800&family=Hanken+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 @source "./src";
 
+/*
+  One dark theme for the whole site. Every colour resolves to a token here.
+  Do not declare colours locally in components.
+  Contrast on #0a0b0d: ink 18.6:1, secondary 8.0:1, muted 5.9:1, accent 9.9:1.
+*/
 @layer base {
   :root {
-    /* Light "Selfy"-style founder palette: warm light grey + royal teal primary,
-       mustard kept only for the logo dot, text-underline highlights and the
-       scroll progress bar (see --highlight below). */
-    --page-bg:         #ececea;
-    --hero-bg:         #e4e4e1;
-    --accent:          #0F5E6B;
-    --accent-hover:    #1F8A96;
-    --accent-active:   #0D5560;
-    --accent-dim:      rgba(15, 94, 107, 0.14);
-    --accent-on-dark:  #4FB8C4;
-    --section-tint:    #E8F2F3;
+    --page-bg:         #0a0b0d;
+    --hero-bg:         #0a0b0d;
+    --bg:              #0a0b0d;
+    --bg-section:      #0a0b0d;
+    --bg-raised:       #111215;
+    --bg-surface:      #16171b;
+    --section-tint:    #111215;
 
-    --highlight:       #f2a91c;
-    --highlight-hover: #df9a0e;
+    --ink:             #f5f5f7;
+    --text-primary:    #f5f5f7;
+    --text-secondary:  #a1a1a6;
+    --text-muted:      #8a8a90;
 
-    --bg:              #ececea;
-    --bg-section:      #ececea;
-    --bg-surface:      #ffffff;
-    --ink:             #232323;
-    --text-primary:    #232323;
-    --text-secondary:  #585855;
-    --text-muted:      #8c8c88;
-    --border:          rgba(0, 0, 0, 0.08);
-    --border-mid:      rgba(0, 0, 0, 0.14);
+    --accent:          #5cc8d3;
+    --accent-hover:    #7dd6df;
+    --accent-active:   #44b3bf;
+    --accent-dim:      rgba(92, 200, 211, 0.14);
+    --accent-on-dark:  #5cc8d3;
+    --on-light:        #0a0b0d;
 
-    --yellow:          #f2a91c;
-    --navy:            #232323;
+    --border:          rgba(255, 255, 255, 0.08);
+    --border-mid:      rgba(255, 255, 255, 0.16);
 
-    --red:             #f2a91c;
-    --red-bright:      #df9a0e;
-    --red-dim:         rgba(242, 169, 28, 0.14);
-    --red-line:        rgba(242, 169, 28, 0.30);
-    --red-text:        #b9810f;
+    --glass-bg:        rgba(28, 29, 34, 0.55);
+    --glass-border:    rgba(255, 255, 255, 0.12);
+    --glass-highlight: rgba(255, 255, 255, 0.10);
 
-    /* Legacy aliases — components reference these */
-    --gold:            #f2a91c;
-    --gold-light:      #df9a0e;
-    --gold-dim:        rgba(242, 169, 28, 0.14);
-    --gold-line:       rgba(242, 169, 28, 0.28);
-    --gold-text:       #b9810f;
-    --light-bg:        #ececea;
-    --light-border:    rgba(0, 0, 0, 0.07);
-    --text-dark:       #232323;
-    --text-dark-secondary: #585855;
-    --dark:            #232323;
-    --dark-card:       #2a2a2a;
-    --dark-border:     rgba(0, 0, 0, 0.08);
+    /* Legacy aliases used by the long-form subpages; all map to tokens above. */
+    --highlight:       #5cc8d3;
+    --highlight-hover: #7dd6df;
+    --yellow:          #5cc8d3;
+    --navy:            #f5f5f7;
+    --red:             #5cc8d3;
+    --red-bright:      #7dd6df;
+    --red-dim:         rgba(92, 200, 211, 0.14);
+    --red-line:        rgba(92, 200, 211, 0.30);
+    --red-text:        #5cc8d3;
+    --gold:            #5cc8d3;
+    --gold-light:      #7dd6df;
+    --gold-dim:        rgba(92, 200, 211, 0.14);
+    --gold-line:       rgba(92, 200, 211, 0.28);
+    --gold-text:       #5cc8d3;
+    --light-bg:        #111215;
+    --light-border:    rgba(255, 255, 255, 0.08);
+    --text-dark:       #f5f5f7;
+    --text-dark-secondary: #a1a1a6;
+    --dark:            #0a0b0d;
+    --dark-card:       #16171b;
+    --dark-border:     rgba(255, 255, 255, 0.08);
 
-    --radius-card:     14px;
-    --radius-hero:     28px;
-    --shadow-card:     0 2px 18px rgba(0,0,0,0.05);
+    --radius-sm:       12px;
+    --radius-card:     22px;
+    --radius-hero:     32px;
+    --shadow-card:     0 30px 80px rgba(0, 0, 0, 0.45);
+
+    --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color-scheme: dark;
+    background: var(--page-bg);
+  }
 
-  body { background: var(--page-bg); color: var(--text-primary); font-family: 'Hanken Grotesk', -apple-system, sans-serif; overflow-x: hidden; scrollbar-width: none; }
+  body {
+    background: var(--page-bg);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
 
-  ::-webkit-scrollbar { display: none; }
-
-  ::selection { background: #4d7cff; color: #fff; }
+  img, video { display: block; max-width: 100%; }
+  ::selection { background: var(--accent); color: var(--on-light); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 }
 
-.scroll-progress {
-  position: fixed; top: 0; left: 0; right: 0;
-  height: 2px; background: var(--highlight); transform-origin: left; z-index: 9999;
+/* Frosted glass: a web approximation of Apple's material, not an Apple asset. */
+.glass {
+  background:
+    linear-gradient(180deg, var(--glass-highlight), rgba(255, 255, 255, 0) 60%),
+    var(--glass-bg);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  backdrop-filter: blur(24px) saturate(170%);
+  border: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass { background: #1c1d22; -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 
-@media (max-width: 640px) {
-  .nav-desktop    { display: none !important; }
-  .nav-mobile-btn { display: block !important; }
+.wrap { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
+
+.section { padding: clamp(72px, 9vw, 128px) 0; }
+.h2 {
+  font: 600 clamp(30px, 4.2vw, 52px)/1.05 var(--font-sans);
+  letter-spacing: -0.025em; color: var(--ink); max-width: 20ch;
+}
+.lede {
+  font: 400 clamp(16px, 1.4vw, 19px)/1.6 var(--font-sans);
+  color: var(--text-secondary); max-width: 60ch; margin-top: 18px;
 }
 
-a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 44px; padding: 0 22px; border-radius: 999px;
+  font: 500 15px/1 var(--font-sans); text-decoration: none; white-space: nowrap;
+  transition: transform 0.25s var(--ease-out), background-color 0.25s var(--ease-out), border-color 0.25s;
+}
+.pill:active { transform: scale(0.97); }
+.pill-solid { background: var(--ink); color: var(--on-light); }
+.pill-solid:hover { background: #ffffff; }
+.pill-glass { color: var(--ink); }
+.pill-glass:hover { border-color: var(--border-mid); }
 
-/* Accessibility: skip link is visually hidden until keyboard focus, then
-   appears as a small neat focus button. It must never sit visibly at the top
-   of the page. */
+.text-link { color: var(--accent); text-decoration: none; font-weight: 500; }
+.text-link:hover { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 4px; }
+
+.tile {
+  position: relative; overflow: hidden; border-radius: var(--radius-card);
+  background: var(--bg-surface); border: 1px solid var(--border);
+  transition: transform 0.5s var(--ease-out), border-color 0.3s;
+}
+.tile:hover { transform: translateY(-4px); border-color: var(--border-mid); }
+.tile img, .tile video { width: 100%; height: 100%; object-fit: cover; }
+
 .skip-link {
-  position: fixed;
-  top: 12px;
-  left: 12px;
-  z-index: 10000;
-  transform: translateY(-150%);
-  background: var(--accent);
-  color: #fff;
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.02em;
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 6px 24px rgba(13, 18, 38, 0.28);
-  opacity: 0;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  position: absolute; left: 12px; top: -60px; z-index: 100;
+  background: var(--ink); color: var(--on-light); padding: 10px 16px; border-radius: 999px;
+  font: 500 14px var(--font-sans); text-decoration: none;
 }
-.skip-link:focus,
-.skip-link:focus-visible {
-  transform: translateY(0);
-  opacity: 1;
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
+.skip-link:focus { top: 12px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .tile:hover { transform: none; }
 }

@@ -4,123 +4,51 @@ const ease = [0.16, 1, 0.3, 1] as const
 
 export default function Hero() {
   const reduce = useReducedMotion()
-  const fadeUp = (delay: number) => ({
-    initial: reduce ? {} : { opacity: 0, y: 24 },
+  const up = (delay: number) => ({
+    initial: reduce ? {} : { opacity: 0, y: 18 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, delay, ease },
+    transition: { duration: 0.9, delay, ease },
   })
 
   return (
-    <section
-      aria-label="Introduction"
-      style={{
-        background: 'var(--hero-bg)',
-        position: 'relative',
-        overflow: 'hidden',
-        minHeight: 'min(94vh, 860px)',
-        display: 'flex',
-        alignItems: 'flex-end',
-      }}
-    >
-      <div className="hero-grid" style={{
-        maxWidth: 1280, margin: '0 auto', width: '100%',
-        display: 'grid',
-        gridTemplateColumns: '1.05fr 0.95fr',
-        alignItems: 'end',
-        minHeight: 'inherit',
-      }}>
-        {/* Left: statement */}
-        <div className="hero-copy" style={{
-          padding: 'clamp(120px, 14vw, 170px) clamp(28px, 5vw, 56px) clamp(64px, 9vw, 110px)',
-          zIndex: 2,
-        }}>
-          <motion.p {...fadeUp(0.05)} style={{
-            fontFamily: "'Hanken Grotesk', sans-serif",
-            fontSize: 13,
-            fontWeight: 600,
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            color: 'var(--accent)',
-            margin: 0,
-          }}>
-            Michael Esema
+    <section aria-label="Introduction" style={{ position: 'relative', overflow: 'hidden', minHeight: '100dvh', display: 'flex', alignItems: 'center', paddingTop: 96, paddingBottom: 48 }}>
+      {/* Soft light behind the portrait. Decorative only. */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: 'radial-gradient(60% 55% at 72% 50%, rgba(92,200,211,0.16), transparent 70%), radial-gradient(40% 40% at 20% 90%, rgba(255,255,255,0.05), transparent 70%)',
+      }} />
+      <div className="wrap hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: 'clamp(32px, 5vw, 72px)', alignItems: 'center', position: 'relative' }}>
+        <div>
+          <motion.p {...up(0.05)} style={{ font: '500 15px/1.4 var(--font-sans)', color: 'var(--accent)', marginBottom: 22 }}>
+            Graphic and multimedia designer, Manchester
           </motion.p>
-
-          <motion.h1 {...fadeUp(0.16)} style={{
-            fontFamily: "'Fraunces', serif",
-            fontOpticalSizing: 'auto',
-            fontSize: 'clamp(32px, 4.6vw, 54px)',
-            fontWeight: 650,
-            lineHeight: 1.18,
-            letterSpacing: '-0.4px',
-            color: 'var(--ink)',
-            margin: '10px 0 0',
-            maxWidth: 560,
-          }}>
-            I started in accounting because I wanted to understand how businesses
-            actually work. Now I use that to{' '}
-            <span style={{
-              backgroundImage: 'linear-gradient(var(--highlight), var(--highlight))',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: '0 92%',
-              backgroundSize: '100% 0.28em',
-            }}>
-              build and lead them
-            </span>
-            .
+          <motion.h1 {...up(0.15)} style={{ font: '600 clamp(40px, 6vw, 76px)/1.02 var(--font-sans)', letterSpacing: '-0.035em', color: 'var(--ink)', maxWidth: '12ch' }}>
+            Brand, print, web and motion. Made to be used.
           </motion.h1>
-
-          <motion.div {...fadeUp(0.46)}>
-            <a href="#work" className="hero-link" style={{
-              display: 'inline-flex', alignItems: 'center',
-              color: 'var(--accent)',
-              fontFamily: "'Hanken Grotesk', sans-serif",
-              fontWeight: 600, fontSize: 13,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              marginTop: 40,
-              textDecoration: 'none',
-              borderBottom: '1px solid transparent',
-            }}>
-              Selected work <span aria-hidden="true">↓</span>
-            </a>
+          <motion.p {...up(0.28)} style={{ font: '400 clamp(17px, 1.5vw, 20px)/1.55 var(--font-sans)', color: 'var(--text-secondary)', maxWidth: '46ch', marginTop: 24 }}>
+            I have designed for businesses since 2018, from a hotel's whole visual identity to short films people actually finish.
+          </motion.p>
+          <motion.div {...up(0.4)} style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
+            <a href="#work" className="pill pill-solid">See the work</a>
+            <a href="mailto:hello@michaelesema.com" className="pill pill-glass glass">Email me</a>
           </motion.div>
         </div>
 
-        {/* Right: integrated portrait (grey background blends into hero) */}
         <motion.div
-          className="hero-portrait"
-          initial={reduce ? {} : { opacity: 0, scale: 1.03 }}
+          initial={reduce ? {} : { opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, ease }}
-          style={{ position: 'relative', alignSelf: 'end', height: '100%', minHeight: 360 }}
+          transition={{ duration: 1.2, ease }}
+          className="hero-portrait"
+          style={{ borderRadius: 'var(--radius-hero)', overflow: 'hidden', aspectRatio: '4 / 5', boxShadow: 'var(--shadow-card)', border: '1px solid var(--border)' }}
         >
-          <img
-            src="/michael-esema-portrait.jpg"
-            alt="Michael Esema, in a black leather jacket"
-            style={{
-              position: 'absolute',
-              right: 0, bottom: 0,
-              height: '100%', width: '100%',
-              objectFit: 'cover',
-              objectPosition: 'center top',
-            }}
-          />
+          <img src="/michael-esema-portrait.jpg" alt="Michael Esema" width={1000} height={1249} fetchPriority="high"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
         </motion.div>
       </div>
-
       <style>{`
-        .hero-link:hover, .hero-link:focus-visible { border-bottom-color: var(--accent); }
         @media (max-width: 860px) {
           .hero-grid { grid-template-columns: 1fr !important; }
-          .hero-copy { order: 2; padding-top: 24px !important; }
-          .hero-portrait { order: 1; height: auto !important; min-height: 0 !important; }
-          .hero-portrait img {
-            position: relative !important;
-            height: auto !important;
-            max-height: 56vh;
-            object-position: center 18% !important;
-          }
+          .hero-portrait { order: -1; max-width: 360px; aspect-ratio: 1 / 1 !important; }
         }
       `}</style>
     </section>

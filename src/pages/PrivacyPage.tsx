@@ -9,7 +9,7 @@ export default function PrivacyPage() {
         <article style={{ maxWidth: 720, margin: '0 auto', padding: '0 40px 96px' }}>
 
           <div style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: 'var(--font-mono)',
             fontSize: 10,
             letterSpacing: '0.18em',
             textTransform: 'uppercase' as const,
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
           </div>
 
           <h1 style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: 'var(--font-sans)',
             fontSize: 'clamp(28px, 4vw, 44px)',
             fontWeight: 400,
             color: 'var(--text-primary)',
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
           </h1>
 
           <p style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: 'var(--font-mono)',
             fontSize: 11,
             color: 'var(--text-secondary)',
             marginBottom: 48,
@@ -69,7 +69,7 @@ export default function PrivacyPage() {
           ].map(({ heading, body }) => (
             <section key={heading} style={{ marginBottom: 48 }}>
               <h2 style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: 'var(--font-sans)',
                 fontSize: 20,
                 fontWeight: 400,
                 color: 'var(--text-primary)',

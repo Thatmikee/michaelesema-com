@@ -8,7 +8,7 @@ import Footer from '../components/Footer'
 const ease = [0.16, 1, 0.3, 1] as any
 
 const relStyle: React.CSSProperties = {
-  fontFamily: "'Fraunces', serif",
+  fontFamily: 'var(--font-sans)',
   fontSize: 13,
   fontWeight: 600,
   color: 'var(--text-secondary)',
@@ -134,7 +134,7 @@ const ENTRIES: Entry[] = [
 const FAQS: { q: string; a: string }[] = [
   {
     q: 'Who is Michael Esema?',
-    a: 'Michael Esema is a finance and international business analyst based in Manchester. He grew up in Nigeria, studied Accounting at Benson Idahosa University, completed an MBA at the Nigerian Defence Academy, and earned an MSc in International Business Management at Manchester Metropolitan University. He also founded Mykei Securities Ltd, an asset-integrity and anti-resale-crime venture, and works on design through Teal Sand Studios.',
+    a: 'Michael Esema is a graphic and multimedia designer based in Manchester. He grew up in Nigeria, studied Accounting at Benson Idahosa University, completed an MBA at the Nigerian Defence Academy, and earned an MSc in International Business Management at Manchester Metropolitan University. He also founded Mykei Securities Ltd, an asset-integrity and anti-resale-crime venture, and works on design through Teal Sand Studios.',
   },
   {
     q: 'What does Mykei Securities do?',
@@ -270,21 +270,21 @@ export default function ThinkingPage() {
           <div style={{ maxWidth: 760, margin: '0 auto' }}>
             <div aria-hidden="true" style={{ width: 46, height: 6, background: 'var(--accent)', borderRadius: 3, marginBottom: 24 }} />
             <h1 style={{
-              fontFamily: "'Fraunces', serif", fontSize: 'clamp(34px, 5.2vw, 60px)',
+              fontFamily: 'var(--font-sans)', fontSize: 'clamp(34px, 5.2vw, 60px)',
               fontWeight: 900, color: 'var(--ink)', letterSpacing: '-1.4px', lineHeight: 1.02,
               textTransform: 'uppercase', marginBottom: 22,
             }}>
               Thinking<br />in public
             </h1>
             <p style={{
-              fontFamily: "'Fraunces', serif", fontSize: 'clamp(15px, 1.7vw, 19px)',
+              fontFamily: 'var(--font-sans)', fontSize: 'clamp(15px, 1.7vw, 19px)',
               fontWeight: 600, color: 'var(--ink)', lineHeight: 1.45, marginBottom: 18, maxWidth: 580,
             }}>
               Notes on theft economics, asset protection, ownership proof, industrial intelligence and the
               process of building Mykei.
             </p>
             <p style={{
-              fontFamily: "'Hanken Grotesk', sans-serif", fontSize: 'clamp(14px, 1.4vw, 16px)',
+              fontFamily: 'var(--font-sans)', fontSize: 'clamp(14px, 1.4vw, 16px)',
               fontWeight: 300, color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: 600,
             }}>
               These are the public notes behind the work. Some are early arguments. Some are founder
@@ -292,7 +292,7 @@ export default function ThinkingPage() {
               what makes harm profitable, and what changes when that profit route is weakened?
             </p>
             <p style={{
-              fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: 'var(--text-muted)',
+              fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--text-muted)',
               letterSpacing: '0.04em', marginTop: 24,
             }}>
               By Michael Esema
@@ -315,21 +315,21 @@ export default function ThinkingPage() {
                   borderBottom: i < ENTRIES.length - 1 ? '1px solid var(--border)' : 'none',
                 }}>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 14, marginBottom: 14 }}>
-                    <span style={{ fontFamily: "'Fraunces', serif", fontWeight: 800, fontSize: 'clamp(16px, 1.8vw, 20px)', color: 'var(--accent)' }}>{e.n}</span>
-                    <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 800, fontSize: 'clamp(22px, 3vw, 32px)', color: 'var(--ink)', letterSpacing: '-0.6px', lineHeight: 1.15 }}>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: 'clamp(16px, 1.8vw, 20px)', color: 'var(--accent)' }}>{e.n}</span>
+                    <h2 style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: 'clamp(22px, 3vw, 32px)', color: 'var(--ink)', letterSpacing: '-0.6px', lineHeight: 1.15 }}>
                       {e.title}
                     </h2>
                   </div>
-                  <p style={{ fontFamily: "'Hanken Grotesk', sans-serif", fontSize: 'clamp(15px, 1.5vw, 17px)', color: 'var(--text-secondary)', fontStyle: 'italic', lineHeight: 1.6, marginBottom: 24, maxWidth: 640 }}>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(15px, 1.5vw, 17px)', color: 'var(--text-secondary)', fontStyle: 'italic', lineHeight: 1.6, marginBottom: 24, maxWidth: 640 }}>
                     {e.summary}
                   </p>
                   {e.paras.map((p, j) => (
-                    <p key={j} style={{ fontFamily: "'Hanken Grotesk', sans-serif", fontSize: 'clamp(15px, 1.5vw, 17px)', color: 'var(--text-primary)', fontWeight: 300, lineHeight: 1.85, marginBottom: 16, maxWidth: 640 }}>
+                    <p key={j} style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(15px, 1.5vw, 17px)', color: 'var(--text-primary)', fontWeight: 300, lineHeight: 1.85, marginBottom: 16, maxWidth: 640 }}>
                       {p}
                     </p>
                   ))}
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 18, alignItems: 'center', marginTop: 22 }}>
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: 'var(--text-muted)', letterSpacing: '0.04em' }}>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-muted)', letterSpacing: '0.04em' }}>
                       Michael Esema
                     </span>
                     {e.related?.map(r => (
@@ -351,17 +351,17 @@ export default function ThinkingPage() {
             <FadeIn>
               <div id="faq" style={{ scrollMarginTop: 90, marginTop: 'clamp(48px, 6vw, 72px)', paddingTop: 'clamp(40px, 5vw, 56px)', borderTop: '1px solid var(--border)' }}>
                 <h2 style={{
-                  fontFamily: "'Fraunces', serif", fontWeight: 800, fontSize: 'clamp(24px, 3.4vw, 38px)',
+                  fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: 'clamp(24px, 3.4vw, 38px)',
                   color: 'var(--ink)', letterSpacing: '-0.8px', marginBottom: 'clamp(28px, 4vw, 40px)',
                 }}>
                   Questions<span style={{ color: 'var(--accent)' }}>.</span>
                 </h2>
                 {FAQS.map((f, i) => (
                   <div key={f.q} style={{ padding: '20px 0', borderBottom: i < FAQS.length - 1 ? '1px solid var(--border)' : 'none' }}>
-                    <h3 style={{ fontFamily: "'Fraunces', serif", fontWeight: 700, fontSize: 'clamp(16px, 1.8vw, 20px)', color: 'var(--ink)', letterSpacing: '-0.2px', marginBottom: 8, lineHeight: 1.3 }}>
+                    <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'clamp(16px, 1.8vw, 20px)', color: 'var(--ink)', letterSpacing: '-0.2px', marginBottom: 8, lineHeight: 1.3 }}>
                       {f.q}
                     </h3>
-                    <p style={{ fontFamily: "'Hanken Grotesk', sans-serif", fontSize: 'clamp(14px, 1.4vw, 16px)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.8, maxWidth: 640 }}>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(14px, 1.4vw, 16px)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.8, maxWidth: 640 }}>
                       {f.a}
                     </p>
                   </div>

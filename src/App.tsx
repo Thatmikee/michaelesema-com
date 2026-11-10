@@ -1,20 +1,18 @@
 import { Routes, Route } from 'react-router-dom'
-import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
-import About from './components/About'
-import FocusAreas from './components/FocusAreas'
-import Work from './components/Work'
-import Thinking from './components/Thinking'
+import CaseStudy from './components/CaseStudy'
+import Films from './components/Films'
+import WebWork from './components/WebWork'
+import Process from './components/Process'
+import Toolkit from './components/Toolkit'
 import Connect from './components/Connect'
 import Footer from './components/Footer'
-import NigeriaSection from './components/NigeriaSection'
 import PhilosophyPage from './pages/PhilosophyPage'
 import AboutPage from './pages/AboutPage'
 import PrivacyPage from './pages/PrivacyPage'
 import ThinkingPage from './pages/ThinkingPage'
 import NotFoundPage from './pages/NotFoundPage'
-import GrainOverlay from './components/ui/GrainOverlay'
 import './index.css'
 
 function HomePage() {
@@ -24,13 +22,11 @@ function HomePage() {
       <Nav />
       <main id="main-content">
         <Hero />
-        {/* Evidence before biography. The previous order opened with three
-            sections about who he is before showing a single thing he made. */}
-        <Work />
-        <FocusAreas />
-        <About />
-        <NigeriaSection />
-        <Thinking />
+        <CaseStudy />
+        <Films />
+        <WebWork />
+        <Process />
+        <Toolkit />
         <Connect />
       </main>
       <Footer />
@@ -38,25 +34,15 @@ function HomePage() {
   )
 }
 
-function App() {
-  const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 })
-  const prefersReducedMotion = useReducedMotion()
-
+export default function App() {
   return (
-    <>
-      <GrainOverlay opacity={0.032} />
-      {!prefersReducedMotion && <motion.div className="scroll-progress" style={{ scaleX }} />}
-      <Routes>
-        <Route path="/"          element={<HomePage />} />
-        <Route path="/philosophy" element={<PhilosophyPage />} />
-        <Route path="/about"     element={<AboutPage />} />
-        <Route path="/privacy"   element={<PrivacyPage />} />
-        <Route path="/thinking"  element={<ThinkingPage />} />
-        <Route path="*"          element={<NotFoundPage />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/philosophy" element={<PhilosophyPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/privacy" element={<PrivacyPage />} />
+      <Route path="/thinking" element={<ThinkingPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   )
 }
-
-export default App
