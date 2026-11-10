@@ -1,20 +1,15 @@
 const FILMS = [
-  { id: 'dog', title: 'Lost Dog', sub: 'Wordless 46-second short in a painted style. Best-performing piece across YouTube, TikTok and Instagram.' },
-  { id: 'maybe', title: 'The Maybe', sub: 'A clay-style parable in 73 seconds. Captions set to the narration beat.' },
-  { id: 'oil', title: 'Nigerian Oil, Explained', sub: 'A motion explainer that turns a trade question into a one-minute diagram.' },
+  { id: 'dog', title: 'Lost Dog', sub: 'Wordless, 46 seconds, painted style. The most watched piece on the channel.' },
+  { id: 'maybe', title: 'The Maybe', sub: 'A clay-style parable, 73 seconds, captions cut to the narration.' },
+  { id: 'oil', title: 'Nigerian Oil, Explained', sub: 'A one-minute motion diagram of a trade question.' },
 ]
 
 export default function Films() {
   return (
     <section id="films" className="section" style={{ scrollMarginTop: 80, background: 'var(--bg-raised)' }}>
       <div className="wrap">
-        <h2 className="h2">Short films for Teal Sand Studios.</h2>
-        <p className="lede">
-          Vertical pieces for a studio channel I run. On each one I wrote the story, drew the shot list, directed the look,
-          cut the edit, and did captions and sound. The frames themselves are generated from my art direction, and the
-          channels say so.
-        </p>
-        <div className="films-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 44 }}>
+        <h2 className="h2">Short films.</h2>
+        <div className="films-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 40 }}>
           {FILMS.map(f => (
             <figure key={f.id} style={{ margin: 0 }}>
               <div className="tile" style={{ aspectRatio: '9 / 16' }}>
@@ -27,6 +22,10 @@ export default function Films() {
             </figure>
           ))}
         </div>
+        <p style={{ font: '400 15px/1.6 var(--font-sans)', color: 'var(--text-muted)', maxWidth: '68ch', marginTop: 36, paddingTop: 20, borderTop: '1px solid var(--border)' }}>
+          Made for Teal Sand Studios, the channel I run. I direct each one: story, look, pacing, captions and final cut.
+          The pictures and voices are produced with AI tools to my direction, and every post says so.
+        </p>
       </div>
       <style>{`
         @media (max-width: 760px) { .films-grid { grid-template-columns: 1fr !important; max-width: 380px; } }

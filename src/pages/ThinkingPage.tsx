@@ -134,7 +134,7 @@ const ENTRIES: Entry[] = [
 const FAQS: { q: string; a: string }[] = [
   {
     q: 'Who is Michael Esema?',
-    a: 'Michael Esema is a graphic and multimedia designer based in Manchester. He grew up in Nigeria, studied Accounting at Benson Idahosa University, completed an MBA at the Nigerian Defence Academy, and earned an MSc in International Business Management at Manchester Metropolitan University. He also founded Mykei Securities Ltd, an asset-integrity and anti-resale-crime venture, and works on design through Teal Sand Studios.',
+    a: 'Michael Esema is a graphic and multimedia designer based in the UK. He grew up in Nigeria, studied Accounting at Benson Idahosa University, completed an MBA at the Nigerian Defence Academy, and earned an MSc in International Business Management at Manchester Metropolitan University. He also founded Mykei Securities Ltd, an asset-integrity and anti-resale-crime venture, and works on design through Teal Sand Studios.',
   },
   {
     q: 'What does Mykei Securities do?',

@@ -1,12 +1,13 @@
 import { Helmet } from 'react-helmet-async'
 import Nav from '../components/Nav'
 import Process from '../components/Process'
+import Ledger from '../components/Ledger'
 import Toolkit from '../components/Toolkit'
 import Connect from '../components/Connect'
 import Footer from '../components/Footer'
 
 const TITLE = 'About Michael Esema | Graphic and Multimedia Designer'
-const DESC = 'Michael Esema, graphic and multimedia designer in Manchester. Designing since 2018. BSc Accounting, MBA, MSc International Business Management (Merit), Lean Six Sigma.'
+const DESC = 'Michael Esema, graphic and multimedia designer. Designing since 2018. BSc Accounting, MBA, MSc International Business Management (Merit), Lean Six Sigma.'
 
 export default function AboutPage() {
   return (
@@ -14,7 +15,6 @@ export default function AboutPage() {
       <Helmet>
         <title>{TITLE}</title>
         <meta name="description" content={DESC} />
-        <link rel="canonical" href="https://michaelesema.com/about" />
         <meta property="og:title" content={TITLE} />
         <meta property="og:description" content={DESC} />
         <meta property="og:url" content="https://michaelesema.com/about" />
@@ -28,7 +28,7 @@ export default function AboutPage() {
                 About
               </h1>
               <p className="lede">
-                I grew up in Nigeria and live in Manchester. I am a graphic and multimedia designer with an
+                I grew up in Nigeria and live in the UK. I am a graphic and multimedia designer with an
                 accountant's training, which means I ask what a piece of design has to achieve before I ask
                 how it should look.
               </p>
@@ -39,6 +39,7 @@ export default function AboutPage() {
           </div>
         </section>
         <Process />
+        <Ledger />
         <Toolkit />
         <Connect />
       </main>

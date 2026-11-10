@@ -13,12 +13,12 @@ export default function Process() {
           </p>
           <p>
             As Assistant Manager I ran a multi-department business, its suppliers and its staff. I co-founded a security
-            start-up, filed its patent and designed everything it put in front of people. I hold Lean Six Sigma. So I can
+            start-up, filed a UK patent application and designed everything it put in front of people. I hold Lean Six Sigma. So I can
             run a project, keep it on budget and still be the one who makes the work.
           </p>
           <p>
             That is the balance: design that answers to a brief, and management that respects the craft. Since moving to
-            Manchester I have kept designing for small businesses, without charge, to keep the portfolio real.
+            the UK I have kept designing for small businesses, without charge, to keep the portfolio real.
           </p>
         </div>
       </div>

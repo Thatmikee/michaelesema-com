@@ -1,90 +1,84 @@
-// Cloudflare Pages Middleware — route-level meta injection for all SPA routes
-// Fixes: LinkedIn/WhatsApp/X previews all showing ADN-1 title regardless of route
+// Cloudflare Pages middleware: per-route titles and descriptions for crawlers
+// and link previews, which read the HTML before any JavaScript runs.
+// Responses built here do not pass through public/_headers, so the security
+// headers are set again below. Keep CSP identical to public/_headers.
+
+const SITE = 'https://michaelesema.com'
+const CARD = `${SITE}/michael-esema-card.png`
 
 const ROUTE_META = {
-  '/protocol': {
-    title: 'MarkProof Nigeria | Mykei Protocol',
-    description:
-      'A pre-pilot asset marking, ownership registry, and recovery evidence protocol for Nigerian solar, power, estate, construction, school, church, warehouse, and SME assets.',
-    canonical: 'https://mykei.io/protocol',
-    ogTitle: 'MarkProof Nigeria | Mykei Protocol',
-    ogDescription: 'Make stolen assets harder to sell through marking, registration, stolen-status flagging, and recovery evidence.',
-    ogUrl: 'https://mykei.io/protocol',
-    ogImage: 'https://mykei.io/markproof-social.png',
-    twitterTitle: 'MarkProof Nigeria | Mykei Protocol',
-    twitterDescription: 'Make stolen assets harder to sell. Asset marking, ownership registry, and recovery evidence for Nigerian assets.',
-  },
   '/about': {
-    title: 'About Michael Esema | Founder & CEO, Mykei Securities',
+    title: 'About Michael Esema | Graphic and Multimedia Designer',
     description:
-      'Michael Esema — Nigerian-born entrepreneur based in Manchester. Founder of Mykei Securities Ltd, inventor of the ADN-1, originator of Economic Sterilisation. MBA, MSc. Patent GB2606630.8.',
-    canonical: 'https://michaelesema.com/about',
-    ogTitle: 'About Michael Esema | Founder & CEO, Mykei Securities',
-    ogDescription: 'The founder behind Economic Sterilisation. Nigerian-born, Manchester-based. MBA, MSc. Patent No. 2606630.8 (UK).',
-    ogUrl: 'https://michaelesema.com/about',
-    ogImage: 'https://michaelesema.com/michael-esema-social.png',
-    twitterTitle: 'About Michael Esema | Founder & CEO, Mykei Securities',
-    twitterDescription: 'Founder of Mykei Securities. Originator of Economic Sterilisation. MBA, MSc. Patent GB2606630.8.',
+      'Michael Esema, graphic and multimedia designer. Designing since 2018. BSc Accounting, MBA, MSc International Business Management (Merit), Lean Six Sigma.',
   },
-  '/philosophy': {
-    title: 'Economic Sterilisation | The Philosophy | Mykei Securities',
-    description:
-      'Economic Sterilisation: the doctrine that makes stolen goods commercially worthless. The philosophy behind Mykei Securities and the ADN-1 by Michael Esema.',
-    canonical: 'https://michaelesema.com/philosophy',
-    ogTitle: 'Economic Sterilisation | The Philosophy',
-    ogDescription: 'Theft becomes less attractive when stolen assets cannot be sold. The doctrine behind Mykei Securities.',
-    ogUrl: 'https://michaelesema.com/philosophy',
-    ogImage: 'https://michaelesema.com/michael-esema-social.png',
-    twitterTitle: 'Economic Sterilisation | The Philosophy | Mykei Securities',
-    twitterDescription: 'The doctrine that makes stolen goods commercially worthless.',
+  '/thinking': {
+    title: 'Writing | Michael Esema',
+    description: 'Notes by Michael Esema on design, trust, and building businesses across Nigeria and the UK.',
   },
-  '/thesis': {
-    title: 'The Thesis | Economic Sterilisation | Mykei Securities',
-    description:
-      'The evidence base and academic thesis behind Economic Sterilisation, the ADN-1, and the Mykei Securities retail crime prevention system.',
-    canonical: 'https://michaelesema.com/thesis',
-    ogTitle: 'The Thesis | Economic Sterilisation',
-    ogDescription: 'Evidence, policy implications, and the academic case behind Economic Sterilisation by Michael Esema.',
-    ogUrl: 'https://michaelesema.com/thesis',
-    ogImage: 'https://michaelesema.com/michael-esema-social.png',
-    twitterTitle: 'The Thesis | Economic Sterilisation | Mykei Securities',
-    twitterDescription: 'Evidence base and policy implications behind Economic Sterilisation.',
+  '/privacy': {
+    title: 'Privacy | Michael Esema',
+    description: 'How michaelesema.com handles personal data and cookies.',
   },
 }
 
-function injectMeta(html, meta) {
-  html = html.replace(/<title>[^<]*<\/title>/, `<title>${meta.title}</title>`)
-  html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${meta.description}"`)
-  html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${meta.canonical}"`)
-  html = html.replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${meta.ogTitle}"`)
-  html = html.replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${meta.ogDescription}"`)
-  html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${meta.ogUrl}"`)
-  html = html.replace(/<meta property="og:image" content="[^"]*"/, `<meta property="og:image" content="${meta.ogImage}"`)
-  html = html.replace(/<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${meta.twitterTitle}"`)
-  html = html.replace(/<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${meta.twitterDescription}"`)
-  html = html.replace(/<meta name="twitter:image" content="[^"]*"/, `<meta name="twitter:image" content="${meta.ogImage}"`)
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self' https://static.cloudflareinsights.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "img-src 'self' data:",
+  "media-src 'self'",
+  "connect-src 'self' https://cloudflareinsights.com",
+  "object-src 'none'",
+  "frame-ancestors 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  'upgrade-insecure-requests',
+].join('; ')
+
+const SECURITY_HEADERS = {
+  'Content-Security-Policy': CSP,
+  'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
+  'X-Frame-Options': 'DENY',
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=()',
+  'Cross-Origin-Opener-Policy': 'same-origin',
+}
+
+const esc = s => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
+
+function injectMeta(html, path, meta) {
+  const url = `${SITE}${path}`
+  const t = esc(meta.title)
+  const d = esc(meta.description)
   return html
+    .replace(/<title>[^<]*<\/title>/, `<title>${t}</title>`)
+    .replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${d}"`)
+    .replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${url}"`)
+    .replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${t}"`)
+    .replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${d}"`)
+    .replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${url}"`)
+    .replace(/<meta property="og:image" content="[^"]*"/, `<meta property="og:image" content="${CARD}"`)
+    .replace(/<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${t}"`)
+    .replace(/<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${d}"`)
 }
 
 export async function onRequest(context) {
   const url = new URL(context.request.url)
   const pathname = url.pathname.replace(/\/$/, '') || '/'
   const meta = ROUTE_META[pathname]
-
-  // No meta override needed — pass through to static assets / index.html
   if (!meta) return context.next()
 
-  // Fetch the SPA shell
-  const indexUrl = new URL('/index.html', context.request.url)
-  const response = await context.env.ASSETS.fetch(indexUrl)
-  let html = await response.text()
-
-  html = injectMeta(html, meta)
+  const response = await context.env.ASSETS.fetch(new URL('/index.html', context.request.url))
+  const html = injectMeta(await response.text(), pathname, meta)
 
   return new Response(html, {
     headers: {
       'Content-Type': 'text/html;charset=UTF-8',
       'Cache-Control': 'public, max-age=300',
+      ...SECURITY_HEADERS,
     },
   })
 }

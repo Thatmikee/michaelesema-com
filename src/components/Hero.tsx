@@ -12,23 +12,16 @@ export default function Hero() {
 
   return (
     <section aria-label="Introduction" style={{ position: 'relative', overflow: 'hidden', minHeight: '100dvh', display: 'flex', alignItems: 'center', paddingTop: 96, paddingBottom: 48 }}>
-      {/* Soft light behind the portrait. Decorative only. */}
-      <div aria-hidden="true" style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: 'radial-gradient(60% 55% at 72% 50%, rgba(92,200,211,0.16), transparent 70%), radial-gradient(40% 40% at 20% 90%, rgba(255,255,255,0.05), transparent 70%)',
-      }} />
-      <div className="wrap hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: 'clamp(32px, 5vw, 72px)', alignItems: 'center', position: 'relative' }}>
+      <div className="wrap hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.35fr 0.65fr', gap: 'clamp(32px, 5vw, 72px)', alignItems: 'center', position: 'relative' }}>
         <div>
-          <motion.p {...up(0.05)} style={{ font: '500 15px/1.4 var(--font-sans)', color: 'var(--accent)', marginBottom: 22 }}>
-            Graphic and multimedia designer, Manchester
-          </motion.p>
-          <motion.h1 {...up(0.15)} style={{ font: '600 clamp(40px, 6vw, 76px)/1.02 var(--font-sans)', letterSpacing: '-0.035em', color: 'var(--ink)', maxWidth: '12ch' }}>
-            Brand, print, web and motion. Made to be used.
+          <motion.h1 {...up(0.1)} style={{ font: '600 clamp(34px, 4.5vw, 62px)/1.05 var(--font-sans)', letterSpacing: '-0.035em', color: 'var(--ink)' }}>
+            Michael Esema.
+            <span style={{ display: 'block', color: 'var(--text-muted)', maxWidth: '14em' }}>Graphic and multimedia designer.</span>
           </motion.h1>
-          <motion.p {...up(0.28)} style={{ font: '400 clamp(17px, 1.5vw, 20px)/1.55 var(--font-sans)', color: 'var(--text-secondary)', maxWidth: '46ch', marginTop: 24 }}>
-            I have designed for businesses since 2018, from a hotel's whole visual identity to short films people actually finish.
+          <motion.p {...up(0.25)} style={{ font: '400 clamp(17px, 1.5vw, 20px)/1.55 var(--font-sans)', color: 'var(--text-secondary)', maxWidth: '44ch', marginTop: 26 }}>
+            Identity, print, web and film since 2018. Trained as an accountant, so the work lands on brief and on budget.
           </motion.p>
-          <motion.div {...up(0.4)} style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
+          <motion.div {...up(0.38)} style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
             <a href="#work" className="pill pill-solid">See the work</a>
             <a href="mailto:hello@michaelesema.com" className="pill pill-glass glass">Email me</a>
           </motion.div>

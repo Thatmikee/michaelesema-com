@@ -5,6 +5,7 @@ import CaseStudy from './components/CaseStudy'
 import Films from './components/Films'
 import WebWork from './components/WebWork'
 import Process from './components/Process'
+import Ledger from './components/Ledger'
 import Toolkit from './components/Toolkit'
 import Connect from './components/Connect'
 import Footer from './components/Footer'
@@ -26,6 +27,7 @@ function HomePage() {
         <Films />
         <WebWork />
         <Process />
+        <Ledger />
         <Toolkit />
         <Connect />
       </main>

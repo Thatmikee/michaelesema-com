@@ -1,16 +1,19 @@
 export default function Connect() {
   return (
-    <section id="connect" className="section" style={{ paddingTop: 0 }}>
+    <section id="connect" className="section" style={{ borderTop: '1px solid var(--border)' }}>
       <div className="wrap">
-        <div className="glass" style={{ borderRadius: 'var(--radius-hero)', padding: 'clamp(36px, 6vw, 80px)', textAlign: 'center' }}>
-          <h2 className="h2" style={{ margin: '0 auto' }}>Have a brief? Send it over.</h2>
-          <p className="lede" style={{ margin: '16px auto 0' }}>Identity, print, a website or a short film. I reply within two days.</p>
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 32, flexWrap: 'wrap' }}>
-            <a href="mailto:hello@michaelesema.com" className="pill pill-solid">hello@michaelesema.com</a>
-            <a href="https://www.linkedin.com/in/michaelesema" target="_blank" rel="noopener noreferrer" className="pill pill-glass glass">LinkedIn</a>
-          </div>
-        </div>
+        <p style={{ font: '400 17px/1.5 var(--font-sans)', color: 'var(--text-secondary)' }}>For a brief, a role or a question</p>
+        <a href="mailto:hello@michaelesema.com" className="mail" style={{
+          display: 'inline-block', marginTop: 10, color: 'var(--ink)', textDecoration: 'none',
+          font: '600 clamp(26px, 5.4vw, 72px)/1.05 var(--font-sans)', letterSpacing: '-0.035em', overflowWrap: 'anywhere',
+        }}>
+          hello@michaelesema.com
+        </a>
+        <p style={{ marginTop: 22 }}>
+          <a href="https://www.linkedin.com/in/michaelesema" target="_blank" rel="noopener noreferrer" className="text-link" style={{ fontSize: 17 }}>LinkedIn</a>
+        </p>
       </div>
+      <style>{`.mail:hover { color: var(--accent); }`}</style>
     </section>
   )
 }

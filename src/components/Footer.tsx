@@ -4,7 +4,7 @@ export default function Footer() {
     <footer style={{ borderTop: '1px solid var(--border)', padding: '32px 0' }}>
       <div className="wrap" style={{ display: 'flex', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
         <span style={{ font: '400 14px/1 var(--font-sans)', color: 'var(--text-muted)' }}>
-          Michael Esema, graphic and multimedia designer, Manchester. {new Date().getFullYear()}
+          Michael Esema, graphic and multimedia designer. {new Date().getFullYear()}
         </span>
         <nav aria-label="Footer" style={{ display: 'flex', gap: 20 }}>
           <a href="/about" style={link}>About</a>
