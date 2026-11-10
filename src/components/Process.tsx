@@ -7,9 +7,8 @@ export default function Process() {
         </div>
         <div style={{ font: '400 clamp(16px, 1.4vw, 19px)/1.65 var(--font-sans)', color: 'var(--text-secondary)', display: 'grid', gap: 20, alignSelf: 'center' }}>
           <p>
-            I started designing in 2018 as president of the accounting students' association at Benson Idahosa University,
-            because somebody had to make the posters. At B's Hive Hotel in Abuja I was the main graphic designer and ran
-            the social media while I was Head Accountant, then Assistant Manager.
+            I have been designing since 2018, and for most of that time I was also running the numbers. At B's Hive
+            Hotel in Abuja I led the graphics, promotions and social media while I was Head Accountant, then Manager.
           </p>
           <p>
             As Assistant Manager I ran a multi-department business, its suppliers and its staff. I co-founded a security
