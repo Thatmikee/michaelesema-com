@@ -19,7 +19,7 @@ export default function Hero() {
             <span style={{ display: 'block', color: 'var(--text-muted)', maxWidth: '14em' }}>Graphic and multimedia designer.</span>
           </motion.h1>
           <motion.p {...up(0.25)} style={{ font: '400 clamp(17px, 1.5vw, 20px)/1.55 var(--font-sans)', color: 'var(--text-secondary)', maxWidth: '44ch', marginTop: 26 }}>
-            Identity, print, web and film since 2018. Trained as an accountant, so the work lands on brief and on budget.
+            Designing since 2018: identity, print and social, and now websites and short films. Trained as an accountant, which shapes how I plan and cost a job.
           </motion.p>
           <motion.div {...up(0.38)} style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
             <a href="#work" className="pill pill-solid">See the work</a>

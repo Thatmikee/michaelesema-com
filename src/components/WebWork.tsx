@@ -8,13 +8,13 @@ const LEAD: Item = {
 }
 const PAIR: Item[] = [
   {
-    title: 'Silent Party 9ja', kind: 'Brand and booking site',
+    title: 'Silent Party 9ja', kind: 'Rebrand and booking site, in development',
     body: 'A silent-disco brand I worked with part-time from 2018 to 2023. In the new identity each channel owns a colour and only one is live at a time.',
     img: '/work/sp9ja-screen.jpg', alt: 'Silent Party 9ja homepage: the loudest night you will never hear',
   },
   {
     title: 'mykei.io', kind: 'Company identity and website', href: 'https://mykei.io',
-    body: 'Brand and site for a security start-up I co-founded. Nine colours, all from one file, all passing contrast checks.',
+    body: 'Brand and site for Mykei Securities, a security start-up I founded. Nine colours, all from one file, all passing contrast checks.',
     img: '/work/mykei-securities-site.png', alt: 'The mykei.io homepage',
   },
 ]

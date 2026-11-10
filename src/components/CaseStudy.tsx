@@ -2,8 +2,8 @@
 const FACTS = [
   ['Brief', 'A name people could trust before they tasted anything, usable on a phone screen and on a sticker the size of a coin.'],
   ['Identity', 'Monogram, wordmark, and a palette of aubergine, cream and one orange taken from the jollof.'],
-  ['Delivered', 'Logo set on three grounds, a printed menu, branded food photography and a website with an enquiry form.'],
-  ['Tools', 'Illustrator, InDesign, Photoshop and Figma, then built in React.'],
+  ['Delivered', 'Logo set on three grounds, a printed menu, food photos marked with the logo and a website with an enquiry form.'],
+  ['Status', 'Live at sarahbellus.com.'],
 ]
 
 export default function CaseStudy() {
@@ -13,7 +13,7 @@ export default function CaseStudy() {
         <h2 className="h2">Sarah Bellus. One mark, every surface.</h2>
         <p className="lede">
           A Nigerian caterer in the UK needed to look as good as the food. I drew the SiB monogram with a
-          serving spoon for the dot of the i, then carried it through the menu, the food photography and the website.
+          serving spoon for the dot of the i, then carried it through the menu, the food photos and the website.
         </p>
 
         <a href="https://sarahbellus.com" target="_blank" rel="noopener noreferrer" className="tile" style={{ display: 'block', aspectRatio: '16 / 9', marginTop: 44 }}>

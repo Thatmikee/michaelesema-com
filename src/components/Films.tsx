@@ -1,5 +1,5 @@
 const FILMS = [
-  { id: 'dog', title: 'Lost Dog', sub: 'Wordless, 46 seconds, painted style. The most watched piece on the channel.' },
+  { id: 'dog', title: 'Lost Dog', sub: 'Wordless, 46 seconds, painted style.' },
   { id: 'maybe', title: 'The Maybe', sub: 'A clay-style parable, 73 seconds, captions cut to the narration.' },
   { id: 'oil', title: 'Nigerian Oil, Explained', sub: 'A one-minute motion diagram of a trade question.' },
 ]
@@ -23,8 +23,8 @@ export default function Films() {
           ))}
         </div>
         <p style={{ font: '400 15px/1.6 var(--font-sans)', color: 'var(--text-muted)', maxWidth: '68ch', marginTop: 36, paddingTop: 20, borderTop: '1px solid var(--border)' }}>
-          Made for Teal Sand Studios, the channel I run. I direct each one: story, look, pacing, captions and final cut.
-          The pictures and voices are produced with AI tools to my direction, and every post says so.
+          Made for Teal Sand Studios, the studio I run. I direct each one: story, look, pacing, captions and final cut.
+          The pictures and voices are produced with AI tools to my direction, and the channels are labelled as AI-made.
         </p>
       </div>
       <style>{`

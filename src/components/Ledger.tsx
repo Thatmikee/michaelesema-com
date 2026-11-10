@@ -3,12 +3,12 @@
 const ROWS = [
   {
     year: '2018', award: 'BSc (Hons) Accounting', school: 'Benson Idahosa University',
-    does: 'Numbers people can read at a glance. Price lists, menus and data figures set so the eye finds what matters first. Print runs costed before they are designed.',
+    does: 'Numbers people can read at a glance. Price lists, menus and data figures set so the eye finds what matters first.',
     see: 'Sarah Bellus menu, The Signal data figures',
   },
   {
     year: '2022', award: 'Master of Business Administration', school: 'Nigerian Defence Academy',
-    does: 'Positioning before pixels. I ask who the customer is, what the business sells and what it can afford, then design the identity that answers that.',
+    does: 'I ask who the customer is, what the business sells and what it can afford, then design the identity that answers that.',
     see: 'Sarah Bellus identity, mykei.io',
   },
   {
@@ -18,7 +18,7 @@ const ROWS = [
   },
   {
     year: '2025', award: 'Lean Six Sigma', school: 'Certification',
-    does: 'Systems over one-offs. Templates, type scales and a single colour file, so the tenth piece is as consistent as the first.',
+    does: 'Templates, type scales and a single colour file, so the tenth piece is as consistent as the first.',
     see: 'The Signal issue system, the colour file behind mykei.io',
   },
 ]
