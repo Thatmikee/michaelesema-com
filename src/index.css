@@ -2,66 +2,65 @@
 @source "./src";
 
 /*
-  One dark theme for the whole site. Every colour resolves to a token here.
+  One light theme for the whole site. Every colour resolves to a token here.
   Do not declare colours locally in components.
-  Contrast on #0a0b0d: ink 18.6:1, secondary 8.0:1, muted 5.9:1, accent 9.9:1.
+  Contrast on #f7f6f3: ink 17.6:1, secondary 7.3:1, muted 4.9:1, accent 5.6:1.
 */
 @layer base {
   :root {
-    --page-bg:         #0a0b0d;
-    --hero-bg:         #0a0b0d;
-    --bg:              #0a0b0d;
-    --bg-section:      #0a0b0d;
-    --bg-raised:       #111215;
-    --bg-surface:      #16171b;
-    --section-tint:    #111215;
+    --page-bg:         #f7f6f3;
+    --hero-bg:         #f7f6f3;
+    --bg:              #f7f6f3;
+    --bg-section:      #f7f6f3;
+    --bg-raised:       #efeeea;
+    --bg-surface:      #ffffff;
+    --section-tint:    #efeeea;
 
-    --ink:             #f5f5f7;
-    --text-primary:    #f5f5f7;
-    --text-secondary:  #a1a1a6;
-    --text-muted:      #8a8a90;
+    --ink:             #121316;
+    --text-primary:    #121316;
+    --text-secondary:  #4f5157;
+    --text-muted:      #6c6e75;
 
-    --accent:          #5cc8d3;
-    --accent-hover:    #7dd6df;
-    --accent-active:   #44b3bf;
-    --accent-dim:      rgba(92, 200, 211, 0.14);
-    --accent-on-dark:  #5cc8d3;
-    --on-light:        #0a0b0d;
+    --accent:          #0b6672;
+    --accent-hover:    #084e58;
+    --accent-active:   #084e58;
+    --accent-dim:      rgba(11, 102, 114, 0.10);
+    --accent-on-dark:  #0b6672;
+    --on-ink:          #f7f6f3;
 
-    --border:          rgba(255, 255, 255, 0.08);
-    --border-mid:      rgba(255, 255, 255, 0.16);
+    --border:          rgba(18, 19, 22, 0.10);
+    --border-mid:      rgba(18, 19, 22, 0.22);
 
-    --glass-bg:        rgba(28, 29, 34, 0.55);
-    --glass-border:    rgba(255, 255, 255, 0.12);
-    --glass-highlight: rgba(255, 255, 255, 0.10);
+    --glass-bg:        rgba(255, 255, 255, 0.72);
+    --glass-border:    rgba(18, 19, 22, 0.10);
 
-    /* Legacy aliases used by the long-form subpages; all map to tokens above. */
-    --highlight:       #5cc8d3;
-    --highlight-hover: #7dd6df;
-    --yellow:          #5cc8d3;
-    --navy:            #f5f5f7;
-    --red:             #5cc8d3;
-    --red-bright:      #7dd6df;
-    --red-dim:         rgba(92, 200, 211, 0.14);
-    --red-line:        rgba(92, 200, 211, 0.30);
-    --red-text:        #5cc8d3;
-    --gold:            #5cc8d3;
-    --gold-light:      #7dd6df;
-    --gold-dim:        rgba(92, 200, 211, 0.14);
-    --gold-line:       rgba(92, 200, 211, 0.28);
-    --gold-text:       #5cc8d3;
-    --light-bg:        #111215;
-    --light-border:    rgba(255, 255, 255, 0.08);
-    --text-dark:       #f5f5f7;
-    --text-dark-secondary: #a1a1a6;
-    --dark:            #0a0b0d;
-    --dark-card:       #16171b;
-    --dark-border:     rgba(255, 255, 255, 0.08);
+    /* Aliases used by the long-form subpages; all map to tokens above. */
+    --highlight:       #0b6672;
+    --highlight-hover: #084e58;
+    --yellow:          #0b6672;
+    --navy:            #121316;
+    --red:             #0b6672;
+    --red-bright:      #084e58;
+    --red-dim:         rgba(11, 102, 114, 0.10);
+    --red-line:        rgba(11, 102, 114, 0.30);
+    --red-text:        #0b6672;
+    --gold:            #0b6672;
+    --gold-light:      #084e58;
+    --gold-dim:        rgba(11, 102, 114, 0.10);
+    --gold-line:       rgba(11, 102, 114, 0.28);
+    --gold-text:       #0b6672;
+    --light-bg:        #efeeea;
+    --light-border:    rgba(18, 19, 22, 0.10);
+    --text-dark:       #121316;
+    --text-dark-secondary: #4f5157;
+    --dark:            #efeeea;
+    --dark-card:       #ffffff;
+    --dark-border:     rgba(18, 19, 22, 0.10);
 
-    --radius-sm:       12px;
-    --radius-card:     14px;
-    --radius-hero:     18px;
-    --shadow-card:     0 30px 80px rgba(0, 0, 0, 0.45);
+    --radius-sm:       8px;
+    --radius-card:     10px;
+    --radius-hero:     14px;
+    --shadow-card:     0 24px 60px rgba(18, 19, 22, 0.10);
 
     --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -74,7 +73,7 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color-scheme: dark;
+    color-scheme: light;
     background: var(--page-bg);
   }
 
@@ -86,67 +85,57 @@
   }
 
   img, video { display: block; max-width: 100%; }
-  ::selection { background: var(--accent); color: var(--on-light); }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  ::selection { background: var(--ink); color: var(--on-ink); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 }
 
-/* Frosted glass: a web approximation of Apple's material, not an Apple asset. */
+/* Frosted bar: a web approximation of Apple's material, not an Apple asset. */
 .glass {
-  background:
-    linear-gradient(180deg, var(--glass-highlight), rgba(255, 255, 255, 0) 60%),
-    var(--glass-bg);
-  -webkit-backdrop-filter: blur(24px) saturate(170%);
-  backdrop-filter: blur(24px) saturate(170%);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
   border: 1px solid var(--glass-border);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 20px 60px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 30px rgba(18, 19, 22, 0.06);
 }
 @media (prefers-reduced-transparency: reduce) {
-  .glass { background: #1c1d22; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .glass { background: #ffffff; -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 
-.wrap { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
+.wrap { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 48px); }
+.section { padding: clamp(64px, 8vw, 120px) 0; }
 
-.section { padding: clamp(72px, 9vw, 128px) 0; }
 .h2 {
-  font: 600 clamp(30px, 4.2vw, 52px)/1.05 var(--font-sans);
-  letter-spacing: -0.025em; color: var(--ink); max-width: 20ch;
+  font: 500 clamp(28px, 3.6vw, 46px)/1.08 var(--font-sans);
+  letter-spacing: -0.03em; color: var(--ink); max-width: 22ch;
 }
 .lede {
-  font: 400 clamp(16px, 1.4vw, 19px)/1.6 var(--font-sans);
-  color: var(--text-secondary); max-width: 60ch; margin-top: 18px;
+  font: 400 clamp(16px, 1.35vw, 19px)/1.6 var(--font-sans);
+  color: var(--text-secondary); max-width: 62ch; margin-top: 18px;
 }
 
 .pill {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   height: 44px; padding: 0 22px; border-radius: 999px;
   font: 500 15px/1 var(--font-sans); text-decoration: none; white-space: nowrap;
-  transition: transform 0.25s var(--ease-out), background-color 0.25s var(--ease-out), border-color 0.25s;
+  transition: transform 0.2s var(--ease-out), background-color 0.2s, border-color 0.2s;
 }
 .pill:active { transform: scale(0.97); }
-.pill-solid { background: var(--ink); color: var(--on-light); }
-.pill-solid:hover { background: #ffffff; }
-.pill-glass { color: var(--ink); }
-.pill-glass:hover { border-color: var(--border-mid); }
+.pill-solid { background: var(--ink); color: var(--on-ink); }
+.pill-solid:hover { background: #2a2c31; }
+.pill-line { color: var(--ink); border: 1px solid var(--border-mid); }
+.pill-line:hover { border-color: var(--ink); }
 
-.text-link { color: var(--accent); text-decoration: none; font-weight: 500; }
-.text-link:hover { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 4px; }
+.text-link { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; font-weight: 500; }
+.text-link:hover { color: var(--accent-hover); }
 
-.tile {
-  position: relative; overflow: hidden; border-radius: var(--radius-card);
-  background: var(--bg-surface); border: 1px solid var(--border);
-  transition: border-color 0.3s;
-}
-.tile:hover { border-color: var(--border-mid); }
-.tile img, .tile video { width: 100%; height: 100%; object-fit: cover; }
+.plate { overflow: hidden; border-radius: var(--radius-card); background: var(--bg-raised); border: 1px solid var(--border); }
+.plate img, .plate video { width: 100%; height: 100%; object-fit: cover; }
 
 .skip-link {
   position: absolute; left: 12px; top: -60px; z-index: 100;
-  background: var(--ink); color: var(--on-light); padding: 10px 16px; border-radius: 999px;
+  background: var(--ink); color: var(--on-ink); padding: 10px 16px; border-radius: 999px;
   font: 500 14px var(--font-sans); text-decoration: none;
 }
 .skip-link:focus { top: 12px; }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .tile:hover { transform: none; }
-}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

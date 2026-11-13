@@ -25,7 +25,7 @@ const ROWS = [
 
 export default function Ledger() {
   return (
-    <section id="qualifications" className="section" style={{ scrollMarginTop: 80 }}>
+    <section id="qualifications" className="section" style={{ scrollMarginTop: 76 }}>
       <div className="wrap">
         <h2 className="h2">What the degrees do in the work.</h2>
         <p className="lede">

@@ -53,7 +53,7 @@ export default function NotFoundPage() {
             style={{
               display: 'inline-flex',
               background: 'var(--text-primary)',
-              color: 'var(--on-light)',
+              color: 'var(--on-ink)',
               padding: '12px 26px',
               fontSize: 13,
               fontWeight: 600,

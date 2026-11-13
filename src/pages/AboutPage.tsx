@@ -20,7 +20,7 @@ export default function AboutPage() {
         <meta property="og:url" content="https://michaelesema.com/about" />
       </Helmet>
       <Nav />
-      <main id="main-content" style={{ paddingTop: 72 }}>
+      <main id="main-content" style={{ paddingTop: 60 }}>
         <section className="section" style={{ paddingBottom: 0 }}>
           <div className="wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(32px, 5vw, 80px)', alignItems: 'end' }} data-grid="about-hero">
             <div>
@@ -33,7 +33,7 @@ export default function AboutPage() {
                 how it should look.
               </p>
             </div>
-            <div className="tile" style={{ aspectRatio: '4 / 5', maxWidth: 420, justifySelf: 'end' }}>
+            <div className="plate" style={{ aspectRatio: '4 / 5', maxWidth: 420, justifySelf: 'end' }}>
               <img src="/michael-esema-hero.jpg" alt="Michael Esema" loading="eager" />
             </div>
           </div>

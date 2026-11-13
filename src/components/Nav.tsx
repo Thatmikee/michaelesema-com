@@ -10,41 +10,38 @@ const links = [
 export default function Nav() {
   const [open, setOpen] = useState(false)
   return (
-    <header style={{ position: 'fixed', top: 14, left: 0, right: 0, zIndex: 50, display: 'flex', justifyContent: 'center', padding: '0 16px', pointerEvents: 'none' }}>
-      <nav aria-label="Primary" className="glass" style={{
-        pointerEvents: 'auto', display: 'flex', alignItems: 'center', gap: 6,
-        height: 52, padding: '0 8px 0 18px', borderRadius: 999, maxWidth: 720, width: '100%',
-      }}>
-        <a href="/" style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', textDecoration: 'none', letterSpacing: '-0.01em', marginRight: 'auto' }}>
+    <header className="glass" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, borderWidth: '0 0 1px 0' }}>
+      <nav aria-label="Primary" className="wrap" style={{ display: 'flex', alignItems: 'center', gap: 8, height: 60 }}>
+        <a href="/" style={{ font: '500 16px/1 var(--font-sans)', color: 'var(--ink)', textDecoration: 'none', letterSpacing: '-0.01em', marginRight: 'auto' }}>
           Michael Esema
         </a>
-        <ul className="nav-desktop" style={{ display: 'flex', listStyle: 'none', gap: 2, alignItems: 'center' }}>
+        <ul className="nav-desktop" style={{ display: 'flex', listStyle: 'none', gap: 4, alignItems: 'center' }}>
           {links.map(l => (
             <li key={l.href}>
-              <a href={l.href} className="nav-item" style={{ display: 'inline-block', padding: '8px 12px', borderRadius: 999, fontSize: 14, fontWeight: 500, color: 'var(--text-secondary)', textDecoration: 'none' }}>
+              <a href={l.href} className="nav-item" style={{ display: 'inline-block', padding: '8px 12px', font: '400 15px/1 var(--font-sans)', color: 'var(--text-secondary)', textDecoration: 'none' }}>
                 {l.label}
               </a>
             </li>
           ))}
-          <li><a href="mailto:hello@michaelesema.com" className="pill pill-solid" style={{ height: 36, padding: '0 16px', fontSize: 14 }}>Email</a></li>
+          <li><a href="mailto:hello@michaelesema.com" className="nav-item" style={{ display: 'inline-block', padding: '8px 0 8px 12px', font: '500 15px/1 var(--font-sans)', color: 'var(--ink)', textDecoration: 'none' }}>Contact</a></li>
         </ul>
         <button className="nav-mobile-btn" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(o => !o)}
-          style={{ display: 'none', background: 'none', border: 0, color: 'var(--ink)', fontSize: 14, fontWeight: 500, padding: '8px 12px', cursor: 'pointer', fontFamily: 'var(--font-sans)' }}>
+          style={{ display: 'none', background: 'none', border: 0, color: 'var(--ink)', font: '500 15px/1 var(--font-sans)', padding: '10px 0 10px 12px', cursor: 'pointer' }}>
           {open ? 'Close' : 'Menu'}
         </button>
       </nav>
       {open && (
-        <div id="mobile-menu" className="glass" style={{ pointerEvents: 'auto', position: 'absolute', top: 64, left: 16, right: 16, borderRadius: 22, padding: 10 }}>
-          {[...links, { label: 'Email', href: 'mailto:hello@michaelesema.com' }].map(l => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} style={{ display: 'block', padding: '14px 16px', fontSize: 17, fontWeight: 500, color: 'var(--ink)', textDecoration: 'none', borderRadius: 12 }}>
+        <div id="mobile-menu" className="wrap" style={{ paddingBottom: 14 }}>
+          {[...links, { label: 'Contact', href: 'mailto:hello@michaelesema.com' }].map(l => (
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} style={{ display: 'block', padding: '14px 0', font: '500 20px/1 var(--font-sans)', color: 'var(--ink)', textDecoration: 'none', borderTop: '1px solid var(--border)' }}>
               {l.label}
             </a>
           ))}
         </div>
       )}
       <style>{`
-        .nav-item:hover { color: var(--ink); background: rgba(255,255,255,0.06); }
-        @media (max-width: 640px) { .nav-desktop { display: none !important; } .nav-mobile-btn { display: block !important; } }
+        .nav-item:hover { color: var(--ink) !important; }
+        @media (max-width: 680px) { .nav-desktop { display: none !important; } .nav-mobile-btn { display: block !important; } }
       `}</style>
     </header>
   )

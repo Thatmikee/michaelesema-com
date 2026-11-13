@@ -7,6 +7,26 @@ const SITE = 'https://michaelesema.com'
 const CARD = `${SITE}/michael-esema-card.png`
 
 const ROUTE_META = {
+  '/work/sarah-bellus': {
+    title: 'Sarah Bellus | Michael Esema',
+    description: 'An identity for a Nigerian caterer in the UK, carried from the logo to the menu and the website.',
+  },
+  '/work/silent-party-9ja': {
+    title: 'Silent Party 9ja | Michael Esema',
+    description: 'Design lead for a silent-disco events brand in Nigeria, part-time for five years, and now its new booking site.',
+  },
+  '/work/bs-hive': {
+    title: "B's Hive Hotels & Suites | Michael Esema",
+    description: 'The logo and letterhead for a hotel in Abuja, designed while I was running its accounts.',
+  },
+  '/work/the-signal': {
+    title: 'The Signal | Michael Esema',
+    description: 'A masthead, issue system and data figures for a publication on retail crime.',
+  },
+  '/work/mykei': {
+    title: 'Mykei Securities | Michael Esema',
+    description: 'Brand and website for a security start-up I founded.',
+  },
   '/about': {
     title: 'About Michael Esema | Graphic and Multimedia Designer',
     description:

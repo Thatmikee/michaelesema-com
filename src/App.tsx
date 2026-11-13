@@ -1,14 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
-import CaseStudy from './components/CaseStudy'
+import WorkIndex from './components/WorkIndex'
 import Films from './components/Films'
-import WebWork from './components/WebWork'
 import Process from './components/Process'
 import Ledger from './components/Ledger'
 import Toolkit from './components/Toolkit'
 import Connect from './components/Connect'
 import Footer from './components/Footer'
+import ProjectPage from './pages/ProjectPage'
 import PhilosophyPage from './pages/PhilosophyPage'
 import AboutPage from './pages/AboutPage'
 import PrivacyPage from './pages/PrivacyPage'
@@ -23,9 +23,8 @@ function HomePage() {
       <Nav />
       <main id="main-content">
         <Hero />
-        <CaseStudy />
+        <WorkIndex />
         <Films />
-        <WebWork />
         <Process />
         <Ledger />
         <Toolkit />
@@ -40,6 +39,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/work/:slug" element={<ProjectPage />} />
       <Route path="/philosophy" element={<PhilosophyPage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/privacy" element={<PrivacyPage />} />

@@ -6,13 +6,13 @@ const FILMS = [
 
 export default function Films() {
   return (
-    <section id="films" className="section" style={{ scrollMarginTop: 80, background: 'var(--bg-raised)' }}>
+    <section id="films" className="section" style={{ scrollMarginTop: 76, background: 'var(--bg-raised)' }}>
       <div className="wrap">
         <h2 className="h2">Short films.</h2>
         <div className="films-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 40 }}>
           {FILMS.map(f => (
             <figure key={f.id} style={{ margin: 0 }}>
-              <div className="tile" style={{ aspectRatio: '9 / 16' }}>
+              <div className="plate" style={{ aspectRatio: '9 / 16' }}>
                 <video src={`/work/${f.id}-loop.mp4`} poster={`/work/${f.id}-poster.jpg`} muted loop playsInline autoPlay preload="metadata" aria-label={`${f.title}, silent preview`} />
               </div>
               <figcaption style={{ marginTop: 14 }}>
