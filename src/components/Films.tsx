@@ -6,9 +6,10 @@ const FILMS = [
 
 export default function Films() {
   return (
-    <section id="films" className="section" style={{ scrollMarginTop: 76, background: 'var(--bg-raised)' }}>
+    <section id="films" data-channel="gold" className="section" style={{ scrollMarginTop: 76, background: 'var(--bg-raised)' }}>
       <div className="wrap">
-        <h2 className="h2">Short films.</h2>
+        <p className="label">Direction, edit, captions</p>
+        <h2 className="h2" style={{ marginTop: 12 }}>Short films.</h2>
         <div className="films-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 40 }}>
           {FILMS.map(f => (
             <figure key={f.id} style={{ margin: 0 }}>

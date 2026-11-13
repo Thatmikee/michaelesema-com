@@ -25,8 +25,9 @@ export default function ProjectPage() {
       </Helmet>
       <Nav />
       <main id="main-content" style={{ paddingTop: 'clamp(110px, 12vw, 160px)' }}>
-        <article className="wrap">
-          <h1 style={{ font: '400 clamp(36px, 6vw, 84px)/1.04 var(--font-sans)', letterSpacing: '-0.04em', color: 'var(--ink)' }}>{p.title}</h1>
+        <article className="wrap" data-channel={p.channel}>
+          <p className="label">{p.discipline}</p>
+          <h1 className="display" style={{ fontSize: 'clamp(34px, 7vw, 112px)', marginTop: 14 }}>{p.title}</h1>
 
           <div className="proj-head" style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 'clamp(28px, 5vw, 80px)', marginTop: 'clamp(32px, 4vw, 56px)', paddingTop: 24, borderTop: '1px solid var(--border-mid)' }}>
             <dl style={{ display: 'grid', gap: 14, alignContent: 'start', font: '400 16px/1.45 var(--font-sans)' }}>
@@ -57,7 +58,7 @@ export default function ProjectPage() {
             <div className="proj-shots" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(12px, 1.6vw, 24px)', marginTop: 'clamp(12px, 1.6vw, 24px)' }}>
               {p.shots.map(s => (
                 <div key={s.src} className="plate" style={{ aspectRatio: s.ratio, gridColumn: s.span === 2 ? '1 / -1' : undefined, maxWidth: s.span === 2 ? 760 : undefined, justifySelf: s.span === 2 ? 'center' : undefined, width: '100%' }}>
-                  <img src={s.src} alt={s.alt} loading="lazy" style={s.fit === 'contain' ? { objectFit: 'contain', background: '#ffffff' } : undefined} />
+                  <img src={s.src} alt={s.alt} loading="lazy" style={s.fit === 'contain' ? { objectFit: 'contain', background: s.src.includes('mobile') ? 'var(--bg-raised)' : '#ffffff', padding: s.src.includes('mobile') ? '6%' : 0 } : { objectPosition: 'top' }} />
                 </div>
               ))}
             </div>

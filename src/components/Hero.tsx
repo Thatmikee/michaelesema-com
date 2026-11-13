@@ -1,21 +1,43 @@
+// Off-centre portrait, name set across it. One channel (magenta) is live.
 export default function Hero() {
   return (
-    <section aria-label="Introduction" style={{ paddingTop: 'clamp(120px, 16vw, 200px)', paddingBottom: 'clamp(40px, 6vw, 72px)' }}>
-      <div className="wrap">
-        <h1 style={{ font: '400 clamp(34px, 6.2vw, 92px)/1.04 var(--font-sans)', letterSpacing: '-0.04em', color: 'var(--ink)', maxWidth: '17ch' }}>
-          Michael Esema
-          <span style={{ color: 'var(--text-muted)' }}> is a graphic and multimedia designer working in brand, print, web and film.</span>
-        </h1>
-        <div className="hero-foot" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', gap: 'clamp(20px, 3vw, 40px)', alignItems: 'center', marginTop: 'clamp(40px, 6vw, 80px)', paddingTop: 24, borderTop: '1px solid var(--border-mid)' }}>
-          <img src="/michael-esema-portrait.jpg" alt="Michael Esema" width={1000} height={1249} fetchPriority="high"
-            style={{ width: 84, height: 84, borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 12%' }} />
-          <p style={{ font: '400 clamp(16px, 1.35vw, 19px)/1.55 var(--font-sans)', color: 'var(--text-secondary)', maxWidth: '54ch' }}>
-            Designing since 2018. Trained as an accountant, which shapes how I plan and cost a job.
+    <section aria-label="Introduction" data-channel="magenta" style={{ position: 'relative', paddingTop: 'clamp(96px, 11vw, 150px)', paddingBottom: 'clamp(48px, 6vw, 96px)', overflow: 'hidden' }}>
+      <div className="wrap hero" style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', columnGap: 'clamp(12px, 1.6vw, 24px)', alignItems: 'start' }}>
+        <div className="hero-portrait" style={{ gridColumn: '7 / 12', gridRow: '1 / 3', position: 'relative', marginTop: 'clamp(0px, 2vw, 28px)' }}>
+          <div aria-hidden="true" style={{ position: 'absolute', inset: 0, transform: 'translate(clamp(10px, 1.4vw, 22px), clamp(10px, 1.4vw, 22px))', border: '1px solid var(--accent)', borderRadius: 'var(--radius-hero)' }} />
+          <div className="plate" style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: 'var(--radius-hero)' }}>
+            <img src="/michael-esema-portrait.jpg" alt="Michael Esema" width={1000} height={1249} fetchPriority="high" style={{ objectPosition: 'center top' }} />
+          </div>
+        </div>
+
+        <div style={{ gridColumn: '1 / 10', gridRow: '1', position: 'relative', zIndex: 2, paddingTop: 'clamp(40px, 9vw, 150px)' }}>
+          <p className="label">Graphic and multimedia designer</p>
+          <h1 className="display" style={{ fontSize: 'clamp(46px, 10.2vw, 168px)', marginTop: 'clamp(12px, 1.4vw, 22px)' }}>
+            Michael<br />Esema
+          </h1>
+        </div>
+
+        <div className="hero-copy" style={{ gridColumn: '1 / 6', gridRow: '2', position: 'relative', zIndex: 2, marginTop: 'clamp(24px, 3vw, 44px)' }}>
+          <p style={{ font: '400 clamp(17px, 1.5vw, 21px)/1.55 var(--font-sans)', color: 'var(--text-secondary)', maxWidth: '40ch' }}>
+            I design identities, print and websites, and I direct short films. Since 2018 I have done it for an events
+            brand, a hotel, a caterer and a company of my own.
           </p>
-          <a href="mailto:hello@michaelesema.com" className="pill pill-solid">Get in touch</a>
+          <p style={{ font: '400 16px/1.5 var(--font-sans)', color: 'var(--ink)', marginTop: 20, paddingLeft: 14, borderLeft: '2px solid var(--accent)' }}>
+            Open to graphic and multimedia design roles in the UK.
+          </p>
+          <div style={{ display: 'flex', gap: 12, marginTop: 30, flexWrap: 'wrap' }}>
+            <a href="#work" className="pill pill-solid">See the work</a>
+            <a href="mailto:hello@michaelesema.com" className="pill pill-line">Email me</a>
+          </div>
         </div>
       </div>
-      <style>{`@media (max-width: 700px) { .hero-foot { grid-template-columns: auto 1fr !important; } .hero-foot .pill { grid-column: 1 / -1; justify-self: start; } }`}</style>
+      <style>{`
+        @media (max-width: 820px) {
+          .hero > * { grid-column: 1 / -1 !important; grid-row: auto !important; }
+          .hero-portrait { order: -1; max-width: 300px; margin-bottom: 8px; }
+          .hero > div:nth-child(2) { padding-top: 28px !important; }
+        }
+      `}</style>
     </section>
   )
 }

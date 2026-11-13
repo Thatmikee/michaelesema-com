@@ -12,7 +12,7 @@ export default function Nav() {
   return (
     <header className="glass" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, borderWidth: '0 0 1px 0' }}>
       <nav aria-label="Primary" className="wrap" style={{ display: 'flex', alignItems: 'center', gap: 8, height: 60 }}>
-        <a href="/" style={{ font: '500 16px/1 var(--font-sans)', color: 'var(--ink)', textDecoration: 'none', letterSpacing: '-0.01em', marginRight: 'auto' }}>
+        <a href="/" style={{ font: '600 14px/1 var(--font-display)', color: 'var(--ink)', textDecoration: 'none', letterSpacing: '-0.02em', marginRight: 'auto' }}>
           Michael Esema
         </a>
         <ul className="nav-desktop" style={{ display: 'flex', listStyle: 'none', gap: 4, alignItems: 'center' }}>

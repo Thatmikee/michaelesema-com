@@ -1,6 +1,6 @@
 export default function Connect() {
   return (
-    <section id="connect" className="section" style={{ borderTop: '1px solid var(--border)' }}>
+    <section id="connect" data-channel="magenta" className="section" style={{ borderTop: '1px solid var(--border)' }}>
       <div className="wrap">
         <p style={{ font: '400 17px/1.5 var(--font-sans)', color: 'var(--text-secondary)' }}>For a brief, a role or a question</p>
         <a href="mailto:hello@michaelesema.com" className="mail" style={{

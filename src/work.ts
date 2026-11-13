@@ -2,6 +2,7 @@ export type Shot = { src: string; alt: string; ratio: string; fit?: 'contain'; s
 
 export type Project = {
   slug: string
+  channel: 'magenta' | 'cyan' | 'gold'
   title: string
   discipline: string
   years: string
@@ -16,6 +17,7 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     slug: 'sarah-bellus',
+    channel: 'magenta',
     title: 'Sarah Bellus',
     discipline: 'Brand identity, print, website',
     years: '2026',
@@ -28,14 +30,19 @@ export const PROJECTS: Project[] = [
     cover: { src: '/work/sb-screen.jpg', alt: 'The Sarah Bellus website: a welcome line, an enquiry button and a plate of jollof rice', ratio: '16 / 9' },
     shots: [
       { src: '/work/sarahbellus-logo-on-aubergine.jpg', alt: 'The SiB monogram in cream on aubergine', ratio: '1 / 1' },
-      { src: '/work/sarahbellus-logo-on-bone.jpg', alt: 'The SiB monogram in aubergine on cream', ratio: '1 / 1' },
       { src: '/work/sarahbellus-menu-poster.jpg', alt: 'The printed Sarah Bellus menu', ratio: '4 / 5' },
+      { src: '/work/sb-services.jpg', alt: 'The services section of the Sarah Bellus website', ratio: '16 / 10' },
+      { src: '/work/sarahbellus-logo-on-bone.jpg', alt: 'The SiB monogram in aubergine on cream', ratio: '1 / 1' },
       { src: '/work/sarahbellus-efo-riro.jpg', alt: 'A bowl of efo riro marked with the SiB logo', ratio: '4 / 5' },
+      { src: '/work/sb-menu.jpg', alt: 'The menu section of the Sarah Bellus website', ratio: '16 / 10' },
+      { src: '/work/sb-about.jpg', alt: 'The about and enquiry form section of the Sarah Bellus website', ratio: '16 / 10' },
+      { src: '/work/sb-mobile.jpg', alt: 'The Sarah Bellus website on a phone', ratio: '4 / 5', fit: 'contain' },
     ],
     link: { href: 'https://sarahbellus.com', label: 'sarahbellus.com' },
   },
   {
     slug: 'silent-party-9ja',
+    channel: 'gold',
     title: 'Silent Party 9ja',
     discipline: 'Event branding, social, website',
     years: '2018 to 2023, and 2026',
@@ -46,11 +53,16 @@ export const PROJECTS: Project[] = [
       'In 2026 I began a new identity and booking site for them. Each channel owns one colour and only one is ever live at a time, so the page changes colour as you turn the dial. It is in development.',
     ],
     cover: { src: '/work/sp9ja-screen.jpg', alt: 'The new Silent Party 9ja site: the loudest night you will never hear', ratio: '16 / 9' },
-    shots: [],
+    shots: [
+      { src: '/work/sp-card.jpg', alt: 'The Silent Party 9ja share card: plug in, tune the room', ratio: '1200 / 630' },
+      { src: '/work/sp-how.jpg', alt: 'The how-it-works section: a party you wear on your head', ratio: '16 / 10' },
+      { src: '/work/sp-mobile.jpg', alt: 'The Silent Party 9ja site on a phone', ratio: '4 / 5', fit: 'contain' },
+    ],
     link: { href: 'https://www.instagram.com/silentparty9ja/', label: 'Silent Party 9ja on Instagram' },
   },
   {
     slug: 'bs-hive',
+    channel: 'magenta',
     title: "B's Hive Hotels & Suites",
     discipline: 'Logo and stationery',
     years: '2019 to 2023',
@@ -67,6 +79,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: 'the-signal',
+    channel: 'cyan',
     title: 'The Signal',
     discipline: 'Editorial design',
     years: '2026',
@@ -77,11 +90,16 @@ export const PROJECTS: Project[] = [
       'It also carries a corrections policy that stays on the record, which shaped the layout as much as the type did.',
     ],
     cover: { src: '/work/signal-screen.jpg', alt: 'The Signal front page with a red masthead and cover story', ratio: '16 / 9' },
-    shots: [],
+    shots: [
+      { src: '/work/signal-well.jpg', alt: 'The Signal article grid, set in columns like a newspaper', ratio: '16 / 10' },
+      { src: '/work/signal-index.jpg', alt: 'The Signal back-of-book index of every issue', ratio: '16 / 10' },
+      { src: '/work/signal-mobile.jpg', alt: 'The Signal on a phone', ratio: '4 / 5', fit: 'contain' },
+    ],
     link: { href: 'https://mykei.io/signal', label: 'mykei.io/signal' },
   },
   {
     slug: 'mykei',
+    channel: 'cyan',
     title: 'Mykei Securities',
     discipline: 'Company identity and website',
     years: '2026',
@@ -92,7 +110,9 @@ export const PROJECTS: Project[] = [
       'The result is nine colours, all checked for contrast, used the same way on every page.',
     ],
     cover: { src: '/work/mykei-securities-site.png', alt: 'The mykei.io homepage', ratio: '16 / 9' },
-    shots: [],
+    shots: [
+      { src: '/work/mykei-band.jpg', alt: 'A white and a dark band from the mykei.io homepage', ratio: '16 / 10' },
+    ],
     link: { href: 'https://mykei.io', label: 'mykei.io' },
   },
 ]
