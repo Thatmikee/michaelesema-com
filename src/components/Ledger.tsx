@@ -14,11 +14,11 @@ const ROWS = [
   {
     year: '2024', award: 'MSc International Business Management, Merit', school: 'Manchester Metropolitan University',
     does: 'Design that travels. Work made for Nigerian and British audiences at once, without either one feeling translated.',
-    see: 'Sarah Bellus, Silent Party 9ja, the short films',
+    see: 'Sarah Bellus, Silent Party 9ja',
   },
   {
     year: '2025', award: 'Lean Six Sigma', school: 'Certification',
-    does: 'Templates, type scales and a single colour file, so the tenth piece is as consistent as the first.',
+    does: 'Templates and a single colour file, so the tenth piece is as consistent as the first.',
     see: 'The Signal issue system, the colour file behind mykei.io',
   },
 ]

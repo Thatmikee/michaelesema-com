@@ -29,6 +29,9 @@ export default function WorkIndex() {
           </Link>
         )
       })}
+      <p className="label" style={{ gridColumn: '1 / -1', maxWidth: '62ch' }}>
+        Print and product pieces are shown as mock-ups: the artwork is mine, the settings are generated.
+      </p>
       <style>{`
         .work-item { position: relative; }
         .work-item:hover .work-title { text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 2px; }

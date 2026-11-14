@@ -55,13 +55,13 @@ export default function ProjectPage() {
           </div>
 
           {/scene|board|merch/.test(p.cover.src) && (
-            <p className="label" style={{ marginTop: 12 }}>Shown as a mock-up. The artwork is mine; the setting is generated.</p>
+            <p className="label" style={{ marginTop: 12 }}>Pieces photographed in a setting are mock-ups. The artwork is mine; the settings are generated.</p>
           )}
 
           {p.shots.length > 0 && (
             <div className="proj-shots" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(12px, 1.6vw, 24px)', marginTop: 'clamp(12px, 1.6vw, 24px)' }}>
               {p.shots.map(s => (
-                <div key={s.src} className="plate" style={{ aspectRatio: s.ratio, gridColumn: s.span === 2 ? '1 / -1' : undefined, maxWidth: s.span === 2 && s.fit === 'contain' ? 760 : undefined, justifySelf: s.span === 2 && s.fit === 'contain' ? 'center' : undefined, width: '100%' }}>
+                <div key={s.src} className="plate" title={/scene|board|merch/.test(s.src) ? 'Mock-up: my artwork on a generated setting' : undefined} style={{ aspectRatio: s.ratio, gridColumn: s.span === 2 ? '1 / -1' : undefined, maxWidth: s.span === 2 && s.fit === 'contain' ? 760 : undefined, justifySelf: s.span === 2 && s.fit === 'contain' ? 'center' : undefined, width: '100%' }}>
                   <img src={s.src} alt={s.alt} loading="lazy" style={s.fit === 'contain' ? { objectFit: 'contain', background: s.src.includes('mobile') ? 'var(--bg-raised)' : 'var(--paper)', padding: s.src.includes('mobile') ? '6%' : 0 } : { objectPosition: 'top' }} />
                 </div>
               ))}

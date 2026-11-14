@@ -46,9 +46,9 @@ export const PROJECTS: Project[] = [
     discipline: 'Event branding, social, website',
     years: '2018 to 2023, and 2026',
     role: 'Design lead',
-    summary: 'Design lead for a silent-disco events brand in Nigeria, part-time for five years, and now its new booking site.',
+    summary: 'Design lead, part-time, for a silent-disco events brand in Nigeria from 2018 to 2023, and now its new booking site.',
     body: [
-      'Silent Party 9ja runs headphone parties: three DJs, three channels, and every guest picks their own. I led design for the brand part-time from 2018 to February 2023, working with the team on event flyers and social posts. That work belongs to the brand and is published on its Instagram.',
+      'Silent Party 9ja runs headphone parties: three DJs, three channels, and every guest picks their own. I led design for the brand part-time from 2018 to February 2023, working with the team on its visual identity and promotional materials. That work belongs to the brand and is published on its Instagram.',
       'In 2026 I began a new identity and booking site for them. Each channel owns one colour and only one is ever live at a time, so the page changes colour as you turn the dial. It is in development.',
     ],
     cover: { src: '/work/sp-board.jpg', alt: 'The new Silent Party 9ja site on a tablet and a phone, lit in pink', ratio: '16 / 10' },
@@ -105,7 +105,7 @@ export const PROJECTS: Project[] = [
     role: 'Founder and designer',
     summary: 'Brand and website for a security start-up I founded.',
     body: [
-      'Mykei is a security start-up I founded. I designed its identity and its website, and set a rule that every colour on the site comes from one file, after an early version drifted into five slightly different golds.',
+      'Mykei Securities is a security technology start-up I founded. I designed its identity and its website, and set a rule that every colour on the site comes from one file, after an early version drifted into five slightly different golds.',
       'The result is nine colours, all checked for contrast, used the same way on every page.',
     ],
     cover: { src: '/work/mykei-securities-site.png', alt: 'The mykei.io homepage', ratio: '16 / 9' },
