@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import WorkIndex from './components/WorkIndex'
+import Ledger from './components/Ledger'
 import Connect from './components/Connect'
 import Footer from './components/Footer'
 import ProjectPage from './pages/ProjectPage'
@@ -18,6 +19,7 @@ function HomePage() {
       <main id="main-content">
         <Hero />
         <WorkIndex />
+        <Ledger />
         <Connect />
       </main>
       <Footer />

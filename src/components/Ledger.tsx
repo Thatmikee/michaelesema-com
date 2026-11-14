@@ -27,7 +27,7 @@ export default function Ledger() {
   return (
     <section id="qualifications" className="section" style={{ scrollMarginTop: 76 }}>
       <div className="wrap">
-        <h2 className="h2">What the degrees do in the work.</h2>
+        <h2 className="h2">Qualifications, and what each one does in the work.</h2>
         <p className="lede">
           I did not study design at university. I studied how businesses run, and I have designed for them the whole time.
           Here is what each qualification is worth on a design job.

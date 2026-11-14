@@ -30,6 +30,7 @@ export default function WorkIndex() {
         )
       })}
       <style>{`
+        .work-item { position: relative; }
         .work-item:hover .work-title { text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 2px; }
         @media (max-width: 760px) { .work-item { grid-column: 1 / -1 !important; } .work-item .plate { aspect-ratio: 4 / 3 !important; } }
       `}</style>

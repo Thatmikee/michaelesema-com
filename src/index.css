@@ -67,8 +67,46 @@
 .text-link { color: var(--green); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1.5px; font-weight: 600; }
 .text-link:hover { color: var(--ink); }
 
-.plate { overflow: hidden; border-radius: var(--radius); background: var(--bg-raised); }
-.plate img { width: 100%; height: 100%; object-fit: cover; }
+/* Every picture is a slab: a hard extruded edge in deep green, then a soft
+   cast shadow. Linked pictures lift a little further under the pointer. */
+.plate {
+  overflow: hidden; border-radius: var(--radius); background: var(--bg-raised);
+  box-shadow:
+    1px 1px 0 var(--green), 2px 2px 0 var(--green), 3px 3px 0 var(--green), 4px 4px 0 var(--green),
+    5px 5px 0 var(--green), 6px 6px 0 var(--green), 7px 7px 0 var(--green), 8px 8px 0 var(--green),
+    18px 26px 40px rgba(15, 61, 46, 0.22);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+}
+.plate img, .plate video { width: 100%; height: 100%; object-fit: cover; }
+a:hover > .plate, a.plate:hover {
+  transform: translate(-4px, -4px);
+  box-shadow:
+    1px 1px 0 var(--green), 2px 2px 0 var(--green), 3px 3px 0 var(--green), 4px 4px 0 var(--green),
+    5px 5px 0 var(--green), 6px 6px 0 var(--green), 7px 7px 0 var(--green), 8px 8px 0 var(--green),
+    9px 9px 0 var(--green), 10px 10px 0 var(--green), 11px 11px 0 var(--green), 12px 12px 0 var(--green),
+    26px 36px 50px rgba(15, 61, 46, 0.24);
+}
+
+/* The ground is ruled like a ledger page, and one thread runs down the left
+   margin from the top of the page to the bottom, drawn as you scroll. */
+body {
+  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 47px, rgba(15, 61, 46, 0.075) 47px, rgba(15, 61, 46, 0.075) 48px);
+}
+main { position: relative; }
+main::before, main::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 2px; pointer-events: none;
+  left: max(8px, calc((100vw - 1400px) / 2 + clamp(20px, 4.5vw, 64px) - 16px));
+}
+main::before { background: rgba(15, 61, 46, 0.18); }
+main::after { background: var(--green); transform-origin: top; }
+@supports (animation-timeline: scroll()) {
+  main::after { animation: thread linear both; animation-timeline: scroll(root block); }
+  @keyframes thread { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plate, a:hover > .plate, a.plate:hover { transition: none; transform: none; }
+  main::after { animation: none; }
+}
 
 .skip-link {
   position: absolute; left: 12px; top: -60px; z-index: 100;
