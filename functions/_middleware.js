@@ -30,7 +30,7 @@ const ROUTE_META = {
   '/about': {
     title: 'About Michael Esema | Graphic and Multimedia Designer',
     description:
-      'Michael Esema, graphic and multimedia designer. Designing since 2018. BSc Accounting, MBA, MSc International Business Management (Merit), Lean Six Sigma.',
+      'Michael Esema is a graphic and multimedia designer based in the UK, originally from Nigeria, with a background in accounting and business management.',
   },
   '/privacy': {
     title: 'Privacy | Michael Esema',

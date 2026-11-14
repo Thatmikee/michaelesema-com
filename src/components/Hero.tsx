@@ -10,8 +10,8 @@ export default function Hero() {
             Graphic and multimedia designer
           </p>
           <p style={{ font: '400 clamp(17px, 1.5vw, 21px)/1.5 var(--font-sans)', color: 'var(--text-secondary)', maxWidth: '38ch', marginTop: 'clamp(22px, 2.6vw, 36px)' }}>
-            Identities, print, websites and social content, designed for businesses since 2018. BSc Accounting, MBA,
-            MSc International Business Management.
+            Brand identities, marketing campaigns, publications and multimedia content, designed for businesses since
+            2018.
           </p>
         </div>
 

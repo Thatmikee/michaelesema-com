@@ -15,7 +15,7 @@ function HomePage() {
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
-      <Nav />
+      <Nav home />
       <main id="main-content">
         <Hero />
         <WorkIndex />
