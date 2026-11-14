@@ -25,7 +25,7 @@ const ROWS = [
 
 export default function Ledger() {
   return (
-    <section id="qualifications" data-channel="cyan" className="section" style={{ scrollMarginTop: 76 }}>
+    <section id="qualifications" className="section" style={{ scrollMarginTop: 76 }}>
       <div className="wrap">
         <h2 className="h2">What the degrees do in the work.</h2>
         <p className="lede">
@@ -38,7 +38,7 @@ export default function Ledger() {
               display: 'grid', gridTemplateColumns: '72px 1fr 1.5fr', gap: 'clamp(16px, 3vw, 48px)',
               padding: 'clamp(22px, 3vw, 34px) 0', borderTop: i ? '1px solid var(--border)' : 'none',
             }}>
-              <div style={{ font: '500 15px/1.5 var(--font-mono)', color: 'var(--accent)' }}>{r.year}</div>
+              <div style={{ font: '700 20px/1.3 var(--font-sans)', color: 'var(--green)' }}>{r.year}</div>
               <div>
                 <h3 style={{ font: '600 clamp(18px, 1.7vw, 22px)/1.25 var(--font-sans)', letterSpacing: '-0.01em', color: 'var(--ink)' }}>{r.award}</h3>
                 <p style={{ font: '400 15px/1.5 var(--font-sans)', color: 'var(--text-muted)', marginTop: 4 }}>{r.school}</p>

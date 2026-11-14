@@ -25,9 +25,9 @@ export default function ProjectPage() {
       </Helmet>
       <Nav />
       <main id="main-content" style={{ paddingTop: 'clamp(110px, 12vw, 160px)' }}>
-        <article className="wrap" data-channel={p.channel}>
+        <article className="wrap">
           <p className="label">{p.discipline}</p>
-          <h1 className="display" style={{ fontSize: 'clamp(34px, 7vw, 112px)', marginTop: 14 }}>{p.title}</h1>
+          <h1 className="display" style={{ marginTop: 10 }}>{p.title}</h1>
 
           <div className="proj-head" style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 'clamp(28px, 5vw, 80px)', marginTop: 'clamp(32px, 4vw, 56px)', paddingTop: 24, borderTop: '1px solid var(--border-mid)' }}>
             <dl style={{ display: 'grid', gap: 14, alignContent: 'start', font: '400 16px/1.45 var(--font-sans)' }}>
@@ -51,14 +51,14 @@ export default function ProjectPage() {
 
           <div className="plate" style={{ aspectRatio: p.cover.ratio, marginTop: 'clamp(40px, 6vw, 80px)' }}>
             <img src={p.cover.src} alt={p.cover.alt}
-              style={p.cover.fit === 'contain' ? { objectFit: 'contain', padding: '8%', background: '#ffffff' } : { objectPosition: 'top' }} />
+              style={p.cover.fit === 'contain' ? { objectFit: 'contain', padding: '8%', background: 'var(--paper)', border: '1px solid var(--border)' } : { objectPosition: 'top' }} />
           </div>
 
           {p.shots.length > 0 && (
             <div className="proj-shots" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(12px, 1.6vw, 24px)', marginTop: 'clamp(12px, 1.6vw, 24px)' }}>
               {p.shots.map(s => (
                 <div key={s.src} className="plate" style={{ aspectRatio: s.ratio, gridColumn: s.span === 2 ? '1 / -1' : undefined, maxWidth: s.span === 2 ? 760 : undefined, justifySelf: s.span === 2 ? 'center' : undefined, width: '100%' }}>
-                  <img src={s.src} alt={s.alt} loading="lazy" style={s.fit === 'contain' ? { objectFit: 'contain', background: s.src.includes('mobile') ? 'var(--bg-raised)' : '#ffffff', padding: s.src.includes('mobile') ? '6%' : 0 } : { objectPosition: 'top' }} />
+                  <img src={s.src} alt={s.alt} loading="lazy" style={s.fit === 'contain' ? { objectFit: 'contain', background: s.src.includes('mobile') ? 'var(--bg-raised)' : 'var(--paper)', padding: s.src.includes('mobile') ? '6%' : 0 } : { objectPosition: 'top' }} />
                 </div>
               ))}
             </div>

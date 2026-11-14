@@ -3,9 +3,6 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import WorkIndex from './components/WorkIndex'
 import Films from './components/Films'
-import Process from './components/Process'
-import Ledger from './components/Ledger'
-import Toolkit from './components/Toolkit'
 import Connect from './components/Connect'
 import Footer from './components/Footer'
 import ProjectPage from './pages/ProjectPage'
@@ -20,14 +17,11 @@ function HomePage() {
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
-      <Nav />
+      <Nav onLedger />
       <main id="main-content">
         <Hero />
         <WorkIndex />
         <Films />
-        <Process />
-        <Ledger />
-        <Toolkit />
         <Connect />
       </main>
       <Footer />

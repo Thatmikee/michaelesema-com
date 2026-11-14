@@ -2,7 +2,7 @@ export type Shot = { src: string; alt: string; ratio: string; fit?: 'contain'; s
 
 export type Project = {
   slug: string
-  channel: 'magenta' | 'cyan' | 'gold'
+  home: boolean
   title: string
   discipline: string
   years: string
@@ -17,7 +17,7 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     slug: 'sarah-bellus',
-    channel: 'magenta',
+    home: true,
     title: 'Sarah Bellus',
     discipline: 'Brand identity, print, website',
     years: '2026',
@@ -34,15 +34,13 @@ export const PROJECTS: Project[] = [
       { src: '/work/sb-services.jpg', alt: 'The services section of the Sarah Bellus website', ratio: '16 / 10' },
       { src: '/work/sarahbellus-logo-on-bone.jpg', alt: 'The SiB monogram in aubergine on cream', ratio: '1 / 1' },
       { src: '/work/sarahbellus-efo-riro.jpg', alt: 'A bowl of efo riro marked with the SiB logo', ratio: '4 / 5' },
-      { src: '/work/sb-menu.jpg', alt: 'The menu section of the Sarah Bellus website', ratio: '16 / 10' },
-      { src: '/work/sb-about.jpg', alt: 'The about and enquiry form section of the Sarah Bellus website', ratio: '16 / 10' },
       { src: '/work/sb-mobile.jpg', alt: 'The Sarah Bellus website on a phone', ratio: '4 / 5', fit: 'contain' },
     ],
     link: { href: 'https://sarahbellus.com', label: 'sarahbellus.com' },
   },
   {
     slug: 'silent-party-9ja',
-    channel: 'gold',
+    home: true,
     title: 'Silent Party 9ja',
     discipline: 'Event branding, social, website',
     years: '2018 to 2023, and 2026',
@@ -52,9 +50,8 @@ export const PROJECTS: Project[] = [
       'Silent Party 9ja runs headphone parties: three DJs, three channels, and every guest picks their own. I led design for the brand part-time from 2018 to February 2023, working with the team on event flyers and social posts. That work belongs to the brand and is published on its Instagram.',
       'In 2026 I began a new identity and booking site for them. Each channel owns one colour and only one is ever live at a time, so the page changes colour as you turn the dial. It is in development.',
     ],
-    cover: { src: '/work/sp9ja-screen.jpg', alt: 'The new Silent Party 9ja site: the loudest night you will never hear', ratio: '16 / 9' },
+    cover: { src: '/work/sp-board.jpg', alt: 'The new Silent Party 9ja site on desktop and phone: the loudest night you will never hear', ratio: '16 / 10' },
     shots: [
-      { src: '/work/sp-card.jpg', alt: 'The Silent Party 9ja share card: plug in, tune the room', ratio: '1200 / 630' },
       { src: '/work/sp-how.jpg', alt: 'The how-it-works section: a party you wear on your head', ratio: '16 / 10' },
       { src: '/work/sp-mobile.jpg', alt: 'The Silent Party 9ja site on a phone', ratio: '4 / 5', fit: 'contain' },
     ],
@@ -62,7 +59,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: 'bs-hive',
-    channel: 'magenta',
+    home: true,
     title: "B's Hive Hotels & Suites",
     discipline: 'Logo and stationery',
     years: '2019 to 2023',
@@ -72,14 +69,14 @@ export const PROJECTS: Project[] = [
       "I joined B's Hive in Abuja as Head Accountant in 2019 and ended up responsible for how the hotel looked as well as how it balanced. I designed the logo, a B and an H locked into one block in the hotel's red and blue, and the letterhead that carried it, with the monogram repeated as a watermark.",
       'I also made the promotions and social posts for the hotel and its lounge during those years.',
     ],
-    cover: { src: '/work/bshive-logo.jpg', alt: "The B's Hive Hotels and Suites logo: a red and blue BH monogram above the name", ratio: '16 / 9', fit: 'contain' },
+    cover: { src: '/work/bshive-board.jpg', alt: "The B's Hive Hotels and Suites logo beside the letterhead that carries it", ratio: '16 / 10' },
     shots: [
       { src: '/work/bshive-letterhead.jpg', alt: "The B's Hive letterhead with logo, watermark and address footer", ratio: '210 / 297', fit: 'contain', span: 2 },
     ],
   },
   {
     slug: 'the-signal',
-    channel: 'cyan',
+    home: true,
     title: 'The Signal',
     discipline: 'Editorial design',
     years: '2026',
@@ -99,7 +96,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: 'mykei',
-    channel: 'cyan',
+    home: false,
     title: 'Mykei Securities',
     discipline: 'Company identity and website',
     years: '2026',
