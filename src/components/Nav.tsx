@@ -5,9 +5,9 @@ const links = [
 ]
 
 // Three links fit on a phone, so there is no menu button to open.
-export default function Nav({ onLedger = false }: { onLedger?: boolean }) {
+export default function Nav() {
   return (
-    <header style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 50, background: onLedger ? 'transparent' : 'var(--paper)' }}>
+    <header style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 50 }}>
       <nav aria-label="Primary" className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, height: 72 }}>
         <a href="/" style={{ font: '700 18px/1 var(--font-sans)', letterSpacing: '-0.02em', color: 'var(--ink)', textDecoration: 'none' }}>Michael Esema</a>
         <ul style={{ display: 'flex', listStyle: 'none', gap: 'clamp(16px, 2.4vw, 36px)' }}>

@@ -4,10 +4,10 @@ import { PROJECTS } from '../work'
 // Four pieces, one image each. Widths and sides vary so the page has a
 // rhythm: full, right, left, full.
 const PLACE = [
-  { col: '1 / 13', ratio: '16 / 8' },
+  { col: '1 / 13', ratio: '16 / 10' },
   { col: '5 / 13', ratio: '16 / 10' },
   { col: '1 / 9', ratio: '16 / 10' },
-  { col: '1 / 13', ratio: '16 / 8' },
+  { col: '2 / 12', ratio: '16 / 9' },
 ]
 
 export default function WorkIndex() {

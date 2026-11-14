@@ -8,7 +8,6 @@ export default function Footer() {
         </span>
         <nav aria-label="Footer" style={{ display: 'flex', gap: 20 }}>
           <a href="/about" style={link}>About</a>
-          <a href="/thinking" style={link}>Writing</a>
           <a href="https://www.linkedin.com/in/michaelesema" target="_blank" rel="noopener noreferrer" style={link}>LinkedIn</a>
           <a href="/privacy" style={link}>Privacy</a>
         </nav>

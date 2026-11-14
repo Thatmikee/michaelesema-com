@@ -2,72 +2,28 @@
 @source "./src";
 
 /*
-  Palette: white paper, the pale green of ledger paper, black ink and one deep
-  green for links. The brands shown in the work supply all other colour.
+  One ground for the whole site: the pale green of ledger paper. Black ink,
+  one deep green for links, white only inside the work itself.
   Every colour resolves to a token here; do not declare colours in components.
-  Contrast: ink on white 21:1, on ledger 17:1. Secondary on white 9.7:1.
-  Muted on white 6.0:1, on ledger 4.9:1. Deep green on white 11.9:1.
+  Contrast on ledger: ink 17:1, secondary 8.0:1, muted 4.9:1, green 9.7:1.
 */
 @layer base {
   :root {
-    --paper:           #ffffff;
     --ledger:          #dfeadb;
+    --paper:           #ffffff;
     --ink:             #000000;
     --green:           #0f3d2e;
 
-    --page-bg:         var(--paper);
-    --hero-bg:         var(--ledger);
-    --bg:              var(--paper);
-    --bg-section:      var(--paper);
-    --bg-raised:       #f3f5f1;
-    --bg-surface:      var(--paper);
-    --section-tint:    #f3f5f1;
+    --page-bg:         var(--ledger);
+    --bg-raised:       #d2e0cd;
+    --text-secondary:  #333a35;
+    --text-muted:      #525a54;
+    --on-ink:          #ffffff;
+    --border:          rgba(0, 0, 0, 0.14);
+    --border-mid:      rgba(0, 0, 0, 0.32);
 
-    --text-primary:    var(--ink);
-    --text-secondary:  #3b3f3c;
-    --text-muted:      #5c615d;
-
-    --accent:          var(--green);
-    --accent-hover:    var(--ink);
-    --accent-active:   var(--ink);
-    --accent-dim:      rgba(15, 61, 46, 0.10);
-    --accent-on-dark:  var(--green);
-    --on-ink:          var(--paper);
-
-    --border:          rgba(0, 0, 0, 0.12);
-    --border-mid:      rgba(0, 0, 0, 0.28);
-
-    /* Aliases used by the long-form subpages; all map to tokens above. */
-    --highlight:       var(--green);
-    --highlight-hover: var(--ink);
-    --yellow:          var(--green);
-    --navy:            var(--ink);
-    --red:             var(--green);
-    --red-bright:      var(--ink);
-    --red-dim:         rgba(15, 61, 46, 0.10);
-    --red-line:        rgba(15, 61, 46, 0.30);
-    --red-text:        var(--green);
-    --gold:            var(--green);
-    --gold-light:      var(--ink);
-    --gold-dim:        rgba(15, 61, 46, 0.10);
-    --gold-line:       rgba(15, 61, 46, 0.28);
-    --gold-text:       var(--green);
-    --light-bg:        #f3f5f1;
-    --light-border:    rgba(0, 0, 0, 0.12);
-    --text-dark:       var(--ink);
-    --text-dark-secondary: #3b3f3c;
-    --dark:            var(--ledger);
-    --dark-card:       var(--paper);
-    --dark-border:     rgba(0, 0, 0, 0.12);
-
-    --radius-sm:       2px;
-    --radius-card:     2px;
-    --radius-hero:     2px;
-    --shadow-card:     none;
-
+    --radius:          2px;
     --font-sans: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
-    --font-display: var(--font-sans);
-    --font-mono: var(--font-sans);
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -81,24 +37,17 @@
     background: var(--page-bg);
   }
 
-  body {
-    background: var(--page-bg);
-    color: var(--text-primary);
-    font-family: var(--font-sans);
-    overflow-x: hidden;
-  }
+  body { background: var(--page-bg); color: var(--ink); font-family: var(--font-sans); overflow-x: hidden; }
 
   img, video { display: block; max-width: 100%; }
   ::selection { background: var(--ink); color: var(--on-ink); }
   :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 }
 
-.glass { background: var(--paper); border: 0 solid var(--border); }
-
 .wrap { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 clamp(20px, 4.5vw, 64px); }
 .section { padding: clamp(72px, 9vw, 140px) 0; }
 
-/* Type scale: 16, 20, 28, 44, 72, 120. One family, weight does the work. */
+/* Type scale: 16, 20, 28, 44, 72, 120. One family; weight does the work. */
 .display { font: 700 clamp(44px, 8.4vw, 120px)/0.94 var(--font-sans); letter-spacing: -0.045em; color: var(--ink); }
 .h2 { font: 700 clamp(30px, 4.4vw, 60px)/1 var(--font-sans); letter-spacing: -0.035em; color: var(--ink); max-width: 18ch; }
 .lede { font: 400 clamp(17px, 1.45vw, 20px)/1.5 var(--font-sans); color: var(--text-secondary); max-width: 58ch; margin-top: 18px; }
@@ -106,9 +55,9 @@
 
 .pill {
   display: inline-flex; align-items: center; justify-content: center;
-  height: 50px; padding: 0 26px; border-radius: 2px;
+  height: 50px; padding: 0 26px; border-radius: var(--radius);
   font: 600 16px/1 var(--font-sans); text-decoration: none; white-space: nowrap;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  transition: background-color 0.15s, color 0.15s;
 }
 .pill-solid { background: var(--ink); color: var(--on-ink); }
 .pill-solid:hover { background: var(--green); }
@@ -118,8 +67,8 @@
 .text-link { color: var(--green); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1.5px; font-weight: 600; }
 .text-link:hover { color: var(--ink); }
 
-.plate { overflow: hidden; border-radius: var(--radius-card); background: var(--bg-raised); }
-.plate img, .plate video { width: 100%; height: 100%; object-fit: cover; }
+.plate { overflow: hidden; border-radius: var(--radius); background: var(--bg-raised); }
+.plate img { width: 100%; height: 100%; object-fit: cover; }
 
 .skip-link {
   position: absolute; left: 12px; top: -60px; z-index: 100;

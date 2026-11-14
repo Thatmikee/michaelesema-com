@@ -17,7 +17,7 @@ const ROUTE_META = {
   },
   '/work/bs-hive': {
     title: "B's Hive Hotels & Suites | Michael Esema",
-    description: 'The logo and letterhead for a hotel in Abuja, designed while I was running its accounts.',
+    description: 'The logo for a hotel in Abuja, and everything it was printed on, designed while I was running its accounts.',
   },
   '/work/the-signal': {
     title: 'The Signal | Michael Esema',
@@ -31,10 +31,6 @@ const ROUTE_META = {
     title: 'About Michael Esema | Graphic and Multimedia Designer',
     description:
       'Michael Esema, graphic and multimedia designer. Designing since 2018. BSc Accounting, MBA, MSc International Business Management (Merit), Lean Six Sigma.',
-  },
-  '/thinking': {
-    title: 'Writing | Michael Esema',
-    description: 'Notes by Michael Esema on design, trust, and building businesses across Nigeria and the UK.',
   },
   '/privacy': {
     title: 'Privacy | Michael Esema',
