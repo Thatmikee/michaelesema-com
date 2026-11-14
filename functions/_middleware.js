@@ -13,7 +13,7 @@ const ROUTE_META = {
   },
   '/work/silent-party-9ja': {
     title: 'Silent Party 9ja | Michael Esema',
-    description: 'Design lead for a silent-disco events brand in Nigeria, part-time for five years, and now its new booking site.',
+    description: 'Design lead, part-time, for a silent-disco events brand in Nigeria from 2018 to 2023, and now its new booking site.',
   },
   '/work/bs-hive': {
     title: "B's Hive Hotels & Suites | Michael Esema",

@@ -22,6 +22,7 @@ export default function Hero() {
               aria-label="An illustrated Michael Esema waving" />
             <img className="still" src="/michael-esema-illustrated.jpg" alt="An illustrated portrait of Michael Esema" width={896} height={1120} />
           </div>
+          <p className="label" style={{ fontSize: 14, marginTop: 14 }}>Illustration and animation generated from my photograph.</p>
         </div>
       </div>
       <style>{`
