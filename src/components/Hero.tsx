@@ -1,126 +1,49 @@
-import { motion, useReducedMotion } from 'framer-motion'
-
-const ease = [0.16, 1, 0.3, 1] as const
-
+// The drawn portrait waves once and settles, on a loop that starts and ends
+// on the same frame. A speech bubble beside it is the one call to action.
 export default function Hero() {
-  const reduce = useReducedMotion()
-  const fadeUp = (delay: number) => ({
-    initial: reduce ? {} : { opacity: 0, y: 24 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, delay, ease },
-  })
-
   return (
-    <section
-      aria-label="Introduction"
-      style={{
-        background: 'var(--hero-bg)',
-        position: 'relative',
-        overflow: 'hidden',
-        minHeight: 'min(94vh, 860px)',
-        display: 'flex',
-        alignItems: 'flex-end',
-      }}
-    >
-      <div className="hero-grid" style={{
-        maxWidth: 1280, margin: '0 auto', width: '100%',
-        display: 'grid',
-        gridTemplateColumns: '1.05fr 0.95fr',
-        alignItems: 'end',
-        minHeight: 'inherit',
-      }}>
-        {/* Left: statement */}
-        <div className="hero-copy" style={{
-          padding: 'clamp(120px, 14vw, 170px) clamp(28px, 5vw, 56px) clamp(64px, 9vw, 110px)',
-          zIndex: 2,
-        }}>
-          <motion.p {...fadeUp(0.05)} style={{
-            fontFamily: "'Hanken Grotesk', sans-serif",
-            fontSize: 13,
-            fontWeight: 600,
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            color: 'var(--accent)',
-            margin: 0,
-          }}>
-            Michael Esema
-          </motion.p>
-
-          <motion.h1 {...fadeUp(0.16)} style={{
-            fontFamily: "'Fraunces', serif",
-            fontOpticalSizing: 'auto',
-            fontSize: 'clamp(32px, 4.6vw, 54px)',
-            fontWeight: 650,
-            lineHeight: 1.18,
-            letterSpacing: '-0.4px',
-            color: 'var(--ink)',
-            margin: '10px 0 0',
-            maxWidth: 560,
-          }}>
-            I started in accounting because I wanted to understand how businesses
-            actually work. Now I use that to{' '}
-            <span style={{
-              backgroundImage: 'linear-gradient(var(--highlight), var(--highlight))',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: '0 92%',
-              backgroundSize: '100% 0.28em',
-            }}>
-              build and lead them
-            </span>
-            .
-          </motion.h1>
-
-          <motion.div {...fadeUp(0.46)}>
-            <a href="#work" className="hero-link" style={{
-              display: 'inline-flex', alignItems: 'center',
-              color: 'var(--accent)',
-              fontFamily: "'Hanken Grotesk', sans-serif",
-              fontWeight: 600, fontSize: 13,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              marginTop: 40,
-              textDecoration: 'none',
-              borderBottom: '1px solid transparent',
-            }}>
-              Selected work <span aria-hidden="true">↓</span>
-            </a>
-          </motion.div>
+    <section aria-label="Introduction" style={{ paddingTop: 72 }}>
+      <div className="wrap hero" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: 'clamp(24px, 4vw, 64px)', alignItems: 'end', minHeight: 'min(88dvh, 860px)' }}>
+        <div style={{ alignSelf: 'center', padding: 'clamp(32px, 5vw, 72px) 0' }}>
+          <h1 className="display">Michael Esema</h1>
+          <p style={{ font: '500 clamp(24px, 3.4vw, 46px)/1.08 var(--font-sans)', letterSpacing: '-0.03em', color: 'var(--green)', marginTop: 'clamp(10px, 1.2vw, 18px)' }}>
+            Graphic and multimedia designer
+          </p>
+          <p style={{ font: '400 clamp(17px, 1.5vw, 21px)/1.5 var(--font-sans)', color: 'var(--text-secondary)', maxWidth: '38ch', marginTop: 'clamp(22px, 2.6vw, 36px)' }}>
+            Brand identities, marketing campaigns, publications and multimedia content, designed for businesses since
+            2018.
+          </p>
         </div>
 
-        {/* Right: integrated portrait (grey background blends into hero) */}
-        <motion.div
-          className="hero-portrait"
-          initial={reduce ? {} : { opacity: 0, scale: 1.03 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, ease }}
-          style={{ position: 'relative', alignSelf: 'end', height: '100%', minHeight: 360 }}
-        >
-          <img
-            src="/michael-esema-portrait.jpg"
-            alt="Michael Esema, in a black leather jacket"
-            style={{
-              position: 'absolute',
-              right: 0, bottom: 0,
-              height: '100%', width: '100%',
-              objectFit: 'cover',
-              objectPosition: 'center top',
-            }}
-          />
-        </motion.div>
+        <div className="hero-figure" style={{ position: 'relative', alignSelf: 'end' }}>
+          <a href="mailto:hello@michaelesema.com" className="bubble">Contact me</a>
+          <div className="plate" style={{ aspectRatio: '3 / 4' }}>
+            <video className="wave" src="/michael-esema-wave.mp4" poster="/michael-esema-illustrated.jpg" autoPlay muted loop playsInline
+              aria-label="An illustrated Michael Esema waving" />
+            <img className="still" src="/michael-esema-illustrated.jpg" alt="An illustrated portrait of Michael Esema" width={896} height={1120} />
+          </div>
+        </div>
       </div>
-
       <style>{`
-        .hero-link:hover, .hero-link:focus-visible { border-bottom-color: var(--accent); }
-        @media (max-width: 860px) {
-          .hero-grid { grid-template-columns: 1fr !important; }
-          .hero-copy { order: 2; padding-top: 24px !important; }
-          .hero-portrait { order: 1; height: auto !important; min-height: 0 !important; }
-          .hero-portrait img {
-            position: relative !important;
-            height: auto !important;
-            max-height: 56vh;
-            object-position: center 18% !important;
-          }
+        .hero-figure .still { display: none; object-position: center top; }
+        .hero-figure .wave { object-position: center top; }
+        .bubble {
+          position: absolute; z-index: 2; left: clamp(-70px, -5vw, -24px); top: 13%;
+          background: var(--ink); color: var(--on-ink); text-decoration: none;
+          font: 600 clamp(16px, 1.4vw, 20px)/1 var(--font-sans); padding: 16px 22px; border-radius: 22px 22px 4px 22px;
+          box-shadow: 4px 4px 0 var(--green); transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+        }
+        .bubble::after { content: ''; position: absolute; right: -9px; bottom: 0; width: 18px; height: 18px; background: var(--ink); clip-path: polygon(0 0, 100% 100%, 0 100%); }
+        .bubble:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--green); }
+        @media (max-width: 820px) {
+          .hero { grid-template-columns: 1fr !important; min-height: 0 !important; }
+          .hero-figure { max-width: 340px; margin-left: 24px; }
+          .bubble { left: -24px; top: 8%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .hero-figure .wave { display: none; }
+          .hero-figure .still { display: block; }
+          .bubble { transition: none; }
         }
       `}</style>
     </section>

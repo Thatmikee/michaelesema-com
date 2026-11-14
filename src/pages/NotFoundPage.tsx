@@ -12,7 +12,7 @@ export default function NotFoundPage() {
       <Nav />
       <main
         style={{
-          background: 'var(--bg)',
+          background: 'var(--page-bg)',
           minHeight: '70vh',
           display: 'flex',
           alignItems: 'center',
@@ -24,11 +24,11 @@ export default function NotFoundPage() {
         <div>
           <p
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: 'var(--font-sans)',
               fontSize: 11,
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
-              color: 'var(--gold-text)',
+              color: 'var(--green)',
               marginBottom: 18,
             }}
           >
@@ -36,10 +36,10 @@ export default function NotFoundPage() {
           </p>
           <h1
             style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
+              fontFamily: 'var(--font-sans)',
               fontSize: 'clamp(28px, 4vw, 44px)',
               fontWeight: 400,
-              color: 'var(--text-primary)',
+              color: 'var(--ink)',
               marginBottom: 16,
             }}
           >
@@ -52,8 +52,8 @@ export default function NotFoundPage() {
             href="/"
             style={{
               display: 'inline-flex',
-              background: 'var(--text-primary)',
-              color: '#fff',
+              background: 'var(--ink)',
+              color: 'var(--on-ink)',
               padding: '12px 26px',
               fontSize: 13,
               fontWeight: 600,

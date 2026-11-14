@@ -5,11 +5,11 @@ export default function PrivacyPage() {
   return (
     <>
       <Nav />
-      <main style={{ background: 'var(--bg)', minHeight: '100vh', paddingTop: 100 }}>
+      <main style={{ background: 'var(--page-bg)', minHeight: '100vh', paddingTop: 100 }}>
         <article style={{ maxWidth: 720, margin: '0 auto', padding: '0 40px 96px' }}>
 
           <div style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: 'var(--font-sans)',
             fontSize: 10,
             letterSpacing: '0.18em',
             textTransform: 'uppercase' as const,
@@ -20,10 +20,10 @@ export default function PrivacyPage() {
           </div>
 
           <h1 style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: 'var(--font-sans)',
             fontSize: 'clamp(28px, 4vw, 44px)',
             fontWeight: 400,
-            color: 'var(--text-primary)',
+            color: 'var(--ink)',
             marginBottom: 12,
             lineHeight: 1.15,
           }}>
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
           </h1>
 
           <p style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: 'var(--font-sans)',
             fontSize: 11,
             color: 'var(--text-secondary)',
             marginBottom: 48,
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
           {[
             {
               heading: 'Who this is',
-              body: 'This is the personal site of Michael Esema, based in Manchester, UK. Michael also founded Mykei Securities Ltd (Company No. 16984969). For any data-related enquiries, contact privacy@mykei.io.',
+              body: 'This is the personal site of Michael Esema, based in the UK. Michael also founded Mykei Securities Ltd (Company No. 16984969). For any data-related enquiries, contact privacy@mykei.io.',
             },
             {
               heading: 'What data is collected',
@@ -69,12 +69,12 @@ export default function PrivacyPage() {
           ].map(({ heading, body }) => (
             <section key={heading} style={{ marginBottom: 48 }}>
               <h2 style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: 'var(--font-sans)',
                 fontSize: 20,
                 fontWeight: 400,
-                color: 'var(--text-primary)',
+                color: 'var(--ink)',
                 marginBottom: 14,
-                borderLeft: '2px solid var(--gold)',
+                borderLeft: '2px solid var(--green)',
                 paddingLeft: 16,
               }}>
                 {heading}
