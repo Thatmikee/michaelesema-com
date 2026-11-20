@@ -1,5 +1,8 @@
+import HeroPortrait from './HeroPortrait'
+
 // The drawn portrait waves once and settles, on a loop that starts and ends
-// on the same frame. A speech bubble beside it is the one call to action.
+// on the same frame, and the whole slab leans toward the cursor (see
+// HeroPortrait). A speech bubble beside it is the one call to action.
 export default function Hero() {
   return (
     <section aria-label="Introduction" style={{ paddingTop: 72 }}>
@@ -17,11 +20,7 @@ export default function Hero() {
 
         <div className="hero-figure" style={{ position: 'relative', alignSelf: 'end' }}>
           <a href="mailto:hello@michaelesema.com" className="bubble">Contact me</a>
-          <div className="plate" style={{ aspectRatio: '3 / 4' }}>
-            <video className="wave" src="/michael-esema-wave.mp4" poster="/michael-esema-illustrated.jpg" autoPlay muted loop playsInline
-              aria-label="An illustrated Michael Esema waving" />
-            <img className="still" src="/michael-esema-illustrated.jpg" alt="An illustrated portrait of Michael Esema" width={896} height={1120} />
-          </div>
+          <HeroPortrait />
           <p className="label" style={{ fontSize: 14, marginTop: 14 }}>Illustration and animation generated from my photograph.</p>
         </div>
       </div>
