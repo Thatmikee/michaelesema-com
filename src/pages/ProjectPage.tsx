@@ -4,6 +4,7 @@ import Nav from '../components/Nav'
 import Connect from '../components/Connect'
 import Footer from '../components/Footer'
 import NotFoundPage from './NotFoundPage'
+import BrandWorld from './BrandWorld'
 import { PROJECTS, bySlug } from '../work'
 
 export default function ProjectPage() {
@@ -25,8 +26,7 @@ export default function ProjectPage() {
     (s): s is [string, string | string[]] => Boolean(s[1]),
   )
 
-  return (
-    <>
+  const head = (
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={p.summary} />
@@ -34,6 +34,21 @@ export default function ProjectPage() {
         <meta property="og:description" content={p.summary} />
         <meta property="og:url" content={`https://michaelesema.com/work/${p.slug}`} />
       </Helmet>
+  )
+
+  if (p.world) {
+    return (
+      <>
+        {head}
+        <a href="#main-content" className="skip-link">Skip to main content</a>
+        <BrandWorld p={p} w={p.world} next={next} />
+      </>
+    )
+  }
+
+  return (
+    <>
+      {head}
       <Nav />
       <main id="main-content" style={{ paddingTop: 'clamp(110px, 12vw, 160px)' }}>
         <article className="wrap">

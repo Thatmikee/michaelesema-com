@@ -1,5 +1,19 @@
 export type Shot = { src: string; alt: string; ratio: string; fit?: 'contain'; span?: 2 }
 
+// A brand world gives a case study its own ground and its own board sequence,
+// the way the client's identity would. Every colour pair is checked for WCAG AA
+// where it is chosen, so the page file never declares a colour of its own.
+export type Theme = { ground: string; ink: string; accent: string; onAccent: string }
+
+export type Board =
+  | { kind: 'full'; shot: Shot }
+  | { kind: 'pair'; shots: [Shot, Shot]; ratio: string }
+  | { kind: 'palette'; swatches: { name: string; hex: string; text: string }[] }
+  | { kind: 'video'; src: string; poster: string; alt: string; caption: string }
+  | { kind: 'band'; text: string }
+
+export type World = { theme: Theme; statement: string; boards: Board[] }
+
 // Every field after `role` is optional on purpose: a case study shows only what
 // is true and sourced. Nothing here is filled in to make a page look complete.
 export type Project = {
@@ -16,6 +30,7 @@ export type Project = {
   made: string[]
   process?: string
   outcome?: string
+  world?: World
   cover: Shot
   shots: Shot[]
   link?: { href: string; label: string }
@@ -40,6 +55,34 @@ export const PROJECTS: Project[] = [
       'A one-page website with an enquiry form',
     ],
     process: 'A serving spoon stands in for the dot of the i. The palette is aubergine and cream with a single orange, taken from the colour of jollof. The same mark then went onto the menu, the food photos and the website.',
+    // Colours are sampled from Sarah's own logo files. Verified contrast:
+    // bone on aubergine 16.26, aubergine on orange 5.84, orange on aubergine 5.84.
+    // Orange on bone is 2.78 and fails, so it is only ever used as a fill.
+    world: {
+      theme: { ground: '#1A0F1F', ink: '#F6EEF0', accent: '#E86B42', onAccent: '#1A0F1F' },
+      statement: 'A name people can trust before they taste anything.',
+      boards: [
+        { kind: 'pair', ratio: '1 / 1', shots: [
+          { src: '/work/sarahbellus-logo-on-aubergine.jpg', alt: 'The SiB monogram in cream on aubergine', ratio: '1 / 1' },
+          { src: '/work/sarahbellus-logo-on-bone.jpg', alt: 'The SiB monogram in aubergine on cream', ratio: '1 / 1' },
+        ] },
+        { kind: 'palette', swatches: [
+          { name: 'Aubergine', hex: '#1A0F1F', text: '#F6EEF0' },
+          { name: 'Bone', hex: '#F6EEF0', text: '#1A0F1F' },
+          { name: 'Orange', hex: '#E86B42', text: '#1A0F1F' },
+        ] },
+        { kind: 'video', src: '/work/sb-live.mp4', poster: '/work/sb-live-poster.jpg', alt: 'A recording of sarahbellus.com scrolling from the welcome line, through the services, to the enquiry form', caption: 'sarahbellus.com, recorded live.' },
+        { kind: 'pair', ratio: '4 / 5', shots: [
+          { src: '/work/sarahbellus-menu-poster.jpg', alt: 'The printed Sarah Bellus menu', ratio: '4 / 5' },
+          { src: '/work/sarahbellus-efo-riro.jpg', alt: 'A bowl of efo riro marked with the SiB logo', ratio: '4 / 5' },
+        ] },
+        { kind: 'band', text: 'Cooked to order for weddings, naming ceremonies, birthdays and church events.' },
+        { kind: 'pair', ratio: '1 / 1', shots: [
+          { src: '/work/sb-services.jpg', alt: 'The services section of the Sarah Bellus website', ratio: '16 / 10' },
+          { src: '/work/sb-mobile.jpg', alt: 'The Sarah Bellus website on a phone', ratio: '4 / 5', fit: 'contain' },
+        ] },
+      ],
+    },
     cover: { src: '/work/sarahbellus-scene.jpg', alt: 'The Sarah Bellus menu and logo card laid on a table beside a plate of jollof rice', ratio: '16 / 10' },
     shots: [
       { src: '/work/sb-screen.jpg', alt: 'The Sarah Bellus website: a welcome line, an enquiry button and a plate of jollof rice', ratio: '16 / 10', span: 2 },
