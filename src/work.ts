@@ -1,5 +1,7 @@
 export type Shot = { src: string; alt: string; ratio: string; fit?: 'contain'; span?: 2 }
 
+// Every field after `role` is optional on purpose: a case study shows only what
+// is true and sourced. Nothing here is filled in to make a page look complete.
 export type Project = {
   slug: string
   home: boolean
@@ -8,7 +10,12 @@ export type Project = {
   years: string
   role: string
   summary: string
-  body: string[]
+  brief: string
+  challenge: string
+  audience?: string
+  made: string[]
+  process?: string
+  outcome?: string
   cover: Shot
   shots: Shot[]
   link?: { href: string; label: string }
@@ -23,10 +30,16 @@ export const PROJECTS: Project[] = [
     years: '2026',
     role: 'Designer',
     summary: 'An identity for a Nigerian caterer in the UK, carried from the logo to the menu and the website.',
-    body: [
-      'Sarah cooks to order for weddings, naming ceremonies, birthdays and church events. She needed a name people could trust before they tasted anything, and a mark that still read on a phone screen and on a sticker the size of a coin.',
-      'I drew the SiB monogram with a serving spoon standing in for the dot of the i. The palette is aubergine and cream with a single orange, taken from the colour of jollof. The same mark then went onto the printed menu, the food photos and a one-page website with an enquiry form.',
+    brief: 'Create an identity for Sarah Bellus, a Nigerian caterer in the UK who cooks to order, and carry it from the logo to the printed menu and a one-page website.',
+    challenge: 'She needed a name people could trust before they tasted anything, and a mark that still read on a phone screen and on a sticker the size of a coin.',
+    audience: 'People in the UK booking food for weddings, naming ceremonies, birthdays and church events.',
+    made: [
+      'The SiB monogram, in two colourways',
+      'A printed menu',
+      'Food photography treated with the mark',
+      'A one-page website with an enquiry form',
     ],
+    process: 'A serving spoon stands in for the dot of the i. The palette is aubergine and cream with a single orange, taken from the colour of jollof. The same mark then went onto the menu, the food photos and the website.',
     cover: { src: '/work/sarahbellus-scene.jpg', alt: 'The Sarah Bellus menu and logo card laid on a table beside a plate of jollof rice', ratio: '16 / 10' },
     shots: [
       { src: '/work/sb-screen.jpg', alt: 'The Sarah Bellus website: a welcome line, an enquiry button and a plate of jollof rice', ratio: '16 / 10', span: 2 },
@@ -43,14 +56,18 @@ export const PROJECTS: Project[] = [
     slug: 'silent-party-9ja',
     home: true,
     title: 'Silent Party 9ja',
-    discipline: 'Event branding, social, website',
+    discipline: 'Event branding, promotional materials, website',
     years: '2018 to 2023, and 2026',
     role: 'Design lead',
     summary: 'Design lead, part-time, for a silent-disco events brand in Nigeria from 2018 to 2023, and now its new booking site.',
-    body: [
-      'Silent Party 9ja runs headphone parties: three DJs, three channels, and every guest picks their own. I led design for the brand part-time from 2018 to February 2023, working with the team on its visual identity and promotional materials. That work belongs to the brand and is published on its Instagram.',
-      'In 2026 I began a new identity and booking site for them. Each channel owns one colour and only one is ever live at a time, so the page changes colour as you turn the dial. It is in development.',
+    brief: 'Lead design for Silent Party 9ja, a silent-disco events brand in Nigeria, part-time from 2018 to February 2023, then design a new identity and booking site in 2026.',
+    challenge: 'Silent Party 9ja runs headphone parties: three DJs, three channels, and every guest picks their own. The new site has to show that choice.',
+    audience: 'Partygoers, and the people booking a party.',
+    made: [
+      'Visual identity and promotional materials, 2018 to 2023. This work belongs to the brand and is published on its Instagram.',
+      'A new identity and booking site, 2026, in development.',
     ],
+    process: 'Each channel owns one colour and only one is ever live at a time, so the page changes colour as you turn the dial.',
     cover: { src: '/work/sp-board.jpg', alt: 'The new Silent Party 9ja site on a tablet and a phone, lit in pink', ratio: '16 / 10' },
     shots: [
       { src: '/work/sp-how.jpg', alt: 'The how-it-works section: a party you wear on your head', ratio: '16 / 10' },
@@ -62,14 +79,21 @@ export const PROJECTS: Project[] = [
     slug: 'bs-hive',
     home: true,
     title: "B's Hive Hotels & Suites",
-    discipline: 'Logo, stationery, merchandise',
+    discipline: 'Brand identity, stationery, merchandise, promotions',
     years: '2019 to 2023',
     role: 'Designer, alongside Head Accountant',
     summary: 'The logo for a hotel in Abuja, and everything it was printed on, designed while I was running its accounts.',
-    body: [
-      "I joined B's Hive in Abuja as Head Accountant in 2019 and ended up responsible for how the hotel looked as well as how it balanced. I designed the logo, a B and an H locked into one block in the hotel's red and blue, and the letterhead that carried it, with the monogram repeated as a watermark. The same mark went onto the hotel's notebooks, jotters, pens, mugs and flasks.",
-      'I also made the promotions and social posts for the hotel and its lounge during those years.',
+    brief: "Design the logo for B's Hive Hotels & Suites in Abuja, and everything it was printed on, while running the hotel's accounts.",
+    challenge: 'One mark had to work on a letterhead, as a watermark, and on small objects such as pens and mugs.',
+    audience: 'Hotel guests, and the managers, investors and partners who received its documents.',
+    made: [
+      "The logo: a B and an H locked into one block, in the hotel's red and blue",
+      'A letterhead with the monogram repeated as a watermark',
+      'Notebooks, jotters, pens, mugs and flasks',
+      'Promotions and social posts for the hotel and its lounge',
+      'Event flyers, seasonal campaign assets and digital signage, 2020 to 2023',
     ],
+    process: 'For printed pieces I wrote the briefs for outside print vendors, checked proofs and delivered final files to budget and deadline.',
     cover: { src: '/work/bshive-merch.jpg', alt: "The B's Hive logo on a notebook, a mug, a flask and a jotter", ratio: '3 / 2' },
     shots: [
       { src: '/work/bshive-board.jpg', alt: "The B's Hive letterhead on a stone desk beside a room key and a pen", ratio: '16 / 10', span: 2 },
@@ -80,14 +104,18 @@ export const PROJECTS: Project[] = [
     slug: 'the-signal',
     home: true,
     title: 'The Signal',
-    discipline: 'Editorial design',
+    discipline: 'Publication design, data figures',
     years: '2026',
     role: 'Designer and editor',
     summary: 'A masthead, issue system and data figures for a publication on retail crime.',
-    body: [
-      'The Signal reviews retail security claims against the evidence. The design had to look like something that checks its facts: a white ground, one red, a newspaper masthead, numbered issues, and figures drawn from the sourced data in each piece.',
-      'It also carries a corrections policy that stays on the record, which shaped the layout as much as the type did.',
+    brief: 'Design the masthead, issue system and data figures for The Signal, a publication that reviews retail security claims against the evidence.',
+    challenge: 'It had to look like something that checks its facts, and it carries a corrections policy that stays on the record.',
+    made: [
+      'A newspaper masthead',
+      'Numbered issues, with a back-of-book index',
+      'Figures drawn from the sourced data in each piece',
     ],
+    process: 'A white ground, one red and a newspaper masthead keep it looking like a record. The corrections policy shaped the layout as much as the type did.',
     cover: { src: '/work/signal-screen.jpg', alt: 'The Signal front page with a red masthead and cover story', ratio: '16 / 9' },
     shots: [
       { src: '/work/signal-well.jpg', alt: 'The Signal article grid, set in columns like a newspaper', ratio: '16 / 10' },
@@ -100,14 +128,19 @@ export const PROJECTS: Project[] = [
     slug: 'mykei',
     home: false,
     title: 'Mykei Securities',
-    discipline: 'Company identity and website',
+    discipline: 'Brand identity, website',
     years: '2026',
     role: 'Founder and designer',
     summary: 'Brand and website for a security start-up I founded.',
-    body: [
-      'Mykei Securities is a security technology start-up I founded. I designed its identity and its website, and set a rule that every colour on the site comes from one file, after an early version drifted into five slightly different golds.',
-      'The result is nine colours, all checked for contrast, used the same way on every page.',
+    brief: 'Design the identity and the website for Mykei Securities, a security technology start-up I founded.',
+    challenge: 'An early version of the site drifted into five slightly different golds.',
+    made: [
+      'The company identity',
+      'The website at mykei.io',
+      'One colour file that every page imports',
     ],
+    process: 'I set a rule that every colour on the site comes from one file.',
+    outcome: 'Nine colours, all checked for contrast, used the same way on every page.',
     cover: { src: '/work/mykei-securities-site.png', alt: 'The mykei.io homepage', ratio: '16 / 9' },
     shots: [
       { src: '/work/mykei-band.jpg', alt: 'A white and a dark band from the mykei.io homepage', ratio: '16 / 10' },

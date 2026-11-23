@@ -13,6 +13,17 @@ export default function ProjectPage() {
   const next = PROJECTS[(PROJECTS.indexOf(p) + 1) % PROJECTS.length]
   const title = `${p.title} | Michael Esema`
   const facts: [string, string][] = [['Role', p.role], ['Discipline', p.discipline], ['Years', p.years]]
+  // Only the fields that are filled in are shown; a missing field is never faked.
+  const sections = ([
+    ['The brief', p.brief],
+    ['The challenge', p.challenge],
+    ['Who it was for', p.audience],
+    ['What I made', p.made],
+    ['How I worked', p.process],
+    ['The result', p.outcome],
+  ] as [string, string | string[] | undefined][]).filter(
+    (s): s is [string, string | string[]] => Boolean(s[1]),
+  )
 
   return (
     <>
@@ -44,8 +55,22 @@ export default function ProjectPage() {
                 </div>
               )}
             </dl>
-            <div style={{ display: 'grid', gap: 18, font: '400 clamp(17px, 1.45vw, 20px)/1.6 var(--font-sans)', color: 'var(--text-secondary)', maxWidth: '62ch' }}>
-              {p.body.map(t => <p key={t.slice(0, 24)}>{t}</p>)}
+            <div style={{ display: 'grid', gap: 'clamp(24px, 2.6vw, 34px)', maxWidth: '62ch' }}>
+              {sections.map(([heading, value]) => {
+                const id = `h-${heading.toLowerCase().replace(/\s+/g, '-')}`
+                return (
+                <section key={heading} aria-labelledby={id}>
+                  <h2 id={id} style={{ font: '600 clamp(18px, 1.6vw, 21px)/1.25 var(--font-sans)', letterSpacing: '-0.01em', color: 'var(--ink)' }}>{heading}</h2>
+                  {typeof value === 'string' ? (
+                    <p style={{ font: '400 clamp(17px, 1.45vw, 20px)/1.6 var(--font-sans)', color: 'var(--text-secondary)', marginTop: 8 }}>{value}</p>
+                  ) : (
+                    <ul style={{ listStyle: 'none', display: 'grid', gap: 8, marginTop: 8, font: '400 clamp(17px, 1.45vw, 20px)/1.5 var(--font-sans)', color: 'var(--text-secondary)' }}>
+                      {value.map(item => <li key={item}>{item}</li>)}
+                    </ul>
+                  )}
+                </section>
+                )
+              })}
             </div>
           </div>
 
