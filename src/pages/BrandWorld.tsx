@@ -100,7 +100,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
   const t = w.theme
   const reduce = useReducedMotion()
   // Long names get a smaller title so they do not bury the picture behind them.
-  const titleSize = p.title.length > 14 ? 'clamp(48px, 10vw, 168px)' : 'clamp(60px, 14.5vw, 240px)'
+  const titleSize = p.title.length > 18 ? 'clamp(48px, 10vw, 168px)' : 'clamp(60px, 14.5vw, 240px)'
   const facts: [string, string][] = [['Role', p.role], ['Discipline', p.discipline], ['Years', p.years]]
   const sections = ([
     ['What I made', p.made],
@@ -123,7 +123,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
       <main id="main-content">
         {w.hero === 'screen' ? (
           <section aria-label={p.title} style={{ paddingTop: 72 }}>
-            <img src={p.cover.src} alt={p.cover.alt} style={{ width: '100%', height: 'auto', aspectRatio: p.cover.ratio, objectFit: 'cover', objectPosition: 'top' }} />
+            <img src={p.cover.src} alt={p.cover.alt} style={{ width: '100%', height: 'auto', maxHeight: '72dvh', aspectRatio: p.cover.ratio, objectFit: 'cover', objectPosition: 'top' }} />
             <div className="wrap" style={{ padding: 'clamp(40px, 6vw, 96px) clamp(20px, 4.5vw, 64px) 0' }}>
               <motion.h1
                 initial={reduce ? false : { opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE }}
