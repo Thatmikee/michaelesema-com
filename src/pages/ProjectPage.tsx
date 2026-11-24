@@ -4,6 +4,7 @@ import Nav from '../components/Nav'
 import Connect from '../components/Connect'
 import Footer from '../components/Footer'
 import NotFoundPage from './NotFoundPage'
+import BrandWorld from './BrandWorld'
 import { PROJECTS, bySlug } from '../work'
 
 export default function ProjectPage() {
@@ -13,9 +14,19 @@ export default function ProjectPage() {
   const next = PROJECTS[(PROJECTS.indexOf(p) + 1) % PROJECTS.length]
   const title = `${p.title} | Michael Esema`
   const facts: [string, string][] = [['Role', p.role], ['Discipline', p.discipline], ['Years', p.years]]
+  // Only the fields that are filled in are shown; a missing field is never faked.
+  const sections = ([
+    ['The brief', p.brief],
+    ['The challenge', p.challenge],
+    ['Who it was for', p.audience],
+    ['What I made', p.made],
+    ['How I worked', p.process],
+    ['The result', p.outcome],
+  ] as [string, string | string[] | undefined][]).filter(
+    (s): s is [string, string | string[]] => Boolean(s[1]),
+  )
 
-  return (
-    <>
+  const head = (
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={p.summary} />
@@ -23,6 +34,21 @@ export default function ProjectPage() {
         <meta property="og:description" content={p.summary} />
         <meta property="og:url" content={`https://michaelesema.com/work/${p.slug}`} />
       </Helmet>
+  )
+
+  if (p.world) {
+    return (
+      <>
+        {head}
+        <a href="#main-content" className="skip-link">Skip to main content</a>
+        <BrandWorld p={p} w={p.world} next={next} />
+      </>
+    )
+  }
+
+  return (
+    <>
+      {head}
       <Nav />
       <main id="main-content" style={{ paddingTop: 'clamp(110px, 12vw, 160px)' }}>
         <article className="wrap">
@@ -44,8 +70,22 @@ export default function ProjectPage() {
                 </div>
               )}
             </dl>
-            <div style={{ display: 'grid', gap: 18, font: '400 clamp(17px, 1.45vw, 20px)/1.6 var(--font-sans)', color: 'var(--text-secondary)', maxWidth: '62ch' }}>
-              {p.body.map(t => <p key={t.slice(0, 24)}>{t}</p>)}
+            <div style={{ display: 'grid', gap: 'clamp(24px, 2.6vw, 34px)', maxWidth: '62ch' }}>
+              {sections.map(([heading, value]) => {
+                const id = `h-${heading.toLowerCase().replace(/\s+/g, '-')}`
+                return (
+                <section key={heading} aria-labelledby={id}>
+                  <h2 id={id} style={{ font: '600 clamp(18px, 1.6vw, 21px)/1.25 var(--font-sans)', letterSpacing: '-0.01em', color: 'var(--ink)' }}>{heading}</h2>
+                  {typeof value === 'string' ? (
+                    <p style={{ font: '400 clamp(17px, 1.45vw, 20px)/1.6 var(--font-sans)', color: 'var(--text-secondary)', marginTop: 8 }}>{value}</p>
+                  ) : (
+                    <ul style={{ listStyle: 'none', display: 'grid', gap: 8, marginTop: 8, font: '400 clamp(17px, 1.45vw, 20px)/1.5 var(--font-sans)', color: 'var(--text-secondary)' }}>
+                      {value.map(item => <li key={item}>{item}</li>)}
+                    </ul>
+                  )}
+                </section>
+                )
+              })}
             </div>
           </div>
 
