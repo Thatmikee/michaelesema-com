@@ -17,13 +17,13 @@ mesh() { # name base c1 c2 c3
     -fill "$3" -draw "circle 930,170 930,290" \
     -fill "$4" -draw "circle 210,640 210,730" \
     -fill "$5" -draw "circle 560,420 560,470" \
-    -attenuate 0.25 +noise Gaussian -quality 90 "bg/$1.jpg"
-  magick "bg/$1.jpg" -blur 0x26 -quality 90 "bg/$1-blur.jpg"
+    -attenuate 0.10 +noise Gaussian -quality 82 "bg/$1.jpg"
+  magick "bg/$1.jpg" -resize 50% -blur 0x13 -quality 70 "bg/$1-blur.jpg"
 }
 
 photo() { # name file
-  magick "$2" -resize ${W}x${H}^ -gravity center -extent ${W}x${H} -quality 92 "bg/$1.jpg"
-  magick "bg/$1.jpg" -blur 0x26 -quality 90 "bg/$1-blur.jpg"
+  magick "$2" -resize ${W}x${H}^ -gravity center -extent ${W}x${H} -quality 85 "bg/$1.jpg"
+  magick "bg/$1.jpg" -resize 50% -blur 0x13 -quality 70 "bg/$1-blur.jpg"
 }
 
 mesh cover   '#0f3d2e' '#E86B42' '#3C559D' '#dfeadb'
