@@ -67,6 +67,7 @@ function BoardView({ b, t }: { b: Board; t: Theme }) {
           <div className="bw-pair" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
             {b.shots.map(s => <div key={s.src} style={{ aspectRatio: b.ratio, overflow: 'hidden' }}><Pic s={s} t={t} /></div>)}
           </div>
+          {b.caption && <p className="wrap" style={{ font: '400 clamp(15px, 1.2vw, 17px)/1.4 var(--font-sans)', padding: '14px clamp(20px, 4.5vw, 64px) 0' }}>{b.caption}</p>}
         </Reveal>
       )
     case 'palette':

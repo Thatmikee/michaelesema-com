@@ -7,7 +7,7 @@ export type Theme = { ground: string; ink: string; accent: string; onAccent: str
 
 export type Board =
   | { kind: 'full'; shot: Shot }
-  | { kind: 'pair'; shots: [Shot, Shot]; ratio: string }
+  | { kind: 'pair'; shots: [Shot, Shot]; ratio: string; caption?: string }
   | { kind: 'palette'; swatches: { name: string; hex: string; text: string }[] }
   | { kind: 'video'; src: string; poster: string; alt: string; caption: string }
   | { kind: 'band'; text: string }
@@ -70,6 +70,10 @@ export const PROJECTS: Project[] = [
           { name: 'Aubergine', hex: '#1A0F1F', text: '#F6EEF0' },
           { name: 'Bone', hex: '#F6EEF0', text: '#1A0F1F' },
           { name: 'Orange', hex: '#E86B42', text: '#1A0F1F' },
+        ] },
+        { kind: 'pair', ratio: '1 / 1', caption: 'Mock-ups: the mark is mine, the box and the bag are generated.', shots: [
+          { src: '/work/sb-box.jpg', alt: 'Mock-up of a takeaway box with the SiB mark on a coin-sized round sticker', ratio: '1 / 1' },
+          { src: '/work/sb-bag.jpg', alt: 'Mock-up of a kraft carrier bag with the SiB mark printed on the front', ratio: '1 / 1' },
         ] },
         { kind: 'video', src: '/work/sb-live.mp4', poster: '/work/sb-live-poster.jpg', alt: 'A recording of sarahbellus.com scrolling from the welcome line, through the services, to the enquiry form', caption: 'sarahbellus.com, recorded live.' },
         { kind: 'pair', ratio: '4 / 5', shots: [
