@@ -99,6 +99,8 @@ function BoardView({ b, t }: { b: Board; t: Theme }) {
 export default function BrandWorld({ p, w, next }: { p: Project; w: World; next: Project }) {
   const t = w.theme
   const reduce = useReducedMotion()
+  // Long names get a smaller title so they do not bury the picture behind them.
+  const titleSize = p.title.length > 14 ? 'clamp(48px, 10vw, 168px)' : 'clamp(60px, 14.5vw, 240px)'
   const facts: [string, string][] = [['Role', p.role], ['Discipline', p.discipline], ['Years', p.years]]
   const sections = ([
     ['What I made', p.made],
@@ -119,6 +121,19 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
       </header>
 
       <main id="main-content">
+        {w.hero === 'screen' ? (
+          <section aria-label={p.title} style={{ paddingTop: 72 }}>
+            <img src={p.cover.src} alt={p.cover.alt} style={{ width: '100%', height: 'auto', aspectRatio: p.cover.ratio, objectFit: 'cover', objectPosition: 'top' }} />
+            <div className="wrap" style={{ padding: 'clamp(40px, 6vw, 96px) clamp(20px, 4.5vw, 64px) 0' }}>
+              <motion.h1
+                initial={reduce ? false : { opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE }}
+                style={{ font: `800 ${titleSize}/0.88 var(--font-sans)`, letterSpacing: '-0.055em', color: t.ink }}>
+                {p.title}
+              </motion.h1>
+              <p style={{ font: '500 clamp(18px, 1.8vw, 26px)/1.3 var(--font-sans)', marginTop: 'clamp(14px, 1.8vw, 26px)', color: t.accent }}>{p.discipline}</p>
+            </div>
+          </section>
+        ) : (
         <section aria-label={p.title} style={{ position: 'relative', minHeight: 'min(100dvh, 980px)', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
           <motion.img src={p.cover.src} alt={p.cover.alt}
             initial={reduce ? false : { scale: 1.08 }} animate={{ scale: 1 }} transition={{ duration: 1.8, ease: EASE }}
@@ -127,15 +142,18 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
           <div className="wrap" style={{ position: 'relative', paddingBottom: 'clamp(28px, 5vw, 72px)' }}>
             <motion.h1
               initial={reduce ? false : { opacity: 0, y: 70 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: EASE, delay: 0.15 }}
-              style={{ font: '800 clamp(60px, 14.5vw, 240px)/0.86 var(--font-sans)', letterSpacing: '-0.055em', color: t.ink }}>
+              style={{ font: `800 ${titleSize}/0.86 var(--font-sans)`, letterSpacing: '-0.055em', color: t.ink }}>
               {p.title}
             </motion.h1>
             <p style={{ font: '500 clamp(18px, 1.8vw, 26px)/1.3 var(--font-sans)', marginTop: 'clamp(14px, 1.8vw, 26px)', color: t.accent }}>{p.discipline}</p>
           </div>
         </section>
-        <p className="wrap" style={{ font: '400 clamp(15px, 1.2vw, 17px)/1.4 var(--font-sans)', padding: '14px clamp(20px, 4.5vw, 64px) 0', color: t.ink }}>
-          The scene is a mock-up: the artwork is mine, the setting is generated.
-        </p>
+        )}
+        {w.hero === 'scene' && (
+          <p className="wrap" style={{ font: '400 clamp(15px, 1.2vw, 17px)/1.4 var(--font-sans)', padding: '14px clamp(20px, 4.5vw, 64px) 0', color: t.ink }}>
+            The scene is a mock-up: the artwork is mine, the setting is generated.
+          </p>
+        )}
 
         <section aria-label="Overview" className="wrap bw-over" style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', columnGap: 'clamp(16px, 2vw, 32px)', rowGap: 40, padding: 'clamp(64px, 10vw, 160px) clamp(20px, 4.5vw, 64px)' }}>
           <h2 style={{ gridColumn: '1 / 9', font: '700 clamp(38px, 7vw, 116px)/0.95 var(--font-sans)', letterSpacing: '-0.05em', color: t.ink }}>{w.statement}</h2>

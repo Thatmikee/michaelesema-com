@@ -12,7 +12,9 @@ export type Board =
   | { kind: 'video'; src: string; poster: string; alt: string; caption: string }
   | { kind: 'band'; text: string }
 
-export type World = { theme: Theme; statement: string; boards: Board[] }
+// hero is 'scene' when the picture is a generated scene (title laid over it, and the
+// page says it is a mock-up) and 'screen' for a plain screenshot (title stacked below).
+export type World = { theme: Theme; statement: string; hero: 'scene' | 'screen'; boards: Board[] }
 
 // Every field after `role` is optional on purpose: a case study shows only what
 // is true and sourced. Nothing here is filled in to make a page look complete.
@@ -61,6 +63,7 @@ export const PROJECTS: Project[] = [
     world: {
       theme: { ground: '#1A0F1F', ink: '#F6EEF0', accent: '#E86B42', onAccent: '#1A0F1F' },
       statement: 'A name people can trust before they taste anything.',
+      hero: 'scene',
       boards: [
         { kind: 'pair', ratio: '1 / 1', shots: [
           { src: '/work/sarahbellus-logo-on-aubergine.jpg', alt: 'The SiB monogram in cream on aubergine', ratio: '1 / 1' },
@@ -115,6 +118,20 @@ export const PROJECTS: Project[] = [
       'A new identity and booking site, 2026, in development.',
     ],
     process: 'Each channel owns one colour and only one is ever live at a time, so the page changes colour as you turn the dial.',
+    // Colours sampled from the brand's own site screens. Pink on ground 4.94,
+    // ink on ground 16.97. The site gives each channel one colour; pink is shown here.
+    world: {
+      theme: { ground: '#140B11', ink: '#F2F0EA', accent: '#EC2D93', onAccent: '#140B11' },
+      statement: 'Three DJs, three channels, and every guest picks their own.',
+      hero: 'scene',
+      boards: [
+        { kind: 'pair', ratio: '16 / 10', shots: [
+          { src: '/work/sp-how.jpg', alt: 'The how-it-works section: a party you wear on your head', ratio: '16 / 10' },
+          { src: '/work/sp-mobile.jpg', alt: 'The Silent Party 9ja site on a phone', ratio: '4 / 5', fit: 'contain' },
+        ] },
+        { kind: 'band', text: 'The page changes colour as you turn the dial.' },
+      ],
+    },
     cover: { src: '/work/sp-board.jpg', alt: 'The new Silent Party 9ja site on a tablet and a phone, lit in pink', ratio: '16 / 10' },
     shots: [
       { src: '/work/sp-how.jpg', alt: 'The how-it-works section: a party you wear on your head', ratio: '16 / 10' },
@@ -141,6 +158,24 @@ export const PROJECTS: Project[] = [
       'Event flyers, seasonal campaign assets and digital signage, 2020 to 2023',
     ],
     process: 'For printed pieces I wrote the briefs for outside print vendors, checked proofs and delivered final files to budget and deadline.',
+    // Blue and red are sampled from the logo on the letterhead. Blue on white 7.05,
+    // red on white 4.6, white on red 4.6. White on blue is 7.05.
+    world: {
+      theme: { ground: '#FFFFFF', ink: '#0F1630', accent: '#CF434C', onAccent: '#FFFFFF' },
+      statement: 'One mark that had to work on a letterhead and on a mug.',
+      hero: 'scene',
+      boards: [
+        { kind: 'palette', swatches: [
+          { name: 'Blue', hex: '#3C559D', text: '#FFFFFF' },
+          { name: 'Red', hex: '#CF434C', text: '#FFFFFF' },
+        ] },
+        { kind: 'pair', ratio: '4 / 5', shots: [
+          { src: '/work/bshive-letterhead.jpg', alt: "The B's Hive letterhead with logo, watermark and address footer", ratio: '210 / 297', fit: 'contain' },
+          { src: '/work/bshive-board.jpg', alt: "Mock-up of the B's Hive letterhead on a stone desk beside a room key and a pen", ratio: '4 / 5' },
+        ] },
+        { kind: 'band', text: 'Letterhead, notebooks, jotters, pens, mugs and flasks.' },
+      ],
+    },
     cover: { src: '/work/bshive-merch.jpg', alt: "The B's Hive logo on a notebook, a mug, a flask and a jotter", ratio: '3 / 2' },
     shots: [
       { src: '/work/bshive-board.jpg', alt: "The B's Hive letterhead on a stone desk beside a room key and a pen", ratio: '16 / 10', span: 2 },
@@ -163,6 +198,26 @@ export const PROJECTS: Project[] = [
       'Figures drawn from the sourced data in each piece',
     ],
     process: 'A white ground, one red and a newspaper masthead keep it looking like a record. The corrections policy shaped the layout as much as the type did.',
+    // Tokens are The Signal's own, measured in signalRed.ts: ink on white 18.58,
+    // red on white 5.33, white on red 5.33.
+    world: {
+      theme: { ground: '#FFFFFF', ink: '#111318', accent: '#D8001F', onAccent: '#FFFFFF' },
+      statement: 'It had to look like something that checks its facts.',
+      hero: 'screen',
+      boards: [
+        { kind: 'palette', swatches: [
+          { name: 'Ground', hex: '#FFFFFF', text: '#111318' },
+          { name: 'Ink', hex: '#111318', text: '#FFFFFF' },
+          { name: 'Red', hex: '#D8001F', text: '#FFFFFF' },
+        ] },
+        { kind: 'video', src: '/work/signal-live.mp4', poster: '/work/signal-live-poster.jpg', alt: 'A recording of mykei.io/signal scrolling from the red masthead through the cover story and the article columns', caption: 'mykei.io/signal, recorded live.' },
+        { kind: 'pair', ratio: '16 / 10', shots: [
+          { src: '/work/signal-well.jpg', alt: 'The Signal article grid, set in columns like a newspaper', ratio: '16 / 10' },
+          { src: '/work/signal-index.jpg', alt: 'The Signal back-of-book index of every issue', ratio: '16 / 10' },
+        ] },
+        { kind: 'band', text: 'Corrections stay on the record.' },
+      ],
+    },
     cover: { src: '/work/signal-screen.jpg', alt: 'The Signal front page with a red masthead and cover story', ratio: '16 / 9' },
     shots: [
       { src: '/work/signal-well.jpg', alt: 'The Signal article grid, set in columns like a newspaper', ratio: '16 / 10' },
