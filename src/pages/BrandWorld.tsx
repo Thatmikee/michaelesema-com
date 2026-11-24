@@ -122,7 +122,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
           <motion.img src={p.cover.src} alt={p.cover.alt}
             initial={reduce ? false : { scale: 1.08 }} animate={{ scale: 1 }} transition={{ duration: 1.8, ease: EASE }}
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
-          <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, ${t.ground} 4%, ${t.ground}00 62%)` }} />
+          <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, ${t.ground} 8%, ${t.ground}d9 30%, ${t.ground}66 52%, ${t.ground}00 74%)` }} />
           <div className="wrap" style={{ position: 'relative', paddingBottom: 'clamp(28px, 5vw, 72px)' }}>
             <motion.h1
               initial={reduce ? false : { opacity: 0, y: 70 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: EASE, delay: 0.15 }}
