@@ -114,7 +114,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
         <nav aria-label="Primary" className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
           <Link to="/" className="bw-nav" style={{ font: '700 18px/1 var(--font-sans)', letterSpacing: '-0.02em' }}>Michael Esema</Link>
           <ul style={{ display: 'flex', listStyle: 'none', gap: 'clamp(16px, 2.4vw, 36px)' }}>
-            <li><Link to="/#work" className="bw-nav" style={{ font: '500 17px/1 var(--font-sans)' }}>Work</Link></li>
+            <li><Link to="/work" className="bw-nav" style={{ font: '500 17px/1 var(--font-sans)' }}>Work</Link></li>
             <li><Link to="/about" className="bw-nav" style={{ font: '500 17px/1 var(--font-sans)' }}>About</Link></li>
           </ul>
         </nav>
@@ -200,7 +200,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
             <Link to={`/work/${next.slug}`} className="bw-link" style={{ font: '800 clamp(36px, 6.4vw, 108px)/0.95 var(--font-sans)', letterSpacing: '-0.05em', color: t.onAccent, textDecoration: 'none' }}>Next: {next.title}</Link>
             <p style={{ display: 'flex', gap: 28, font: '600 18px/1 var(--font-sans)', flexWrap: 'wrap' }}>
               <a href="mailto:hello@michaelesema.com" className="bw-link" style={{ color: t.onAccent }}>Contact me</a>
-              <Link to="/#work" className="bw-link" style={{ color: t.onAccent }}>All work</Link>
+              <Link to="/work" className="bw-link" style={{ color: t.onAccent }}>All work</Link>
             </p>
           </div>
         </section>

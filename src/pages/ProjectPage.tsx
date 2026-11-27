@@ -109,7 +109,7 @@ export default function ProjectPage() {
           )}
 
           <p style={{ margin: 'clamp(48px, 7vw, 96px) 0', paddingTop: 24, borderTop: '1px solid var(--border-mid)', display: 'flex', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', font: '400 17px/1.4 var(--font-sans)' }}>
-            <Link to="/#work" className="text-link">All work</Link>
+            <Link to="/work" className="text-link">All work</Link>
             <Link to={`/work/${next.slug}`} className="text-link">Next: {next.title}</Link>
           </p>
         </article>
