@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Michael Esema | Portfolio sample</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: 297mm 210mm; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #777; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; }
+  .page { width: 1123px; height: 794px; position: relative; overflow: hidden; break-after: page; page-break-after: always; background-size: 1123px 794px; }
+  .abs { position: absolute; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+  /* Cover: grained sage ground, one deep green, the avatar graded into it. */
+  .cover { background-image: url(bg/sage.jpg); color: #0f3d2e; }
+  .cover .av { position: absolute; left: 470px; top: 64px; width: 660px; height: auto; filter: drop-shadow(0 26px 40px rgba(15,61,46,.30)); }
+
+  /* Project page: artwork full-bleed, one lightly frosted card. */
+  .proj { background-image: url(bg/sb.jpg); --bg: url(bg/sb-blur.jpg); color: #1d1a1f; }
+  .card {
+    position: absolute; left: var(--x); top: var(--y); width: var(--w); height: var(--h);
+    border-radius: 28px; overflow: hidden; padding: 30px 32px;
+    background-image: linear-gradient(rgba(250,246,247,.80), rgba(250,246,247,.80)), var(--bg);
+    background-size: auto, 1123px 794px;
+    background-position: 0 0, calc(var(--x) * -1) calc(var(--y) * -1);
+    box-shadow: 0 26px 60px rgba(0,0,0,.30), inset 0 2px 14px rgba(255,255,255,.35);
+  }
+  .k { font-size: 12.5px; font-weight: 600; letter-spacing: 0.01em; color: #5b5560; }
+  .p { font-size: 15px; line-height: 1.5; margin-top: 4px; color: #1d1a1f; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <img class="av" src="assets/avatar-think-graded.png" alt="A stylised 3D character of Michael Esema, in a thinking pose">
+  <h1 class="abs serif" style="left:60px;top:228px;font-size:122px;line-height:0.92;font-weight:500;letter-spacing:-0.02em">Michael<br>Esema</h1>
+  <p class="abs" style="left:66px;top:480px;font-size:21px;font-weight:500">Graphic and multimedia designer</p>
+  <p class="abs" style="left:66px;top:524px;width:360px;font-size:16.5px;line-height:1.55">I trained as an accountant, with an MBA and an MSc in business management. I have designed for businesses since 2018.</p>
+  <p class="abs" style="left:66px;bottom:52px;font-size:15px;line-height:1.5;font-weight:500">hello@michaelesema.com<br>Portfolio, November 2026</p>
+  <p class="abs" style="right:40px;top:30px;font-size:12px;font-weight:500">3D character generated from my photograph.</p>
+</section>
+
+<!-- PROJECT: SARAH BELLUS -->
+<section class="page proj">
+  <div class="card" style="--x:56px;--y:352px;--w:446px;--h:388px">
+    <p class="k">Sarah Bellus. Brand identity, print, website. 2026.</p>
+    <h2 class="serif" style="font-size:31px;line-height:1.1;font-weight:500;margin-top:10px;letter-spacing:-0.01em">She needed a name people could trust before they tasted anything.</h2>
+    <p class="k" style="margin-top:18px">What I did</p>
+    <p class="p">A serving spoon stands in for the dot of the i. Aubergine and cream with a single orange, taken from the colour of jollof. The same mark went onto the menu, the food photos and the website.</p>
+    <p class="k" style="margin-top:14px">What I delivered</p>
+    <p class="p">The monogram, a printed menu, food photography treated with the mark, and a one-page website.</p>
+  </div>
+  <p class="abs" style="right:40px;bottom:28px;font-size:12.5px;font-weight:500;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.6)">Scene: mock-up. The artwork is mine, the setting is generated.</p>
+</section>
+
+</body>
+</html>

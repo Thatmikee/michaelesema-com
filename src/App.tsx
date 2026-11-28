@@ -1,40 +1,21 @@
-import { Routes, Route } from 'react-router-dom'
-import Nav from './components/Nav'
-import Hero from './components/Hero'
-import WorkIndex from './components/WorkIndex'
-import Ledger from './components/Ledger'
-import Connect from './components/Connect'
-import Footer from './components/Footer'
+import { Route } from 'react-router-dom'
+import Shell from './site/Shell'
+import { Home, Work, Blog, About } from './site/pages'
 import ProjectPage from './pages/ProjectPage'
-import AboutPage from './pages/AboutPage'
 import PrivacyPage from './pages/PrivacyPage'
 import NotFoundPage from './pages/NotFoundPage'
 import './index.css'
 
-function HomePage() {
-  return (
-    <>
-      <a href="#main-content" className="skip-link">Skip to main content</a>
-      <Nav home />
-      <main id="main-content">
-        <Hero />
-        <WorkIndex />
-        <Ledger />
-        <Connect />
-      </main>
-      <Footer />
-    </>
-  )
-}
-
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
+    <Shell>
+      <Route path="/" element={<Home />} />
+      <Route path="/work" element={<Work />} />
       <Route path="/work/:slug" element={<ProjectPage />} />
-      <Route path="/about" element={<AboutPage />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/about" element={<About />} />
       <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+    </Shell>
   )
 }

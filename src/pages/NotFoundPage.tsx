@@ -1,71 +1,19 @@
 import { Helmet } from 'react-helmet-async'
-import Nav from '../components/Nav'
-import Footer from '../components/Footer'
+import { Link } from 'react-router-dom'
 
 export default function NotFoundPage() {
   return (
-    <>
+    <main id="sx-main" tabIndex={-1} className="sx-main sx-about">
       <Helmet>
         <title>Page not found | Michael Esema</title>
         <meta name="robots" content="noindex" />
       </Helmet>
-      <Nav />
-      <main
-        style={{
-          background: 'var(--page-bg)',
-          minHeight: '70vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '120px 24px 80px',
-          textAlign: 'center',
-        }}
-      >
-        <div>
-          <p
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: 11,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              color: 'var(--green)',
-              marginBottom: 18,
-            }}
-          >
-            404
-          </p>
-          <h1
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: 'clamp(28px, 4vw, 44px)',
-              fontWeight: 400,
-              color: 'var(--ink)',
-              marginBottom: 16,
-            }}
-          >
-            This page does not exist.
-          </h1>
-          <p style={{ fontSize: 15, color: 'var(--text-secondary)', marginBottom: 28 }}>
-            The link may be old or mistyped.
-          </p>
-          <a
-            href="/"
-            style={{
-              display: 'inline-flex',
-              background: 'var(--ink)',
-              color: 'var(--on-ink)',
-              padding: '12px 26px',
-              fontSize: 13,
-              fontWeight: 600,
-              textDecoration: 'none',
-              borderRadius: 2,
-            }}
-          >
-            Back to the home page
-          </a>
-        </div>
-      </main>
-      <Footer />
-    </>
+      <h1 className="sx-page-title">Page not found</h1>
+      <div className="sx-prose">
+        <p>That address does not lead anywhere on this site.</p>
+        <p><Link to="/" className="sx-link">Go to the home page</Link></p>
+        <p><Link to="/work" className="sx-link">See the work</Link></p>
+      </div>
+    </main>
   )
 }
