@@ -55,7 +55,7 @@ function LiveVideo({ b, t }: { b: Extract<Board, { kind: 'video' }>; t: Theme })
     <div className="wrap" style={{ padding: 'clamp(56px, 8vw, 128px) clamp(20px, 4.5vw, 64px)' }}>
       <video ref={ref} src={b.src} poster={b.poster} muted loop playsInline preload="none" aria-label={b.alt}
         style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', objectPosition: 'top', background: t.ink }} />
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
+      <div className="bw-vcap" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
         <p style={{ font: '400 clamp(16px, 1.3vw, 18px)/1.4 var(--font-sans)', color: t.ink }}>{b.caption}</p>
         <button type="button" onClick={toggle} className="bw-btn">{playing ? 'Pause' : 'Play'}</button>
       </div>
@@ -251,6 +251,12 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
         .bw-btn { font: 600 16px/1 var(--font-sans); height: 44px; padding: 0 22px; background: transparent; color: inherit; border: 2px solid currentColor; border-radius: var(--radius); cursor: pointer; }
         .bw-btn:hover { opacity: 0.8; }
         @media (min-width: 701px) { .bw-flip .bw-next { flex-direction: row-reverse; } }
+        .bw-flip main { text-align: right; }
+        .bw-flip main p[style*="max-width"], .bw-flip main ul[style*="max-width"] { margin-left: auto; }
+        .bw-flip nav[aria-label="Breadcrumb"] ol { justify-content: flex-end; }
+        .bw-flip dl > div { direction: rtl; }
+        .bw-flip dl > div > * { direction: ltr; text-align: right; }
+        .bw-flip .bw-vcap { flex-direction: row-reverse; }
         .bw img, .bw video { max-width: none; }
         @media (max-width: 820px) {
           .bw-over { grid-template-columns: 1fr !important; }

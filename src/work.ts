@@ -273,7 +273,6 @@ export const PROJECTS: Project[] = [
     shots: [
       { src: '/work/mykei-band.jpg', alt: 'A white and a dark band from the mykei.io homepage', ratio: '16 / 10' },
     ],
-    link: { href: 'https://mykei.io', label: 'mykei.io' },
   },
 ]
 

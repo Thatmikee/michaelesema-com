@@ -49,9 +49,9 @@ function compile(gl: WebGLRenderingContext, type: number, src: string) {
   return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null
 }
 
-type Props = { lines: string[]; auto?: boolean; onInteract?: () => void }
+type Props = { lines: string[]; auto?: boolean; align?: 'left' | 'right'; onInteract?: () => void }
 
-export default function GlassWord({ lines, auto = false, onInteract }: Props) {
+export default function GlassWord({ lines, auto = false, align = 'left', onInteract }: Props) {
   const wrap = useRef<HTMLSpanElement>(null)
   const cv = useRef<HTMLCanvasElement>(null)
   const reduce = useReducedMotion()
@@ -162,7 +162,8 @@ export default function GlassWord({ lines, auto = false, onInteract }: Props) {
       if ('letterSpacing' in ctx) ctx.letterSpacing = `${-0.045 * size * dpr}px`
       ctx.fillStyle = INK.hex
       ctx.textBaseline = 'alphabetic'
-      textLines.forEach((l, i) => ctx.fillText(l, 0, size * dpr * (0.84 + lead * i)))
+      ctx.textAlign = align === 'right' ? 'right' : 'left'
+      textLines.forEach((l, i) => ctx.fillText(l, align === 'right' ? st.W : 0, size * dpr * (0.84 + lead * i)))
       canvas.width = st.W
       canvas.height = st.H
       canvas.style.height = `${cssH}px`
@@ -225,12 +226,12 @@ export default function GlassWord({ lines, auto = false, onInteract }: Props) {
       canvas.removeEventListener('pointerup', onLeave)
       if (tex) gl.deleteTexture(tex)
     }
-  }, [reduce, key, auto, mounted])
+  }, [reduce, key, auto, mounted, align])
 
   const longest = Math.max(...lines.map(l => l.length))
   return (
     <span ref={wrap} className="sx-gw" aria-hidden="true" style={h ? { height: h } : undefined}>
-      <span className={`sx-gw-txt${live ? ' on' : ''}`} style={fs ? { fontSize: fs, lineHeight: lines.length > 1 ? 0.98 : 1.12 } : { fontSize: `calc((100vw - 32px) / ${(longest * 0.5).toFixed(2)})` }}>
+      <span className={`sx-gw-txt${live ? ' on' : ''}`} style={fs ? { fontSize: fs, lineHeight: lines.length > 1 ? 0.98 : 1.12, textAlign: align } : { fontSize: `calc((100vw - 32px) / ${(longest * 0.5).toFixed(2)})`, textAlign: align }}>
         {lines.map((l, i) => <span key={l}>{l}{i < lines.length - 1 ? <br /> : null}</span>)}
       </span>
       {mounted && !reduce && <canvas ref={cv} className="sx-gw-cv" aria-hidden="true" />}

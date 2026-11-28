@@ -5,6 +5,7 @@ import { HandPointing } from '@phosphor-icons/react'
 import { PROJECTS } from '../work'
 import Crumbs from './Crumbs'
 import GlassWord from './GlassWord'
+import { FLIP } from './layout'
 import { useMedia } from './motion'
 
 // One reveal, used on Home, Blog and About: a line of text slides up out of a
@@ -54,7 +55,7 @@ export function Home() {
       <div className="sx-top">
       <p className="sx-head"><Mask>Graphic &amp; Multimedia</Mask><Mask delay={0.08}>Designer and</Mask><Mask delay={0.16}>Business Strategist</Mask></p>
       <p className="sx-para"><Mask delay={0.24}>I design brands, print and websites. I trained as an accountant, so I always ask what the work is for and how we'll know it worked.</Mask></p>
-      <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Mask delay={0.36}><GlassWord lines={small ? ['Michael', 'Esema'] : ['Michael Esema']} auto={small || coarse} onInteract={() => setTouched(true)} /></Mask></h1>
+      <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Mask delay={0.36}><GlassWord lines={small ? ['Michael', 'Esema'] : ['Michael Esema']} auto={small || coarse}  align={FLIP ? 'right' : 'left'} onInteract={() => setTouched(true)} /></Mask></h1>
       </div>
       <Stage gone={touched} />
     </main>
@@ -71,7 +72,7 @@ export function Blog() {
       <div className="sx-top">
       <p className="sx-head"><Mask>Blog</Mask><Mask delay={0.08}>Coming soon</Mask></p>
       <p className="sx-para"><Mask delay={0.16}>Notes on design, business and the way the two meet. The first articles are on their way.</Mask></p>
-      <h1 className="sx-h1"><span className="sx-sr">Blog, coming soon</span><Mask delay={0.28}><GlassWord lines={small ? ['Coming', 'Soon'] : ['Coming Soon']} auto={small || coarse} onInteract={() => setTouched(true)} /></Mask></h1>
+      <h1 className="sx-h1"><span className="sx-sr">Blog, coming soon</span><Mask delay={0.28}><GlassWord lines={small ? ['Coming', 'Soon'] : ['Coming Soon']} auto={small || coarse}  align={FLIP ? 'right' : 'left'} onInteract={() => setTouched(true)} /></Mask></h1>
       </div>
       <Stage gone={touched} />
     </main>
@@ -141,7 +142,7 @@ export function About() {
       </section>
       <section className="sx-row"><h2 className="sx-label">How I work</h2>
         <div className="sx-prose">
-          <p>I write the colours, type and rules down once, so everything I make matches. On this site every colour comes from one file. And I measure what can be measured, like contrast and load time, instead of guessing.</p>
+          <p>I write the colours, type and rules down once, so everything I make matches. And I measure what can be measured, like contrast and load time, instead of guessing.</p>
         </div>
       </section>
       <section className="sx-row"><h2 className="sx-label">Studied</h2>
@@ -152,6 +153,10 @@ export function About() {
       <section className="sx-row"><h2 className="sx-label">Tools</h2>
         <div className="sx-prose">
           <p>I work with Photoshop, Illustrator, InDesign, Figma, Canva, CapCut and Blender.</p>
+        </div>
+      </section>
+      <section className="sx-row"><h2 className="sx-label">Contact</h2>
+        <div className="sx-prose">
           <p><a href="mailto:hello@michaelesema.com">hello@michaelesema.com</a></p>
           <p><a href="https://www.linkedin.com/in/michaelesema" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
           <p><Link to="/privacy">Privacy</Link></p>
