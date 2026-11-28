@@ -78,13 +78,17 @@ function Chrome() {
     <>
       <a href="#sx-main" className="sx-skiplink">Skip to content</a>
       <div className="sx-bar" aria-hidden="true" />
-      <Link to="/" className="sx-mark" aria-label="Michael Esema, home"><Mark /></Link>
-      <nav className="sx-nav" aria-label="Primary">
-        <NavLink to="/work">Work</NavLink>
-        <NavLink to="/blog">Blog</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <a href="mailto:hello@michaelesema.com">Contact</a>
-      </nav>
+      {/* Both children are position: fixed, so the header has no height and changes no layout;
+          it exists so the home link sits inside a landmark. */}
+      <header>
+        <Link to="/" className="sx-mark" aria-label="Michael Esema, home"><Mark /></Link>
+        <nav className="sx-nav" aria-label="Primary">
+          <NavLink to="/work">Work</NavLink>
+          <NavLink to="/blog">Blog</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <a href="mailto:hello@michaelesema.com">Contact</a>
+        </nav>
+      </header>
     </>
   )
 }

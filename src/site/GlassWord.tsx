@@ -221,7 +221,7 @@ export default function GlassWord({ lines, auto = false, onInteract }: Props) {
 
   const longest = Math.max(...lines.map(l => l.length))
   return (
-    <span ref={wrap} className="sx-gw" style={h ? { height: h } : undefined}>
+    <span ref={wrap} className="sx-gw" aria-hidden="true" style={h ? { height: h } : undefined}>
       <span className={`sx-gw-txt${live ? ' on' : ''}`} style={fs ? { fontSize: fs, lineHeight: lines.length > 1 ? 0.98 : 1.12 } : { fontSize: `calc((100vw - 32px) / ${(longest * 0.5).toFixed(2)})` }}>
         {lines.map((l, i) => <span key={l}>{l}{i < lines.length - 1 ? <br /> : null}</span>)}
       </span>

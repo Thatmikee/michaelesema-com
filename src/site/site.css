@@ -57,7 +57,7 @@ body.sx-body { background: var(--sx-snow) !important; background-image: none !im
 .sx-thumbs li.on { opacity: 1; }
 .sx-thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .sx-list { position: absolute; left: 40vw; top: 50%; transform: translateY(-50%); width: 17vw; list-style: none; margin: 0; padding: 0; }
-.sx-list a { display: flex; justify-content: space-between; align-items: center; font: 700 14px/18px 'Satoshi', sans-serif; text-transform: uppercase; color: var(--sx-grey); padding: 1px 0; }
+.sx-list a { display: flex; justify-content: space-between; align-items: center; font: 700 14px/18px 'Satoshi', sans-serif; text-transform: uppercase; color: var(--sx-grey); padding: 3px 0; }
 .sx-list a.on { color: var(--sx-ink); }
 .sx-list a.on::after { content: ''; border: 5px solid transparent; border-right: 8px solid var(--sx-ink); border-left: 0; }
 .sx-desc { position: absolute; left: 40vw; bottom: 9vh; width: 17vw; font: 700 14px/1.4 'Satoshi', sans-serif; margin: 0; }
@@ -100,7 +100,7 @@ body.sx-body { background: var(--sx-snow) !important; background-image: none !im
 
 @media (max-width: 1099px) {
   .sx-nav { right: 16px; }
-  .sx-nav a { font-size: 14px; line-height: 22px; }
+  .sx-nav a { font-size: 14px; line-height: 24px; }
 }
 @media (max-width: 700px) {
   /* Small screens rearrange: text flows down, the name stacks on two lines and
