@@ -2,6 +2,7 @@ import { lazy, Suspense, useCallback, useEffect, useState, type ComponentType, t
 import { Link, NavLink, Routes, useLocation } from 'react-router-dom'
 import Mark from './Mark'
 import { PROJECTS } from '../work'
+import { FLIP } from './layout'
 import { prefersReduced } from './motion'
 import type { IntroProps } from './Intro'
 import './site.css'
@@ -104,7 +105,7 @@ export default function Shell({ children }: { children: ReactNode }) {
   return (
     <>
       {isSite && <Chrome />}
-      <div className={isSite ? 'sx' : undefined}>
+      <div className={isSite ? (FLIP ? 'sx sx-flip' : 'sx') : undefined}>
         <Routes location={shown}>{children}</Routes>
       </div>
       <Wipe phase={phase} />

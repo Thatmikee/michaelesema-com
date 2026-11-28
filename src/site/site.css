@@ -138,6 +138,19 @@ html.sx-gate body::before { content: ''; position: fixed; inset: 0; z-index: 99;
   .sx-about { padding: 120px 16px 72px; }
   .sx-row { grid-template-columns: 1fr; gap: 10px; }
 }
+/* Mirrored arrangement (src/site/layout.ts, FLIP). Everything here hangs off .sx-flip,
+   so dropping that class puts the original layout back. Body text stays left-aligned. */
+.sx-flip .sx-num { left: auto; right: 2.2vw; }
+.sx-flip .sx-thumbs { left: auto; right: 18.5vw; }
+.sx-flip .sx-list, .sx-flip .sx-desc { left: auto; right: 40vw; }
+.sx-flip .sx-preview { left: auto; right: 57.8vw; }
+.sx-flip .sx-view { left: 2.2vw; }
+@media (min-width: 701px) {
+  .sx-flip .sx-about { margin-left: auto; }
+  .sx-flip .sx-row { grid-template-columns: 1fr 220px; }
+  .sx-flip .sx-row > .sx-label { grid-column: 2; grid-row: 1; }
+  .sx-flip .sx-row > .sx-prose { grid-column: 1; grid-row: 1; }
+}
 /* Short screens (landscape phones, small laptop windows): the four nav links run in
    a row instead of a column, so they stay clear of the heading and the name. */
 @media (max-height: 520px) {
