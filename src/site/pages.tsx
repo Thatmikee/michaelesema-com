@@ -49,7 +49,7 @@ export function Home() {
       <Meta title="Michael Esema | Graphic & Multimedia Designer & Business Strategist" desc="Portfolio of Michael Esema, a UK graphic and multimedia designer and business strategist. Brand identity, print and web design." path="/" />
       <div className="sx-top">
       <p className="sx-head"><Mask>Graphic &amp; Multimedia</Mask><Mask delay={0.08}>Designer and</Mask><Mask delay={0.16}>Business Strategist</Mask></p>
-      <p className="sx-para"><Mask delay={0.24}>I design brands, print and websites for companies that want their design to pay its way. I'm an accountant who became a designer. I ran a hotel's books and its brand, so I design with the numbers in mind.</Mask></p>
+      <p className="sx-para"><Mask delay={0.24}>Brands, print and websites for hotels, caterers, events and publishers. I'm an accountant who became a designer: I ran a hotel's books and its brand, so everything I make is checked against the numbers.</Mask></p>
       <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Mask delay={0.36}><GlassWord lines={['Esema']} auto={small || coarse} align={FLIP ? 'right' : 'left'} /></Mask><span className="sx-aside" aria-hidden="true">I am Michael</span></h1>
       </div>
       <Stage />
