@@ -27,9 +27,15 @@ body.sx-body { background: var(--sx-snow) !important; background-image: none !im
 .sx-skiplink { position: fixed; left: 16px; top: -60px; z-index: 120; background: var(--sx-ink); color: #fff; padding: 10px 16px; font: 700 14px 'Satoshi', sans-serif; }
 .sx-skiplink:focus { top: 56px; }
 
-/* Text-line unmask */
+/* Text-line unmask: pure CSS, so it starts at first paint with no JavaScript.
+   html.sx-held (set by public/intro-gate.js on a first visit) pauses it until the
+   intro curtain lifts; html.sx-gate puts a snow veil over the page until the
+   intro's own curtain mounts, so nothing flashes ahead of it. */
 .sx-mask { display: block; overflow: hidden; }
-.sx-up { display: block; will-change: transform; }
+.sx-up { display: block; animation: sx-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s) both; }
+@keyframes sx-rise { from { transform: translateY(112%); } to { transform: translateY(0); } }
+html.sx-held .sx-up { animation-play-state: paused; }
+html.sx-gate body::before { content: ''; position: fixed; inset: 0; z-index: 99; background: var(--sx-snow); }
 
 /* Home and Blog */
 .sx-home { height: 100dvh; display: grid; grid-template-rows: 65fr 35fr; overflow: hidden; }
@@ -113,11 +119,22 @@ body.sx-body { background: var(--sx-snow) !important; background-image: none !im
   .sx-h1 { position: static; margin-top: auto; }
   .sx-stage2 { position: relative; align-content: center; justify-items: center; gap: 14px; }
   .sx-hint { display: grid; justify-items: center; gap: 6px; margin: 0; font: 700 14px/1.2 'Satoshi', sans-serif; color: var(--sx-snow); }
+  .sx-hint.gone { display: none; }
   .sx-turn { position: absolute; right: 16px; bottom: 16px; width: 26px; }
   .sx-about { padding: 120px 16px 72px; }
   .sx-row { grid-template-columns: 1fr; gap: 10px; }
 }
+/* Project pages: entrances are CSS too. Boards fade up as they scroll into view where
+   the browser supports scroll-driven animation, and simply show everywhere else. */
+@keyframes bw-rise { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: none; } }
+@keyframes bw-zoom { from { transform: scale(1.08); } to { transform: none; } }
+.bw-rise { animation: bw-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.bw-zoom { animation: bw-zoom 1.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@supports (animation-timeline: view()) {
+  .bw-board { animation: bw-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 40%; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .sx-spin.on, .sx-turn, .sx-hand { animation: none; }
+  .sx-spin.on, .sx-turn, .sx-hand, .sx-up, .bw-rise, .bw-zoom, .bw-board { animation: none; }
   .sx-thumbs li { transition: none; }
 }

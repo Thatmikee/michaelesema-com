@@ -1,28 +1,17 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useReducedMotion } from 'framer-motion'
+import { useReducedMotion } from 'framer-motion'
 import type { Board, Project, Shot, Theme, World } from '../work'
 import Mark from '../site/Mark'
 
 // A case study dressed as the client's own brand: its ground, its colours, and a
 // run of edge-to-edge boards. Every colour comes from the project's `theme`.
-// Motion earns its place: the title and boards arrive in reading order, the
-// live site plays as video, and reduced motion gets stills with no animation.
-
-const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
+// Motion earns its place: the title and boards arrive in reading order (CSS, so
+// it needs no JavaScript), the live site plays as video only while it is on
+// screen, and reduced motion gets stills with no animation.
 
 function Reveal({ children }: { children: ReactNode }) {
-  const reduce = useReducedMotion()
-  return (
-    <motion.div
-      initial={reduce ? false : { opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.12 }}
-      transition={{ duration: 0.85, ease: EASE }}
-    >
-      {children}
-    </motion.div>
-  )
+  return <div className="bw-board">{children}</div>
 }
 
 function Pic({ s, t, eager }: { s: Shot; t: Theme; eager?: boolean }) {
@@ -32,6 +21,7 @@ function Pic({ s, t, eager }: { s: Shot; t: Theme; eager?: boolean }) {
       src={s.src}
       alt={s.alt}
       loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
       style={{ width: '100%', height: '100%', objectFit: contain ? 'contain' : 'cover', objectPosition: 'top', background: contain ? t.ink : undefined, padding: contain ? '9%' : undefined }}
     />
   )
@@ -41,22 +31,29 @@ function LiveVideo({ b, t }: { b: Extract<Board, { kind: 'video' }>; t: Theme })
   const reduce = useReducedMotion()
   const ref = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
-  // No autoplay attribute in the HTML: playback starts here, after mount, and only
-  // when the visitor has not asked for reduced motion.
+  const manual = useRef(false) // the visitor pressed Pause, so scrolling back must not restart it
+  // No autoplay attribute and preload="none": nothing downloads until the video is
+  // on screen. It then plays, and pauses again when scrolled away. Never under
+  // reduced motion.
   useEffect(() => {
     const v = ref.current
     if (!v) return
     if (reduce) { v.pause(); return }
-    v.play().then(() => setPlaying(true)).catch(() => setPlaying(false))
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !manual.current) v.play().then(() => setPlaying(true)).catch(() => setPlaying(false))
+      else if (!e.isIntersecting) { v.pause(); setPlaying(false) }
+    }, { threshold: 0.25 })
+    io.observe(v)
+    return () => io.disconnect()
   }, [reduce])
   const toggle = () => {
     const v = ref.current
     if (!v) return
-    if (v.paused) { void v.play(); setPlaying(true) } else { v.pause(); setPlaying(false) }
+    if (v.paused) { manual.current = false; void v.play(); setPlaying(true) } else { manual.current = true; v.pause(); setPlaying(false) }
   }
   return (
     <div className="wrap" style={{ padding: 'clamp(56px, 8vw, 128px) clamp(20px, 4.5vw, 64px)' }}>
-      <video ref={ref} src={b.src} poster={b.poster} muted loop playsInline preload="metadata" aria-label={b.alt}
+      <video ref={ref} src={b.src} poster={b.poster} muted loop playsInline preload="none" aria-label={b.alt}
         style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', objectPosition: 'top', background: t.ink }} />
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
         <p style={{ font: '400 clamp(16px, 1.3vw, 18px)/1.4 var(--font-sans)', color: t.ink }}>{b.caption}</p>
@@ -123,7 +120,6 @@ function BoardView({ b, t }: { b: Board; t: Theme }) {
 export default function BrandWorld({ p, w, next }: { p: Project; w: World; next: Project }) {
   const t = w.theme
   const dark = parseInt(t.ground.slice(1, 3), 16) < 100
-  const reduce = useReducedMotion()
   // Long names get a smaller title so they do not bury the picture behind them.
   const titleSize = p.title.length > 18 ? 'clamp(48px, 10vw, 168px)' : 'clamp(60px, 14.5vw, 240px)'
   const facts: [string, string][] = [['Role', p.role], ['Discipline', p.discipline], ['Years', p.years]]
@@ -148,28 +144,25 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
       <main id="main-content">
         {w.hero === 'screen' ? (
           <section aria-label={p.title} style={{ paddingTop: 72 }}>
-            <img src={p.cover.src} alt={p.cover.alt} style={{ width: '100%', height: 'auto', maxHeight: '72dvh', aspectRatio: p.cover.ratio, objectFit: 'cover', objectPosition: 'top' }} />
+            <img src={p.cover.src} alt={p.cover.alt} fetchPriority="high" decoding="async" style={{ width: '100%', height: 'auto', maxHeight: '72dvh', aspectRatio: p.cover.ratio, objectFit: 'cover', objectPosition: 'top' }} />
             <div className="wrap" style={{ padding: 'clamp(40px, 6vw, 96px) clamp(20px, 4.5vw, 64px) 0' }}>
-              <motion.h1
-                initial={reduce ? false : { opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE }}
+              <h1 className="bw-rise"
                 style={{ font: `800 ${titleSize}/0.88 var(--font-sans)`, letterSpacing: '-0.055em', color: t.ink }}>
                 {p.title}
-              </motion.h1>
+              </h1>
               <p style={{ font: '500 clamp(18px, 1.8vw, 26px)/1.3 var(--font-sans)', marginTop: 'clamp(14px, 1.8vw, 26px)', color: t.accent }}>{p.discipline}</p>
             </div>
           </section>
         ) : (
         <section aria-label={p.title} style={{ position: 'relative', minHeight: 'min(100dvh, 980px)', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
-          <motion.img src={p.cover.src} alt={p.cover.alt}
-            initial={reduce ? false : { scale: 1.08 }} animate={{ scale: 1 }} transition={{ duration: 1.8, ease: EASE }}
+          <img src={p.cover.src} alt={p.cover.alt} className="bw-zoom" fetchPriority="high" decoding="async"
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
           <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, ${t.ground} 8%, ${t.ground}d9 30%, ${t.ground}66 52%, ${t.ground}00 74%)` }} />
           <div className="wrap" style={{ position: 'relative', paddingBottom: 'clamp(28px, 5vw, 72px)' }}>
-            <motion.h1
-              initial={reduce ? false : { opacity: 0, y: 70 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: EASE, delay: 0.15 }}
-              style={{ font: `800 ${titleSize}/0.86 var(--font-sans)`, letterSpacing: '-0.055em', color: t.ink }}>
+            <h1 className="bw-rise"
+              style={{ font: `800 ${titleSize}/0.86 var(--font-sans)`, letterSpacing: '-0.055em', color: t.ink, animationDelay: '0.15s' }}>
               {p.title}
-            </motion.h1>
+            </h1>
             <p style={{ font: '500 clamp(18px, 1.8vw, 26px)/1.3 var(--font-sans)', marginTop: 'clamp(14px, 1.8vw, 26px)', color: t.accent }}>{p.discipline}</p>
           </div>
         </section>

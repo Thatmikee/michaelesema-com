@@ -72,6 +72,14 @@ export default function GlassWord({ lines, auto = false, onInteract }: Props) {
     if (!wrapEl || !canvas) return
     const gl = canvas.getContext('webgl', { premultipliedAlpha: true, alpha: true, antialias: false })
     if (!gl) return
+    // A software renderer (SwiftShader, llvmpipe, a remote desktop or VM) runs a full-width
+    // fragment shader in seconds, blocking the page. Keep the plain, readable text there.
+    const dbg = gl.getExtension('WEBGL_debug_renderer_info')
+    const renderer = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : ''
+    if (/swiftshader|llvmpipe|softpipe|software|basic render/i.test(renderer)) {
+      gl.getExtension('WEBGL_lose_context')?.loseContext()
+      return
+    }
     const vs = compile(gl, gl.VERTEX_SHADER, VERT)
     const fsh = compile(gl, gl.FRAGMENT_SHADER, FRAG)
     const prog = gl.createProgram()

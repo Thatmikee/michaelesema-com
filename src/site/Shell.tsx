@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link, NavLink, Routes, useLocation } from 'react-router-dom'
 import { animate, motion, useAnimationControls, useReducedMotion } from 'framer-motion'
-import { SxCtx, EASE_IO } from './ctx'
+import { EASE_IO } from './ctx'
 import Mark from './Mark'
 import './site.css'
 
@@ -99,19 +99,24 @@ export default function Shell({ children }: { children: ReactNode }) {
   const [shown, setShown] = useState(location)
   const [phase, setPhase] = useState<'idle' | 'cover' | 'reveal'>('idle')
   const [intro, setIntro] = useState(false)
-  const [ready, setReady] = useState(true)
   // Every page shows the site chrome except a project page, which draws its own
   // brand world and carries a matching copy of the nav.
   const isSite = shown.pathname === '/work' || !shown.pathname.startsWith('/work/')
 
   // Intro: once per session, never with reduced motion, skippable with ?nointro.
+  // public/intro-gate.js makes the same decision before first paint and sets two
+  // classes on <html>: `sx-gate` (a snow veil so the page never flashes ahead of the
+  // curtain) and `sx-held` (text reveals wait). This effect hands both over.
   useEffect(() => {
-    if (reduced || !SITE_PATHS.includes(window.location.pathname)) return
+    const root = document.documentElement
+    root.dataset.sxApp = '1'
+    const release = () => root.classList.remove('sx-gate', 'sx-held')
+    if (reduced || !SITE_PATHS.includes(window.location.pathname)) { release(); return }
     let seen = false
     try { seen = sessionStorage.getItem('sx-intro') === '1' } catch { /* storage blocked */ }
-    if (seen || new URLSearchParams(window.location.search).has('nointro')) return
+    if (seen || new URLSearchParams(window.location.search).has('nointro')) { release(); return }
     try { sessionStorage.setItem('sx-intro', '1') } catch { /* storage blocked */ }
-    setReady(false)
+    root.classList.remove('sx-gate') // the intro curtain now covers the page
     setIntro(true)
   }, [reduced])
 
@@ -138,17 +143,18 @@ export default function Shell({ children }: { children: ReactNode }) {
     return () => document.body.classList.remove('sx-body')
   }, [isSite])
 
-  const lift = useCallback(() => { setTimeout(() => setReady(true), 480) }, [])
+  // The page's text lines start rising a moment after the curtain begins to lift.
+  const lift = useCallback(() => { setTimeout(() => document.documentElement.classList.remove('sx-held'), 480) }, [])
   const done = useCallback(() => setIntro(false), [])
 
   return (
-    <SxCtx.Provider value={{ ready }}>
+    <>
       {isSite && <Chrome />}
       <div className={isSite ? 'sx' : undefined}>
         <Routes location={shown}>{children}</Routes>
       </div>
       <Wipe phase={phase} />
       {intro && <Intro onLift={lift} onDone={done} />}
-    </SxCtx.Provider>
+    </>
   )
 }

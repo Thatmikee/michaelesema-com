@@ -1,36 +1,31 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion'
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { HandPointing } from '@phosphor-icons/react'
 import { PROJECTS } from '../work'
-import { EASE_OUT, useSx } from './ctx'
+import { EASE_OUT } from './ctx'
 import GlassWord from './GlassWord'
 import Mark from './Mark'
 
 // One reveal, used on Home, Blog and About: a line of text slides up out of a
-// mask once the intro curtain has lifted (or straight away when there is none).
+// mask. It is a CSS animation, so it starts at first paint with no JavaScript; the
+// intro holds it (html.sx-held pauses it) until the curtain lifts.
 function Mask({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
-  const { ready } = useSx()
-  const reduce = useReducedMotion()
   return (
     <span className="sx-mask">
-      <motion.span className="sx-up" initial={reduce ? false : { y: '112%' }} animate={{ y: ready ? 0 : '112%' }}
-        transition={{ duration: 0.9, ease: EASE_OUT, delay: ready ? delay : 0 }}>
-        {children}
-      </motion.span>
+      <span className="sx-up" style={{ '--d': `${delay}s` } as CSSProperties}>{children}</span>
     </span>
   )
 }
 
 // The dark panel under the wordmark. The penguin is only a small symbol for now.
-// On small screens a hand shows how to move the name until the first touch.
-function Stage({ hint }: { hint: boolean }) {
+// On small screens a hand shows how to move the name until the first touch. The
+// hint is always in the HTML and CSS decides when it shows, so it paints at once.
+function Stage({ gone }: { gone: boolean }) {
   return (
     <div className="sx-stage2">
-      {hint && (
-        <p className="sx-hint"><span className="sx-hand" aria-hidden="true"><HandPointing size={34} weight="light" /></span>Drag across the name</p>
-      )}
+      <p className={`sx-hint${gone ? ' gone' : ''}`}><span className="sx-hand" aria-hidden="true"><HandPointing size={34} weight="light" /></span>Drag across the name</p>
       <div className="sx-turn" aria-hidden="true"><Mark onDark /></div>
     </div>
   )
@@ -73,7 +68,7 @@ export function Home() {
       <p className="sx-para"><Mask delay={0.16}>I work across identity, visual communication and digital design, helping ideas and businesses find a clear visual language.</Mask></p>
       <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Mask delay={0.28}><GlassWord lines={small ? ['Michael', 'Esema'] : ['Michael Esema']} auto={small || coarse} onInteract={() => setTouched(true)} /></Mask></h1>
       </div>
-      <Stage hint={small && !touched} />
+      <Stage gone={touched} />
     </main>
   )
 }
@@ -90,7 +85,7 @@ export function Blog() {
       <p className="sx-para"><Mask delay={0.16}>Notes on design, business and the way the two meet. The first articles are on their way.</Mask></p>
       <h1 className="sx-h1"><span className="sx-sr">Blog, coming soon</span><Mask delay={0.28}><GlassWord lines={small ? ['Coming', 'Soon'] : ['Coming Soon']} auto={small || coarse} onInteract={() => setTouched(true)} /></Mask></h1>
       </div>
-      <Stage hint={small && !touched} />
+      <Stage gone={touched} />
     </main>
   )
 }
@@ -145,7 +140,7 @@ function WorkStack() {
       {PROJECTS.map((q, i) => (
         <li key={q.slug}>
           <span className="n" aria-hidden="true">{pad(i + 1)}</span>
-          <Link to={`/work/${q.slug}`} className="pic" aria-label={`View ${q.title}`}><img src={q.cover.src} alt={q.cover.alt} loading={i === 0 ? 'eager' : 'lazy'} /></Link>
+          <Link to={`/work/${q.slug}`} className="pic" aria-label={`View ${q.title}`}><img src={q.cover.src} alt={q.cover.alt} loading={i === 0 ? 'eager' : 'lazy'} fetchPriority={i === 0 ? 'high' : undefined} decoding="async" /></Link>
           <h2>{q.title}</h2>
           <p>{q.summary}</p>
         </li>
