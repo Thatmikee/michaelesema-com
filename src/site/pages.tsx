@@ -121,27 +121,27 @@ export function About() {
       <Crumbs here="About" />
       <section className="sx-row"><h2 className="sx-label">Bio</h2>
         <div className="sx-prose">
-          <p className="lead"><Mask>I’m Michael Esema, a graphic and multimedia designer and business strategist. I’m based in the UK and I’m from Nigeria.</Mask></p>
-          <p>I trained as an accountant, then studied business up to master’s level. I was designing the whole time, and the two never felt separate. Before I open Illustrator I ask what the work is for, who it’s for, and how we’ll know it worked.</p>
+          <p className="lead"><Mask>I’m Michael Esema. I design brands, print and websites, and I came to design through accounting, which is why my work always has a reason behind it.</Mask></p>
+          <p>I trained as an accountant and went on to study business at master’s level. All that time I was designing, and the two never felt like separate careers. Before I open Illustrator I ask what the work is for, who it’s for, and how we’ll know it worked.</p>
         </div>
       </section>
       <section className="sx-row"><h2 className="sx-label">Who it’s for</h2>
         <div className="sx-prose">
-          <p>People who run a business, or hire for one, and want design they can justify in numbers. So far that has been a hotel, a caterer, an events brand and a publication.</p>
+          <p>For people who run a business, or hire for one, and want design they can explain in numbers. So far that has meant a hotel, a caterer, an events brand and a publication.</p>
         </div>
       </section>
       <section className="sx-row"><h2 className="sx-label">Story</h2>
         <div className="sx-prose">
-          <p>2018. I finished a BSc in Accounting and became part-time design lead for Silent Party 9ja, an events brand in Nigeria. I ran its visual identity and promotions until February 2023.</p>
-          <p>2019. B’s Hive Hotels &amp; Suites in Abuja hired me as Head Accountant. I kept the books. I also designed the hotel’s logo and letterhead, made its promotions and ran its social media. Over time I took on more of the running of the hotel and became Manager.</p>
-          <p>2022 and 2024. I did an MBA at the Nigerian Defence Academy, then an MSc in International Business Management at Manchester Metropolitan University. I finished with a Merit. In 2025 I got my Lean Six Sigma certificate.</p>
-          <p>Later I founded Mykei Securities Ltd, a security technology company, and designed its brand, website and publication, The Signal.</p>
-          <p>Some of my recent work: the identity for Sarah Bellus, a Nigerian caterer in the UK, and the new identity and booking site for Silent Party 9ja.</p>
+          <p>It started with a party. In 2018, as I finished my accounting degree in Nigeria, I became part-time design lead for Silent Party 9ja, an events brand where everyone wears headphones and picks their own channel. I made its flyers and its look until February 2023, and learned what a good poster does for a room.</p>
+          <p>In 2019 I joined B’s Hive Hotels &amp; Suites in Abuja as Head Accountant. I kept the books, and I also designed the hotel’s logo, letterhead, promotions and social media. Having the numbers and the brand in front of me at the same time shaped how I work. Over time I took on more of the running of the hotel and became its Manager.</p>
+          <p>I kept studying alongside it. An MBA at the Nigerian Defence Academy came in 2022, then an MSc in International Business Management at Manchester Metropolitan University, finished with a Merit in 2024. Lean Six Sigma followed in 2025, which gives me the process side to go with the creative side.</p>
+          <p>In the UK I founded Mykei Securities Ltd, a security technology company, and designed its brand, its website and its publication, The Signal.</p>
+          <p>Most recently I designed the identity for Sarah Bellus, a Nigerian caterer in the UK, and a new identity and booking site for Silent Party 9ja, where it all began.</p>
         </div>
       </section>
       <section className="sx-row"><h2 className="sx-label">How I work</h2>
         <div className="sx-prose">
-          <p>I write the colours, type and rules down once, so everything I make matches. And I measure what can be measured, like contrast and load time, instead of guessing.</p>
+          <p>I decide the colours, type and rules once and write them down, so everything I make matches. Then I measure what can be measured, like contrast and load time, instead of guessing.</p>
         </div>
       </section>
       <section className="sx-row"><h2 className="sx-label">Studied</h2>
