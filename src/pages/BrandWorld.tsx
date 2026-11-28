@@ -132,8 +132,8 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
   return (
     <div className={FLIP ? 'bw bw-flip' : 'bw'} style={{ background: t.ground, color: t.ink, minHeight: '100dvh' }}>
       <header style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 120, zIndex: 50, background: `linear-gradient(to bottom, ${t.ground}cc, transparent)` }}>
-        <Link to="/" aria-label="Michael Esema, home" style={{ position: 'absolute', left: 18, top: 18, width: 22, height: 22, display: 'block' }}><Mark onDark={dark} /></Link>
-        <nav aria-label="Primary" style={{ position: 'absolute', right: 'clamp(16px, 2.2vw, 32px)', top: 14, display: 'grid', justifyItems: 'start' }}>
+        <Link to="/" aria-label="Michael Esema, home" style={{ position: 'absolute', ...(FLIP ? { right: 18 } : { left: 18 }), top: 18, width: 22, height: 22, display: 'block' }}><Mark onDark={dark} /></Link>
+        <nav aria-label="Primary" style={{ position: 'absolute', [FLIP ? 'left' : 'right']: 'clamp(16px, 2.2vw, 32px)', top: 14, display: 'grid', justifyItems: 'start' }}>
           {[['Work', '/work'], ['Blog', '/blog'], ['About', '/about']].map(([label, to]) => (
             <Link key={to} to={to} className="bw-nav" style={{ font: "800 16px/24px 'Satoshi', sans-serif", textTransform: 'uppercase' }}>{label}</Link>
           ))}

@@ -35,7 +35,7 @@ function Chrome() {
       <div className="sx-bar" aria-hidden="true" />
       {/* Both children are position: fixed, so the header has no height and changes no layout;
           it exists so the home link sits inside a landmark. */}
-      <header>
+      <header className={FLIP ? 'sx-header-flip' : undefined}>
         <Link to="/" className="sx-mark" aria-label="Michael Esema, home"><Mark /></Link>
         <nav className="sx-nav" aria-label="Primary">
           <NavLink to="/work">Work</NavLink>

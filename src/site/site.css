@@ -151,6 +151,13 @@ html.sx-gate body::before { content: ''; position: fixed; inset: 0; z-index: 99;
   .sx-flip .sx-row > .sx-label { grid-column: 2; grid-row: 1; }
   .sx-flip .sx-row > .sx-prose { grid-column: 1; grid-row: 1; }
 }
+/* Corners swap too: the links move to the top-left and the mark to the top-right, and
+   the Privacy link goes to the opposite corner of the dark panel. Two-class selectors
+   so they win over the base and short-screen rules above. */
+.sx-header-flip .sx-mark { left: auto; right: 18px; }
+.sx-header-flip .sx-nav { right: auto; left: 32px; }
+.sx-flip .sx-legal { left: auto; right: 24px; }
+@media (max-width: 700px) { .sx-header-flip .sx-nav { left: 16px; } }
 /* Short screens (landscape phones, small laptop windows): the four nav links run in
    a row instead of a column, so they stay clear of the heading and the name. */
 @media (max-height: 520px) {

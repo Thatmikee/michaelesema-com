@@ -50,10 +50,10 @@ export function Home() {
   const [touched, setTouched] = useState(false)
   return (
     <main id="sx-main" tabIndex={-1} className="sx-main sx-home">
-      <Meta title="Michael Esema | Graphic & Multimedia Designer & Business Strategist" desc="Portfolio of Michael Esema, a UK graphic and multimedia designer and business strategist (BSc, MBA, MSc, Lean Six Sigma). Brand identity, visual systems and print." path="/" />
+      <Meta title="Michael Esema | Graphic & Multimedia Designer & Business Strategist" desc="Portfolio of Michael Esema, a UK graphic and multimedia designer and business strategist. Brand identity, print and web design." path="/" />
       <div className="sx-top">
       <p className="sx-head"><Mask>Graphic &amp; Multimedia</Mask><Mask delay={0.08}>Designer and</Mask><Mask delay={0.16}>Business Strategist</Mask></p>
-      <p className="sx-para"><Mask delay={0.24}>I design brands, print and websites, and I start where an accountant would: what does this have to achieve, for whom, and how will we know it worked?</Mask></p>
+      <p className="sx-para"><Mask delay={0.24}>I design brands, print and websites. I trained as an accountant, so I always ask what the work is for and how we'll know it worked.</Mask></p>
       <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Mask delay={0.36}><GlassWord lines={small ? ['Michael', 'Esema'] : ['Michael Esema']} auto={small || coarse} onInteract={() => setTouched(true)} /></Mask></h1>
       </div>
       <Stage gone={touched} />
@@ -121,29 +121,27 @@ const QUALS: [string, string][] = [
 export function About() {
   return (
     <main id="sx-main" tabIndex={-1} className="sx-main sx-about">
-      <Meta title="About Michael Esema | Graphic and Multimedia Designer" desc="Michael Esema is a graphic and multimedia designer and business strategist in the UK, originally from Nigeria, trained in accounting and business management." path="/about" />
+      <Meta title="About Michael Esema | Graphic and Multimedia Designer" desc="Michael Esema is a graphic and multimedia designer and business strategist in the UK. He trained in accounting and business." path="/about" />
       <h1 className="sx-sr">About Michael Esema</h1>
       <Crumbs here="About" />
       <section className="sx-row"><h2 className="sx-label">Bio</h2>
         <div className="sx-prose">
-          <p className="lead"><Mask>I’m Michael Esema, a graphic and multimedia designer and business strategist based in the UK, originally from Nigeria.</Mask></p>
-          <p>I trained as an accountant, then studied business to master’s level, and all the while I was designing. The two never felt separate. A brief is a budget with a deadline. A brand is a promise that has to be kept everywhere it shows up, from the logo to the invoice. So before I open Illustrator I ask what the work has to do, who it is for, and how we will know it did.</p>
+          <p className="lead"><Mask>I’m Michael Esema, a graphic and multimedia designer and business strategist. I’m based in the UK and I’m from Nigeria.</Mask></p>
+          <p>I trained as an accountant, then studied business up to master’s level. I was designing the whole time, and the two never felt separate. Before I open Illustrator I ask what the work is for, who it’s for, and how we’ll know it worked.</p>
         </div>
       </section>
       <section className="sx-row"><h2 className="sx-label">Story</h2>
         <div className="sx-prose">
-          <p>2018. I finished a BSc in Accounting and became part-time design lead for Silent Party 9ja, an events brand in Nigeria. I led its visual identity and promotional work until February 2023, and I still design for it now and then, to keep sharp.</p>
-          <p>2019. B’s Hive Hotels &amp; Suites in Abuja hired me as Head Accountant. I kept the books, and I also designed the hotel’s logo and letterhead, made its promotions and ran its social media. Over time I moved into running the wider business and became Manager.</p>
-          <p>2022 and 2024. I took an MBA at the Nigerian Defence Academy, then an MSc in International Business Management at Manchester Metropolitan University, finishing with a Merit. In 2025 I added Lean Six Sigma certification for the process side.</p>
-          <p>I later founded Mykei Securities Ltd, a security technology start-up, and designed its brand identity, website and publication, The Signal.</p>
-          <p>Selected work includes the identity for Sarah Bellus, a Nigerian caterer in the UK, and the identity and booking site for Silent Party 9ja.</p>
+          <p>2018. I finished a BSc in Accounting and became part-time design lead for Silent Party 9ja, an events brand in Nigeria. I ran its visual identity and promotions until February 2023. I still design for it now and then, to keep sharp.</p>
+          <p>2019. B’s Hive Hotels &amp; Suites in Abuja hired me as Head Accountant. I kept the books. I also designed the hotel’s logo and letterhead, made its promotions and ran its social media. Over time I took on more of the running of the hotel and became Manager.</p>
+          <p>2022 and 2024. I did an MBA at the Nigerian Defence Academy, then an MSc in International Business Management at Manchester Metropolitan University. I finished with a Merit. In 2025 I got my Lean Six Sigma certificate.</p>
+          <p>Later I founded Mykei Securities Ltd, a security technology company, and designed its brand, website and publication, The Signal.</p>
+          <p>Some of my recent work: the identity for Sarah Bellus, a Nigerian caterer in the UK, and the new identity and booking site for Silent Party 9ja.</p>
         </div>
       </section>
       <section className="sx-row"><h2 className="sx-label">How I work</h2>
         <div className="sx-prose">
-          <p>Ask first. What must this do, for whom, and how will we tell?</p>
-          <p>Decide once. A small set of colours, type and rules, written down, so every piece matches. On this site every colour comes from one file.</p>
-          <p>Check the numbers. Contrast, load time and print cost are measured, not guessed.</p>
+          <p>I write the colours, type and rules down once, so everything I make matches. On this site every colour comes from one file. And I measure what can be measured, like contrast and load time, instead of guessing.</p>
         </div>
       </section>
       <section className="sx-row"><h2 className="sx-label">Studied</h2>
