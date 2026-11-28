@@ -37,10 +37,12 @@ function Stage({ hint }: { hint: boolean }) {
 }
 
 function useMedia(q: string) {
-  const [on, setOn] = useState(() => (typeof window === 'undefined' ? false : window.matchMedia(q).matches))
+  // Starts false on server and client alike, then follows the real screen after mount.
+  const [on, setOn] = useState(false)
   useEffect(() => {
     const m = window.matchMedia(q)
     const f = () => setOn(m.matches)
+    f()
     m.addEventListener('change', f)
     return () => m.removeEventListener('change', f)
   }, [q])

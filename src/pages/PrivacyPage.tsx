@@ -34,6 +34,8 @@ export default function PrivacyPage() {
       <Helmet>
         <title>Privacy &amp; Cookies | Michael Esema</title>
         <meta name="description" content="How michaelesema.com handles data and cookies." />
+        <meta property="og:title" content="Privacy & Cookies | Michael Esema" />
+        <meta property="og:description" content="How michaelesema.com handles data and cookies." />
         <meta property="og:url" content="https://michaelesema.com/privacy" />
       </Helmet>
       <h1 className="sx-page-title">Privacy &amp; Cookies</h1>

@@ -58,12 +58,15 @@ export default function GlassWord({ lines, auto = false, onInteract }: Props) {
   const [live, setLive] = useState(false)
   const [fs, setFs] = useState<number | null>(null)
   const [h, setH] = useState<number | null>(null)
+  const [mounted, setMounted] = useState(false)
   const key = lines.join('|')
   const interact = useRef(onInteract)
   useEffect(() => { interact.current = onInteract }, [onInteract])
+  // The canvas exists only on the client, after mount, so server and client HTML match.
+  useEffect(() => { setMounted(true) }, [])
 
   useEffect(() => {
-    if (reduce) return
+    if (reduce || !mounted) return
     const wrapEl = wrap.current
     const canvas = cv.current
     if (!wrapEl || !canvas) return
@@ -214,7 +217,7 @@ export default function GlassWord({ lines, auto = false, onInteract }: Props) {
       canvas.removeEventListener('pointerup', onLeave)
       if (tex) gl.deleteTexture(tex)
     }
-  }, [reduce, key, auto])
+  }, [reduce, key, auto, mounted])
 
   const longest = Math.max(...lines.map(l => l.length))
   return (
@@ -222,7 +225,7 @@ export default function GlassWord({ lines, auto = false, onInteract }: Props) {
       <span className={`sx-gw-txt${live ? ' on' : ''}`} style={fs ? { fontSize: fs, lineHeight: lines.length > 1 ? 0.98 : 1.12 } : { fontSize: `calc((100vw - 32px) / ${(longest * 0.5).toFixed(2)})` }}>
         {lines.map((l, i) => <span key={l}>{l}{i < lines.length - 1 ? <br /> : null}</span>)}
       </span>
-      {!reduce && <canvas ref={cv} className="sx-gw-cv" aria-hidden="true" />}
+      {mounted && !reduce && <canvas ref={cv} className="sx-gw-cv" aria-hidden="true" />}
     </span>
   )
 }

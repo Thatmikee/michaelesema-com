@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import type { Board, Project, Shot, Theme, World } from '../work'
@@ -40,7 +40,15 @@ function Pic({ s, t, eager }: { s: Shot; t: Theme; eager?: boolean }) {
 function LiveVideo({ b, t }: { b: Extract<Board, { kind: 'video' }>; t: Theme }) {
   const reduce = useReducedMotion()
   const ref = useRef<HTMLVideoElement>(null)
-  const [playing, setPlaying] = useState(!reduce)
+  const [playing, setPlaying] = useState(false)
+  // No autoplay attribute in the HTML: playback starts here, after mount, and only
+  // when the visitor has not asked for reduced motion.
+  useEffect(() => {
+    const v = ref.current
+    if (!v) return
+    if (reduce) { v.pause(); return }
+    v.play().then(() => setPlaying(true)).catch(() => setPlaying(false))
+  }, [reduce])
   const toggle = () => {
     const v = ref.current
     if (!v) return
@@ -48,7 +56,7 @@ function LiveVideo({ b, t }: { b: Extract<Board, { kind: 'video' }>; t: Theme })
   }
   return (
     <div className="wrap" style={{ padding: 'clamp(56px, 8vw, 128px) clamp(20px, 4.5vw, 64px)' }}>
-      <video ref={ref} src={b.src} poster={b.poster} autoPlay={!reduce} muted loop playsInline preload="metadata" aria-label={b.alt}
+      <video ref={ref} src={b.src} poster={b.poster} muted loop playsInline preload="metadata" aria-label={b.alt}
         style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', objectPosition: 'top', background: t.ink }} />
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
         <p style={{ font: '400 clamp(16px, 1.3vw, 18px)/1.4 var(--font-sans)', color: t.ink }}>{b.caption}</p>
