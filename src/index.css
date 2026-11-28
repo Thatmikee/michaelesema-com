@@ -3,12 +3,12 @@
 
 /*
   Global base only. Colours live in src/site/site.css (:root variables) and in
-  each project's own theme in src/work.ts. Type is self-hosted Satoshi.
+  each project's own theme in src/work.ts. Type is self-hosted: General Sans (text) and Cormorant Garamond (display).
 */
 @layer base {
   :root {
     --radius: 2px;
-    --font-sans: 'Satoshi', 'Helvetica Neue', Arial, sans-serif;
+    --font-sans: var(--sx-font);
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }

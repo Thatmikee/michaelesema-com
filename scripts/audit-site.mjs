@@ -12,7 +12,7 @@ const out = []
 const fails = []
 const log = (ok, item, detail = '') => { out.push(`${ok ? 'PASS' : 'FAIL'}  ${item}${detail ? '  ' + detail : ''}`); if (!ok) fails.push(item) }
 
-const pages = ['/', '/work', '/blog', '/about', '/privacy', '/work/sarah-bellus', '/work/silent-party-9ja', '/work/bs-hive', '/work/the-signal', '/work/mykei']
+const pages = ['/', '/work', '/blog', '/about', '/privacy', '/work/sarah-bellus', '/work/silent-party-9ja', '/work/bs-hive', '/work/the-signal']
 const file = u => path.join(dist, u === '/' ? 'index.html' : `${u.slice(1)}.html`)
 const html = Object.fromEntries(pages.map(u => [u, fs.readFileSync(file(u), 'utf8')]))
 html['/404'] = fs.readFileSync(path.join(dist, '404.html'), 'utf8')
@@ -58,7 +58,7 @@ const dec = s => s.replace(/&amp;/g, '&').replace(/&#x27;/g, "'").replace(/&quot
 { const h = fs.readFileSync(path.join(dist, '_headers'), 'utf8'); log(/Content-Security-Policy/.test(h) && /Strict-Transport-Security/.test(h) && /X-Content-Type-Options/.test(h), 'Security headers file present (CSP, HSTS, nosniff)'); log(!/\/\*\s+\/index\.html\s+200/.test(fs.readFileSync(path.join(dist, '_redirects'), 'utf8')), 'No catch-all rewrite (unknown URLs return a real 404)') }
 
 // 16 Guardrails: strings that must never appear on the public site
-{ const banned = /ADN-1|Active Deterrence|Aboladale|Eseme(?!a)|fundrais|freelance|hire me|available for|open to work|small businesses|privacy@mykei|Drag across the name/i
+{ const banned = /ADN-1|Active Deterrence|Aboladale|Eseme(?!a)|fundrais|freelance|hire me|available for|open to work|small businesses|privacy@mykei|Drag across the name|now and then|still design|occasional|Contact me/i
   const hits = []
   const scan = (name, text) => { const m = text.match(banned); if (m) hits.push(`${name}: ${m[0]}`) }
   for (const u of all) scan(u, html[u])

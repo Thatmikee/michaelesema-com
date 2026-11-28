@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from './motion'
-import { INK, TEAL } from './tokens'
+import { INK, FRINGE } from './tokens'
 
 // The wordmark, drawn to a texture and shown through a glass shader. Near the
 // cursor or finger the letters split into thin strips that slide, lean and
@@ -49,9 +49,9 @@ function compile(gl: WebGLRenderingContext, type: number, src: string) {
   return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null
 }
 
-type Props = { lines: string[]; auto?: boolean; onInteract?: () => void }
+type Props = { lines: string[]; auto?: boolean; align?: 'left' | 'right'; onInteract?: () => void }
 
-export default function GlassWord({ lines, auto = false, onInteract }: Props) {
+export default function GlassWord({ lines, auto = false, align = 'left', onInteract }: Props) {
   const wrap = useRef<HTMLSpanElement>(null)
   const cv = useRef<HTMLCanvasElement>(null)
   const reduce = useReducedMotion()
@@ -117,7 +117,7 @@ export default function GlassWord({ lines, auto = false, onInteract }: Props) {
       gl.uniform1f(U('uR'), Math.max(st.W * 0.16, st.H * 0.45))
       gl.uniform1f(U('uS'), dpr)
       gl.uniform3f(U('uInk'), INK.rgb[0] / 255, INK.rgb[1] / 255, INK.rgb[2] / 255)
-      gl.uniform3f(U('uTeal'), TEAL.rgb[0] / 255, TEAL.rgb[1] / 255, TEAL.rgb[2] / 255)
+      gl.uniform3f(U('uTeal'), FRINGE.rgb[0] / 255, FRINGE.rgb[1] / 255, FRINGE.rgb[2] / 255)
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
     }
     const loop = (now: number) => {
@@ -141,28 +141,36 @@ export default function GlassWord({ lines, auto = false, onInteract }: Props) {
     const kick = () => { if (!raf) raf = requestAnimationFrame(loop) }
 
     const build = async () => {
-      await document.fonts.load('500 100px Satoshi')
+      // The display font comes from CSS (--sx-display), so changing the site font needs no edit here.
+      const cs = getComputedStyle(document.documentElement)
+      const family = cs.getPropertyValue('--sx-display').trim() || 'Cormorant Garamond, serif'
+      const weight = cs.getPropertyValue('--sx-display-weight').trim() || '500'
+      const trackParsed = parseFloat(cs.getPropertyValue('--sx-display-tracking-n'))
+      const tracking = Number.isFinite(trackParsed) ? trackParsed : -0.045
+      await document.fonts.load(`${weight} 100px ${family}`)
       if (dead) return
       const cssW = wrapEl.clientWidth
       if (cssW < 10) return
       const c2 = document.createElement('canvas')
       const ctx = c2.getContext('2d')
       if (!ctx) return
-      ctx.font = '500 100px Satoshi, sans-serif'
-      if ('letterSpacing' in ctx) ctx.letterSpacing = '-4.5px'
+      ctx.font = `${weight} 100px ${family}`
+      if ('letterSpacing' in ctx) ctx.letterSpacing = `${tracking * 100}px`
       const widest = Math.max(...textLines.map(l => ctx.measureText(l).width))
-      const size = cssW / (widest / 100)
+      // Fit the width, but never taller than half the window, so a short word like Esema leaves room for the text above it.
+      const size = Math.min(cssW / (widest / 100), (window.innerHeight * 0.5) / 1.12)
       const lead = textLines.length > 1 ? 0.98 : 0
       const cssH = Math.ceil(size * (0.84 + lead * (textLines.length - 1) + 0.28))
       st.W = Math.round(cssW * dpr)
       st.H = Math.round(cssH * dpr)
       c2.width = st.W
       c2.height = st.H
-      ctx.font = `500 ${size * dpr}px Satoshi, sans-serif`
-      if ('letterSpacing' in ctx) ctx.letterSpacing = `${-0.045 * size * dpr}px`
+      ctx.font = `${weight} ${size * dpr}px ${family}`
+      if ('letterSpacing' in ctx) ctx.letterSpacing = `${tracking * size * dpr}px`
       ctx.fillStyle = INK.hex
       ctx.textBaseline = 'alphabetic'
-      textLines.forEach((l, i) => ctx.fillText(l, 0, size * dpr * (0.84 + lead * i)))
+      ctx.textAlign = align === 'right' ? 'right' : 'left'
+      textLines.forEach((l, i) => ctx.fillText(l, align === 'right' ? st.W : 0, size * dpr * (0.84 + lead * i)))
       canvas.width = st.W
       canvas.height = st.H
       canvas.style.height = `${cssH}px`
@@ -225,12 +233,12 @@ export default function GlassWord({ lines, auto = false, onInteract }: Props) {
       canvas.removeEventListener('pointerup', onLeave)
       if (tex) gl.deleteTexture(tex)
     }
-  }, [reduce, key, auto, mounted])
+  }, [reduce, key, auto, mounted, align])
 
   const longest = Math.max(...lines.map(l => l.length))
   return (
     <span ref={wrap} className="sx-gw" aria-hidden="true" style={h ? { height: h } : undefined}>
-      <span className={`sx-gw-txt${live ? ' on' : ''}`} style={fs ? { fontSize: fs, lineHeight: lines.length > 1 ? 0.98 : 1.12 } : { fontSize: `calc((100vw - 32px) / ${(longest * 0.5).toFixed(2)})` }}>
+      <span className={`sx-gw-txt${live ? ' on' : ''}`} style={fs ? { fontSize: fs, lineHeight: lines.length > 1 ? 0.98 : 1.12, textAlign: align } : { fontSize: `min(calc((100vw - 32px) / ${(longest * 0.5).toFixed(2)}), 44dvh)`, textAlign: align }}>
         {lines.map((l, i) => <span key={l}>{l}{i < lines.length - 1 ? <br /> : null}</span>)}
       </span>
       {mounted && !reduce && <canvas ref={cv} className="sx-gw-cv" aria-hidden="true" />}

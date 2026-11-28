@@ -55,7 +55,7 @@ function LiveVideo({ b, t }: { b: Extract<Board, { kind: 'video' }>; t: Theme })
     <div className="wrap" style={{ padding: 'clamp(56px, 8vw, 128px) clamp(20px, 4.5vw, 64px)' }}>
       <video ref={ref} src={b.src} poster={b.poster} muted loop playsInline preload="none" aria-label={b.alt}
         style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', objectPosition: 'top', background: t.ink }} />
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
+      <div className="bw-vcap" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
         <p style={{ font: '400 clamp(16px, 1.3vw, 18px)/1.4 var(--font-sans)', color: t.ink }}>{b.caption}</p>
         <button type="button" onClick={toggle} className="bw-btn">{playing ? 'Pause' : 'Play'}</button>
       </div>
@@ -82,7 +82,7 @@ function BoardView({ b, t }: { b: Board; t: Theme }) {
           <div className="bw-palette" style={{ display: 'grid', gridTemplateColumns: `repeat(${b.swatches.length}, 1fr)` }}>
             {b.swatches.map(s => (
               <div key={s.hex} style={{ background: s.hex, color: s.text, padding: 'clamp(28px, 4vw, 56px)', minHeight: 'clamp(220px, 28vw, 380px)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-                <p style={{ font: '700 clamp(28px, 3.6vw, 52px)/1 var(--font-sans)', letterSpacing: '-0.035em' }}>{s.name}</p>
+                <p style={{ font: '500 clamp(28px, 3.6vw, 52px)/1 var(--sx-display)', letterSpacing: '-0.01em' }}>{s.name}</p>
                 <p style={{ font: '500 clamp(16px, 1.3vw, 18px)/1.4 var(--font-sans)', marginTop: 8 }}>{s.hex}</p>
               </div>
             ))}
@@ -110,7 +110,7 @@ function BoardView({ b, t }: { b: Board; t: Theme }) {
       return (
         <Reveal>
           <div style={{ background: t.accent, color: t.onAccent, padding: 'clamp(56px, 9vw, 150px) 0' }}>
-            <p className="wrap" style={{ font: '700 clamp(34px, 6.2vw, 104px)/1 var(--font-sans)', letterSpacing: '-0.045em', maxWidth: '18ch' }}>{b.text}</p>
+            <p className="wrap" style={{ font: '500 clamp(34px, 6.2vw, 104px)/1 var(--sx-display)', letterSpacing: '-0.015em', maxWidth: '18ch' }}>{b.text}</p>
           </div>
         </Reveal>
       )
@@ -129,16 +129,24 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
     ['The result', p.outcome],
   ] as [string, string | string[] | undefined][]).filter((s): s is [string, string | string[]] => Boolean(s[1]))
 
+  // The links sit on the left when the corners are swapped, so they come first in the code
+  // and Tab follows what the eye sees.
+  const mark = (
+    <Link to="/" aria-label="Michael Esema, home" style={{ position: 'absolute', ...(FLIP ? { right: 18 } : { left: 18 }), top: 18, width: 22, height: 22, display: 'block' }}><Mark onDark={dark} /></Link>
+  )
+  const nav = (
+    <nav aria-label="Primary" style={{ position: 'absolute', [FLIP ? 'left' : 'right']: 'clamp(16px, 2.2vw, 32px)', top: 14, display: 'grid', justifyItems: 'start' }}>
+      {[['Work', '/work'], ['Blog', '/blog'], ['About', '/about']].map(([label, to]) => (
+        <Link key={to} to={to} className="bw-nav" style={{ font: "800 16px/24px var(--font-sans)", textTransform: 'uppercase' }}>{label}</Link>
+      ))}
+      <a href="mailto:hello@michaelesema.com" className="bw-nav" style={{ font: "800 16px/24px var(--font-sans)", textTransform: 'uppercase' }}>Contact</a>
+    </nav>
+  )
+
   return (
     <div className={FLIP ? 'bw bw-flip' : 'bw'} style={{ background: t.ground, color: t.ink, minHeight: '100dvh' }}>
       <header style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 120, zIndex: 50, background: `linear-gradient(to bottom, ${t.ground}cc, transparent)` }}>
-        <Link to="/" aria-label="Michael Esema, home" style={{ position: 'absolute', ...(FLIP ? { right: 18 } : { left: 18 }), top: 18, width: 22, height: 22, display: 'block' }}><Mark onDark={dark} /></Link>
-        <nav aria-label="Primary" style={{ position: 'absolute', [FLIP ? 'left' : 'right']: 'clamp(16px, 2.2vw, 32px)', top: 14, display: 'grid', justifyItems: 'start' }}>
-          {[['Work', '/work'], ['Blog', '/blog'], ['About', '/about']].map(([label, to]) => (
-            <Link key={to} to={to} className="bw-nav" style={{ font: "800 16px/24px 'Satoshi', sans-serif", textTransform: 'uppercase' }}>{label}</Link>
-          ))}
-          <a href="mailto:hello@michaelesema.com" className="bw-nav" style={{ font: "800 16px/24px 'Satoshi', sans-serif", textTransform: 'uppercase' }}>Contact</a>
-        </nav>
+        {FLIP ? <>{nav}{mark}</> : <>{mark}{nav}</>}
       </header>
 
       <main id="main-content" tabIndex={-1}>
@@ -147,7 +155,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
             <img src={p.cover.src} alt={p.cover.alt} fetchPriority="high" decoding="async" style={{ width: '100%', height: 'auto', maxHeight: '72dvh', aspectRatio: p.cover.ratio, objectFit: 'cover', objectPosition: 'top' }} />
             <div className="wrap" style={{ padding: 'clamp(40px, 6vw, 96px) clamp(20px, 4.5vw, 64px) 0' }}>
               <h1 className="bw-rise"
-                style={{ font: `800 ${titleSize}/0.88 var(--font-sans)`, letterSpacing: '-0.055em', color: t.ink }}>
+                style={{ font: `500 ${titleSize}/0.88 var(--sx-display)`, letterSpacing: '-0.02em', color: t.ink }}>
                 {p.title}
               </h1>
               <p style={{ font: '500 clamp(18px, 1.8vw, 26px)/1.3 var(--font-sans)', marginTop: 'clamp(14px, 1.8vw, 26px)', color: t.accent }}>{p.discipline}</p>
@@ -160,7 +168,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
           <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, ${t.ground} 8%, ${t.ground}d9 30%, ${t.ground}66 52%, ${t.ground}00 74%)` }} />
           <div className="wrap" style={{ position: 'relative', paddingBottom: 'clamp(28px, 5vw, 72px)' }}>
             <h1 className="bw-rise"
-              style={{ font: `800 ${titleSize}/0.86 var(--font-sans)`, letterSpacing: '-0.055em', color: t.ink, animationDelay: '0.15s' }}>
+              style={{ font: `500 ${titleSize}/0.86 var(--sx-display)`, letterSpacing: '-0.02em', color: t.ink, animationDelay: '0.15s' }}>
               {p.title}
             </h1>
             <p style={{ font: '500 clamp(18px, 1.8vw, 26px)/1.3 var(--font-sans)', marginTop: 'clamp(14px, 1.8vw, 26px)', color: t.accent }}>{p.discipline}</p>
@@ -183,7 +191,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
               <li aria-current="page">{p.title}</li>
             </ol>
           </nav>
-          <h2 style={{ gridColumn: FLIP ? '5 / 13' : '1 / 9', gridRow: 2, font: '700 clamp(38px, 7vw, 116px)/0.95 var(--font-sans)', letterSpacing: '-0.05em', color: t.ink }}>{w.statement}</h2>
+          <h2 style={{ gridColumn: FLIP ? '5 / 13' : '1 / 9', gridRow: 2, font: '500 clamp(38px, 7vw, 116px)/0.95 var(--sx-display)', letterSpacing: '-0.015em', color: t.ink }}>{w.statement}</h2>
           <div style={{ gridColumn: FLIP ? '1 / 5' : '9 / 13', gridRow: 2, alignSelf: 'end', display: 'grid', gap: 28 }}>
             <p style={{ font: '400 clamp(17px, 1.45vw, 20px)/1.6 var(--font-sans)', color: t.ink }}>{p.brief}</p>
             <dl style={{ display: 'grid', gap: 12, font: '400 16px/1.45 var(--font-sans)' }}>
@@ -208,13 +216,13 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
         <section aria-label="Process" className="wrap bw-over" style={{ direction: FLIP ? 'rtl' : 'ltr', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(32px, 6vw, 96px)', padding: 'clamp(72px, 10vw, 160px) clamp(20px, 4.5vw, 64px)' }}>
           {[['The challenge', p.challenge], ...(p.audience ? [['Who it was for', p.audience]] : [])].map(([h, v]) => (
             <div key={h} style={{ direction: 'ltr' }}>
-              <h2 style={{ font: '700 clamp(24px, 2.6vw, 38px)/1.05 var(--font-sans)', letterSpacing: '-0.03em', color: t.accent }}>{h}</h2>
+              <h2 style={{ font: '500 clamp(24px, 2.6vw, 38px)/1.05 var(--sx-display)', letterSpacing: '-0.01em', color: t.accent }}>{h}</h2>
               <p style={{ font: '400 clamp(17px, 1.45vw, 20px)/1.6 var(--font-sans)', marginTop: 14, maxWidth: '46ch' }}>{v}</p>
             </div>
           ))}
           {sections.map(([h, v]) => (
             <div key={h} style={{ direction: 'ltr' }}>
-              <h2 style={{ font: '700 clamp(24px, 2.6vw, 38px)/1.05 var(--font-sans)', letterSpacing: '-0.03em', color: t.accent }}>{h}</h2>
+              <h2 style={{ font: '500 clamp(24px, 2.6vw, 38px)/1.05 var(--sx-display)', letterSpacing: '-0.01em', color: t.accent }}>{h}</h2>
               {typeof v === 'string'
                 ? <p style={{ font: '400 clamp(17px, 1.45vw, 20px)/1.6 var(--font-sans)', marginTop: 14, maxWidth: '46ch' }}>{v}</p>
                 : <ul style={{ listStyle: 'none', display: 'grid', gap: 10, marginTop: 14, font: '400 clamp(17px, 1.45vw, 20px)/1.5 var(--font-sans)', maxWidth: '46ch' }}>{v.map(i => <li key={i}>{i}</li>)}</ul>}
@@ -224,9 +232,9 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
 
         <section aria-label="Next" style={{ background: t.accent, color: t.onAccent, padding: 'clamp(48px, 7vw, 110px) 0' }}>
           <div className="wrap bw-next" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 24, flexWrap: 'wrap' }}>
-            <Link to={`/work/${next.slug}`} className="bw-link" style={{ font: '800 clamp(36px, 6.4vw, 108px)/0.95 var(--font-sans)', letterSpacing: '-0.05em', color: t.onAccent, textDecoration: 'none' }}>Next: {next.title}</Link>
+            <Link to={`/work/${next.slug}`} className="bw-link" style={{ font: '500 clamp(36px, 6.4vw, 108px)/0.95 var(--sx-display)', letterSpacing: '-0.015em', color: t.onAccent, textDecoration: 'none' }}>Next: {next.title}</Link>
             <p style={{ display: 'flex', gap: 28, font: '600 18px/1 var(--font-sans)', flexWrap: 'wrap' }}>
-              <a href="mailto:hello@michaelesema.com" className="bw-link" style={{ color: t.onAccent }}>Contact me</a>
+              <a href="mailto:hello@michaelesema.com" className="bw-link" style={{ color: t.onAccent }}>Contact</a>
               <Link to="/work" className="bw-link" style={{ color: t.onAccent }}>All work</Link>
               <Link to="/privacy" className="bw-link" style={{ color: t.onAccent }}>Privacy</Link>
             </p>
@@ -243,6 +251,12 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
         .bw-btn { font: 600 16px/1 var(--font-sans); height: 44px; padding: 0 22px; background: transparent; color: inherit; border: 2px solid currentColor; border-radius: var(--radius); cursor: pointer; }
         .bw-btn:hover { opacity: 0.8; }
         @media (min-width: 701px) { .bw-flip .bw-next { flex-direction: row-reverse; } }
+        .bw-flip main { text-align: right; }
+        .bw-flip main p[style*="max-width"], .bw-flip main ul[style*="max-width"] { margin-left: auto; }
+        .bw-flip nav[aria-label="Breadcrumb"] ol { justify-content: flex-end; }
+        .bw-flip dl > div { direction: rtl; }
+        .bw-flip dl > div > * { direction: ltr; text-align: right; }
+        .bw-flip .bw-vcap { flex-direction: row-reverse; }
         .bw img, .bw video { max-width: none; }
         @media (max-width: 820px) {
           .bw-over { grid-template-columns: 1fr !important; }
