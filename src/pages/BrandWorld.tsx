@@ -2,6 +2,7 @@ import { useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import type { Board, Project, Shot, Theme, World } from '../work'
+import Mark from '../site/Mark'
 
 // A case study dressed as the client's own brand: its ground, its colours, and a
 // run of edge-to-edge boards. Every colour comes from the project's `theme`.
@@ -113,6 +114,7 @@ function BoardView({ b, t }: { b: Board; t: Theme }) {
 
 export default function BrandWorld({ p, w, next }: { p: Project; w: World; next: Project }) {
   const t = w.theme
+  const dark = parseInt(t.ground.slice(1, 3), 16) < 100
   const reduce = useReducedMotion()
   // Long names get a smaller title so they do not bury the picture behind them.
   const titleSize = p.title.length > 18 ? 'clamp(48px, 10vw, 168px)' : 'clamp(60px, 14.5vw, 240px)'
@@ -125,13 +127,13 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
 
   return (
     <div className="bw" style={{ background: t.ground, color: t.ink, minHeight: '100dvh' }}>
-      <header style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 50, background: `linear-gradient(to bottom, ${t.ground}cc, transparent)` }}>
-        <nav aria-label="Primary" className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
-          <Link to="/" className="bw-nav" style={{ font: '700 18px/1 var(--font-sans)', letterSpacing: '-0.02em' }}>Michael Esema</Link>
-          <ul style={{ display: 'flex', listStyle: 'none', gap: 'clamp(16px, 2.4vw, 36px)' }}>
-            <li><Link to="/work" className="bw-nav" style={{ font: '500 17px/1 var(--font-sans)' }}>Work</Link></li>
-            <li><Link to="/about" className="bw-nav" style={{ font: '500 17px/1 var(--font-sans)' }}>About</Link></li>
-          </ul>
+      <header style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 120, zIndex: 50, background: `linear-gradient(to bottom, ${t.ground}cc, transparent)` }}>
+        <Link to="/" aria-label="Michael Esema, home" style={{ position: 'absolute', left: 18, top: 18, width: 22, height: 22, display: 'block' }}><Mark onDark={dark} /></Link>
+        <nav aria-label="Primary" style={{ position: 'absolute', right: 'clamp(16px, 2.2vw, 32px)', top: 14, display: 'grid', justifyItems: 'end' }}>
+          {[['Work', '/work'], ['Blog', '/blog'], ['About', '/about']].map(([label, to]) => (
+            <Link key={to} to={to} className="bw-nav" style={{ font: "800 16px/24px 'Satoshi', sans-serif", textTransform: 'uppercase' }}>{label}</Link>
+          ))}
+          <a href="mailto:hello@michaelesema.com" className="bw-nav" style={{ font: "800 16px/24px 'Satoshi', sans-serif", textTransform: 'uppercase' }}>Contact</a>
         </nav>
       </header>
 

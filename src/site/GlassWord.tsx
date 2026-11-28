@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
+import { INK, TEAL } from './tokens'
 
 // The wordmark, drawn to a texture and shown through a glass shader. Near the
 // cursor or finger the letters split into thin strips that slide, lean and
@@ -16,6 +17,7 @@ const FRAG = `precision mediump float;
 varying vec2 vUv;
 uniform sampler2D uTex; uniform vec2 uRes; uniform vec2 uMouse;
 uniform float uTime; uniform float uStr; uniform float uR; uniform float uS;
+uniform vec3 uInk; uniform vec3 uTeal;
 float hash(float n){ return fract(sin(n) * 43758.5453); }
 void main(){
   vec2 px = vUv * uRes;
@@ -35,9 +37,7 @@ void main(){
   float aG = texture2D(uTex, (px - off) / uRes).a;
   float aB = texture2D(uTex, (px - off + sp) / uRes).a;
   float a = max(aG, max(aR, aB));
-  vec3 ink = vec3(0.059, 0.239, 0.180);
-  vec3 teal = vec3(0.039, 0.478, 0.439);
-  vec3 col = mix(ink, teal, clamp(abs(aR - aB) * 1.6, 0.0, 1.0));
+  vec3 col = mix(uInk, uTeal, clamp(abs(aR - aB) * 1.6, 0.0, 1.0));
   gl_FragColor = vec4(col * a, a);
 }`
 
@@ -105,6 +105,8 @@ export default function GlassWord({ lines, auto = false, onInteract }: Props) {
       gl.uniform1f(U('uStr'), st.str)
       gl.uniform1f(U('uR'), Math.max(st.W * 0.16, st.H * 0.45))
       gl.uniform1f(U('uS'), dpr)
+      gl.uniform3f(U('uInk'), INK.rgb[0] / 255, INK.rgb[1] / 255, INK.rgb[2] / 255)
+      gl.uniform3f(U('uTeal'), TEAL.rgb[0] / 255, TEAL.rgb[1] / 255, TEAL.rgb[2] / 255)
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
     }
     const loop = (now: number) => {
@@ -147,7 +149,7 @@ export default function GlassWord({ lines, auto = false, onInteract }: Props) {
       c2.height = st.H
       ctx.font = `500 ${size * dpr}px Satoshi, sans-serif`
       if ('letterSpacing' in ctx) ctx.letterSpacing = `${-0.045 * size * dpr}px`
-      ctx.fillStyle = 'rgb(15,61,46)'
+      ctx.fillStyle = INK.hex
       ctx.textBaseline = 'alphabetic'
       textLines.forEach((l, i) => ctx.fillText(l, 0, size * dpr * (0.84 + lead * i)))
       canvas.width = st.W

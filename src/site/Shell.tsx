@@ -96,7 +96,9 @@ export default function Shell({ children }: { children: ReactNode }) {
   const [phase, setPhase] = useState<'idle' | 'cover' | 'reveal'>('idle')
   const [intro, setIntro] = useState(false)
   const [ready, setReady] = useState(true)
-  const isSite = SITE_PATHS.includes(shown.pathname)
+  // Every page shows the site chrome except a project page, which draws its own
+  // brand world and carries a matching copy of the nav.
+  const isSite = shown.pathname === '/work' || !shown.pathname.startsWith('/work/')
 
   // Intro: once per session, never with reduced motion, skippable with ?nointro.
   useEffect(() => {

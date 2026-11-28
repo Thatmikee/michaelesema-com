@@ -1,14 +1,15 @@
-/* Site v2. White ground, deep green ink, one teal accent. Satoshi, self-hosted.
-   Contrast (WCAG): ink on white 12.16, teal #0a7a70 on white 5.21, grey #5f726c on
-   white 5.11, ink on pale 10.55. Teal is used for text only at this value. */
+/* Site v2. Black and snow white; teal is held back for the penguin and the focus
+   ring. Satoshi, self-hosted. Every colour is a variable here and mirrored in
+   tokens.ts for the glass shader, so the palette is one edit. */
+:root { --sx-ink: #111111; --sx-snow: #fafafa; --sx-grey: #595959; --sx-pale: #ececea; --sx-teal: #0a7a70; }
 @font-face { font-family: 'Satoshi'; src: url('/fonts/Satoshi-500.woff2') format('woff2'); font-weight: 500; font-display: swap; }
 @font-face { font-family: 'Satoshi'; src: url('/fonts/Satoshi-700.woff2') format('woff2'); font-weight: 700; font-display: swap; }
 @font-face { font-family: 'Satoshi'; src: url('/fonts/Satoshi-900.woff2') format('woff2'); font-weight: 900; font-display: swap; }
 
-body.sx-body { background: #fff !important; background-image: none !important; }
+body.sx-body { background: var(--sx-snow) !important; background-image: none !important; }
 .sx {
-  --ink: #0f3d2e; --teal: #0a7a70; --pale: #e7f1ef; --grey: #5f726c;
-  font-family: 'Satoshi', 'Helvetica Neue', Arial, sans-serif; color: var(--ink); background: #fff; min-height: 100dvh;
+  --ink: var(--sx-ink); --teal: var(--sx-teal); --pale: var(--sx-pale); --grey: var(--sx-grey);
+  font-family: 'Satoshi', 'Helvetica Neue', Arial, sans-serif; color: var(--ink); background: var(--sx-snow); min-height: 100dvh;
 }
 .sx *, .sx *::before, .sx *::after { box-sizing: border-box; }
 .sx a { color: inherit; text-decoration: none; }
@@ -18,12 +19,12 @@ body.sx-body { background: #fff !important; background-image: none !important; }
 .sx-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Chrome: top bar, mark, vertical nav */
-.sx-bar { position: fixed; top: 0; left: 0; right: 0; height: 8px; background: #0f3d2e; z-index: 60; }
+.sx-bar { position: fixed; top: 0; left: 0; right: 0; height: 8px; background: var(--sx-ink); z-index: 60; }
 .sx-mark { position: fixed; top: 18px; left: 18px; width: 22px; height: 22px; z-index: 60; display: block; opacity: 0.9; }
 .sx-nav { position: fixed; top: 14px; right: 32px; z-index: 60; display: grid; justify-items: end; }
-.sx-nav a { font: 800 16px/24px 'Satoshi', sans-serif; text-transform: uppercase; color: #5f726c; text-decoration: none; }
-.sx-nav a:hover, .sx-nav a[aria-current='page'] { color: #0f3d2e; }
-.sx-skiplink { position: fixed; left: 16px; top: -60px; z-index: 120; background: #0f3d2e; color: #fff; padding: 10px 16px; font: 700 14px 'Satoshi', sans-serif; }
+.sx-nav a { font: 800 16px/24px 'Satoshi', sans-serif; text-transform: uppercase; color: var(--sx-grey); text-decoration: none; }
+.sx-nav a:hover, .sx-nav a[aria-current='page'] { color: var(--sx-ink); }
+.sx-skiplink { position: fixed; left: 16px; top: -60px; z-index: 120; background: var(--sx-ink); color: #fff; padding: 10px 16px; font: 700 14px 'Satoshi', sans-serif; }
 .sx-skiplink:focus { top: 56px; }
 
 /* Text-line unmask */
@@ -37,10 +38,10 @@ body.sx-body { background: #fff !important; background-image: none !important; }
 .sx-para { position: absolute; left: 50%; top: 180px; width: min(635px, 44vw); font: 700 clamp(18px, 1.76vw, 25.28px)/1.46 'Satoshi', sans-serif; letter-spacing: -0.01em; margin: 0; }
 .sx-h1 { position: absolute; left: 16px; right: 16px; bottom: 0; margin: 0; font-weight: 500; line-height: 1; white-space: nowrap; }
 .sx-gw { display: block; position: relative; width: 100%; }
-.sx-gw-txt { display: block; font-weight: 500; letter-spacing: -0.045em; line-height: 1.12; color: #0f3d2e; white-space: nowrap; }
+.sx-gw-txt { display: block; font-weight: 500; letter-spacing: -0.045em; line-height: 1.12; color: var(--sx-ink); white-space: nowrap; }
 .sx-gw-txt.on { opacity: 0; }
 .sx-gw-cv { position: absolute; left: 0; top: 0; width: 100%; touch-action: pan-y; }
-.sx-stage2 { background: #0f3d2e; display: grid; place-items: center; perspective: 700px; }
+.sx-stage2 { background: var(--sx-ink); display: grid; place-items: center; perspective: 700px; }
 .sx-turn { width: 34px; aspect-ratio: 1; animation: sx-rot 9s linear infinite; opacity: 0.85; }
 .sx-hint { display: none; }
 .sx-hand { display: inline-block; animation: sx-swipe 2.2s ease-in-out infinite; transform-origin: 50% 90%; }
@@ -52,47 +53,50 @@ body.sx-body { background: #fff !important; background-image: none !important; }
 .sx-num { position: absolute; left: 2.2vw; top: 50%; transform: translateY(-50%); font: 500 clamp(48px, 6.2vw, 90px)/1 'Satoshi', sans-serif; overflow: hidden; min-width: 2ch; }
 .sx-num span { display: block; }
 .sx-thumbs { position: absolute; left: 18.5vw; top: 50%; transform: translateY(-50%); width: 15vw; display: grid; gap: 14px; list-style: none; margin: 0; padding: 0; }
-.sx-thumbs li { aspect-ratio: 217 / 135; background: #e7f1ef; padding: 7%; opacity: 0.4; transition: opacity 0.35s; }
+.sx-thumbs li { aspect-ratio: 217 / 135; background: var(--sx-pale); padding: 7%; opacity: 0.4; transition: opacity 0.35s; }
 .sx-thumbs li.on { opacity: 1; }
 .sx-thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .sx-list { position: absolute; left: 40vw; top: 50%; transform: translateY(-50%); width: 17vw; list-style: none; margin: 0; padding: 0; }
-.sx-list a { display: flex; justify-content: space-between; align-items: center; font: 700 14px/18px 'Satoshi', sans-serif; text-transform: uppercase; color: #5f726c; padding: 1px 0; }
-.sx-list a.on { color: #0f3d2e; }
-.sx-list a.on::after { content: ''; border: 5px solid transparent; border-right: 8px solid #0f3d2e; border-left: 0; }
+.sx-list a { display: flex; justify-content: space-between; align-items: center; font: 700 14px/18px 'Satoshi', sans-serif; text-transform: uppercase; color: var(--sx-grey); padding: 1px 0; }
+.sx-list a.on { color: var(--sx-ink); }
+.sx-list a.on::after { content: ''; border: 5px solid transparent; border-right: 8px solid var(--sx-ink); border-left: 0; }
 .sx-desc { position: absolute; left: 40vw; bottom: 9vh; width: 17vw; font: 700 14px/1.4 'Satoshi', sans-serif; margin: 0; }
-.sx-preview { position: absolute; left: 57.8vw; top: 50%; transform: translateY(-50%); width: 40vw; aspect-ratio: 16 / 10; background: #e7f1ef; overflow: hidden; padding: clamp(18px, 4.2vw, 60px); display: block; }
+.sx-preview { position: absolute; left: 57.8vw; top: 50%; transform: translateY(-50%); width: 40vw; aspect-ratio: 16 / 10; background: var(--sx-pale); overflow: hidden; padding: clamp(18px, 4.2vw, 60px); display: block; }
 .sx-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.sx-view { position: absolute; left: 57.8vw; bottom: 9vh; font: 800 13px/1 'Satoshi', sans-serif; text-transform: uppercase; color: #0a7a70; }
+.sx-view { position: absolute; left: 57.8vw; bottom: 9vh; font: 800 13px/1 'Satoshi', sans-serif; text-transform: uppercase; color: var(--sx-ink); }
 
 /* Work: plain stack on small screens */
 .sx-stack { list-style: none; margin: 0; padding: 112px 16px 48px; display: grid; gap: 56px; }
 .sx-stack .n { font: 500 44px/1 'Satoshi', sans-serif; display: block; margin-bottom: 12px; }
-.sx-stack .pic { aspect-ratio: 16 / 10; background: #e7f1ef; padding: 18px; display: block; }
+.sx-stack .pic { aspect-ratio: 16 / 10; background: var(--sx-pale); padding: 18px; display: block; }
 .sx-stack .pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .sx-stack h2 { font: 800 16px/1.2 'Satoshi', sans-serif; text-transform: uppercase; margin: 14px 0 6px; }
 .sx-stack p { font: 700 15px/1.4 'Satoshi', sans-serif; margin: 0; }
 
 /* About */
 .sx-about { padding: 150px 32px 96px; max-width: 1200px; }
+.sx-page-title { font: 700 clamp(34px, 4.4vw, 64px)/1.05 'Satoshi', sans-serif; letter-spacing: -0.035em; margin: 0 0 10px; }
+.sx-meta { font: 500 15px/1.4 'Satoshi', sans-serif; color: var(--sx-grey); margin: 0 0 24px; }
+.sx-link { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; font-weight: 700; }
 .sx-row { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 28px 0; }
-.sx-label { font: 800 14px/1.4 'Satoshi', sans-serif; text-transform: uppercase; color: #0a7a70; margin: 0; }
+.sx-label { font: 800 14px/1.4 'Satoshi', sans-serif; text-transform: uppercase; color: var(--sx-grey); margin: 0; }
 .sx-prose p { font: 500 clamp(17px, 1.45vw, 20px)/1.55 'Satoshi', sans-serif; max-width: 62ch; margin: 0 0 14px; }
 .sx-prose .lead { font: 700 clamp(22px, 2.2vw, 30px)/1.3 'Satoshi', sans-serif; letter-spacing: -0.01em; }
 .sx-prose ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font: 500 17px/1.4 'Satoshi', sans-serif; }
 
 /* Intro and route wipe */
 .sx-intro { position: fixed; inset: 0; z-index: 100; overflow: hidden; }
-.sx-intro-white { position: absolute; inset: 0; background: #fff; display: grid; place-items: center; }
-.sx-count { font: 800 13px/1 'Satoshi', sans-serif; color: #0f3d2e; font-variant-numeric: tabular-nums; }
-.sx-rule { position: absolute; left: 16px; right: 16px; bottom: 52px; height: 2px; background: #0f3d2e; transform-origin: left; transform: scaleX(0); }
-.sx-skip { position: absolute; left: 16px; bottom: 14px; background: none; border: 0; font: 800 13px/1 'Satoshi', sans-serif; text-transform: uppercase; color: #5f726c; cursor: pointer; padding: 6px 0; }
-.sx-panel { position: absolute; inset: 0; background: #0f3d2e; display: grid; place-items: center; }
+.sx-intro-white { position: absolute; inset: 0; background: var(--sx-snow); display: grid; place-items: center; }
+.sx-count { font: 800 13px/1 'Satoshi', sans-serif; color: var(--sx-ink); font-variant-numeric: tabular-nums; }
+.sx-rule { position: absolute; left: 16px; right: 16px; bottom: 52px; height: 2px; background: var(--sx-ink); transform-origin: left; transform: scaleX(0); }
+.sx-skip { position: absolute; left: 16px; bottom: 14px; background: none; border: 0; font: 800 13px/1 'Satoshi', sans-serif; text-transform: uppercase; color: var(--sx-grey); cursor: pointer; padding: 6px 0; }
+.sx-panel { position: absolute; inset: 0; background: var(--sx-ink); display: grid; place-items: center; }
 .sx-spin { opacity: 0; transition: opacity 0.2s; width: 40px; height: 40px; }
 .sx-spin.on { opacity: 1; animation: sx-rot 0.9s linear infinite; }
 @keyframes sx-rot { to { transform: rotateY(360deg); } }
 .sx-panel { perspective: 700px; }
 .sx-wipe { position: fixed; inset: 0; z-index: 90; display: flex; }
-.sx-col { flex: 1; background: #0f3d2e; transform: scaleY(0); will-change: transform; }
+.sx-col { flex: 1; background: var(--sx-ink); transform: scaleY(0); will-change: transform; }
 
 @media (max-width: 1099px) {
   .sx-nav { right: 16px; }
@@ -108,7 +112,7 @@ body.sx-body { background: #fff !important; background-image: none !important; }
   .sx-para { font-size: 18px; line-height: 1.4; }
   .sx-h1 { position: static; margin-top: auto; }
   .sx-stage2 { position: relative; align-content: center; justify-items: center; gap: 14px; }
-  .sx-hint { display: grid; justify-items: center; gap: 6px; margin: 0; font: 700 14px/1.2 'Satoshi', sans-serif; color: #dfeadb; }
+  .sx-hint { display: grid; justify-items: center; gap: 6px; margin: 0; font: 700 14px/1.2 'Satoshi', sans-serif; color: var(--sx-snow); }
   .sx-turn { position: absolute; right: 16px; bottom: 16px; width: 26px; }
   .sx-about { padding: 120px 16px 72px; }
   .sx-row { grid-template-columns: 1fr; gap: 10px; }

@@ -183,7 +183,7 @@ export function About() {
       </section>
       <section className="sx-row"><h2 className="sx-label">Story</h2>
         <div className="sx-prose">
-          <p>My design journey started in 2018 when I became part-time Design Lead for Silent Party 9ja, an events brand in Nigeria. I worked on its visual identity and promotional materials, helping the brand connect with its audience.</p>
+          <p>My design journey started in 2018 when I became part-time Design Lead for Silent Party 9ja, an events brand in Nigeria. I worked on its visual identity and promotional materials, helping the brand connect with its audience. I still design for them now and then, to keep sharp.</p>
           <p>In 2019, I joined B’s Hive Hotels &amp; Suites in Abuja as Head Accountant. Alongside my finance responsibilities, I designed the hotel’s logo and letterhead, created promotional materials and managed its social media. Over time, I became involved in the wider running of the business.</p>
           <p>Later, I founded a security technology start-up, Mykei Securities Ltd. That gave me another opportunity to bring design and business together. I developed its brand identity, website and publications, while also working on the product and its wider direction. The company has a UK patent application.</p>
           <p>Since moving to the UK, I’ve continued taking on independent creative projects, working with small businesses and developing ideas of my own.</p>
