@@ -1,11 +1,11 @@
 import { Helmet } from 'react-helmet-async'
 import Crumbs from '../site/Crumbs'
 
-// The wording below is the published policy, unchanged. Only the layout is new.
+// Policy wording as published; contact address and date updated 28 November 2026.
 const SECTIONS = [
   {
     heading: 'Who this is',
-    body: 'This is the personal site of Michael Esema, based in the UK. Michael also founded Mykei Securities Ltd (Company No. 16984969). For any data-related enquiries, contact privacy@mykei.io.',
+    body: 'This is the personal site of Michael Esema, based in the UK. For any data-related enquiries, contact hello@michaelesema.com.',
   },
   {
     heading: 'What data is collected',
@@ -17,7 +17,7 @@ const SECTIONS = [
   },
   {
     heading: 'Your rights',
-    body: 'Under UK GDPR, you have the right to access, correct, or request erasure of any personal data held. You may also object to processing, request restriction, or lodge a complaint with the Information Commissioner\'s Office (ICO) at ico.org.uk. To exercise your rights, email privacy@mykei.io.',
+    body: 'Under UK GDPR, you have the right to access, correct, or request erasure of any personal data held. You may also object to processing, request restriction, or lodge a complaint with the Information Commissioner\'s Office (ICO) at ico.org.uk. To exercise your rights, email hello@michaelesema.com.',
   },
   {
     heading: 'Cookies',
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
       </Helmet>
       <Crumbs here="Privacy and cookies" />
       <h1 className="sx-page-title">Privacy &amp; Cookies</h1>
-      <p className="sx-meta">Last updated: 12 June 2026</p>
+      <p className="sx-meta">Last updated: 28 November 2026</p>
       {SECTIONS.map(({ heading, body }) => (
         <section key={heading} className="sx-row">
           <h2 className="sx-label">{heading}</h2>

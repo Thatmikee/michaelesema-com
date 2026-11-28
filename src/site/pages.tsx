@@ -5,7 +5,6 @@ import { HandPointing } from '@phosphor-icons/react'
 import { PROJECTS } from '../work'
 import Crumbs from './Crumbs'
 import GlassWord from './GlassWord'
-import Mark from './Mark'
 import { useMedia } from './motion'
 
 // One reveal, used on Home, Blog and About: a line of text slides up out of a
@@ -20,13 +19,13 @@ function Mask({ children, delay = 0 }: { children: ReactNode; delay?: number }) 
 }
 
 // The dark panel under the wordmark. The penguin is only a small symbol for now.
-// On small screens a hand shows how to move the name until the first touch. The
-// hint is always in the HTML and CSS decides when it shows, so it paints at once.
+// On small screens a hand sways across the panel until the first touch. It carries no
+// caption on purpose: visitors find out what it does by trying. It is always in the
+// HTML and CSS decides when it shows, so it paints at once.
 function Stage({ gone }: { gone: boolean }) {
   return (
     <div className="sx-stage2">
-      <p className={`sx-hint${gone ? ' gone' : ''}`}><span className="sx-hand" aria-hidden="true"><HandPointing size={34} weight="light" /></span>Drag across the name</p>
-      <div className="sx-turn" aria-hidden="true"><Mark onDark /></div>
+      <div className={`sx-hint${gone ? ' gone' : ''}`} aria-hidden="true"><span className="sx-hand"><HandPointing size={34} weight="light" /></span></div>
       <Link to="/privacy" className="sx-legal">Privacy</Link>
     </div>
   )
@@ -51,11 +50,11 @@ export function Home() {
   const [touched, setTouched] = useState(false)
   return (
     <main id="sx-main" tabIndex={-1} className="sx-main sx-home">
-      <Meta title="Michael Esema | Graphic and Multimedia Designer" desc="Michael Esema is a graphic and multimedia designer in the UK working across identity, visual communication and digital design." path="/" />
+      <Meta title="Michael Esema | Graphic & Multimedia Designer & Business Strategist" desc="Portfolio of Michael Esema, a UK graphic and multimedia designer and business strategist (BSc, MBA, MSc, Lean Six Sigma). Brand identity, visual systems and print." path="/" />
       <div className="sx-top">
-      <p className="sx-head"><Mask>Graphic &amp; Multimedia</Mask><Mask delay={0.08}>Designer</Mask></p>
-      <p className="sx-para"><Mask delay={0.16}>I work across identity, visual communication and digital design, helping ideas and businesses find a clear visual language.</Mask></p>
-      <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Mask delay={0.28}><GlassWord lines={small ? ['Michael', 'Esema'] : ['Michael Esema']} auto={small || coarse} onInteract={() => setTouched(true)} /></Mask></h1>
+      <p className="sx-head"><Mask>Graphic &amp; Multimedia</Mask><Mask delay={0.08}>Designer and</Mask><Mask delay={0.16}>Business Strategist</Mask></p>
+      <p className="sx-para"><Mask delay={0.24}>I design brands, print and websites, and I start where an accountant would: what does this have to achieve, for whom, and how will we know it worked?</Mask></p>
+      <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Mask delay={0.36}><GlassWord lines={small ? ['Michael', 'Esema'] : ['Michael Esema']} auto={small || coarse} onInteract={() => setTouched(true)} /></Mask></h1>
       </div>
       <Stage gone={touched} />
     </main>
@@ -122,21 +121,29 @@ const QUALS: [string, string][] = [
 export function About() {
   return (
     <main id="sx-main" tabIndex={-1} className="sx-main sx-about">
-      <Meta title="About Michael Esema | Graphic and Multimedia Designer" desc="Michael Esema is a graphic and multimedia designer based in the UK, originally from Nigeria, with a background in accounting and business management." path="/about" />
+      <Meta title="About Michael Esema | Graphic and Multimedia Designer" desc="Michael Esema is a graphic and multimedia designer and business strategist in the UK, originally from Nigeria, trained in accounting and business management." path="/about" />
       <h1 className="sx-sr">About Michael Esema</h1>
       <Crumbs here="About" />
       <section className="sx-row"><h2 className="sx-label">Bio</h2>
         <div className="sx-prose">
-          <p className="lead"><Mask>I’m Michael Esema, a graphic and multimedia designer based in the UK, originally from Nigeria.</Mask></p>
-          <p>My background is a little different. I trained as an accountant and studied business management, so I tend to think about what a design needs to achieve before deciding how it should look. I enjoy bringing those two sides together: creative thinking and practical problem-solving.</p>
+          <p className="lead"><Mask>I’m Michael Esema, a graphic and multimedia designer and business strategist based in the UK, originally from Nigeria.</Mask></p>
+          <p>I trained as an accountant, then studied business to master’s level, and all the while I was designing. The two never felt separate. A brief is a budget with a deadline. A brand is a promise that has to be kept everywhere it shows up, from the logo to the invoice. So before I open Illustrator I ask what the work has to do, who it is for, and how we will know it did.</p>
         </div>
       </section>
       <section className="sx-row"><h2 className="sx-label">Story</h2>
         <div className="sx-prose">
-          <p>My design journey started in 2018 when I became part-time Design Lead for Silent Party 9ja, an events brand in Nigeria. I worked on its visual identity and promotional materials, helping the brand connect with its audience. I still design for them now and then, to keep sharp.</p>
-          <p>In 2019, I joined B’s Hive Hotels &amp; Suites in Abuja as Head Accountant. Alongside my finance responsibilities, I designed the hotel’s logo and letterhead, created promotional materials and managed its social media. Over time, I became involved in the wider running of the business.</p>
-          <p>Later, I founded a security technology start-up, Mykei Securities Ltd. That gave me another opportunity to bring design and business together. I developed its brand identity, website and publications, while also working on the product and its wider direction. The company has a UK patent application.</p>
-          <p>Since moving to the UK, I’ve continued taking on independent creative projects, working with small businesses and developing ideas of my own.</p>
+          <p>2018. I finished a BSc in Accounting and became part-time design lead for Silent Party 9ja, an events brand in Nigeria. I led its visual identity and promotional work until February 2023, and I still design for it now and then, to keep sharp.</p>
+          <p>2019. B’s Hive Hotels &amp; Suites in Abuja hired me as Head Accountant. I kept the books, and I also designed the hotel’s logo and letterhead, made its promotions and ran its social media. Over time I moved into running the wider business and became Manager.</p>
+          <p>2022 and 2024. I took an MBA at the Nigerian Defence Academy, then an MSc in International Business Management at Manchester Metropolitan University, finishing with a Merit. In 2025 I added Lean Six Sigma certification for the process side.</p>
+          <p>I later founded Mykei Securities Ltd, a security technology start-up, and designed its brand identity, website and publication, The Signal.</p>
+          <p>Selected work includes the identity for Sarah Bellus, a Nigerian caterer in the UK, and the identity and booking site for Silent Party 9ja.</p>
+        </div>
+      </section>
+      <section className="sx-row"><h2 className="sx-label">How I work</h2>
+        <div className="sx-prose">
+          <p>Ask first. What must this do, for whom, and how will we tell?</p>
+          <p>Decide once. A small set of colours, type and rules, written down, so every piece matches. On this site every colour comes from one file.</p>
+          <p>Check the numbers. Contrast, load time and print cost are measured, not guessed.</p>
         </div>
       </section>
       <section className="sx-row"><h2 className="sx-label">Studied</h2>

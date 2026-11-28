@@ -30,7 +30,9 @@ body.sx-body { background: var(--sx-snow) !important; background-image: none !im
 /* Chrome: top bar, mark, vertical nav */
 .sx-bar { position: fixed; top: 0; left: 0; right: 0; height: 8px; background: var(--sx-ink); z-index: 60; }
 .sx-mark { position: fixed; top: 18px; left: 18px; width: 22px; height: 22px; z-index: 60; display: block; opacity: 0.9; }
-.sx-nav { position: fixed; top: 14px; right: 32px; z-index: 60; display: grid; justify-items: end; }
+/* Top-right corner, but the links are flush left inside it (ragged right) rather than the
+   usual right-aligned stack. Project pages use the same alignment in BrandWorld.tsx. */
+.sx-nav { position: fixed; top: 14px; right: 32px; z-index: 60; display: grid; justify-items: start; }
 .sx-nav a { font: 800 16px/24px 'Satoshi', sans-serif; text-transform: uppercase; color: var(--sx-grey); text-decoration: none; }
 .sx-nav a:hover, .sx-nav a[aria-current='page'] { color: var(--sx-ink); }
 .sx-skiplink { position: fixed; left: 16px; top: -60px; z-index: 120; background: var(--sx-ink); color: #fff; padding: 10px 16px; font: 700 14px 'Satoshi', sans-serif; }
@@ -51,16 +53,15 @@ html.sx-gate body::before { content: ''; position: fixed; inset: 0; z-index: 99;
    to fit its content, so the name can never ride up over the text on a short window.
    On a window too short for it the page simply scrolls a little. */
 .sx-home { min-height: 100dvh; display: grid; grid-template-rows: minmax(65dvh, auto) minmax(96px, 1fr); }
-.sx-top { position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; padding-top: clamp(72px, 20dvh, 180px); }
-.sx-head { grid-column: 1; margin: 0 0 0 24px; width: min(522px, 44vw); font: 500 clamp(26px, 2.6vw, 37.2px)/1.3 'Satoshi', sans-serif; letter-spacing: -0.003em; }
-.sx-para { grid-column: 2; margin: 0; width: min(635px, 44vw); font: 700 clamp(18px, 1.76vw, 25.28px)/1.46 'Satoshi', sans-serif; letter-spacing: -0.01em; }
+.sx-top { position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; padding-top: clamp(112px, 20dvh, 180px); }
+.sx-head { grid-column: 2; grid-row: 1; margin: 0; width: min(522px, 44vw); font: 500 clamp(26px, 2.6vw, 37.2px)/1.3 'Satoshi', sans-serif; letter-spacing: -0.003em; }
+.sx-para { grid-column: 1; grid-row: 1; margin: 0 0 0 24px; width: min(635px, 44vw); font: 700 clamp(18px, 1.76vw, 25.28px)/1.46 'Satoshi', sans-serif; letter-spacing: -0.01em; }
 .sx-h1 { grid-column: 1 / -1; grid-row: 2; align-self: end; margin: 24px 16px 0; font-weight: 500; line-height: 1; white-space: nowrap; }
 .sx-gw { display: block; position: relative; width: 100%; }
 .sx-gw-txt { display: block; font-weight: 500; letter-spacing: -0.045em; line-height: 1.12; color: var(--sx-ink); white-space: nowrap; }
 .sx-gw-txt.on { opacity: 0; }
 .sx-gw-cv { position: absolute; left: 0; top: 0; width: 100%; touch-action: pan-y; }
 .sx-stage2 { position: relative; background: var(--sx-ink); display: grid; place-items: center; perspective: 700px; }
-.sx-turn { width: 34px; aspect-ratio: 1; animation: sx-rot 9s linear infinite; opacity: 0.85; }
 .sx-hint { display: none; }
 .sx-hand { display: inline-block; animation: sx-swipe 2.2s ease-in-out infinite; transform-origin: 50% 90%; }
 @keyframes sx-swipe { 0% { transform: translateX(-34px) rotate(-10deg); } 50% { transform: translateX(34px) rotate(10deg); } 100% { transform: translateX(-34px) rotate(-10deg); } }
@@ -134,7 +135,6 @@ html.sx-gate body::before { content: ''; position: fixed; inset: 0; z-index: 99;
   .sx-stage2 { position: relative; align-content: center; justify-items: center; gap: 14px; }
   .sx-hint { display: grid; justify-items: center; gap: 6px; margin: 0; font: 700 14px/1.2 'Satoshi', sans-serif; color: var(--sx-snow); }
   .sx-hint.gone { display: none; }
-  .sx-turn { position: absolute; right: 16px; bottom: 16px; width: 26px; }
   .sx-about { padding: 120px 16px 72px; }
   .sx-row { grid-template-columns: 1fr; gap: 10px; }
 }
@@ -155,6 +155,6 @@ html.sx-gate body::before { content: ''; position: fixed; inset: 0; z-index: 99;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sx-spin.on, .sx-turn, .sx-hand, .sx-up, .bw-rise, .bw-zoom, .bw-board { animation: none; }
+  .sx-spin.on, .sx-hand, .sx-up, .bw-rise, .bw-zoom, .bw-board { animation: none; }
   .sx-thumbs li { transition: none; }
 }

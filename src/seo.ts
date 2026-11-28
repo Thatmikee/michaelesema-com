@@ -24,14 +24,14 @@ const PERSON = {
   additionalName: 'Essien',
   familyName: 'Esema',
   alternateName: ['Michael Essien Esema', 'Mike Esema'],
-  jobTitle: 'Graphic and Multimedia Designer',
+  jobTitle: 'Graphic & Multimedia Designer and Business Strategist',
   hasOccupation: {
     '@type': 'Occupation',
-    name: 'Graphic and Multimedia Designer',
+    name: 'Graphic & Multimedia Designer and Business Strategist',
     skills: 'Brand identity, logo design, print and editorial layout, web design, social media graphics, video editing, art direction',
   },
-  description: 'Michael Esema is a graphic and multimedia designer based in the United Kingdom. He has designed brand identities, print and social content since 2018, and now also websites. He holds a BSc in Accounting, an MBA and an MSc in International Business Management.',
-  knowsAbout: ['Graphic design', 'Brand identity', 'Logo design', 'Typography', 'Editorial design', 'Print design', 'Web design', 'UI design', 'Social media design', 'Video editing', 'Art direction', 'Adobe Photoshop', 'Adobe Illustrator', 'Adobe InDesign', 'Figma', 'Canva', 'CapCut', 'Blender'],
+  description: 'Michael Esema is a graphic and multimedia designer and business strategist based in the United Kingdom. He has designed brand identities, print and social content since 2018. He holds a BSc in Accounting, an MBA, an MSc in International Business Management and a Lean Six Sigma certification.',
+  knowsAbout: ['Graphic design', 'Multimedia design', 'Brand identity', 'Brand identity systems', 'Business strategy', 'Visual communication', 'Logo design', 'Typography', 'Editorial design', 'Print design', 'Web design', 'UI design', 'Social media design', 'Video editing', 'Art direction', 'Adobe Photoshop', 'Adobe Illustrator', 'Adobe InDesign', 'Figma', 'Canva', 'CapCut', 'Blender'],
   url: SITE,
   image: `${SITE}/michael-esema-portrait.jpg`,
   email: 'hello@michaelesema.com',
@@ -49,22 +49,6 @@ const PERSON = {
     { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certificate', name: 'Lean Six Sigma', dateCreated: '2025' },
   ],
   sameAs: ['https://www.linkedin.com/in/michaelesema', 'https://github.com/Thatmikee', 'https://linktr.ee/mikeyesema'],
-}
-
-// A one-person design practice. No street address is published on purpose, so this
-// describes the service and where it works without claiming a shop front.
-const SERVICE = {
-  '@type': 'ProfessionalService',
-  '@id': `${SITE}/#service`,
-  name: 'Michael Esema',
-  url: SITE,
-  image: CARD,
-  logo: `${SITE}/logo.png`,
-  email: 'hello@michaelesema.com',
-  description: 'Brand identity, print and web design for small businesses.',
-  areaServed: { '@type': 'Country', name: 'United Kingdom' },
-  serviceType: ['Brand identity design', 'Logo design', 'Print and editorial design', 'Web design'],
-  founder: { '@id': PERSON_ID },
 }
 
 const CTX = 'https://schema.org'
@@ -89,8 +73,7 @@ export function seo(path: string): Seo {
         type: 'profile',
         jsonld: [
           { '@context': CTX, '@type': 'ProfilePage', url: url('/'), mainEntity: PERSON },
-          { '@context': CTX, '@type': 'WebSite', name: 'Michael Esema', url: SITE, description: 'Portfolio of Michael Esema, graphic and multimedia designer.', publisher: { '@id': PERSON_ID } },
-          { '@context': CTX, ...SERVICE },
+          { '@context': CTX, '@type': 'WebSite', name: 'Michael Esema', url: SITE, description: 'Portfolio of Michael Esema, graphic and multimedia designer and business strategist.', publisher: { '@id': PERSON_ID } },
         ],
       }
     case '/work':
