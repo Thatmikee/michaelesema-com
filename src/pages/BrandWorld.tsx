@@ -82,7 +82,7 @@ function BoardView({ b, t }: { b: Board; t: Theme }) {
           <div className="bw-palette" style={{ display: 'grid', gridTemplateColumns: `repeat(${b.swatches.length}, 1fr)` }}>
             {b.swatches.map(s => (
               <div key={s.hex} style={{ background: s.hex, color: s.text, padding: 'clamp(28px, 4vw, 56px)', minHeight: 'clamp(220px, 28vw, 380px)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-                <p style={{ font: '700 clamp(28px, 3.6vw, 52px)/1 var(--font-sans)', letterSpacing: '-0.035em' }}>{s.name}</p>
+                <p style={{ font: '500 clamp(28px, 3.6vw, 52px)/1 var(--sx-display)', letterSpacing: '-0.01em' }}>{s.name}</p>
                 <p style={{ font: '500 clamp(16px, 1.3vw, 18px)/1.4 var(--font-sans)', marginTop: 8 }}>{s.hex}</p>
               </div>
             ))}
@@ -110,7 +110,7 @@ function BoardView({ b, t }: { b: Board; t: Theme }) {
       return (
         <Reveal>
           <div style={{ background: t.accent, color: t.onAccent, padding: 'clamp(56px, 9vw, 150px) 0' }}>
-            <p className="wrap" style={{ font: '700 clamp(34px, 6.2vw, 104px)/1 var(--font-sans)', letterSpacing: '-0.045em', maxWidth: '18ch' }}>{b.text}</p>
+            <p className="wrap" style={{ font: '500 clamp(34px, 6.2vw, 104px)/1 var(--sx-display)', letterSpacing: '-0.015em', maxWidth: '18ch' }}>{b.text}</p>
           </div>
         </Reveal>
       )
@@ -155,7 +155,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
             <img src={p.cover.src} alt={p.cover.alt} fetchPriority="high" decoding="async" style={{ width: '100%', height: 'auto', maxHeight: '72dvh', aspectRatio: p.cover.ratio, objectFit: 'cover', objectPosition: 'top' }} />
             <div className="wrap" style={{ padding: 'clamp(40px, 6vw, 96px) clamp(20px, 4.5vw, 64px) 0' }}>
               <h1 className="bw-rise"
-                style={{ font: `800 ${titleSize}/0.88 var(--font-sans)`, letterSpacing: '-0.055em', color: t.ink }}>
+                style={{ font: `500 ${titleSize}/0.88 var(--sx-display)`, letterSpacing: '-0.02em', color: t.ink }}>
                 {p.title}
               </h1>
               <p style={{ font: '500 clamp(18px, 1.8vw, 26px)/1.3 var(--font-sans)', marginTop: 'clamp(14px, 1.8vw, 26px)', color: t.accent }}>{p.discipline}</p>
@@ -168,7 +168,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
           <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, ${t.ground} 8%, ${t.ground}d9 30%, ${t.ground}66 52%, ${t.ground}00 74%)` }} />
           <div className="wrap" style={{ position: 'relative', paddingBottom: 'clamp(28px, 5vw, 72px)' }}>
             <h1 className="bw-rise"
-              style={{ font: `800 ${titleSize}/0.86 var(--font-sans)`, letterSpacing: '-0.055em', color: t.ink, animationDelay: '0.15s' }}>
+              style={{ font: `500 ${titleSize}/0.86 var(--sx-display)`, letterSpacing: '-0.02em', color: t.ink, animationDelay: '0.15s' }}>
               {p.title}
             </h1>
             <p style={{ font: '500 clamp(18px, 1.8vw, 26px)/1.3 var(--font-sans)', marginTop: 'clamp(14px, 1.8vw, 26px)', color: t.accent }}>{p.discipline}</p>
@@ -191,7 +191,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
               <li aria-current="page">{p.title}</li>
             </ol>
           </nav>
-          <h2 style={{ gridColumn: FLIP ? '5 / 13' : '1 / 9', gridRow: 2, font: '700 clamp(38px, 7vw, 116px)/0.95 var(--font-sans)', letterSpacing: '-0.05em', color: t.ink }}>{w.statement}</h2>
+          <h2 style={{ gridColumn: FLIP ? '5 / 13' : '1 / 9', gridRow: 2, font: '500 clamp(38px, 7vw, 116px)/0.95 var(--sx-display)', letterSpacing: '-0.015em', color: t.ink }}>{w.statement}</h2>
           <div style={{ gridColumn: FLIP ? '1 / 5' : '9 / 13', gridRow: 2, alignSelf: 'end', display: 'grid', gap: 28 }}>
             <p style={{ font: '400 clamp(17px, 1.45vw, 20px)/1.6 var(--font-sans)', color: t.ink }}>{p.brief}</p>
             <dl style={{ display: 'grid', gap: 12, font: '400 16px/1.45 var(--font-sans)' }}>
@@ -216,13 +216,13 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
         <section aria-label="Process" className="wrap bw-over" style={{ direction: FLIP ? 'rtl' : 'ltr', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(32px, 6vw, 96px)', padding: 'clamp(72px, 10vw, 160px) clamp(20px, 4.5vw, 64px)' }}>
           {[['The challenge', p.challenge], ...(p.audience ? [['Who it was for', p.audience]] : [])].map(([h, v]) => (
             <div key={h} style={{ direction: 'ltr' }}>
-              <h2 style={{ font: '700 clamp(24px, 2.6vw, 38px)/1.05 var(--font-sans)', letterSpacing: '-0.03em', color: t.accent }}>{h}</h2>
+              <h2 style={{ font: '500 clamp(24px, 2.6vw, 38px)/1.05 var(--sx-display)', letterSpacing: '-0.01em', color: t.accent }}>{h}</h2>
               <p style={{ font: '400 clamp(17px, 1.45vw, 20px)/1.6 var(--font-sans)', marginTop: 14, maxWidth: '46ch' }}>{v}</p>
             </div>
           ))}
           {sections.map(([h, v]) => (
             <div key={h} style={{ direction: 'ltr' }}>
-              <h2 style={{ font: '700 clamp(24px, 2.6vw, 38px)/1.05 var(--font-sans)', letterSpacing: '-0.03em', color: t.accent }}>{h}</h2>
+              <h2 style={{ font: '500 clamp(24px, 2.6vw, 38px)/1.05 var(--sx-display)', letterSpacing: '-0.01em', color: t.accent }}>{h}</h2>
               {typeof v === 'string'
                 ? <p style={{ font: '400 clamp(17px, 1.45vw, 20px)/1.6 var(--font-sans)', marginTop: 14, maxWidth: '46ch' }}>{v}</p>
                 : <ul style={{ listStyle: 'none', display: 'grid', gap: 10, marginTop: 14, font: '400 clamp(17px, 1.45vw, 20px)/1.5 var(--font-sans)', maxWidth: '46ch' }}>{v.map(i => <li key={i}>{i}</li>)}</ul>}
@@ -232,7 +232,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
 
         <section aria-label="Next" style={{ background: t.accent, color: t.onAccent, padding: 'clamp(48px, 7vw, 110px) 0' }}>
           <div className="wrap bw-next" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 24, flexWrap: 'wrap' }}>
-            <Link to={`/work/${next.slug}`} className="bw-link" style={{ font: '800 clamp(36px, 6.4vw, 108px)/0.95 var(--font-sans)', letterSpacing: '-0.05em', color: t.onAccent, textDecoration: 'none' }}>Next: {next.title}</Link>
+            <Link to={`/work/${next.slug}`} className="bw-link" style={{ font: '500 clamp(36px, 6.4vw, 108px)/0.95 var(--sx-display)', letterSpacing: '-0.015em', color: t.onAccent, textDecoration: 'none' }}>Next: {next.title}</Link>
             <p style={{ display: 'flex', gap: 28, font: '600 18px/1 var(--font-sans)', flexWrap: 'wrap' }}>
               <a href="mailto:hello@michaelesema.com" className="bw-link" style={{ color: t.onAccent }}>Contact</a>
               <Link to="/work" className="bw-link" style={{ color: t.onAccent }}>All work</Link>

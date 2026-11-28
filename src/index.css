@@ -3,7 +3,7 @@
 
 /*
   Global base only. Colours live in src/site/site.css (:root variables) and in
-  each project's own theme in src/work.ts. Type is self-hosted Satoshi.
+  each project's own theme in src/work.ts. Type is self-hosted: General Sans (text) and Cormorant Garamond (display).
 */
 @layer base {
   :root {

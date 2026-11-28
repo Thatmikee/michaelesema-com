@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from './motion'
-import { INK, TEAL } from './tokens'
+import { INK, FRINGE } from './tokens'
 
 // The wordmark, drawn to a texture and shown through a glass shader. Near the
 // cursor or finger the letters split into thin strips that slide, lean and
@@ -117,7 +117,7 @@ export default function GlassWord({ lines, auto = false, align = 'left', onInter
       gl.uniform1f(U('uR'), Math.max(st.W * 0.16, st.H * 0.45))
       gl.uniform1f(U('uS'), dpr)
       gl.uniform3f(U('uInk'), INK.rgb[0] / 255, INK.rgb[1] / 255, INK.rgb[2] / 255)
-      gl.uniform3f(U('uTeal'), TEAL.rgb[0] / 255, TEAL.rgb[1] / 255, TEAL.rgb[2] / 255)
+      gl.uniform3f(U('uTeal'), FRINGE.rgb[0] / 255, FRINGE.rgb[1] / 255, FRINGE.rgb[2] / 255)
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
     }
     const loop = (now: number) => {
@@ -143,8 +143,10 @@ export default function GlassWord({ lines, auto = false, align = 'left', onInter
     const build = async () => {
       // The display font comes from CSS (--sx-display), so changing the site font needs no edit here.
       const cs = getComputedStyle(document.documentElement)
-      const family = cs.getPropertyValue('--sx-display').trim() || 'Satoshi, sans-serif'
+      const family = cs.getPropertyValue('--sx-display').trim() || 'Cormorant Garamond, serif'
       const weight = cs.getPropertyValue('--sx-display-weight').trim() || '500'
+      const trackParsed = parseFloat(cs.getPropertyValue('--sx-display-tracking-n'))
+      const tracking = Number.isFinite(trackParsed) ? trackParsed : -0.045
       await document.fonts.load(`${weight} 100px ${family}`)
       if (dead) return
       const cssW = wrapEl.clientWidth
@@ -153,7 +155,7 @@ export default function GlassWord({ lines, auto = false, align = 'left', onInter
       const ctx = c2.getContext('2d')
       if (!ctx) return
       ctx.font = `${weight} 100px ${family}`
-      if ('letterSpacing' in ctx) ctx.letterSpacing = '-4.5px'
+      if ('letterSpacing' in ctx) ctx.letterSpacing = `${tracking * 100}px`
       const widest = Math.max(...textLines.map(l => ctx.measureText(l).width))
       // Fit the width, but never taller than half the window, so a short word like Esema leaves room for the text above it.
       const size = Math.min(cssW / (widest / 100), (window.innerHeight * 0.5) / 1.12)
@@ -164,7 +166,7 @@ export default function GlassWord({ lines, auto = false, align = 'left', onInter
       c2.width = st.W
       c2.height = st.H
       ctx.font = `${weight} ${size * dpr}px ${family}`
-      if ('letterSpacing' in ctx) ctx.letterSpacing = `${-0.045 * size * dpr}px`
+      if ('letterSpacing' in ctx) ctx.letterSpacing = `${tracking * size * dpr}px`
       ctx.fillStyle = INK.hex
       ctx.textBaseline = 'alphabetic'
       ctx.textAlign = align === 'right' ? 'right' : 'left'
