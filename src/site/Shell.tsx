@@ -29,20 +29,24 @@ function Wipe({ phase }: { phase: 'idle' | 'cover' | 'reveal' }) {
 }
 
 function Chrome() {
+  const mark = <Link to="/" className="sx-mark" aria-label="Michael Esema, home"><Mark /></Link>
+  const nav = (
+    <nav className="sx-nav" aria-label="Primary">
+      <NavLink to="/work">Work</NavLink>
+      <NavLink to="/blog">Blog</NavLink>
+      <NavLink to="/about">About</NavLink>
+      <a href="mailto:hello@michaelesema.com">Contact</a>
+    </nav>
+  )
   return (
     <>
       <a href="#sx-main" className="sx-skiplink">Skip to content</a>
       <div className="sx-bar" aria-hidden="true" />
       {/* Both children are position: fixed, so the header has no height and changes no layout;
-          it exists so the home link sits inside a landmark. */}
+          it exists so the home link sits inside a landmark. When the corners are swapped the
+          links sit on the left, so they come first in the code and Tab follows what the eye sees. */}
       <header className={FLIP ? 'sx-header-flip' : undefined}>
-        <Link to="/" className="sx-mark" aria-label="Michael Esema, home"><Mark /></Link>
-        <nav className="sx-nav" aria-label="Primary">
-          <NavLink to="/work">Work</NavLink>
-          <NavLink to="/blog">Blog</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <a href="mailto:hello@michaelesema.com">Contact</a>
-        </nav>
+        {FLIP ? <>{nav}{mark}</> : <>{mark}{nav}</>}
       </header>
     </>
   )

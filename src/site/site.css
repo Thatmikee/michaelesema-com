@@ -158,6 +158,20 @@ html.sx-gate body::before { content: ''; position: fixed; inset: 0; z-index: 99;
 .sx-header-flip .sx-nav { right: auto; left: 32px; }
 .sx-flip .sx-legal { left: auto; right: 24px; }
 @media (max-width: 700px) { .sx-header-flip .sx-nav { left: 16px; } }
+/* Text mirrors too (ledger L42): everything that hugged the left now hugs the right,
+   including headings, paragraphs, labels, lists and the breadcrumb. Still one switch. */
+.sx-flip .sx-head, .sx-flip .sx-para, .sx-flip .sx-page-title, .sx-flip .sx-meta,
+.sx-flip .sx-label, .sx-flip .sx-prose, .sx-flip .sx-desc, .sx-flip .sx-list, .sx-flip .sx-stack { text-align: right; }
+.sx-flip .sx-prose p, .sx-flip .sx-prose ul { margin-left: auto; }
+.sx-flip .sx-prose ul { justify-items: end; }
+.sx-flip .sx-crumbs ol { justify-content: flex-end; }
+.sx-flip .sx-list a { flex-direction: row-reverse; }
+@media (min-width: 701px) {
+  /* A true mirror of the home arrangement: the paragraph ends at the centre line and
+     the heading ends at the right margin. */
+  .sx-flip .sx-para { justify-self: end; margin: 0; }
+  .sx-flip .sx-head { justify-self: end; margin: 0 24px 0 0; }
+}
 /* Short screens (landscape phones, small laptop windows): the four nav links run in
    a row instead of a column, so they stay clear of the heading and the name. */
 @media (max-height: 520px) {

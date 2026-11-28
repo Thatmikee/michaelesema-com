@@ -19,7 +19,7 @@ export default function ProjectPage() {
         <meta property="og:description" content={p.summary} />
         <meta property="og:url" content={`https://michaelesema.com/work/${p.slug}`} />
       </Helmet>
-      <a href="#main-content" className="sx-skiplink">Skip to main content</a>
+      <a href="#main-content" className="sx-skiplink">Skip to content</a>
       <BrandWorld p={p} w={p.world} next={next} />
     </>
   )

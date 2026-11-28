@@ -55,7 +55,7 @@ function LiveVideo({ b, t }: { b: Extract<Board, { kind: 'video' }>; t: Theme })
     <div className="wrap" style={{ padding: 'clamp(56px, 8vw, 128px) clamp(20px, 4.5vw, 64px)' }}>
       <video ref={ref} src={b.src} poster={b.poster} muted loop playsInline preload="none" aria-label={b.alt}
         style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', objectPosition: 'top', background: t.ink }} />
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
+      <div className="bw-vcap" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
         <p style={{ font: '400 clamp(16px, 1.3vw, 18px)/1.4 var(--font-sans)', color: t.ink }}>{b.caption}</p>
         <button type="button" onClick={toggle} className="bw-btn">{playing ? 'Pause' : 'Play'}</button>
       </div>
@@ -129,16 +129,24 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
     ['The result', p.outcome],
   ] as [string, string | string[] | undefined][]).filter((s): s is [string, string | string[]] => Boolean(s[1]))
 
+  // The links sit on the left when the corners are swapped, so they come first in the code
+  // and Tab follows what the eye sees.
+  const mark = (
+    <Link to="/" aria-label="Michael Esema, home" style={{ position: 'absolute', ...(FLIP ? { right: 18 } : { left: 18 }), top: 18, width: 22, height: 22, display: 'block' }}><Mark onDark={dark} /></Link>
+  )
+  const nav = (
+    <nav aria-label="Primary" style={{ position: 'absolute', [FLIP ? 'left' : 'right']: 'clamp(16px, 2.2vw, 32px)', top: 14, display: 'grid', justifyItems: 'start' }}>
+      {[['Work', '/work'], ['Blog', '/blog'], ['About', '/about']].map(([label, to]) => (
+        <Link key={to} to={to} className="bw-nav" style={{ font: "800 16px/24px 'Satoshi', sans-serif", textTransform: 'uppercase' }}>{label}</Link>
+      ))}
+      <a href="mailto:hello@michaelesema.com" className="bw-nav" style={{ font: "800 16px/24px 'Satoshi', sans-serif", textTransform: 'uppercase' }}>Contact</a>
+    </nav>
+  )
+
   return (
     <div className={FLIP ? 'bw bw-flip' : 'bw'} style={{ background: t.ground, color: t.ink, minHeight: '100dvh' }}>
       <header style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 120, zIndex: 50, background: `linear-gradient(to bottom, ${t.ground}cc, transparent)` }}>
-        <Link to="/" aria-label="Michael Esema, home" style={{ position: 'absolute', ...(FLIP ? { right: 18 } : { left: 18 }), top: 18, width: 22, height: 22, display: 'block' }}><Mark onDark={dark} /></Link>
-        <nav aria-label="Primary" style={{ position: 'absolute', [FLIP ? 'left' : 'right']: 'clamp(16px, 2.2vw, 32px)', top: 14, display: 'grid', justifyItems: 'start' }}>
-          {[['Work', '/work'], ['Blog', '/blog'], ['About', '/about']].map(([label, to]) => (
-            <Link key={to} to={to} className="bw-nav" style={{ font: "800 16px/24px 'Satoshi', sans-serif", textTransform: 'uppercase' }}>{label}</Link>
-          ))}
-          <a href="mailto:hello@michaelesema.com" className="bw-nav" style={{ font: "800 16px/24px 'Satoshi', sans-serif", textTransform: 'uppercase' }}>Contact</a>
-        </nav>
+        {FLIP ? <>{nav}{mark}</> : <>{mark}{nav}</>}
       </header>
 
       <main id="main-content" tabIndex={-1}>
@@ -243,6 +251,12 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
         .bw-btn { font: 600 16px/1 var(--font-sans); height: 44px; padding: 0 22px; background: transparent; color: inherit; border: 2px solid currentColor; border-radius: var(--radius); cursor: pointer; }
         .bw-btn:hover { opacity: 0.8; }
         @media (min-width: 701px) { .bw-flip .bw-next { flex-direction: row-reverse; } }
+        .bw-flip main { text-align: right; }
+        .bw-flip main p[style*="max-width"], .bw-flip main ul[style*="max-width"] { margin-left: auto; }
+        .bw-flip nav[aria-label="Breadcrumb"] ol { justify-content: flex-end; }
+        .bw-flip dl > div { direction: rtl; }
+        .bw-flip dl > div > * { direction: ltr; text-align: right; }
+        .bw-flip .bw-vcap { flex-direction: row-reverse; }
         .bw img, .bw video { max-width: none; }
         @media (max-width: 820px) {
           .bw-over { grid-template-columns: 1fr !important; }
