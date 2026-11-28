@@ -141,24 +141,29 @@ export default function GlassWord({ lines, auto = false, align = 'left', onInter
     const kick = () => { if (!raf) raf = requestAnimationFrame(loop) }
 
     const build = async () => {
-      await document.fonts.load('500 100px Satoshi')
+      // The display font comes from CSS (--sx-display), so changing the site font needs no edit here.
+      const cs = getComputedStyle(document.documentElement)
+      const family = cs.getPropertyValue('--sx-display').trim() || 'Satoshi, sans-serif'
+      const weight = cs.getPropertyValue('--sx-display-weight').trim() || '500'
+      await document.fonts.load(`${weight} 100px ${family}`)
       if (dead) return
       const cssW = wrapEl.clientWidth
       if (cssW < 10) return
       const c2 = document.createElement('canvas')
       const ctx = c2.getContext('2d')
       if (!ctx) return
-      ctx.font = '500 100px Satoshi, sans-serif'
+      ctx.font = `${weight} 100px ${family}`
       if ('letterSpacing' in ctx) ctx.letterSpacing = '-4.5px'
       const widest = Math.max(...textLines.map(l => ctx.measureText(l).width))
-      const size = cssW / (widest / 100)
+      // Fit the width, but never taller than half the window, so a short word like Esema leaves room for the text above it.
+      const size = Math.min(cssW / (widest / 100), (window.innerHeight * 0.5) / 1.12)
       const lead = textLines.length > 1 ? 0.98 : 0
       const cssH = Math.ceil(size * (0.84 + lead * (textLines.length - 1) + 0.28))
       st.W = Math.round(cssW * dpr)
       st.H = Math.round(cssH * dpr)
       c2.width = st.W
       c2.height = st.H
-      ctx.font = `500 ${size * dpr}px Satoshi, sans-serif`
+      ctx.font = `${weight} ${size * dpr}px ${family}`
       if ('letterSpacing' in ctx) ctx.letterSpacing = `${-0.045 * size * dpr}px`
       ctx.fillStyle = INK.hex
       ctx.textBaseline = 'alphabetic'
@@ -231,7 +236,7 @@ export default function GlassWord({ lines, auto = false, align = 'left', onInter
   const longest = Math.max(...lines.map(l => l.length))
   return (
     <span ref={wrap} className="sx-gw" aria-hidden="true" style={h ? { height: h } : undefined}>
-      <span className={`sx-gw-txt${live ? ' on' : ''}`} style={fs ? { fontSize: fs, lineHeight: lines.length > 1 ? 0.98 : 1.12, textAlign: align } : { fontSize: `calc((100vw - 32px) / ${(longest * 0.5).toFixed(2)})`, textAlign: align }}>
+      <span className={`sx-gw-txt${live ? ' on' : ''}`} style={fs ? { fontSize: fs, lineHeight: lines.length > 1 ? 0.98 : 1.12, textAlign: align } : { fontSize: `min(calc((100vw - 32px) / ${(longest * 0.5).toFixed(2)}), 44dvh)`, textAlign: align }}>
         {lines.map((l, i) => <span key={l}>{l}{i < lines.length - 1 ? <br /> : null}</span>)}
       </span>
       {mounted && !reduce && <canvas ref={cv} className="sx-gw-cv" aria-hidden="true" />}

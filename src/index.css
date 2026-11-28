@@ -8,7 +8,7 @@
 @layer base {
   :root {
     --radius: 2px;
-    --font-sans: 'Satoshi', 'Helvetica Neue', Arial, sans-serif;
+    --font-sans: var(--sx-font);
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }

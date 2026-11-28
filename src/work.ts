@@ -108,15 +108,15 @@ export const PROJECTS: Project[] = [
     home: true,
     title: 'Silent Party 9ja',
     discipline: 'Event branding, promotional materials, website',
-    years: '2018 to now',
-    role: 'Design lead, then occasional designer',
-    summary: 'Design lead, part-time, for a silent-disco events brand in Nigeria from 2018, and still designing for them now and then, including its new booking site.',
-    brief: 'Lead design for Silent Party 9ja, a silent-disco events brand in Nigeria: part-time design lead from 2018 to February 2023, and I still design for the brand now and then. In 2026 I began a new identity and booking site.',
+    years: '2018 to 2023, new site 2026',
+    role: 'Design lead',
+    summary: 'Part-time design lead for a silent-disco events brand in Nigeria from 2018 to 2023, and the designer of its new identity and booking site in 2026.',
+    brief: 'Lead design for Silent Party 9ja, a silent-disco events brand in Nigeria: part-time design lead from 2018 to February 2023. In 2026 I designed a new identity and booking site.',
     challenge: 'Silent Party 9ja runs headphone parties: three DJs, three channels, and every guest picks their own. The new site has to show that choice.',
     audience: 'Partygoers, and the people booking a party.',
     made: [
-      'Visual identity and promotional materials, from 2018 as design lead, part-time, and since February 2023 as an occasional designer. This work belongs to the brand and is published on its Instagram.',
-      'A new identity and booking site, 2026, in development.',
+      'Visual identity and promotional materials, from 2018 to February 2023, as part-time design lead. This work belongs to the brand and is published on its Instagram.',
+      'A new identity and booking site, 2026.',
     ],
     process: 'Each channel owns one colour and only one is ever live at a time, so the page changes colour as you turn the dial.',
     // Colours sampled from the brand's own site screens. Pink on ground 4.94,
@@ -239,40 +239,6 @@ export const PROJECTS: Project[] = [
       { src: '/work/signal-mobile.jpg', alt: 'The Signal on a phone', ratio: '4 / 5', fit: 'contain' },
     ],
     link: { href: 'https://mykei.io/signal', label: 'mykei.io/signal' },
-  },
-  {
-    slug: 'mykei',
-    home: false,
-    title: 'Mykei Securities',
-    discipline: 'Brand identity, website',
-    years: '2026',
-    role: 'Founder and designer',
-    summary: 'Brand identity and website for Mykei Securities, a security technology start-up I founded.',
-    brief: 'Design the identity and the website for Mykei Securities, a security technology start-up I founded.',
-    challenge: 'An early version of the site drifted into five slightly different golds.',
-    made: [
-      'The company identity',
-      'The website at mykei.io',
-      'One colour file that every page imports',
-    ],
-    process: 'I set a rule that every colour on the site comes from one file.',
-    outcome: 'Every colour is checked for contrast and used the same way on every page.',
-    // Tokens are the Signal red edition's own, measured in signalRed.ts: ink on
-    // white 18.58, red on white 5.33, white on red 5.33. No colour count is claimed here.
-    world: {
-      theme: { ground: '#FFFFFF', ink: '#111318', accent: '#D8001F', onAccent: '#FFFFFF' },
-      statement: 'Every colour on the site comes from one file.',
-      hero: 'screen',
-      boards: [
-        { kind: 'video', src: '/work/mykei-live.mp4', poster: '/work/mykei-live-poster.jpg', alt: 'A recording of mykei.io scrolling through the homepage: the problem statement, the explanation of the device and the three parts working together', caption: 'mykei.io, recorded live.' },
-        { kind: 'band', text: 'One colour file. Every page imports it.' },
-        { kind: 'full', shot: { src: '/work/mykei-band.jpg', alt: 'A white and a dark band from the mykei.io homepage', ratio: '16 / 10' } },
-      ],
-    },
-    cover: { src: '/work/mykei-securities-site.png', alt: 'The mykei.io homepage', ratio: '16 / 9' },
-    shots: [
-      { src: '/work/mykei-band.jpg', alt: 'A white and a dark band from the mykei.io homepage', ratio: '16 / 10' },
-    ],
   },
 ]
 

@@ -1,7 +1,6 @@
-import { lazy, Suspense, useState, type CSSProperties, type ReactNode } from 'react'
+import { lazy, Suspense, type CSSProperties, type ReactNode } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { HandPointing } from '@phosphor-icons/react'
 import { PROJECTS } from '../work'
 import Crumbs from './Crumbs'
 import GlassWord from './GlassWord'
@@ -19,14 +18,11 @@ function Mask({ children, delay = 0 }: { children: ReactNode; delay?: number }) 
   )
 }
 
-// The dark panel under the wordmark. The penguin is only a small symbol for now.
-// On small screens a hand sways across the panel until the first touch. It carries no
-// caption on purpose: visitors find out what it does by trying. It is always in the
-// HTML and CSS decides when it shows, so it paints at once.
-function Stage({ gone }: { gone: boolean }) {
+// The dark panel under the wordmark. It carries no instruction of any kind: visitors work
+// the page out for themselves. Only the legal link lives here.
+function Stage() {
   return (
     <div className="sx-stage2">
-      <div className={`sx-hint${gone ? ' gone' : ''}`} aria-hidden="true"><span className="sx-hand"><HandPointing size={34} weight="light" /></span></div>
       <Link to="/privacy" className="sx-legal">Privacy</Link>
     </div>
   )
@@ -48,16 +44,15 @@ function Meta({ title, desc, path, noindex }: { title: string; desc: string; pat
 export function Home() {
   const small = useMedia('(max-width: 700px)')
   const coarse = useMedia('(pointer: coarse)')
-  const [touched, setTouched] = useState(false)
   return (
     <main id="sx-main" tabIndex={-1} className="sx-main sx-home">
       <Meta title="Michael Esema | Graphic & Multimedia Designer & Business Strategist" desc="Portfolio of Michael Esema, a UK graphic and multimedia designer and business strategist. Brand identity, print and web design." path="/" />
       <div className="sx-top">
       <p className="sx-head"><Mask>Graphic &amp; Multimedia</Mask><Mask delay={0.08}>Designer and</Mask><Mask delay={0.16}>Business Strategist</Mask></p>
-      <p className="sx-para"><Mask delay={0.24}>I design brands, print and websites. I trained as an accountant, so I always ask what the work is for and how we'll know it worked.</Mask></p>
-      <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Mask delay={0.36}><GlassWord lines={small ? ['Michael', 'Esema'] : ['Michael Esema']} auto={small || coarse}  align={FLIP ? 'right' : 'left'} onInteract={() => setTouched(true)} /></Mask></h1>
+      <p className="sx-para"><Mask delay={0.24}>I design brands, print and websites for companies that want their design to pay its way. I'm an accountant who became a designer. I ran a hotel's books and its brand, so I design with the numbers in mind.</Mask></p>
+      <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Mask delay={0.36}><GlassWord lines={['Esema']} auto={small || coarse} align={FLIP ? 'right' : 'left'} /></Mask><span className="sx-aside" aria-hidden="true">I am Michael</span></h1>
       </div>
-      <Stage gone={touched} />
+      <Stage />
     </main>
   )
 }
@@ -65,16 +60,15 @@ export function Home() {
 export function Blog() {
   const small = useMedia('(max-width: 700px)')
   const coarse = useMedia('(pointer: coarse)')
-  const [touched, setTouched] = useState(false)
   return (
     <main id="sx-main" tabIndex={-1} className="sx-main sx-home">
       <Meta title="Blog, coming soon | Michael Esema" desc="Notes on design and business from Michael Esema. The first articles are on their way." path="/blog" noindex />
       <div className="sx-top">
       <p className="sx-head"><Mask>Blog</Mask><Mask delay={0.08}>Coming soon</Mask></p>
       <p className="sx-para"><Mask delay={0.16}>Notes on design, business and the way the two meet. The first articles are on their way.</Mask></p>
-      <h1 className="sx-h1"><span className="sx-sr">Blog, coming soon</span><Mask delay={0.28}><GlassWord lines={small ? ['Coming', 'Soon'] : ['Coming Soon']} auto={small || coarse}  align={FLIP ? 'right' : 'left'} onInteract={() => setTouched(true)} /></Mask></h1>
+      <h1 className="sx-h1"><span className="sx-sr">Blog, coming soon</span><Mask delay={0.28}><GlassWord lines={small ? ['Coming', 'Soon'] : ['Coming Soon']} auto={small || coarse}  align={FLIP ? 'right' : 'left'} /></Mask></h1>
       </div>
-      <Stage gone={touched} />
+      <Stage />
     </main>
   )
 }
@@ -131,9 +125,14 @@ export function About() {
           <p>I trained as an accountant, then studied business up to master’s level. I was designing the whole time, and the two never felt separate. Before I open Illustrator I ask what the work is for, who it’s for, and how we’ll know it worked.</p>
         </div>
       </section>
+      <section className="sx-row"><h2 className="sx-label">Who it’s for</h2>
+        <div className="sx-prose">
+          <p>People who run a business, or hire for one, and want design they can justify in numbers. So far that has been a hotel, a caterer, an events brand and a publication.</p>
+        </div>
+      </section>
       <section className="sx-row"><h2 className="sx-label">Story</h2>
         <div className="sx-prose">
-          <p>2018. I finished a BSc in Accounting and became part-time design lead for Silent Party 9ja, an events brand in Nigeria. I ran its visual identity and promotions until February 2023. I still design for it now and then, to keep sharp.</p>
+          <p>2018. I finished a BSc in Accounting and became part-time design lead for Silent Party 9ja, an events brand in Nigeria. I ran its visual identity and promotions until February 2023.</p>
           <p>2019. B’s Hive Hotels &amp; Suites in Abuja hired me as Head Accountant. I kept the books. I also designed the hotel’s logo and letterhead, made its promotions and ran its social media. Over time I took on more of the running of the hotel and became Manager.</p>
           <p>2022 and 2024. I did an MBA at the Nigerian Defence Academy, then an MSc in International Business Management at Manchester Metropolitan University. I finished with a Merit. In 2025 I got my Lean Six Sigma certificate.</p>
           <p>Later I founded Mykei Securities Ltd, a security technology company, and designed its brand, website and publication, The Signal.</p>

@@ -137,9 +137,9 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
   const nav = (
     <nav aria-label="Primary" style={{ position: 'absolute', [FLIP ? 'left' : 'right']: 'clamp(16px, 2.2vw, 32px)', top: 14, display: 'grid', justifyItems: 'start' }}>
       {[['Work', '/work'], ['Blog', '/blog'], ['About', '/about']].map(([label, to]) => (
-        <Link key={to} to={to} className="bw-nav" style={{ font: "800 16px/24px 'Satoshi', sans-serif", textTransform: 'uppercase' }}>{label}</Link>
+        <Link key={to} to={to} className="bw-nav" style={{ font: "800 16px/24px var(--font-sans)", textTransform: 'uppercase' }}>{label}</Link>
       ))}
-      <a href="mailto:hello@michaelesema.com" className="bw-nav" style={{ font: "800 16px/24px 'Satoshi', sans-serif", textTransform: 'uppercase' }}>Contact</a>
+      <a href="mailto:hello@michaelesema.com" className="bw-nav" style={{ font: "800 16px/24px var(--font-sans)", textTransform: 'uppercase' }}>Contact</a>
     </nav>
   )
 
@@ -234,7 +234,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
           <div className="wrap bw-next" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 24, flexWrap: 'wrap' }}>
             <Link to={`/work/${next.slug}`} className="bw-link" style={{ font: '800 clamp(36px, 6.4vw, 108px)/0.95 var(--font-sans)', letterSpacing: '-0.05em', color: t.onAccent, textDecoration: 'none' }}>Next: {next.title}</Link>
             <p style={{ display: 'flex', gap: 28, font: '600 18px/1 var(--font-sans)', flexWrap: 'wrap' }}>
-              <a href="mailto:hello@michaelesema.com" className="bw-link" style={{ color: t.onAccent }}>Contact me</a>
+              <a href="mailto:hello@michaelesema.com" className="bw-link" style={{ color: t.onAccent }}>Contact</a>
               <Link to="/work" className="bw-link" style={{ color: t.onAccent }}>All work</Link>
               <Link to="/privacy" className="bw-link" style={{ color: t.onAccent }}>Privacy</Link>
             </p>
