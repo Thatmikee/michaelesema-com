@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion'
+import { HandPointing } from '@phosphor-icons/react'
 import { PROJECTS } from '../work'
 import { EASE_OUT, useSx } from './ctx'
 import GlassWord from './GlassWord'
@@ -22,13 +23,28 @@ function Mask({ children, delay = 0 }: { children: ReactNode; delay?: number }) 
   )
 }
 
-// The dark panel under the wordmark, with the logo turning slowly on its axis.
-function Stage() {
+// The dark panel under the wordmark. The penguin is only a small symbol for now.
+// On small screens a hand shows how to move the name until the first touch.
+function Stage({ hint }: { hint: boolean }) {
   return (
-    <div className="sx-stage2" aria-hidden="true">
-      <div className="sx-turn"><Mark onDark /></div>
+    <div className="sx-stage2">
+      {hint && (
+        <p className="sx-hint"><span className="sx-hand" aria-hidden="true"><HandPointing size={34} weight="light" /></span>Drag across the name</p>
+      )}
+      <div className="sx-turn" aria-hidden="true"><Mark onDark /></div>
     </div>
   )
+}
+
+function useMedia(q: string) {
+  const [on, setOn] = useState(() => (typeof window === 'undefined' ? false : window.matchMedia(q).matches))
+  useEffect(() => {
+    const m = window.matchMedia(q)
+    const f = () => setOn(m.matches)
+    m.addEventListener('change', f)
+    return () => m.removeEventListener('change', f)
+  }, [q])
+  return on
 }
 
 function Meta({ title, desc, path }: { title: string; desc: string; path: string }) {
@@ -44,43 +60,37 @@ function Meta({ title, desc, path }: { title: string; desc: string; path: string
 }
 
 export function Home() {
+  const small = useMedia('(max-width: 700px)')
+  const coarse = useMedia('(pointer: coarse)')
+  const [touched, setTouched] = useState(false)
   return (
     <main id="sx-main" tabIndex={-1} className="sx-main sx-home">
       <Meta title="Michael Esema | Graphic and Multimedia Designer" desc="Michael Esema is a graphic and multimedia designer in the UK working across identity, visual communication and digital design." path="/" />
       <div className="sx-top">
       <p className="sx-head"><Mask>Graphic &amp; Multimedia</Mask><Mask delay={0.08}>Designer</Mask></p>
       <p className="sx-para"><Mask delay={0.16}>I work across identity, visual communication and digital design, helping ideas and businesses find a clear visual language.</Mask></p>
-      <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Mask delay={0.28}><GlassWord text="Michael Esema" /></Mask></h1>
+      <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Mask delay={0.28}><GlassWord lines={small ? ['Michael', 'Esema'] : ['Michael Esema']} auto={small || coarse} onInteract={() => setTouched(true)} /></Mask></h1>
       </div>
-      <Stage />
+      <Stage hint={small && !touched} />
     </main>
   )
 }
 
 export function Blog() {
+  const small = useMedia('(max-width: 700px)')
+  const coarse = useMedia('(pointer: coarse)')
+  const [touched, setTouched] = useState(false)
   return (
     <main id="sx-main" tabIndex={-1} className="sx-main sx-home">
       <Meta title="Blog, coming soon | Michael Esema" desc="Notes on design and business from Michael Esema. The first articles are on their way." path="/blog" />
       <div className="sx-top">
       <p className="sx-head"><Mask>Blog</Mask><Mask delay={0.08}>Coming soon</Mask></p>
       <p className="sx-para"><Mask delay={0.16}>Notes on design, business and the way the two meet. The first articles are on their way.</Mask></p>
-      <h1 className="sx-h1"><span className="sx-sr">Blog, coming soon</span><Mask delay={0.28}><GlassWord text="Coming Soon" /></Mask></h1>
+      <h1 className="sx-h1"><span className="sx-sr">Blog, coming soon</span><Mask delay={0.28}><GlassWord lines={small ? ['Coming', 'Soon'] : ['Coming Soon']} auto={small || coarse} onInteract={() => setTouched(true)} /></Mask></h1>
       </div>
-      <Stage />
+      <Stage hint={small && !touched} />
     </main>
   )
-}
-
-function useWide() {
-  const q = '(min-width: 1100px)'
-  const [wide, setWide] = useState(() => (typeof window === 'undefined' ? true : window.matchMedia(q).matches))
-  useEffect(() => {
-    const m = window.matchMedia(q)
-    const f = () => setWide(m.matches)
-    m.addEventListener('change', f)
-    return () => m.removeEventListener('change', f)
-  }, [])
-  return wide
 }
 
 const pad = (n: number) => String(n).padStart(2, '0')
@@ -143,7 +153,7 @@ function WorkStack() {
 }
 
 export function Work() {
-  const wide = useWide()
+  const wide = useMedia('(min-width: 1100px)')
   return (
     <main id="sx-main" tabIndex={-1} className="sx-main">
       <Meta title="Work | Michael Esema" desc="Selected design work by Michael Esema: brand identity, print, publication design and websites." path="/work" />

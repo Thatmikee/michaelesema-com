@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 
 // The wordmark, drawn to a texture and shown through a glass shader. Near the
-// cursor the letters split into thin strips that slide, lean and ripple while
-// you move, with a lens pull and a faint teal fringe; they settle when you leave.
+// cursor or finger the letters split into thin strips that slide, lean and
+// ripple while you move, with a lens pull and a faint teal fringe; they settle
+// when you let go. With `auto` (touch screens, which have no hover) a sweep
+// passes through the name every few seconds so it moves on its own.
 // The real text stays in the page for readers, search and selection, and is
 // what shows when WebGL or motion is unavailable.
 
@@ -47,12 +49,18 @@ function compile(gl: WebGLRenderingContext, type: number, src: string) {
   return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null
 }
 
-export default function GlassWord({ text }: { text: string }) {
+type Props = { lines: string[]; auto?: boolean; onInteract?: () => void }
+
+export default function GlassWord({ lines, auto = false, onInteract }: Props) {
   const wrap = useRef<HTMLSpanElement>(null)
   const cv = useRef<HTMLCanvasElement>(null)
   const reduce = useReducedMotion()
   const [live, setLive] = useState(false)
   const [fs, setFs] = useState<number | null>(null)
+  const [h, setH] = useState<number | null>(null)
+  const key = lines.join('|')
+  const interact = useRef(onInteract)
+  useEffect(() => { interact.current = onInteract }, [onInteract])
 
   useEffect(() => {
     if (reduce) return
@@ -78,7 +86,11 @@ export default function GlassWord({ text }: { text: string }) {
     gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0)
     const U = (n: string) => gl.getUniformLocation(prog, n)
     const dpr = Math.min(2, window.devicePixelRatio || 1)
-    const st = { mx: -9999, my: -9999, tx: -9999, ty: -9999, str: 0, active: false, t0: performance.now(), W: 0, H: 0 }
+    const st = {
+      mx: -9999, my: -9999, tx: -9999, ty: -9999, str: 0, active: false, t0: performance.now(), W: 0, H: 0,
+      sweep: null as null | { t0: number; dur: number },
+    }
+    const textLines = key.split('|')
     let tex: WebGLTexture | null = null
     let raf = 0
     let dead = false
@@ -91,16 +103,26 @@ export default function GlassWord({ text }: { text: string }) {
       gl.uniform2f(U('uMouse'), st.mx, st.my)
       gl.uniform1f(U('uTime'), t)
       gl.uniform1f(U('uStr'), st.str)
-      gl.uniform1f(U('uR'), st.W * 0.16)
+      gl.uniform1f(U('uR'), Math.max(st.W * 0.16, st.H * 0.45))
       gl.uniform1f(U('uS'), dpr)
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
     }
     const loop = (now: number) => {
+      if (st.sweep) {
+        const f = (now - st.sweep.t0) / st.sweep.dur
+        if (f >= 1) { st.sweep = null; st.active = false }
+        else {
+          st.tx = st.W * (0.06 + 0.88 * f)
+          st.ty = st.H * (0.45 + 0.2 * Math.sin(f * 9))
+          if (!st.active) { st.mx = st.tx; st.my = st.ty }
+          st.active = true
+        }
+      }
       st.mx += (st.tx - st.mx) * 0.22
       st.my += (st.ty - st.my) * 0.22
       st.str += ((st.active ? 1 : 0) - st.str) * 0.09
       draw((now - st.t0) / 1000)
-      if (st.active || st.str > 0.004) raf = requestAnimationFrame(loop)
+      if (st.active || st.sweep || st.str > 0.004) raf = requestAnimationFrame(loop)
       else { raf = 0; st.str = 0; draw(0) }
     }
     const kick = () => { if (!raf) raf = requestAnimationFrame(loop) }
@@ -115,8 +137,10 @@ export default function GlassWord({ text }: { text: string }) {
       if (!ctx) return
       ctx.font = '500 100px Satoshi, sans-serif'
       if ('letterSpacing' in ctx) ctx.letterSpacing = '-4.5px'
-      const size = cssW / (ctx.measureText(text).width / 100)
-      const cssH = Math.ceil(size * 1.12)
+      const widest = Math.max(...textLines.map(l => ctx.measureText(l).width))
+      const size = cssW / (widest / 100)
+      const lead = textLines.length > 1 ? 0.98 : 0
+      const cssH = Math.ceil(size * (0.84 + lead * (textLines.length - 1) + 0.28))
       st.W = Math.round(cssW * dpr)
       st.H = Math.round(cssH * dpr)
       c2.width = st.W
@@ -125,7 +149,7 @@ export default function GlassWord({ text }: { text: string }) {
       if ('letterSpacing' in ctx) ctx.letterSpacing = `${-0.045 * size * dpr}px`
       ctx.fillStyle = 'rgb(15,61,46)'
       ctx.textBaseline = 'alphabetic'
-      ctx.fillText(text, 0, size * dpr * 0.84)
+      textLines.forEach((l, i) => ctx.fillText(l, 0, size * dpr * (0.84 + lead * i)))
       canvas.width = st.W
       canvas.height = st.H
       canvas.style.height = `${cssH}px`
@@ -139,23 +163,35 @@ export default function GlassWord({ text }: { text: string }) {
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
       setFs(size)
+      setH(cssH)
       draw(0)
       setLive(true)
     }
 
     const onMove = (e: PointerEvent) => {
       const r = canvas.getBoundingClientRect()
+      st.sweep = null
       st.tx = (e.clientX - r.left) * dpr
       st.ty = (e.clientY - r.top) * dpr
       if (!st.active) { st.mx = st.tx; st.my = st.ty }
       st.active = true
+      if (e.type === 'pointerdown') interact.current?.()
       kick()
     }
     const onLeave = () => { st.active = false; kick() }
     canvas.addEventListener('pointermove', onMove)
+    canvas.addEventListener('pointerdown', onMove)
     canvas.addEventListener('pointerleave', onLeave)
     canvas.addEventListener('pointercancel', onLeave)
     canvas.addEventListener('pointerup', onLeave)
+
+    let timer = 0
+    let first = 0
+    if (auto) {
+      const go = () => { if (document.visibilityState === 'visible' && !st.active && st.W) { st.sweep = { t0: performance.now(), dur: 1900 }; kick() } }
+      first = window.setTimeout(go, 1600)
+      timer = window.setInterval(go, 5200)
+    }
 
     let pending = 0
     const ro = new ResizeObserver(() => { cancelAnimationFrame(pending); pending = requestAnimationFrame(() => { void build() }) })
@@ -166,18 +202,24 @@ export default function GlassWord({ text }: { text: string }) {
       dead = true
       cancelAnimationFrame(raf)
       cancelAnimationFrame(pending)
+      window.clearTimeout(first)
+      window.clearInterval(timer)
       ro.disconnect()
       canvas.removeEventListener('pointermove', onMove)
+      canvas.removeEventListener('pointerdown', onMove)
       canvas.removeEventListener('pointerleave', onLeave)
       canvas.removeEventListener('pointercancel', onLeave)
       canvas.removeEventListener('pointerup', onLeave)
       if (tex) gl.deleteTexture(tex)
     }
-  }, [reduce, text])
+  }, [reduce, key, auto])
 
+  const longest = Math.max(...lines.map(l => l.length))
   return (
-    <span ref={wrap} className="sx-gw">
-      <span className={`sx-gw-txt${live ? ' on' : ''}`} style={fs ? { fontSize: fs } : { fontSize: `calc((100vw - 32px) / ${(text.length * 0.5).toFixed(2)})` }}>{text}</span>
+    <span ref={wrap} className="sx-gw" style={h ? { height: h } : undefined}>
+      <span className={`sx-gw-txt${live ? ' on' : ''}`} style={fs ? { fontSize: fs, lineHeight: lines.length > 1 ? 0.98 : 1.12 } : { fontSize: `calc((100vw - 32px) / ${(longest * 0.5).toFixed(2)})` }}>
+        {lines.map((l, i) => <span key={l}>{l}{i < lines.length - 1 ? <br /> : null}</span>)}
+      </span>
       {!reduce && <canvas ref={cv} className="sx-gw-cv" aria-hidden="true" />}
     </span>
   )

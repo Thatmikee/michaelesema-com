@@ -130,6 +130,10 @@ export const PROJECTS: Project[] = [
           { src: '/work/sp-how.jpg', alt: 'The how-it-works section: a party you wear on your head', ratio: '16 / 10' },
           { src: '/work/sp-mobile.jpg', alt: 'The Silent Party 9ja site on a phone', ratio: '4 / 5', fit: 'contain' },
         ] },
+        { kind: 'flyers', caption: 'Silent Cinema, 20 August 2022, and Silent Disco, 13 September 2025, for Silent Party 9ja. The brand owns this work.', shots: [
+          { src: '/work/sp-silent-cinema-2022.jpg', alt: 'Silent Cinema, Silent Party flyer dated 20 August 2022: glowing white lettering over a red cinema with popcorn and sponsor logos', ratio: '1 / 1' },
+          { src: '/work/sp-silent-disco-2025.jpg', alt: 'Silent Disco, an all headphones party, 13 September 2025: bold white lettering in a frame over dark teal swirls, gold inflatable rings and a pink and purple headphone', ratio: '1 / 1' },
+        ] },
         { kind: 'band', text: 'The page changes colour as you turn the dial.' },
       ],
     },
@@ -176,6 +180,8 @@ export const PROJECTS: Project[] = [
           { src: '/work/bsh-lounge-karaoke.jpg', alt: "B's Hive Lounge karaoke nights flyer on a blue striped ground with an orange panel and a microphone", ratio: '1100 / 1353' },
           { src: '/work/bsh-womens-day.jpg', alt: "International Women's Day post for B's Hive in blue and red, with three women embracing", ratio: '1100 / 1108' },
           { src: '/work/bsh-fathers-day.jpg', alt: "Father's Day post for B's Hive: a continuous blue line drawing of a father with a child on his shoulders", ratio: '1100 / 1088' },
+          { src: '/work/bsh-playroom-karaoke.jpg', alt: "Karaoke Night flyer for Playroom at B's Hive Hotel: silver lettering on a purple city-night ground with a black disc and dice", ratio: '1100 / 1358' },
+          { src: '/work/bsh-epl-weekend.jpg', alt: "B's Hive flyer, Watch the EPL live in HD every weekend: seven footballers on a blue sunburst ground with bold white and yellow lettering", ratio: '1100 / 775' },
         ] },
         { kind: 'pair', ratio: '4 / 5', shots: [
           { src: '/work/bshive-letterhead.jpg', alt: "The B's Hive letterhead with logo, watermark and address footer", ratio: '210 / 297', fit: 'contain' },
