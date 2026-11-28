@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useReducedMotion } from 'framer-motion'
+import { useReducedMotion } from './motion'
 import { INK, TEAL } from './tokens'
 
 // The wordmark, drawn to a texture and shown through a glass shader. Near the

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { useReducedMotion } from 'framer-motion'
 import type { Board, Project, Shot, Theme, World } from '../work'
 import Mark from '../site/Mark'
+import { prefersReduced } from '../site/motion'
 
 // A case study dressed as the client's own brand: its ground, its colours, and a
 // run of edge-to-edge boards. Every colour comes from the project's `theme`.
@@ -28,7 +28,6 @@ function Pic({ s, t, eager }: { s: Shot; t: Theme; eager?: boolean }) {
 }
 
 function LiveVideo({ b, t }: { b: Extract<Board, { kind: 'video' }>; t: Theme }) {
-  const reduce = useReducedMotion()
   const ref = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
   const manual = useRef(false) // the visitor pressed Pause, so scrolling back must not restart it
@@ -38,14 +37,14 @@ function LiveVideo({ b, t }: { b: Extract<Board, { kind: 'video' }>; t: Theme })
   useEffect(() => {
     const v = ref.current
     if (!v) return
-    if (reduce) { v.pause(); return }
+    if (prefersReduced()) { v.pause(); return }
     const io = new IntersectionObserver(([e]) => {
       if (e.isIntersecting && !manual.current) v.play().then(() => setPlaying(true)).catch(() => setPlaying(false))
       else if (!e.isIntersecting) { v.pause(); setPlaying(false) }
     }, { threshold: 0.25 })
     io.observe(v)
     return () => io.disconnect()
-  }, [reduce])
+  }, [])
   const toggle = () => {
     const v = ref.current
     if (!v) return

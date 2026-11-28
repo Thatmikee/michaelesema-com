@@ -1,6 +1,5 @@
 import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
-import { MotionConfig } from 'framer-motion'
 import { HelmetProvider } from 'react-helmet-async'
 import App from './App.tsx'
 import { PROJECTS } from './work'
@@ -11,11 +10,9 @@ export const routes = ['/', '/work', '/blog', '/about', '/privacy', ...PROJECTS.
 export function render(url: string) {
   return renderToString(
     <HelmetProvider>
-      <MotionConfig reducedMotion="user">
-        <StaticRouter location={url}>
-          <App />
-        </StaticRouter>
-      </MotionConfig>
+      <StaticRouter location={url}>
+        <App />
+      </StaticRouter>
     </HelmetProvider>,
   )
 }

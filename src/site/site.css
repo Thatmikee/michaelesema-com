@@ -102,7 +102,9 @@ html.sx-gate body::before { content: ''; position: fixed; inset: 0; z-index: 99;
 @keyframes sx-rot { to { transform: rotateY(360deg); } }
 .sx-panel { perspective: 700px; }
 .sx-wipe { position: fixed; inset: 0; z-index: 90; display: flex; }
-.sx-col { flex: 1; background: var(--sx-ink); transform: scaleY(0); will-change: transform; }
+.sx-col { flex: 1; background: var(--sx-ink); transform: scaleY(0); transform-origin: bottom; transition: transform 0.26s cubic-bezier(0.76, 0, 0.24, 1) calc(var(--i, 0) * 25ms); }
+.sx-wipe[data-phase='cover'] .sx-col { transform: scaleY(1); }
+.sx-wipe[data-phase='reveal'] .sx-col { transform-origin: top; }
 
 @media (max-width: 1099px) {
   .sx-nav { right: 16px; }
