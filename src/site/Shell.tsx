@@ -2,19 +2,11 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link, NavLink, Routes, useLocation } from 'react-router-dom'
 import { animate, motion, useAnimationControls, useReducedMotion } from 'framer-motion'
 import { SxCtx, EASE_IO } from './ctx'
+import Mark from './Mark'
 import './site.css'
 
 const SITE_PATHS = ['/', '/work', '/blog', '/about']
 const EASE_COUNT: [number, number, number, number] = [0.65, 0, 0.35, 1]
-
-function Mark({ inverse = false }: { inverse?: boolean }) {
-  return (
-    <svg viewBox="0 0 32 32" width="100%" height="100%" aria-hidden="true">
-      <circle cx="16" cy="16" r="16" fill={inverse ? '#ffffff' : '#0f3d2e'} />
-      <text x="16" y="21" textAnchor="middle" fontFamily="Satoshi, sans-serif" fontWeight="900" fontSize="14" fill={inverse ? '#0f3d2e' : '#ffffff'}>me</text>
-    </svg>
-  )
-}
 
 // Counter 0 to 100 with a drawing rule, then a green curtain with a spinning
 // mark covers the white screen, then lifts. Any key or click skips ahead.
@@ -60,7 +52,7 @@ function Intro({ onLift, onDone }: { onLift: () => void; onDone: () => void }) {
         <button type="button" className="sx-skip" onClick={() => { skip.current = true; live.current.forEach(c => c.complete()) }}>Skip intro</button>
       </div>
       <motion.div className="sx-panel" initial={{ y: '100%' }} animate={panel}>
-        <div className={`sx-spin${covered ? ' on' : ''}`}><Mark inverse /></div>
+        <div className={`sx-spin${covered ? ' on' : ''}`}><Mark onDark /></div>
       </motion.div>
     </div>
   )

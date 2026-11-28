@@ -9,6 +9,7 @@ export type Board =
   | { kind: 'full'; shot: Shot }
   | { kind: 'pair'; shots: [Shot, Shot]; ratio: string; caption?: string }
   | { kind: 'palette'; swatches: { name: string; hex: string; text: string }[] }
+  | { kind: 'flyers'; shots: Shot[]; caption: string }
   | { kind: 'video'; src: string; poster: string; alt: string; caption: string }
   | { kind: 'band'; text: string }
 
@@ -168,6 +169,13 @@ export const PROJECTS: Project[] = [
         { kind: 'palette', swatches: [
           { name: 'Blue', hex: '#3C559D', text: '#FFFFFF' },
           { name: 'Red', hex: '#CF434C', text: '#FFFFFF' },
+        ] },
+        { kind: 'flyers', caption: 'Flyers and posts for the hotel and its lounge, 2020 to 2023. Shown from saved screenshots; originals to follow.', shots: [
+          { src: '/work/bsh-silent-cinema.jpg', alt: "Silent Cinema flyer for B's Hive, 22 April 2022: gold lettering over red curtains, popcorn and a film reel", ratio: '1100 / 1177' },
+          { src: '/work/bsh-abuja-silent-party.jpg', alt: "Flyer for the Abuja Silent Party, B's Hive Hotels with Silent Party 9ja: silver DJ headphones over layered triangles in pink and blue", ratio: '1100 / 1268' },
+          { src: '/work/bsh-lounge-karaoke.jpg', alt: "B's Hive Lounge karaoke nights flyer on a blue striped ground with an orange panel and a microphone", ratio: '1100 / 1353' },
+          { src: '/work/bsh-womens-day.jpg', alt: "International Women's Day post for B's Hive in blue and red, with three women embracing", ratio: '1100 / 1108' },
+          { src: '/work/bsh-fathers-day.jpg', alt: "Father's Day post for B's Hive: a continuous blue line drawing of a father with a child on his shoulders", ratio: '1100 / 1088' },
         ] },
         { kind: 'pair', ratio: '4 / 5', shots: [
           { src: '/work/bshive-letterhead.jpg', alt: "The B's Hive letterhead with logo, watermark and address footer", ratio: '210 / 297', fit: 'contain' },

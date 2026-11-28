@@ -83,6 +83,21 @@ function BoardView({ b, t }: { b: Board; t: Theme }) {
           </div>
         </Reveal>
       )
+    case 'flyers':
+      return (
+        <Reveal>
+          <div className="wrap" style={{ padding: 'clamp(48px, 7vw, 110px) clamp(20px, 4.5vw, 64px)' }}>
+            <div className="bw-strip" tabIndex={0} role="region" aria-label="Flyers and posts, scroll sideways"
+              style={{ display: 'flex', gap: 'clamp(12px, 1.6vw, 24px)', overflowX: 'auto', scrollSnapType: 'x mandatory', paddingBottom: 14 }}>
+              {b.shots.map(s => (
+                <img key={s.src} src={s.src} alt={s.alt} loading="lazy"
+                  style={{ height: 'clamp(280px, 42vw, 560px)', width: 'auto', maxWidth: 'none', flex: 'none', scrollSnapAlign: 'start' }} />
+              ))}
+            </div>
+            <p style={{ font: '400 clamp(15px, 1.2vw, 17px)/1.4 var(--font-sans)', marginTop: 14 }}>{b.caption}</p>
+          </div>
+        </Reveal>
+      )
     case 'video':
       return <LiveVideo b={b} t={t} />
     case 'band':
@@ -207,6 +222,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
       </main>
       <style>{`
         .bw main::before, .bw main::after { display: none; }
+        .bw-strip:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
         .bw a:focus-visible, .bw button:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
         .bw-nav { color: inherit; text-decoration: none; }
         .bw-nav:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }

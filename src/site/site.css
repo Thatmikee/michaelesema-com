@@ -31,12 +31,17 @@ body.sx-body { background: #fff !important; background-image: none !important; }
 .sx-up { display: block; will-change: transform; }
 
 /* Home and Blog */
-.sx-home { min-height: 100dvh; position: relative; overflow: hidden; }
+.sx-home { height: 100dvh; display: grid; grid-template-rows: 65fr 35fr; overflow: hidden; }
+.sx-top { position: relative; overflow: hidden; }
 .sx-head { position: absolute; left: 24px; top: 180px; width: min(522px, 44vw); font: 500 clamp(26px, 2.6vw, 37.2px)/1.3 'Satoshi', sans-serif; letter-spacing: -0.003em; margin: 0; }
 .sx-para { position: absolute; left: 50%; top: 180px; width: min(635px, 44vw); font: 700 clamp(18px, 1.76vw, 25.28px)/1.46 'Satoshi', sans-serif; letter-spacing: -0.01em; margin: 0; }
 .sx-h1 { position: absolute; left: 16px; right: 16px; bottom: 0; margin: 0; font-weight: 500; line-height: 1; white-space: nowrap; }
-.sx-word { display: block; letter-spacing: -0.045em; font-weight: 500; line-height: 0.95; color: #0f3d2e; }
-.sx-word .sx-mask { padding-bottom: 0.2em; }
+.sx-gw { display: block; position: relative; width: 100%; }
+.sx-gw-txt { display: block; font-weight: 500; letter-spacing: -0.045em; line-height: 1.12; color: #0f3d2e; white-space: nowrap; }
+.sx-gw-txt.on { opacity: 0; }
+.sx-gw-cv { position: absolute; left: 0; top: 0; width: 100%; touch-action: pan-y; }
+.sx-stage2 { background: #0f3d2e; display: grid; place-items: center; perspective: 700px; }
+.sx-turn { width: clamp(72px, 9vw, 128px); aspect-ratio: 1; animation: sx-rot 7s linear infinite; }
 
 /* Work: scroll-stepped stage on wide screens */
 .sx-work { position: relative; }
@@ -81,7 +86,8 @@ body.sx-body { background: #fff !important; background-image: none !important; }
 .sx-panel { position: absolute; inset: 0; background: #0f3d2e; display: grid; place-items: center; }
 .sx-spin { opacity: 0; transition: opacity 0.2s; width: 56px; height: 56px; }
 .sx-spin.on { opacity: 1; animation: sx-rot 0.9s linear infinite; }
-@keyframes sx-rot { to { transform: rotate(360deg); } }
+@keyframes sx-rot { to { transform: rotateY(360deg); } }
+.sx-panel { perspective: 700px; }
 .sx-wipe { position: fixed; inset: 0; z-index: 90; display: flex; }
 .sx-col { flex: 1; background: #0f3d2e; transform: scaleY(0); will-change: transform; }
 
@@ -96,6 +102,6 @@ body.sx-body { background: #fff !important; background-image: none !important; }
   .sx-row { grid-template-columns: 1fr; gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .sx-spin.on { animation: none; }
+  .sx-spin.on, .sx-turn { animation: none; }
   .sx-thumbs li { transition: none; }
 }

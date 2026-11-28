@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion'
 import { PROJECTS } from '../work'
 import { EASE_OUT, useSx } from './ctx'
+import GlassWord from './GlassWord'
+import Mark from './Mark'
 
 // One reveal, used on Home, Blog and About: a line of text slides up out of a
 // mask once the intro curtain has lifted (or straight away when there is none).
@@ -20,13 +22,12 @@ function Mask({ children, delay = 0 }: { children: ReactNode; delay?: number }) 
   )
 }
 
-// A wordmark sized to run the full width of the screen. K is the average glyph
-// advance in em, tuned for Satoshi at -0.045em tracking.
-function Word({ text, k = 0.492 }: { text: string; k?: number }) {
+// The dark panel under the wordmark, with the logo turning slowly on its axis.
+function Stage() {
   return (
-    <span className="sx-word" aria-hidden="true" style={{ fontSize: `calc((100vw - 32px) / ${(text.length * k).toFixed(2)})` }}>
-      <Mask delay={0.28}>{text}</Mask>
-    </span>
+    <div className="sx-stage2" aria-hidden="true">
+      <div className="sx-turn"><Mark onDark /></div>
+    </div>
   )
 }
 
@@ -46,9 +47,12 @@ export function Home() {
   return (
     <main id="sx-main" tabIndex={-1} className="sx-main sx-home">
       <Meta title="Michael Esema | Graphic and Multimedia Designer" desc="Michael Esema is a graphic and multimedia designer in the UK working across identity, visual communication and digital design." path="/" />
+      <div className="sx-top">
       <p className="sx-head"><Mask>Graphic &amp; Multimedia</Mask><Mask delay={0.08}>Designer</Mask></p>
       <p className="sx-para"><Mask delay={0.16}>I work across identity, visual communication and digital design, helping ideas and businesses find a clear visual language.</Mask></p>
-      <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Word text="michaelesema" /></h1>
+      <h1 className="sx-h1"><span className="sx-sr">Michael Esema</span><Mask delay={0.28}><GlassWord text="Michael Esema" /></Mask></h1>
+      </div>
+      <Stage />
     </main>
   )
 }
@@ -57,9 +61,12 @@ export function Blog() {
   return (
     <main id="sx-main" tabIndex={-1} className="sx-main sx-home">
       <Meta title="Blog, coming soon | Michael Esema" desc="Notes on design and business from Michael Esema. The first articles are on their way." path="/blog" />
+      <div className="sx-top">
       <p className="sx-head"><Mask>Blog</Mask><Mask delay={0.08}>Coming soon</Mask></p>
       <p className="sx-para"><Mask delay={0.16}>Notes on design, business and the way the two meet. The first articles are on their way.</Mask></p>
-      <h1 className="sx-h1"><span className="sx-sr">Blog, coming soon</span><Word text="coming soon" k={0.488} /></h1>
+      <h1 className="sx-h1"><span className="sx-sr">Blog, coming soon</span><Mask delay={0.28}><GlassWord text="Coming Soon" /></Mask></h1>
+      </div>
+      <Stage />
     </main>
   )
 }
