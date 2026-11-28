@@ -1,6 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useState, type ComponentType, type CSSProperties, type ReactNode } from 'react'
 import { Link, NavLink, Routes, useLocation } from 'react-router-dom'
 import Mark from './Mark'
+import { PROJECTS } from '../work'
 import { prefersReduced } from './motion'
 import type { IntroProps } from './Intro'
 import './site.css'
@@ -51,9 +52,10 @@ export default function Shell({ children }: { children: ReactNode }) {
   const [shown, setShown] = useState(location)
   const [phase, setPhase] = useState<'idle' | 'cover' | 'reveal'>('idle')
   const [intro, setIntro] = useState(false)
-  // Every page shows the site chrome except a project page, which draws its own
-  // brand world and carries a matching copy of the nav.
-  const isSite = shown.pathname === '/work' || !shown.pathname.startsWith('/work/')
+  // Every page shows the site chrome except a real project page, which draws its own
+  // brand world and carries a matching copy of the nav. A mistyped /work/<slug> is a
+  // 404 and gets the normal chrome, exactly as the prerendered 404 page does.
+  const isSite = !PROJECTS.some(p => shown.pathname === `/work/${p.slug}`)
 
   // Intro: once per session, never with reduced motion, skippable with ?nointro.
   // public/intro-gate.js makes the same decision before first paint and sets two

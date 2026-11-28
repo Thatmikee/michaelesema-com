@@ -14,6 +14,15 @@ body.sx-body { background: var(--sx-snow) !important; background-image: none !im
 .sx *, .sx *::before, .sx *::after { box-sizing: border-box; }
 .sx a { color: inherit; text-decoration: none; }
 .sx a:focus-visible, .sx button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+/* The header and skip link are drawn outside .sx, so they need the same ring. */
+.sx-skiplink:focus-visible, .sx-mark:focus-visible, .sx-nav a:focus-visible { outline: 2px solid var(--sx-teal); outline-offset: 3px; }
+/* Breadcrumb trail on text pages (matches the BreadcrumbList data) and the legal link
+   on the dark panel. Two-class selectors so they beat `.sx a { color: inherit }`. */
+.sx .sx-crumbs { margin: 0 0 28px; }
+.sx .sx-crumbs ol { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; font: 500 15px/24px 'Satoshi', sans-serif; color: var(--sx-grey); }
+.sx .sx-crumbs a { color: var(--sx-grey); text-decoration: underline; text-underline-offset: 4px; }
+.sx .sx-legal { position: absolute; left: 24px; bottom: 12px; font: 600 14px/24px 'Satoshi', sans-serif; color: var(--sx-snow); text-decoration: underline; text-underline-offset: 4px; opacity: 0.85; }
+.sx .sx-legal:hover { opacity: 1; }
 .sx-main { position: relative; outline: none; }
 .sx-main::before, .sx-main::after { display: none !important; }
 .sx-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -50,7 +59,7 @@ html.sx-gate body::before { content: ''; position: fixed; inset: 0; z-index: 99;
 .sx-gw-txt { display: block; font-weight: 500; letter-spacing: -0.045em; line-height: 1.12; color: var(--sx-ink); white-space: nowrap; }
 .sx-gw-txt.on { opacity: 0; }
 .sx-gw-cv { position: absolute; left: 0; top: 0; width: 100%; touch-action: pan-y; }
-.sx-stage2 { background: var(--sx-ink); display: grid; place-items: center; perspective: 700px; }
+.sx-stage2 { position: relative; background: var(--sx-ink); display: grid; place-items: center; perspective: 700px; }
 .sx-turn { width: 34px; aspect-ratio: 1; animation: sx-rot 9s linear infinite; opacity: 0.85; }
 .sx-hint { display: none; }
 .sx-hand { display: inline-block; animation: sx-swipe 2.2s ease-in-out infinite; transform-origin: 50% 90%; }

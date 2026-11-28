@@ -101,11 +101,11 @@ export function seo(path: string): Seo {
             '@context': CTX, '@type': 'CollectionPage', name: 'Selected work', url: url('/work'),
             mainEntity: { '@type': 'ItemList', itemListElement: PROJECTS.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: url(`/work/${p.slug}`), name: p.title })) },
           },
-          crumbs([HOME, ['Work', '/work']]),
         ],
       }
     case '/blog':
-      return { ...base, jsonld: [{ '@context': CTX, '@type': 'Blog', name: 'Michael Esema, blog', url: url('/blog'), author: ref }, crumbs([HOME, ['Blog', '/blog']])] }
+      // Empty for now and marked noindex, so there is nothing to describe yet.
+      return base
     case '/about':
       return { ...base, jsonld: [{ '@context': CTX, '@type': 'AboutPage', name: 'About Michael Esema', url: url('/about'), mainEntity: ref }, crumbs([HOME, ['About', '/about']])] }
     case '/privacy':

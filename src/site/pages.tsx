@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { HandPointing } from '@phosphor-icons/react'
 import { PROJECTS } from '../work'
+import Crumbs from './Crumbs'
 import GlassWord from './GlassWord'
 import Mark from './Mark'
 import { useMedia } from './motion'
@@ -26,14 +27,16 @@ function Stage({ gone }: { gone: boolean }) {
     <div className="sx-stage2">
       <p className={`sx-hint${gone ? ' gone' : ''}`}><span className="sx-hand" aria-hidden="true"><HandPointing size={34} weight="light" /></span>Drag across the name</p>
       <div className="sx-turn" aria-hidden="true"><Mark onDark /></div>
+      <Link to="/privacy" className="sx-legal">Privacy</Link>
     </div>
   )
 }
 
-function Meta({ title, desc, path }: { title: string; desc: string; path: string }) {
+function Meta({ title, desc, path, noindex }: { title: string; desc: string; path: string; noindex?: boolean }) {
   return (
     <Helmet>
       <title>{title}</title>
+      {noindex && <meta name="robots" content="noindex, follow" />}
       <meta name="description" content={desc} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={desc} />
@@ -65,7 +68,7 @@ export function Blog() {
   const [touched, setTouched] = useState(false)
   return (
     <main id="sx-main" tabIndex={-1} className="sx-main sx-home">
-      <Meta title="Blog, coming soon | Michael Esema" desc="Notes on design and business from Michael Esema. The first articles are on their way." path="/blog" />
+      <Meta title="Blog, coming soon | Michael Esema" desc="Notes on design and business from Michael Esema. The first articles are on their way." path="/blog" noindex />
       <div className="sx-top">
       <p className="sx-head"><Mask>Blog</Mask><Mask delay={0.08}>Coming soon</Mask></p>
       <p className="sx-para"><Mask delay={0.16}>Notes on design, business and the way the two meet. The first articles are on their way.</Mask></p>
@@ -121,6 +124,7 @@ export function About() {
     <main id="sx-main" tabIndex={-1} className="sx-main sx-about">
       <Meta title="About Michael Esema | Graphic and Multimedia Designer" desc="Michael Esema is a graphic and multimedia designer based in the UK, originally from Nigeria, with a background in accounting and business management." path="/about" />
       <h1 className="sx-sr">About Michael Esema</h1>
+      <Crumbs here="About" />
       <section className="sx-row"><h2 className="sx-label">Bio</h2>
         <div className="sx-prose">
           <p className="lead"><Mask>I’m Michael Esema, a graphic and multimedia designer based in the UK, originally from Nigeria.</Mask></p>
@@ -144,6 +148,8 @@ export function About() {
         <div className="sx-prose">
           <p>I work with Photoshop, Illustrator, InDesign, Figma, Canva, CapCut and Blender.</p>
           <p><a href="mailto:hello@michaelesema.com">hello@michaelesema.com</a></p>
+          <p><a href="https://www.linkedin.com/in/michaelesema" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+          <p><Link to="/privacy">Privacy</Link></p>
         </div>
       </section>
     </main>

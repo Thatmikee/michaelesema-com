@@ -174,7 +174,7 @@ export const PROJECTS: Project[] = [
           { name: 'Blue', hex: '#3C559D', text: '#FFFFFF' },
           { name: 'Red', hex: '#CF434C', text: '#FFFFFF' },
         ] },
-        { kind: 'flyers', caption: 'Flyers and posts for the hotel and its lounge, 2020 to 2023. Shown from saved screenshots; originals to follow.', shots: [
+        { kind: 'flyers', caption: 'Flyers and posts for the hotel and its lounge, 2020 to 2023. Shown from saved screenshots.', shots: [
           { src: '/work/bsh-silent-cinema.jpg', alt: "Silent Cinema flyer for B's Hive, 22 April 2022: gold lettering over red curtains, popcorn and a film reel", ratio: '1100 / 1177' },
           { src: '/work/bsh-abuja-silent-party.jpg', alt: "Flyer for the Abuja Silent Party, B's Hive Hotels with Silent Party 9ja: silver DJ headphones over layered triangles in pink and blue", ratio: '1100 / 1268' },
           { src: '/work/bsh-lounge-karaoke.jpg', alt: "B's Hive Lounge karaoke nights flyer on a blue striped ground with an orange panel and a microphone", ratio: '1100 / 1353' },

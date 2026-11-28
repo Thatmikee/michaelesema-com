@@ -10,5 +10,20 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-/work/*
+# Media under /work/ can be cached for a week. The project pages themselves (HTML)
+# are deliberately not matched: they keep Cloudflare's default (revalidate every
+# time), so a copy fix shows up straight away.
+/work/*.jpg
   Cache-Control: public, max-age=604800
+
+/work/*.png
+  Cache-Control: public, max-age=604800
+
+/work/*.mp4
+  Cache-Control: public, max-age=604800
+
+/og/*
+  Cache-Control: public, max-age=604800
+
+/fonts/*
+  Cache-Control: public, max-age=2592000

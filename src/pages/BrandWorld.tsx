@@ -140,7 +140,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
         </nav>
       </header>
 
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         {w.hero === 'screen' ? (
           <section aria-label={p.title} style={{ paddingTop: 72 }}>
             <img src={p.cover.src} alt={p.cover.alt} fetchPriority="high" decoding="async" style={{ width: '100%', height: 'auto', maxHeight: '72dvh', aspectRatio: p.cover.ratio, objectFit: 'cover', objectPosition: 'top' }} />
@@ -227,6 +227,7 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
             <p style={{ display: 'flex', gap: 28, font: '600 18px/1 var(--font-sans)', flexWrap: 'wrap' }}>
               <a href="mailto:hello@michaelesema.com" className="bw-link" style={{ color: t.onAccent }}>Contact me</a>
               <Link to="/work" className="bw-link" style={{ color: t.onAccent }}>All work</Link>
+              <Link to="/privacy" className="bw-link" style={{ color: t.onAccent }}>Privacy</Link>
             </p>
           </div>
         </section>

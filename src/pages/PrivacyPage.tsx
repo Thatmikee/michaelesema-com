@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async'
+import Crumbs from '../site/Crumbs'
 
 // The wording below is the published policy, unchanged. Only the layout is new.
 const SECTIONS = [
@@ -38,6 +39,7 @@ export default function PrivacyPage() {
         <meta property="og:description" content="How michaelesema.com handles personal data, server logs and cookies, and how to use your UK GDPR rights." />
         <meta property="og:url" content="https://michaelesema.com/privacy" />
       </Helmet>
+      <Crumbs here="Privacy and cookies" />
       <h1 className="sx-page-title">Privacy &amp; Cookies</h1>
       <p className="sx-meta">Last updated: 12 June 2026</p>
       {SECTIONS.map(({ heading, body }) => (
