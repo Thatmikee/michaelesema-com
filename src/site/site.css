@@ -38,11 +38,14 @@ html.sx-held .sx-up { animation-play-state: paused; }
 html.sx-gate body::before { content: ''; position: fixed; inset: 0; z-index: 99; background: var(--sx-snow); }
 
 /* Home and Blog */
-.sx-home { height: 100dvh; display: grid; grid-template-rows: 65fr 35fr; overflow: hidden; }
-.sx-top { position: relative; overflow: hidden; }
-.sx-head { position: absolute; left: 24px; top: 180px; width: min(522px, 44vw); font: 500 clamp(26px, 2.6vw, 37.2px)/1.3 'Satoshi', sans-serif; letter-spacing: -0.003em; margin: 0; }
-.sx-para { position: absolute; left: 50%; top: 180px; width: min(635px, 44vw); font: 700 clamp(18px, 1.76vw, 25.28px)/1.46 'Satoshi', sans-serif; letter-spacing: -0.01em; margin: 0; }
-.sx-h1 { position: absolute; left: 16px; right: 16px; bottom: 0; margin: 0; font-weight: 500; line-height: 1; white-space: nowrap; }
+/* Laid out in flow, not pinned: the top block is at least 65% of the window and grows
+   to fit its content, so the name can never ride up over the text on a short window.
+   On a window too short for it the page simply scrolls a little. */
+.sx-home { min-height: 100dvh; display: grid; grid-template-rows: minmax(65dvh, auto) minmax(96px, 1fr); }
+.sx-top { position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; padding-top: clamp(72px, 20dvh, 180px); }
+.sx-head { grid-column: 1; margin: 0 0 0 24px; width: min(522px, 44vw); font: 500 clamp(26px, 2.6vw, 37.2px)/1.3 'Satoshi', sans-serif; letter-spacing: -0.003em; }
+.sx-para { grid-column: 2; margin: 0; width: min(635px, 44vw); font: 700 clamp(18px, 1.76vw, 25.28px)/1.46 'Satoshi', sans-serif; letter-spacing: -0.01em; }
+.sx-h1 { grid-column: 1 / -1; grid-row: 2; align-self: end; margin: 24px 16px 0; font-weight: 500; line-height: 1; white-space: nowrap; }
 .sx-gw { display: block; position: relative; width: 100%; }
 .sx-gw-txt { display: block; font-weight: 500; letter-spacing: -0.045em; line-height: 1.12; color: var(--sx-ink); white-space: nowrap; }
 .sx-gw-txt.on { opacity: 0; }
@@ -113,18 +116,24 @@ html.sx-gate body::before { content: ''; position: fixed; inset: 0; z-index: 99;
 @media (max-width: 700px) {
   /* Small screens rearrange: text flows down, the name stacks on two lines and
      grows, and the dark panel holds a hand that shows how to move it. */
-  .sx-home { height: auto; min-height: 100dvh; grid-template-rows: auto 200px; overflow: visible; }
+  .sx-home { grid-template-rows: auto 200px; }
   .sx-top { display: flex; flex-direction: column; gap: 22px; padding: 120px 16px 0; min-height: calc(100dvh - 200px); }
-  .sx-head, .sx-para { position: static; width: auto; }
+  .sx-head, .sx-para { width: auto; margin: 0; }
   .sx-head { font-size: 26px; }
   .sx-para { font-size: 18px; line-height: 1.4; }
-  .sx-h1 { position: static; margin-top: auto; }
+  .sx-h1 { margin: auto 0 0; align-self: stretch; }
   .sx-stage2 { position: relative; align-content: center; justify-items: center; gap: 14px; }
   .sx-hint { display: grid; justify-items: center; gap: 6px; margin: 0; font: 700 14px/1.2 'Satoshi', sans-serif; color: var(--sx-snow); }
   .sx-hint.gone { display: none; }
   .sx-turn { position: absolute; right: 16px; bottom: 16px; width: 26px; }
   .sx-about { padding: 120px 16px 72px; }
   .sx-row { grid-template-columns: 1fr; gap: 10px; }
+}
+/* Short screens (landscape phones, small laptop windows): the four nav links run in
+   a row instead of a column, so they stay clear of the heading and the name. */
+@media (max-height: 520px) {
+  .sx-nav { display: flex; gap: 22px; top: 12px; }
+  .sx-top { padding-top: 64px; }
 }
 /* Project pages: entrances are CSS too. Boards fade up as they scroll into view where
    the browser supports scroll-driven animation, and simply show everywhere else. */
