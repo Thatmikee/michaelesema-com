@@ -173,6 +173,15 @@ export default function BrandWorld({ p, w, next }: { p: Project; w: World; next:
         )}
 
         <section aria-label="Overview" className="wrap bw-over" style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', columnGap: 'clamp(16px, 2vw, 32px)', rowGap: 40, padding: 'clamp(64px, 10vw, 160px) clamp(20px, 4.5vw, 64px)' }}>
+          <nav aria-label="Breadcrumb" style={{ gridColumn: '1 / -1', font: '500 15px/1.4 var(--font-sans)' }}>
+            <ol style={{ display: 'flex', flexWrap: 'wrap', gap: 10, listStyle: 'none' }}>
+              <li><Link to="/" className="bw-link">Home</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link to="/work" className="bw-link">Work</Link></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page">{p.title}</li>
+            </ol>
+          </nav>
           <h2 style={{ gridColumn: '1 / 9', font: '700 clamp(38px, 7vw, 116px)/0.95 var(--font-sans)', letterSpacing: '-0.05em', color: t.ink }}>{w.statement}</h2>
           <div style={{ gridColumn: '9 / 13', alignSelf: 'end', display: 'grid', gap: 28 }}>
             <p style={{ font: '400 clamp(17px, 1.45vw, 20px)/1.6 var(--font-sans)', color: t.ink }}>{p.brief}</p>

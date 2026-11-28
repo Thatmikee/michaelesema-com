@@ -247,7 +247,7 @@ export const PROJECTS: Project[] = [
     discipline: 'Brand identity, website',
     years: '2026',
     role: 'Founder and designer',
-    summary: 'Brand and website for a security start-up I founded.',
+    summary: 'Brand identity and website for Mykei Securities, a security technology start-up I founded.',
     brief: 'Design the identity and the website for Mykei Securities, a security technology start-up I founded.',
     challenge: 'An early version of the site drifted into five slightly different golds.',
     made: [

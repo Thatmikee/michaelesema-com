@@ -33,9 +33,9 @@ export default function PrivacyPage() {
     <main id="sx-main" tabIndex={-1} className="sx-main sx-about">
       <Helmet>
         <title>Privacy &amp; Cookies | Michael Esema</title>
-        <meta name="description" content="How michaelesema.com handles data and cookies." />
+        <meta name="description" content="How michaelesema.com handles personal data, server logs and cookies, and how to use your UK GDPR rights." />
         <meta property="og:title" content="Privacy & Cookies | Michael Esema" />
-        <meta property="og:description" content="How michaelesema.com handles data and cookies." />
+        <meta property="og:description" content="How michaelesema.com handles personal data, server logs and cookies, and how to use your UK GDPR rights." />
         <meta property="og:url" content="https://michaelesema.com/privacy" />
       </Helmet>
       <h1 className="sx-page-title">Privacy &amp; Cookies</h1>
